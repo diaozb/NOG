@@ -14,6 +14,8 @@ import matplotlib.pyplot as plt
 from tqdm import trange
 import copy
 import itertools
+import uuid
+from datetime import datetime
 
 
 # ============================================================
@@ -823,6 +825,120 @@ def compute_threshold_summaries(
 
     return per_seed, aggregate
 
+
+# ============================================================
+# Run naming
+# ============================================================
+
+def slug_float(x) -> str:
+    """Make a filesystem-friendly float token, e.g. 0.2 -> 0p2."""
+    try:
+        return f"{float(x):g}".replace(".", "p").replace("-", "m")
+    except Exception:
+        return str(x).replace(".", "p").replace("-", "m")
+
+
+def slug_list(x) -> str:
+    """Make a compact token for scalar/list config values."""
+    vals = as_list(x)
+    return "-".join(slug_float(v) for v in vals)
+
+
+def make_run_suffix(cfg: Dict[str, Any]) -> str:
+    """
+    Build a browser/log-friendly unique suffix.
+
+    The last part is a short UUID. This is the common "random id" style used in
+    web systems; the timestamp makes runs sortable by creation time.
+    """
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    short_uuid = uuid.uuid4().hex[:8]
+    d_token = f"d{cfg['problem']['d']}"
+    M_token = f"M{slug_list(cfg['nog']['M'])}"
+    eta_token = f"eta{slug_list(cfg['nog']['eta'])}"
+    return f"{d_token}_{M_token}_{eta_token}_{timestamp}_{short_uuid}"
+
+
+def attach_unique_run_name(cfg: Dict[str, Any], explicit_name: Optional[str] = None) -> Dict[str, Any]:
+    """
+    Rename output folder to include d/M/eta/timestamp/short_uuid.
+
+    If --name is provided, it is used as the prefix, but the unique suffix is
+    still appended to avoid accidentally overwriting previous runs.
+    """
+    base_name = explicit_name or cfg["run"].get("name", "synthetic")
+    suffix = make_run_suffix(cfg)
+    cfg["run"]["base_name"] = base_name
+    cfg["run"]["run_suffix"] = suffix
+    cfg["run"]["name"] = f"{base_name}_{suffix}"
+    return cfg
+
+
+def compute_first_hit_comparison(threshold_summary: pd.DataFrame) -> pd.DataFrame:
+    """
+    Convert threshold_summary into a direct NOG-vs-SmoothedSGD comparison table.
+
+    Desired evidence:
+      - first_hit_work_ratio close to 1 means comparable work;
+      - first_hit_round_ratio < 1 means NOG uses smaller depth;
+      - hit rates should be comparable, otherwise the threshold is not fair.
+    """
+    rows = []
+
+    for threshold, sub in threshold_summary.groupby("threshold"):
+        by_method = {row["method"]: row for _, row in sub.iterrows()}
+
+        if "NOG" not in by_method or "SmoothedSGD" not in by_method:
+            continue
+
+        nog = by_method["NOG"]
+        ssgd = by_method["SmoothedSGD"]
+
+        nog_round = nog["first_hit_round_mean"]
+        ssgd_round = ssgd["first_hit_round_mean"]
+        nog_work = nog["first_hit_work_mean"]
+        ssgd_work = ssgd["first_hit_work_mean"]
+
+        rows.append({
+            "threshold": threshold,
+
+            "NOG_hit_rate": nog["hit_rate"],
+            "SmoothedSGD_hit_rate": ssgd["hit_rate"],
+
+            "NOG_first_hit_round_mean": nog_round,
+            "SmoothedSGD_first_hit_round_mean": ssgd_round,
+            "round_ratio_NOG_over_SmoothedSGD": (
+                nog_round / ssgd_round
+                if pd.notna(nog_round) and pd.notna(ssgd_round) and ssgd_round > 0
+                else np.nan
+            ),
+
+            "NOG_first_hit_work_mean": nog_work,
+            "SmoothedSGD_first_hit_work_mean": ssgd_work,
+            "work_ratio_NOG_over_SmoothedSGD": (
+                nog_work / ssgd_work
+                if pd.notna(nog_work) and pd.notna(ssgd_work) and ssgd_work > 0
+                else np.nan
+            ),
+
+            "evidence_label": (
+                "good: comparable work, smaller NOG depth"
+                if (
+                    pd.notna(nog_round)
+                    and pd.notna(ssgd_round)
+                    and pd.notna(nog_work)
+                    and pd.notna(ssgd_work)
+                    and ssgd_round > 0
+                    and ssgd_work > 0
+                    and nog_round / ssgd_round < 1.0
+                    and 0.8 <= nog_work / ssgd_work <= 1.25
+                )
+                else "check threshold/hit rates"
+            ),
+        })
+
+    return pd.DataFrame(rows)
+
 # ============================================================
 # Main
 # ============================================================
@@ -845,8 +961,8 @@ def parse_args():
 
 
 def apply_overrides(cfg: Dict[str, Any], args) -> Dict[str, Any]:
-    if args.name is not None:
-        cfg["run"]["name"] = args.name
+    # --name is handled later by attach_unique_run_name, so we can append
+    # d/M/eta/timestamp/UUID consistently.
 
     if args.d is not None:
         cfg["problem"]["d"] = args.d
@@ -886,14 +1002,38 @@ def main() -> None:
 
     cfg = load_yaml(args.config)
     cfg = apply_overrides(cfg, args)
+    cfg = attach_unique_run_name(cfg, explicit_name=args.name)
 
     device = get_device(cfg["run"].get("device", "auto"))
     cfg["run"]["device_used"] = device
 
-    out_dir = Path(cfg["run"]["out_dir"]) / cfg["run"]["name"]
+    # Build a readable run folder name with timestamp.
+    # Example: d50_M12_eta0.2_1781245532937
+    timestamp_ms = int(time.time() * 1000)
+
+    d = int(cfg["problem"]["d"])
+    M_raw = cfg["nog"]["M"]
+    eta_raw = cfg["nog"]["eta"]
+
+    # If M / eta are sweep lists, show them compactly in the folder name.
+    if isinstance(M_raw, list):
+        M_part = "M" + "-".join(str(int(m)) for m in M_raw)
+    else:
+        M_part = f"M{int(M_raw)}"
+
+    if isinstance(eta_raw, list):
+        eta_part = "eta" + "-".join(f"{float(e):g}" for e in eta_raw)
+    else:
+        eta_part = f"eta{float(eta_raw):g}"
+
+    run_name = f"d{d}_{M_part}_{eta_part}_{timestamp_ms}"
+
+    cfg["run"]["name"] = run_name
+    out_dir = Path(cfg["run"]["out_dir"]) / run_name
     out_dir.mkdir(parents=True, exist_ok=True)
 
     save_yaml(cfg, out_dir / "config_used.yaml")
+
 
     print("=" * 80)
     print("Synthetic NOG Experiment")
@@ -1049,6 +1189,19 @@ def main() -> None:
         threshold_per_seed.to_csv(out_dir / "threshold_per_seed.csv", index=False)
         threshold_summary.to_csv(out_dir / "threshold_summary.csv", index=False)
 
+        first_hit_comparison = compute_first_hit_comparison(threshold_summary)
+        first_hit_comparison.to_csv(out_dir / "first_hit_comparison.csv", index=False)
+
+        summary["first_hit_interpretation"] = (
+            "Use first_hit_comparison.csv. Good evidence means "
+            "work_ratio_NOG_over_SmoothedSGD is close to 1 while "
+            "round_ratio_NOG_over_SmoothedSGD is below 1."
+        )
+        summary["first_hit_comparison"] = first_hit_comparison.to_dict(orient="records")
+
+        with open(out_dir / "summary.json", "w") as f:
+            json.dump(summary, f, indent=2)
+
 
     finish_wandb(wandb_run, out_dir, df)
 
@@ -1065,6 +1218,8 @@ def main() -> None:
     print(f"Saved best results to      : {best_csv_path}")
     print(f"Saved sweep summary to     : {out_dir / 'sweep_summary.csv'}")
     print(f"Saved best config to       : {out_dir / 'best_config.yaml'}")
+    if (out_dir / "first_hit_comparison.csv").exists():
+        print(f"Saved first-hit comparison : {out_dir / 'first_hit_comparison.csv'}")
     print(f"Saved figures to           : {out_dir}")
     print("Done.")
 

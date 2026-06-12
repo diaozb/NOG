@@ -1,5 +1,5 @@
 run:
-  name: formal_d100_M8_eta03
+  name: d100_M4-8-12-16_eta0.1-0.2-0.3-0.5_1781246425935
   out_dir: outputs/synthetic
   seeds:
   - 0
@@ -13,6 +13,8 @@ run:
   - 8
   - 9
   device: auto
+  base_name: formal_d50_M8_eta03
+  run_suffix: d100_M4-8-12-16_eta0p1-0p2-0p3-0p5_20260612_144025_451ae938
   device_used: cuda
 problem:
   d: 100
@@ -20,7 +22,7 @@ problem:
   R: 4
   lam: 0.001
 train:
-  rounds: 1024
+  rounds: 960
   eval_every: 64
 oracle:
   delta: 0.1
@@ -29,8 +31,16 @@ oracle:
   eval_smooth_B: 64
   eval_data_B: 128
 nog:
-  M: 8
-  eta: 0.3
+  M:
+  - 4
+  - 8
+  - 12
+  - 16
+  eta:
+  - 0.1
+  - 0.2
+  - 0.3
+  - 0.5
 ssgd:
   lr: 0.05
 metrics:
@@ -45,7 +55,7 @@ methods:
 - NOG
 - SmoothedSGD
 wandb:
-  enabled: false
+  enabled: true
   project: nog-synthetic
   entity: ''
   mode: online
