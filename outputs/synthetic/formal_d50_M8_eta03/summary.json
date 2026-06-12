@@ -1,0 +1,45 @@
+{
+  "num_rows": 170,
+  "methods": [
+    "NOG",
+    "SmoothedSGD"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "primary_metric_note": "For NOG, objective/stat_proxy are evaluated at block-average y_bar.",
+  "final_by_method": {
+    "final_objective_mean": {
+      "NOG": 0.7152991533279419,
+      "SmoothedSGD": 0.7216869115829467
+    },
+    "final_objective_std": {
+      "NOG": 0.005570373314823187,
+      "SmoothedSGD": 0.005901065763428769
+    },
+    "final_stat_proxy_mean": {
+      "NOG": 0.007414617016911507,
+      "SmoothedSGD": 0.007350463233888149
+    },
+    "final_stat_proxy_std": {
+      "NOG": 0.0010913335831420096,
+      "SmoothedSGD": 0.0008000521510492156
+    },
+    "final_work_mean": {
+      "NOG": 525312.0,
+      "SmoothedSGD": 524288.0
+    },
+    "final_eval_work_mean": {
+      "NOG": 278528.0,
+      "SmoothedSGD": 139264.0
+    },
+    "final_time_sec_mean": {
+      "NOG": 10.336076641082764,
+      "SmoothedSGD": 8.91172285079956
+    }
+  }
+}
