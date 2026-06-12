@@ -11,7 +11,7 @@ problem:
   lam: 0.001
 
 train:
-  rounds: 1024
+  rounds: 960
   eval_every: 64
 
 oracle:
@@ -22,8 +22,8 @@ oracle:
   eval_data_B: 128
 
 nog:
-  M: 8
-  eta: 0.3
+  M: [4, 8, 12, 16]
+  eta: [0.1, 0.2, 0.3, 0.5]
 
 ssgd:
   lr: 0.05
@@ -36,7 +36,7 @@ methods:
   - SmoothedSGD
 
 wandb:
-  enabled: false
+  enabled: true
   project: nog-synthetic
   entity: ""
   mode: online

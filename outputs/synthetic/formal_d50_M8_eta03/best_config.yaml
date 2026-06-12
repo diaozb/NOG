@@ -29,16 +29,8 @@ oracle:
   eval_smooth_B: 64
   eval_data_B: 128
 nog:
-  M:
-  - 4
-  - 8
-  - 12
-  - 16
-  eta:
-  - 0.1
-  - 0.2
-  - 0.3
-  - 0.5
+  M: 12
+  eta: 0.2
 ssgd:
   lr: 0.05
 metrics:
@@ -62,3 +54,10 @@ wandb:
   - formal
   - ybar
   - d50
+best_selection:
+  criterion: minimum final mean NOG stat_proxy across seeds
+  best_grid_id: M12_eta0.2
+  best_M: 12
+  best_eta: 0.2
+  best_final_stat_proxy_mean: 0.007161215972155332
+  best_final_objective_mean: 0.7164978206157684

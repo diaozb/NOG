@@ -643,6 +643,113 @@ def finish_wandb(wandb_run, out_dir: Path, df: pd.DataFrame) -> None:
     wandb_run.finish()
 
 
+# ============================================================
+# NOG hyperparameter sweep
+# ============================================================
+
+def as_list(x):
+    if isinstance(x, list):
+        return x
+    return [x]
+
+
+def make_nog_sweep_configs(cfg: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """
+    Expand cfg['nog']['M'] and cfg['nog']['eta'] into a list of configs.
+
+    Example:
+      nog:
+        M: [4, 8, 16]
+        eta: [0.1, 0.3]
+
+    gives 6 NOG configs.
+    """
+    M_list = as_list(cfg["nog"]["M"])
+    eta_list = as_list(cfg["nog"]["eta"])
+
+    sweep_cfgs = []
+
+    for M, eta in itertools.product(M_list, eta_list):
+        new_cfg = copy.deepcopy(cfg)
+        new_cfg["nog"]["M"] = int(M)
+        new_cfg["nog"]["eta"] = float(eta)
+
+        new_cfg["sweep"] = {
+            "M": int(M),
+            "eta": float(eta),
+            "grid_id": f"M{int(M)}_eta{float(eta):g}",
+        }
+
+        sweep_cfgs.append(new_cfg)
+
+    return sweep_cfgs
+
+
+def add_sweep_metadata(rows: List[Dict[str, Any]], sweep_cfg: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """
+    Add M/eta/grid_id columns to each row.
+    """
+    sweep_info = sweep_cfg.get("sweep", {})
+    for row in rows:
+        row["sweep_M"] = sweep_info.get("M", row.get("M"))
+        row["sweep_eta"] = sweep_info.get("eta", row.get("lr_or_eta"))
+        row["sweep_grid_id"] = sweep_info.get("grid_id", "default")
+    return rows
+
+
+def select_best_nog_config(df: pd.DataFrame) -> Dict[str, Any]:
+    """
+    Select the best NOG config by final mean stat_proxy across seeds.
+
+    Smaller stat_proxy is better.
+    """
+    nog_df = df[df["method"] == "NOG"].copy()
+
+    if nog_df.empty:
+        raise ValueError("No NOG results found, cannot select best M/eta.")
+
+    final_nog = (
+        nog_df.sort_values("round")
+        .groupby(["sweep_grid_id", "seed"])
+        .tail(1)
+    )
+
+    sweep_summary = (
+        final_nog.groupby(["sweep_grid_id", "sweep_M", "sweep_eta"], as_index=False)
+        .agg(
+            final_stat_proxy_mean=("stat_proxy", "mean"),
+            final_stat_proxy_std=("stat_proxy", "std"),
+            final_objective_mean=("objective", "mean"),
+            final_objective_std=("objective", "std"),
+            final_work_mean=("work", "mean"),
+            final_time_sec_mean=("time_sec", "mean"),
+        )
+        .sort_values("final_stat_proxy_mean", ascending=True)
+    )
+
+    best = sweep_summary.iloc[0].to_dict()
+
+    return {
+        "best_grid_id": best["sweep_grid_id"],
+        "best_M": int(best["sweep_M"]),
+        "best_eta": float(best["sweep_eta"]),
+        "best_final_stat_proxy_mean": float(best["final_stat_proxy_mean"]),
+        "best_final_objective_mean": float(best["final_objective_mean"]),
+        "sweep_summary": sweep_summary,
+    }
+
+
+def filter_best_plot_df(df: pd.DataFrame, best_grid_id: str) -> pd.DataFrame:
+    """
+    Keep only:
+      - NOG rows from best M/eta
+      - SmoothedSGD rows
+    """
+    keep = (
+        ((df["method"] == "NOG") & (df["sweep_grid_id"] == best_grid_id))
+        | (df["method"] == "SmoothedSGD")
+    )
+    return df[keep].copy()
 
 
 # ============================================================
@@ -806,31 +913,105 @@ def main() -> None:
 
     all_rows = []
 
+    nog_sweep_cfgs = make_nog_sweep_configs(cfg)
+
+    print("=" * 80)
+    print("NOG sweep configs")
+    print("=" * 80)
+    for sweep_cfg in nog_sweep_cfgs:
+        print(
+            f"{sweep_cfg['sweep']['grid_id']}: "
+            f"M={sweep_cfg['nog']['M']}, eta={sweep_cfg['nog']['eta']}"
+        )
+    print("=" * 80)
+
     for seed in cfg["run"]["seeds"]:
         seed_all(seed)
 
+        # Same synthetic problem and same x0 for all methods/configs under this seed.
         problem = build_problem(cfg, device)
         x0 = 0.1 * torch.zeros(problem.d, device=device)
 
-        for method_id, method_name in enumerate(cfg["methods"]):
-            # Different stochastic path per method, same problem and same x0.
-            method_seed = seed + 10000 * (method_id + 1)
+        if "NOG" in cfg["methods"]:
+            for sweep_id, sweep_cfg in enumerate(nog_sweep_cfgs):
+                M = int(sweep_cfg["nog"]["M"])
+                rounds = int(sweep_cfg["train"]["rounds"])
 
-            if method_name == "NOG":
-                rows = run_nog(problem, x0, cfg, method_seed, wandb_run=wandb_run)
-            elif method_name == "SmoothedSGD":
-                rows = run_smoothed_sgd(problem, x0, cfg, method_seed, wandb_run=wandb_run)
-            else:
-                raise ValueError(f"Unknown method: {method_name}")
+                if rounds % M != 0:
+                    raise ValueError(
+                        f"NOG requires train.rounds divisible by M. "
+                        f"Got rounds={rounds}, M={M} for grid "
+                        f"{sweep_cfg['sweep']['grid_id']}."
+                    )
 
+                # Use comparable randomness across M/eta configs.
+                method_seed = seed + 10000
+
+                rows = run_nog(
+                    problem=problem,
+                    x0=x0,
+                    cfg=sweep_cfg,
+                    seed=method_seed,
+                    wandb_run=wandb_run,
+                )
+                rows = add_sweep_metadata(rows, sweep_cfg)
+                all_rows.extend(rows)
+
+        if "SmoothedSGD" in cfg["methods"]:
+            # Run SmoothedSGD only once, not once per M/eta.
+            ssgd_cfg = copy.deepcopy(cfg)
+            ssgd_cfg["sweep"] = {
+                "M": np.nan,
+                "eta": float(ssgd_cfg["ssgd"]["lr"]),
+                "grid_id": "SmoothedSGD",
+            }
+
+            method_seed = seed + 20000
+
+            rows = run_smoothed_sgd(
+                problem=problem,
+                x0=x0,
+                cfg=ssgd_cfg,
+                seed=method_seed,
+                wandb_run=wandb_run,
+            )
+            rows = add_sweep_metadata(rows, ssgd_cfg)
             all_rows.extend(rows)
+
 
     df = pd.DataFrame(all_rows)
 
-    csv_path = out_dir / "results.csv"
-    df.to_csv(csv_path, index=False)
+    all_csv_path = out_dir / "all_results.csv"
+    df.to_csv(all_csv_path, index=False)
 
-    plot_curves(df, out_dir)
+    best_info = select_best_nog_config(df)
+    best_grid_id = best_info["best_grid_id"]
+
+    sweep_summary = best_info["sweep_summary"]
+    sweep_summary.to_csv(out_dir / "sweep_summary.csv", index=False)
+
+    best_plot_df = filter_best_plot_df(df, best_grid_id)
+
+    best_csv_path = out_dir / "best_results.csv"
+    best_plot_df.to_csv(best_csv_path, index=False)
+
+    best_cfg = copy.deepcopy(cfg)
+    best_cfg["nog"]["M"] = best_info["best_M"]
+    best_cfg["nog"]["eta"] = best_info["best_eta"]
+    best_cfg["best_selection"] = {
+        "criterion": "minimum final mean NOG stat_proxy across seeds",
+        "best_grid_id": best_info["best_grid_id"],
+        "best_M": best_info["best_M"],
+        "best_eta": best_info["best_eta"],
+        "best_final_stat_proxy_mean": best_info["best_final_stat_proxy_mean"],
+        "best_final_objective_mean": best_info["best_final_objective_mean"],
+    }
+
+    save_yaml(best_cfg, out_dir / "best_config.yaml")
+
+    # Only plot best NOG config plus SmoothedSGD.
+    plot_curves(best_plot_df, out_dir)
+
 
     final_df = df.sort_values("round").groupby(["method", "seed"]).tail(1)
     summary_df = final_df.groupby("method").agg(
@@ -844,27 +1025,49 @@ def main() -> None:
     )
 
     summary = {
-        "num_rows": int(len(df)),
-        "methods": list(df["method"].unique()),
+        "num_all_rows": int(len(df)),
+        "num_best_plot_rows": int(len(best_plot_df)),
+        "methods": list(best_plot_df["method"].unique()),
         "seeds": cfg["run"]["seeds"],
         "primary_metric_note": "For NOG, objective/stat_proxy are evaluated at block-average y_bar.",
+        "selection_criterion": "Choose M/eta with the smallest final mean NOG stat_proxy across seeds.",
+        "best_M": best_info["best_M"],
+        "best_eta": best_info["best_eta"],
+        "best_grid_id": best_info["best_grid_id"],
+        "best_final_stat_proxy_mean": best_info["best_final_stat_proxy_mean"],
+        "best_final_objective_mean": best_info["best_final_objective_mean"],
         "final_by_method": summary_df.to_dict(),
     }
+
 
     with open(out_dir / "summary.json", "w") as f:
         json.dump(summary, f, indent=2)
 
     thresholds = cfg.get("metrics", {}).get("thresholds", [])
     if thresholds:
-        threshold_per_seed, threshold_summary = compute_threshold_summaries(df, thresholds)
+        threshold_per_seed, threshold_summary = compute_threshold_summaries(best_plot_df, thresholds)
         threshold_per_seed.to_csv(out_dir / "threshold_per_seed.csv", index=False)
         threshold_summary.to_csv(out_dir / "threshold_summary.csv", index=False)
 
+
     finish_wandb(wandb_run, out_dir, df)
 
-    print(f"Saved results to: {csv_path}")
-    print(f"Saved figures to: {out_dir}")
+    print("=" * 80)
+    print("Best NOG hyperparameters")
+    print("=" * 80)
+    print(f"best M      : {best_info['best_M']}")
+    print(f"best eta    : {best_info['best_eta']}")
+    print(f"best grid   : {best_info['best_grid_id']}")
+    print(f"best stat   : {best_info['best_final_stat_proxy_mean']}")
+    print(f"best obj    : {best_info['best_final_objective_mean']}")
+    print("=" * 80)
+    print(f"Saved all sweep results to : {all_csv_path}")
+    print(f"Saved best results to      : {best_csv_path}")
+    print(f"Saved sweep summary to     : {out_dir / 'sweep_summary.csv'}")
+    print(f"Saved best config to       : {out_dir / 'best_config.yaml'}")
+    print(f"Saved figures to           : {out_dir}")
     print("Done.")
+
 
 
 if __name__ == "__main__":
