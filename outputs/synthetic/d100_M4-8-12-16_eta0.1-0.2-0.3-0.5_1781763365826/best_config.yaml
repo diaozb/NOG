@@ -1,5 +1,5 @@
 run:
-  name: d100_M4-8-12-16_eta0.1-0.2-0.3-0.5_1781246425935
+  name: d100_M4-8-12-16_eta0.1-0.2-0.3-0.5_1781763365826
   out_dir: outputs/synthetic
   seeds:
   - 0
@@ -14,7 +14,7 @@ run:
   - 9
   device: auto
   base_name: formal_d50_M8_eta03
-  run_suffix: d100_M4-8-12-16_eta0p1-0p2-0p3-0p5_20260612_144025_451ae938
+  run_suffix: d100_M4-8-12-16_eta0p1-0p2-0p3-0p5_20260618_141605_b77de87d
   device_used: cuda
 problem:
   d: 100
@@ -31,16 +31,8 @@ oracle:
   eval_smooth_B: 64
   eval_data_B: 128
 nog:
-  M:
-  - 4
-  - 8
-  - 12
-  - 16
-  eta:
-  - 0.1
-  - 0.2
-  - 0.3
-  - 0.5
+  M: 12
+  eta: 0.3
 ssgd:
   lr: 0.05
 metrics:
@@ -64,3 +56,10 @@ wandb:
   - formal
   - ybar
   - d50
+best_selection:
+  criterion: minimum final mean NOG stat_proxy across seeds
+  best_grid_id: M12_eta0.3
+  best_M: 12
+  best_eta: 0.3
+  best_final_stat_proxy_mean: 0.00732812169007957
+  best_final_objective_mean: 0.722828072309494
