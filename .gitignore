@@ -1,3 +1,4 @@
 wandb/
 __pycache__/
 data/
+synthetic_result.tar.gz
