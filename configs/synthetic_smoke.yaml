@@ -1,0 +1,64 @@
+run:
+  name: smoke_d20_v2
+  out_dir: outputs/synthetic
+  seeds: [0]
+  device: auto
+
+problem:
+  d: 20
+  n_data: 4096
+  R: 4
+  lam: 0.001
+
+train:
+  # NOG requires T = K * M, so rounds must be divisible by nog.M.
+  rounds: 96
+  eval_every: 20
+
+oracle:
+  # Randomized smoothing radius.
+  delta: 0.1
+
+  # Training oracle batch. This contributes to `work`.
+  smooth_B: 4
+  data_B: 32
+
+  # Evaluation oracle batch. This is logged as `eval_work`,
+  # but is not included in the main `work` column.
+  eval_smooth_B: 16
+  eval_data_B: 64
+
+nog_grid:
+  M: [4, 8, 16, 32]
+  eta: [0.03, 0.1, 0.3, 1.0]
+
+nog:
+  M: 8
+  eta: 0.3
+  # Practical note:
+  # Theorem 4.1 gives M, eta only up to big-Theta constants.
+  # For experiments, we keep them configurable and later run a small grid/sweep.
+
+ssgd:
+  lr: 0.05
+
+metrics:
+  # The code will report first-hit rounds/work for stat_proxy <= each threshold.
+  thresholds: [0.8, 0.6, 0.4, 0.2]
+
+methods:
+  - NOG
+  - SmoothedSGD
+
+work_accounting:
+  main_work_column: training_sfo_calls_only
+  evaluation_work_column: eval_work
+  depth_column: round
+  communication_round_column: communication_round
+
+wandb:
+  enabled: false
+  project: nog-synthetic
+  entity: ""
+  mode: online
+  tags: ["synthetic", "smoke", "ybar-fixed", "threshold-summary"]

@@ -1,0 +1,57 @@
+{
+  "num_all_rows": 2680,
+  "num_best_plot_rows": 310,
+  "methods": [
+    "NOG",
+    "SmoothedSGD"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "primary_metric_note": "For NOG, objective/stat_proxy are evaluated at block-average y_bar.",
+  "selection_criterion": "Choose M/eta with the smallest final mean NOG stat_proxy across seeds.",
+  "best_M": 12,
+  "best_eta": 0.2,
+  "best_grid_id": "M12_eta0.2",
+  "best_final_stat_proxy_mean": 0.007161215972155332,
+  "best_final_objective_mean": 0.7164978206157684,
+  "final_by_method": {
+    "final_objective_mean": {
+      "NOG": 0.7144826471805572,
+      "SmoothedSGD": 0.7214084029197693
+    },
+    "final_objective_std": {
+      "NOG": 0.008042197701606715,
+      "SmoothedSGD": 0.004900421744107232
+    },
+    "final_stat_proxy_mean": {
+      "NOG": 0.00810067867860198,
+      "SmoothedSGD": 0.0075106576550751925
+    },
+    "final_stat_proxy_std": {
+      "NOG": 0.0010567412903823425,
+      "SmoothedSGD": 0.0008290058143764246
+    },
+    "final_work_mean": {
+      "NOG": 492544.0,
+      "SmoothedSGD": 491520.0
+    },
+    "final_eval_work_mean": {
+      "NOG": 258867.2,
+      "SmoothedSGD": 131072.0
+    },
+    "final_time_sec_mean": {
+      "NOG": 9.304673838615418,
+      "SmoothedSGD": 8.102975940704345
+    }
+  }
+}

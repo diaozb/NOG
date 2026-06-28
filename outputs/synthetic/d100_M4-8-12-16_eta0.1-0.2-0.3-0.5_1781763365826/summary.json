@@ -1,0 +1,132 @@
+{
+  "num_all_rows": 2680,
+  "num_best_plot_rows": 310,
+  "methods": [
+    "NOG",
+    "SmoothedSGD"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "primary_metric_note": "For NOG, objective/stat_proxy are evaluated at block-average y_bar.",
+  "selection_criterion": "Choose M/eta with the smallest final mean NOG stat_proxy across seeds.",
+  "best_M": 12,
+  "best_eta": 0.3,
+  "best_grid_id": "M12_eta0.3",
+  "best_final_stat_proxy_mean": 0.00732812169007957,
+  "best_final_objective_mean": 0.722828072309494,
+  "final_by_method": {
+    "final_objective_mean": {
+      "NOG": 0.7188415050506591,
+      "SmoothedSGD": 0.7249284267425538
+    },
+    "final_objective_std": {
+      "NOG": 0.0072611778661912625,
+      "SmoothedSGD": 0.0028454413514354504
+    },
+    "final_stat_proxy_mean": {
+      "NOG": 0.008273985888808965,
+      "SmoothedSGD": 0.007430609688162804
+    },
+    "final_stat_proxy_std": {
+      "NOG": 0.001355005276041703,
+      "SmoothedSGD": 0.0004530443439100039
+    },
+    "final_work_mean": {
+      "NOG": 492544.0,
+      "SmoothedSGD": 491520.0
+    },
+    "final_eval_work_mean": {
+      "NOG": 258867.2,
+      "SmoothedSGD": 131072.0
+    },
+    "final_time_sec_mean": {
+      "NOG": 9.507183265686034,
+      "SmoothedSGD": 8.079737210273743
+    }
+  },
+  "first_hit_interpretation": "Use first_hit_comparison.csv. Good evidence means work_ratio_NOG_over_SmoothedSGD is close to 1 while round_ratio_NOG_over_SmoothedSGD is below 1.",
+  "first_hit_comparison": [
+    {
+      "threshold": 0.007,
+      "NOG_hit_rate": 1.0,
+      "SmoothedSGD_hit_rate": 1.0,
+      "NOG_first_hit_round_mean": 474.0,
+      "SmoothedSGD_first_hit_round_mean": 454.4,
+      "round_ratio_NOG_over_SmoothedSGD": 1.0431338028169015,
+      "NOG_first_hit_work_mean": 243712.0,
+      "SmoothedSGD_first_hit_work_mean": 232652.8,
+      "work_ratio_NOG_over_SmoothedSGD": 1.0475352112676057,
+      "evidence_label": "check threshold/hit rates"
+    },
+    {
+      "threshold": 0.0075,
+      "NOG_hit_rate": 1.0,
+      "SmoothedSGD_hit_rate": 1.0,
+      "NOG_first_hit_round_mean": 177.6,
+      "SmoothedSGD_first_hit_round_mean": 352.0,
+      "round_ratio_NOG_over_SmoothedSGD": 0.5045454545454545,
+      "NOG_first_hit_work_mean": 91955.2,
+      "SmoothedSGD_first_hit_work_mean": 180224.0,
+      "work_ratio_NOG_over_SmoothedSGD": 0.5102272727272728,
+      "evidence_label": "check threshold/hit rates"
+    },
+    {
+      "threshold": 0.008,
+      "NOG_hit_rate": 1.0,
+      "SmoothedSGD_hit_rate": 1.0,
+      "NOG_first_hit_round_mean": 105.6,
+      "SmoothedSGD_first_hit_round_mean": 230.4,
+      "round_ratio_NOG_over_SmoothedSGD": 0.4583333333333333,
+      "NOG_first_hit_work_mean": 55091.2,
+      "SmoothedSGD_first_hit_work_mean": 117964.8,
+      "work_ratio_NOG_over_SmoothedSGD": 0.46701388888888884,
+      "evidence_label": "check threshold/hit rates"
+    },
+    {
+      "threshold": 0.009,
+      "NOG_hit_rate": 1.0,
+      "SmoothedSGD_hit_rate": 1.0,
+      "NOG_first_hit_round_mean": 91.2,
+      "SmoothedSGD_first_hit_round_mean": 140.8,
+      "round_ratio_NOG_over_SmoothedSGD": 0.6477272727272727,
+      "NOG_first_hit_work_mean": 47718.4,
+      "SmoothedSGD_first_hit_work_mean": 72089.6,
+      "work_ratio_NOG_over_SmoothedSGD": 0.6619318181818181,
+      "evidence_label": "check threshold/hit rates"
+    },
+    {
+      "threshold": 0.01,
+      "NOG_hit_rate": 1.0,
+      "SmoothedSGD_hit_rate": 1.0,
+      "NOG_first_hit_round_mean": 62.4,
+      "SmoothedSGD_first_hit_round_mean": 83.3,
+      "round_ratio_NOG_over_SmoothedSGD": 0.7490996398559424,
+      "NOG_first_hit_work_mean": 32972.8,
+      "SmoothedSGD_first_hit_work_mean": 42649.6,
+      "work_ratio_NOG_over_SmoothedSGD": 0.7731092436974791,
+      "evidence_label": "check threshold/hit rates"
+    },
+    {
+      "threshold": 0.012,
+      "NOG_hit_rate": 1.0,
+      "SmoothedSGD_hit_rate": 1.0,
+      "NOG_first_hit_round_mean": 26.4,
+      "SmoothedSGD_first_hit_round_mean": 19.9,
+      "round_ratio_NOG_over_SmoothedSGD": 1.3266331658291457,
+      "NOG_first_hit_work_mean": 14540.8,
+      "SmoothedSGD_first_hit_work_mean": 10188.8,
+      "work_ratio_NOG_over_SmoothedSGD": 1.4271356783919598,
+      "evidence_label": "check threshold/hit rates"
+    }
+  ]
+}
