@@ -1,4 +1,7 @@
 wandb/
 __pycache__/
+<<<<<<< HEAD
 data/
 synthetic_result.tar.gz
+=======
+>>>>>>> 2357090a10418fb41ec8438413e50d1d888c7fc6
