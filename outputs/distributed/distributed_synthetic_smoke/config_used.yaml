@@ -1,45 +1,41 @@
 run:
   name: distributed_synthetic_smoke
   out_dir: outputs/distributed
-  seeds: [0]
+  seeds:
+  - 0
   device: auto
-
+  device_used: cuda
 problem:
   d: 100
   n_data: 4096
   R: 4
   lam: 0.001
-
 train:
-  # Must be divisible by nog.M.
   rounds: 240
   eval_every: 48
-
 oracle:
   delta: 0.1
-
-  # Distributed training oracle.
-  # With split_mode=total_batch_fixed, data_B_total is split across workers.
   smooth_B: 8
   data_B_total: 64
-
-  # Centralized evaluation oracle. This is logged as eval_work, not total_work.
   eval_smooth_B: 64
   eval_data_B: 128
-
 nog:
-  # Start from the stable synthetic d=100 setting.
   M: 12
   eta: 0.3
-
 distributed:
-  workers: [1, 2, 4, 8]
+  workers:
+  - 1
+  - 2
+  - 4
+  - 8
   split_mode: total_batch_fixed
   shuffle_partitions: true
-
 metrics:
-  thresholds: [0.01, 0.009, 0.008, 0.0075]
-
+  thresholds:
+  - 0.01
+  - 0.009
+  - 0.008
+  - 0.0075
 work_accounting:
   communication_round_column: communication_round
   total_work_column: total_work

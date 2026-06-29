@@ -1,7 +1,7 @@
 run:
-  name: distributed_synthetic_smoke
+  name: distributed_synthetic_formal_d100
   out_dir: outputs/distributed
-  seeds: [0]
+  seeds: [0, 1, 2, 3, 4]
   device: auto
 
 problem:
@@ -12,23 +12,17 @@ problem:
 
 train:
   # Must be divisible by nog.M.
-  rounds: 240
+  rounds: 960
   eval_every: 48
 
 oracle:
   delta: 0.1
-
-  # Distributed training oracle.
-  # With split_mode=total_batch_fixed, data_B_total is split across workers.
   smooth_B: 8
   data_B_total: 64
-
-  # Centralized evaluation oracle. This is logged as eval_work, not total_work.
   eval_smooth_B: 64
   eval_data_B: 128
 
 nog:
-  # Start from the stable synthetic d=100 setting.
   M: 12
   eta: 0.3
 

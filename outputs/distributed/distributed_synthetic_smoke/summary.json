@@ -1,0 +1,263 @@
+{
+  "num_rows": 24,
+  "workers": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "seeds": [
+    0
+  ],
+  "note": "One-process simulation. Use communication_round, total_work, and per_worker_work as evidence; wall-clock time is not the main metric.",
+  "work_accounting": {
+    "work": "alias of total_work",
+    "total_work": "total training SFO calls across all simulated workers",
+    "per_worker_work": "training SFO calls on each local worker",
+    "eval_work": "centralized evaluation SFO calls; not included in total_work"
+  },
+  "final_summary_by_workers": [
+    {
+      "worker_count": 1,
+      "method": "NOG-m1",
+      "final_objective_mean": 0.7251500487327576,
+      "final_objective_std": NaN,
+      "final_stat_proxy_mean": 0.00795999076217413,
+      "final_stat_proxy_std": NaN,
+      "final_total_work_mean": 123904.0,
+      "final_per_worker_work_mean": 123904.0,
+      "final_eval_work_mean": 49152.0,
+      "final_time_sec_mean": 2.5704097747802734
+    },
+    {
+      "worker_count": 2,
+      "method": "NOG-m2",
+      "final_objective_mean": 0.7251166701316833,
+      "final_objective_std": NaN,
+      "final_stat_proxy_mean": 0.0077391876839101315,
+      "final_stat_proxy_std": NaN,
+      "final_total_work_mean": 123904.0,
+      "final_per_worker_work_mean": 61952.0,
+      "final_eval_work_mean": 49152.0,
+      "final_time_sec_mean": 4.5167155265808105
+    },
+    {
+      "worker_count": 4,
+      "method": "NOG-m4",
+      "final_objective_mean": 0.7251381278038025,
+      "final_objective_std": NaN,
+      "final_stat_proxy_mean": 0.0077060223557055,
+      "final_stat_proxy_std": NaN,
+      "final_total_work_mean": 123904.0,
+      "final_per_worker_work_mean": 30976.0,
+      "final_eval_work_mean": 49152.0,
+      "final_time_sec_mean": 8.492140531539917
+    },
+    {
+      "worker_count": 8,
+      "method": "NOG-m8",
+      "final_objective_mean": 0.7251812219619751,
+      "final_objective_std": NaN,
+      "final_stat_proxy_mean": 0.008119840174913406,
+      "final_stat_proxy_std": NaN,
+      "final_total_work_mean": 123904.0,
+      "final_per_worker_work_mean": 15488.0,
+      "final_eval_work_mean": 49152.0,
+      "final_time_sec_mean": 16.930902004241943
+    }
+  ],
+  "worker_speedup_vs_m1": [
+    {
+      "threshold": 0.0075,
+      "worker_count": 1,
+      "hit_rate": 0.0,
+      "first_hit_round_mean": NaN,
+      "round_ratio_m_over_1": NaN,
+      "first_hit_total_work_mean": NaN,
+      "total_work_ratio_m_over_1": NaN,
+      "first_hit_per_worker_work_mean": NaN,
+      "per_worker_work_ratio_m_over_1": NaN,
+      "ideal_per_worker_ratio": 1.0
+    },
+    {
+      "threshold": 0.0075,
+      "worker_count": 2,
+      "hit_rate": 1.0,
+      "first_hit_round_mean": 156.0,
+      "round_ratio_m_over_1": NaN,
+      "first_hit_total_work_mean": 80896.0,
+      "total_work_ratio_m_over_1": NaN,
+      "first_hit_per_worker_work_mean": 40448.0,
+      "per_worker_work_ratio_m_over_1": NaN,
+      "ideal_per_worker_ratio": 0.5
+    },
+    {
+      "threshold": 0.0075,
+      "worker_count": 4,
+      "hit_rate": 0.0,
+      "first_hit_round_mean": NaN,
+      "round_ratio_m_over_1": NaN,
+      "first_hit_total_work_mean": NaN,
+      "total_work_ratio_m_over_1": NaN,
+      "first_hit_per_worker_work_mean": NaN,
+      "per_worker_work_ratio_m_over_1": NaN,
+      "ideal_per_worker_ratio": 0.25
+    },
+    {
+      "threshold": 0.0075,
+      "worker_count": 8,
+      "hit_rate": 0.0,
+      "first_hit_round_mean": NaN,
+      "round_ratio_m_over_1": NaN,
+      "first_hit_total_work_mean": NaN,
+      "total_work_ratio_m_over_1": NaN,
+      "first_hit_per_worker_work_mean": NaN,
+      "per_worker_work_ratio_m_over_1": NaN,
+      "ideal_per_worker_ratio": 0.125
+    },
+    {
+      "threshold": 0.008,
+      "worker_count": 1,
+      "hit_rate": 1.0,
+      "first_hit_round_mean": 240.0,
+      "round_ratio_m_over_1": 1.0,
+      "first_hit_total_work_mean": 123904.0,
+      "total_work_ratio_m_over_1": 1.0,
+      "first_hit_per_worker_work_mean": 123904.0,
+      "per_worker_work_ratio_m_over_1": 1.0,
+      "ideal_per_worker_ratio": 1.0
+    },
+    {
+      "threshold": 0.008,
+      "worker_count": 2,
+      "hit_rate": 1.0,
+      "first_hit_round_mean": 108.0,
+      "round_ratio_m_over_1": 0.45,
+      "first_hit_total_work_mean": 56320.0,
+      "total_work_ratio_m_over_1": 0.45454545454545453,
+      "first_hit_per_worker_work_mean": 28160.0,
+      "per_worker_work_ratio_m_over_1": 0.22727272727272727,
+      "ideal_per_worker_ratio": 0.5
+    },
+    {
+      "threshold": 0.008,
+      "worker_count": 4,
+      "hit_rate": 1.0,
+      "first_hit_round_mean": 240.0,
+      "round_ratio_m_over_1": 1.0,
+      "first_hit_total_work_mean": 123904.0,
+      "total_work_ratio_m_over_1": 1.0,
+      "first_hit_per_worker_work_mean": 30976.0,
+      "per_worker_work_ratio_m_over_1": 0.25,
+      "ideal_per_worker_ratio": 0.25
+    },
+    {
+      "threshold": 0.008,
+      "worker_count": 8,
+      "hit_rate": 1.0,
+      "first_hit_round_mean": 60.0,
+      "round_ratio_m_over_1": 0.25,
+      "first_hit_total_work_mean": 31744.0,
+      "total_work_ratio_m_over_1": 0.256198347107438,
+      "first_hit_per_worker_work_mean": 3968.0,
+      "per_worker_work_ratio_m_over_1": 0.03202479338842975,
+      "ideal_per_worker_ratio": 0.125
+    },
+    {
+      "threshold": 0.009,
+      "worker_count": 1,
+      "hit_rate": 1.0,
+      "first_hit_round_mean": 60.0,
+      "round_ratio_m_over_1": 1.0,
+      "first_hit_total_work_mean": 31744.0,
+      "total_work_ratio_m_over_1": 1.0,
+      "first_hit_per_worker_work_mean": 31744.0,
+      "per_worker_work_ratio_m_over_1": 1.0,
+      "ideal_per_worker_ratio": 1.0
+    },
+    {
+      "threshold": 0.009,
+      "worker_count": 2,
+      "hit_rate": 1.0,
+      "first_hit_round_mean": 60.0,
+      "round_ratio_m_over_1": 1.0,
+      "first_hit_total_work_mean": 31744.0,
+      "total_work_ratio_m_over_1": 1.0,
+      "first_hit_per_worker_work_mean": 15872.0,
+      "per_worker_work_ratio_m_over_1": 0.5,
+      "ideal_per_worker_ratio": 0.5
+    },
+    {
+      "threshold": 0.009,
+      "worker_count": 4,
+      "hit_rate": 1.0,
+      "first_hit_round_mean": 60.0,
+      "round_ratio_m_over_1": 1.0,
+      "first_hit_total_work_mean": 31744.0,
+      "total_work_ratio_m_over_1": 1.0,
+      "first_hit_per_worker_work_mean": 7936.0,
+      "per_worker_work_ratio_m_over_1": 0.25,
+      "ideal_per_worker_ratio": 0.25
+    },
+    {
+      "threshold": 0.009,
+      "worker_count": 8,
+      "hit_rate": 1.0,
+      "first_hit_round_mean": 60.0,
+      "round_ratio_m_over_1": 1.0,
+      "first_hit_total_work_mean": 31744.0,
+      "total_work_ratio_m_over_1": 1.0,
+      "first_hit_per_worker_work_mean": 3968.0,
+      "per_worker_work_ratio_m_over_1": 0.125,
+      "ideal_per_worker_ratio": 0.125
+    },
+    {
+      "threshold": 0.01,
+      "worker_count": 1,
+      "hit_rate": 1.0,
+      "first_hit_round_mean": 60.0,
+      "round_ratio_m_over_1": 1.0,
+      "first_hit_total_work_mean": 31744.0,
+      "total_work_ratio_m_over_1": 1.0,
+      "first_hit_per_worker_work_mean": 31744.0,
+      "per_worker_work_ratio_m_over_1": 1.0,
+      "ideal_per_worker_ratio": 1.0
+    },
+    {
+      "threshold": 0.01,
+      "worker_count": 2,
+      "hit_rate": 1.0,
+      "first_hit_round_mean": 60.0,
+      "round_ratio_m_over_1": 1.0,
+      "first_hit_total_work_mean": 31744.0,
+      "total_work_ratio_m_over_1": 1.0,
+      "first_hit_per_worker_work_mean": 15872.0,
+      "per_worker_work_ratio_m_over_1": 0.5,
+      "ideal_per_worker_ratio": 0.5
+    },
+    {
+      "threshold": 0.01,
+      "worker_count": 4,
+      "hit_rate": 1.0,
+      "first_hit_round_mean": 60.0,
+      "round_ratio_m_over_1": 1.0,
+      "first_hit_total_work_mean": 31744.0,
+      "total_work_ratio_m_over_1": 1.0,
+      "first_hit_per_worker_work_mean": 7936.0,
+      "per_worker_work_ratio_m_over_1": 0.25,
+      "ideal_per_worker_ratio": 0.25
+    },
+    {
+      "threshold": 0.01,
+      "worker_count": 8,
+      "hit_rate": 1.0,
+      "first_hit_round_mean": 60.0,
+      "round_ratio_m_over_1": 1.0,
+      "first_hit_total_work_mean": 31744.0,
+      "total_work_ratio_m_over_1": 1.0,
+      "first_hit_per_worker_work_mean": 3968.0,
+      "per_worker_work_ratio_m_over_1": 0.125,
+      "ideal_per_worker_ratio": 0.125
+    }
+  ]
+}
