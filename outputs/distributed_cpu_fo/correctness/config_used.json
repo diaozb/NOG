@@ -1,0 +1,78 @@
+{
+  "run": {
+    "name": "correctness",
+    "out_dir": "outputs/distributed_cpu_fo",
+    "device": "cpu"
+  },
+  "problem": {
+    "name": "SyntheticMaxSinL1",
+    "d": 8,
+    "n_data": 64,
+    "R": 2,
+    "lam": 0.001
+  },
+  "train": {
+    "rounds": 8,
+    "eval_every": 4
+  },
+  "oracle": {
+    "delta": 0.1,
+    "smooth_B": 2,
+    "data_B_total": 8,
+    "eval_smooth_B": 2,
+    "eval_data_B": 4
+  },
+  "nog": {
+    "M": 2,
+    "eta": 0.1
+  },
+  "me_dol": {
+    "epoch_length": 2,
+    "theory_multiplier": 1.0
+  },
+  "distributed": {
+    "execution": "cpu_process",
+    "backend": "gloo",
+    "topology": "complete",
+    "comparison_worker": 8,
+    "scaling_workers": [
+      1,
+      2,
+      8
+    ],
+    "split_mode": "total_batch_fixed",
+    "shuffle_partitions": true,
+    "rng_mode": "rank_schedule"
+  },
+  "methods": {
+    "sfo": [
+      "NOG-FO",
+      "ME-DOL-FO"
+    ],
+    "szo": []
+  },
+  "cpu_process": {
+    "threads_per_rank": 1,
+    "process_group_timeout_seconds": 60,
+    "launch_timeout_seconds": 120
+  },
+  "correctness": {
+    "methods": [
+      "NOG-FO",
+      "ME-DOL-FO"
+    ],
+    "workers": [
+      1,
+      2,
+      8
+    ],
+    "seeds": [
+      0
+    ],
+    "relative_tolerance": 1e-05,
+    "absolute_tolerance": 1e-07
+  },
+  "wandb": {
+    "enabled": false
+  }
+}

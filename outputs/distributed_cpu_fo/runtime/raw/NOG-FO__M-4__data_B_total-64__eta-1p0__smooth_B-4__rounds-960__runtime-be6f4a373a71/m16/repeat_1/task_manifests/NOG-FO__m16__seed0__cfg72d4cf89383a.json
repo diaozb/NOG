@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "recovered_manifest": false,
+  "created_at_utc": "2026-07-16T09:30:35.840713+00:00",
+  "task_key": "NOG-FO__m16__seed0__cfg72d4cf89383a",
+  "task": {
+    "method": "NOG-FO",
+    "formal_seed": 0,
+    "worker_count": 16
+  },
+  "config_sha256": "026056d9564f7d3c47d5b0d36ff53af74086e55ff00fa68730a1911250c8e8e1",
+  "task_fingerprint": "72d4cf89383abe9c80a6bab828139c71fbecaa2f4b77540f2e67ec0f49b3afb7",
+  "partial_path": "partials/NOG-FO__m16__seed0__cfg72d4cf89383a.json",
+  "partial_sha256": "5892e7751c249d07e71684d91aca80b1f08bc2bc3a7b2f045e361031495927a3",
+  "row_count": 21,
+  "launch": {
+    "world_size": 16,
+    "child_pids": [
+      46420,
+      46421,
+      46422,
+      46423,
+      46424,
+      46425,
+      46426,
+      46427,
+      46428,
+      46429,
+      46430,
+      46431,
+      46432,
+      46433,
+      46434,
+      46435
+    ],
+    "master_addr": "127.0.0.1",
+    "master_port": 51239,
+    "end_to_end_time": 166.12007907032967
+  }
+}

@@ -1,0 +1,5 @@
+candidate_id,method,candidate_parameters,score_stat_proxy_mean,score_stat_proxy_std,score_objective_mean,scored_work_mean,scored_depth_mean,num_seeds,common_work_budget
+DGFM__eta-0p001,DGFM,"{""eta"": 0.001}",0.010593441780656548,0.0006087065181630564,0.7294226288795471,7680.0,960.0,2,7680
+DGFMplus__eta-0p001__large_batch-64__restart_mixing_rounds-1__restart_period-48__small_batch-8,DGFM+,"{""eta"": 0.001, ""large_batch"": 64, ""restart_mixing_rounds"": 1, ""restart_period"": 48, ""small_batch"": 8}",0.010517232120037051,0.00017127162145811676,0.7293306887149811,130560.0,960.0,2,130560
+ME-DOL-FO__theory_multiplier-3p0,ME-DOL-FO,"{""theory_multiplier"": 3.0}",0.009579598437994701,0.000172373366419951,0.729150265455246,3840.0,480.0,2,3840
+ME-DOL-ZO__theory_multiplier-1p0,ME-DOL-ZO,"{""theory_multiplier"": 1.0}",0.01018448825925585,0.00047282046875243643,0.7291717827320099,7680.0,480.0,2,7680

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "created_at_utc": "2026-07-16T05:58:10.512006+00:00",
+  "formal_manifest_sha256": "9889a57cf7e3e2432b8a12d264ccc25be1c99211e9a0c319775faaa654b89f80",
+  "frozen_config_sha256": "25dc7fe50e1c3205798f1ddb5cc8e9804e8f3135fde794bbd3cdbb16684a66de",
+  "source_sha256": {
+    "formal_results.csv": "8c186f4419a4eea409fdf077a3f88d623a6f2ef01333da053e9258926671551a",
+    "threshold_summary.csv": "f633d9fd4c42c2b642e9d300c85c7535295a70856a55f9d3f95ed445f761be19",
+    "threshold_per_seed.csv": "5b5fe1d6aab8250f81b207b9783b53912f06ccb2f5b3b009e742457c54c20eb5",
+    "method_comparison.csv": "6cdb38480943e7ec3abbf630eb713591688db0407bccbc94498949347eff2744"
+  },
+  "figure_count": 8,
+  "figures": {
+    "depth_vs_epsilon.pdf": "d97160ff149bbe24a641e9d6bbc1855d53767bdc0572c2d51915b8f2c453a63b",
+    "depth_vs_epsilon.png": "b0bddf1b6ae4fc069445dc5ec042cef5d7e357c0c721c594ea4c360447706f4e",
+    "stat_proxy_vs_depth.pdf": "b12ca728012d66d5a59a7f87fbe5711e63ec680141230fbba19ffefe9b433c5f",
+    "stat_proxy_vs_depth.png": "8a30b793dbfc1acc23a85085974345d2e29834a97a9fdf1a54517ce97f99ef72",
+    "stat_proxy_vs_work.pdf": "ff39979eecb55e27135489f83c7a39ba0d27cd6d71b8c05594ce1d9e355d2578",
+    "stat_proxy_vs_work.png": "7fa56bb6c7877f7d258fb41c363713c650273c42f703596984a585926616e6c2",
+    "work_vs_epsilon.pdf": "a86c8d095a490365b40cf79499c077f9ce2e778750dfecce3a7bc776f20b859b",
+    "work_vs_epsilon.png": "4bc4711a12901caf9f8c3e517ec8a272b432eeb4137a2cad2a643f5c8ed54850"
+  },
+  "censored_method_epsilon_pairs": [
+    {
+      "method": "ME-DOL-FO",
+      "epsilon": 0.0075,
+      "hit_count": 3,
+      "num_seeds": 5
+    },
+    {
+      "method": "ME-DOL-FO",
+      "epsilon": 0.008,
+      "hit_count": 1,
+      "num_seeds": 5
+    },
+    {
+      "method": "NOG-FO",
+      "epsilon": 0.0075,
+      "hit_count": 4,
+      "num_seeds": 5
+    }
+  ],
+  "plot_protocol": {
+    "threshold_points": "mean +/- sample std among successful formal seeds",
+    "filled_marker": "all 5 formal seeds confirmed hit",
+    "hollow_marker": "right-censored; point uses successful seeds only",
+    "trajectory_line": "mean across 5 formal seeds",
+    "trajectory_band": "+/- one sample std across 5 formal seeds",
+    "confirmed_hit_consecutive": 2,
+    "training_work_excludes_evaluation_work": true
+  },
+  "warnings": [
+    "Censored threshold points are conditional on successful seeds and must not be interpreted as unconditional method ratios.",
+    "Each epsilon panel uses its own pilot-frozen configuration; curves are not a single universal hyperparameter setting."
+  ]
+}

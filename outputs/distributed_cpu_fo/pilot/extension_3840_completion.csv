@@ -1,0 +1,4 @@
+candidate_id,method,status,completed_tasks,failed_tasks,output_root
+ME-DOL-FO__epoch_length-6__theory_multiplier-10p0,ME-DOL-FO,complete,3,0,extension/rounds_3840/ME-DOL-FO__epoch_length-6__theory_multiplier-10p0
+ME-DOL-FO__epoch_length-12__theory_multiplier-10p0,ME-DOL-FO,complete,3,0,extension/rounds_3840/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0
+ME-DOL-FO__epoch_length-24__theory_multiplier-10p0,ME-DOL-FO,complete,3,0,extension/rounds_3840/ME-DOL-FO__epoch_length-24__theory_multiplier-10p0

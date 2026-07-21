@@ -1,0 +1,409 @@
+{
+  "method": "NOG-FO",
+  "formal_seed": 0,
+  "worker_count": 32,
+  "rng_mode": "rank_schedule",
+  "rank_metadata": [
+    {
+      "rank": 0,
+      "pid": 37655,
+      "shard_size": 128,
+      "shard_sha256": "e6338d7d94d2b87c58bc86cc8384ff23974241b629a1ef22cb67d218fa31c4b1",
+      "torch_threads": 1
+    },
+    {
+      "rank": 1,
+      "pid": 37656,
+      "shard_size": 128,
+      "shard_sha256": "d24ce63cc6289a2ebf9b02bcdfa195a6885a3617354a0adaf8f3c364d0015b7d",
+      "torch_threads": 1
+    },
+    {
+      "rank": 2,
+      "pid": 37657,
+      "shard_size": 128,
+      "shard_sha256": "decbca509fb576d0c2ad2cce419c4c73973a3b8f01070bac84b460b605da6bb4",
+      "torch_threads": 1
+    },
+    {
+      "rank": 3,
+      "pid": 37658,
+      "shard_size": 128,
+      "shard_sha256": "a4439a0cb5f9ed0f2a871987ff74937b095dbd146638a98e234ec748fb4f3cf8",
+      "torch_threads": 1
+    },
+    {
+      "rank": 4,
+      "pid": 37659,
+      "shard_size": 128,
+      "shard_sha256": "ee2daa1016816569ad511994adc1b25d2ed8163c601c45b5a37d1c1c2dcc3da1",
+      "torch_threads": 1
+    },
+    {
+      "rank": 5,
+      "pid": 37660,
+      "shard_size": 128,
+      "shard_sha256": "e5d7e5b8fa02691ab74ab1bcdd606dd325fa40cd2c4401a80c4c761db6443001",
+      "torch_threads": 1
+    },
+    {
+      "rank": 6,
+      "pid": 37661,
+      "shard_size": 128,
+      "shard_sha256": "f6ff972ff892598921ab137019b7c1126b210c42ea3c8733c75ed9c54cca8f39",
+      "torch_threads": 1
+    },
+    {
+      "rank": 7,
+      "pid": 37662,
+      "shard_size": 128,
+      "shard_sha256": "0f743f6813145e1066d017ad2948cc58b53345f10c41dce107e3cd5dca09f32e",
+      "torch_threads": 1
+    },
+    {
+      "rank": 8,
+      "pid": 37663,
+      "shard_size": 128,
+      "shard_sha256": "a7c554b9192c5e907da1547985ab0e1e2ba07f49043ce4ceaa676af7237b31f1",
+      "torch_threads": 1
+    },
+    {
+      "rank": 9,
+      "pid": 37664,
+      "shard_size": 128,
+      "shard_sha256": "8868d24297577ca659b760a14d96d701a42e8e17fe794aa092e4fe7a4250223e",
+      "torch_threads": 1
+    },
+    {
+      "rank": 10,
+      "pid": 37665,
+      "shard_size": 128,
+      "shard_sha256": "570c345578460d9e5dc5725ad520a4fce1b25a0c5005d1da0d53a549e2a7da4d",
+      "torch_threads": 1
+    },
+    {
+      "rank": 11,
+      "pid": 37666,
+      "shard_size": 128,
+      "shard_sha256": "10c7315f10d152b726cb6be77039dbb129e70387f7ae9d414ca4f01e4f20b656",
+      "torch_threads": 1
+    },
+    {
+      "rank": 12,
+      "pid": 37667,
+      "shard_size": 128,
+      "shard_sha256": "5102391b902f8a01ae268af7fd7470910db7bb2cb04d7e40b7e6c09a6948a778",
+      "torch_threads": 1
+    },
+    {
+      "rank": 13,
+      "pid": 37668,
+      "shard_size": 128,
+      "shard_sha256": "3e9e1acaa3422ec84d055628e9f813c949d0ca198c3fa9b01581878fa3824fc6",
+      "torch_threads": 1
+    },
+    {
+      "rank": 14,
+      "pid": 37669,
+      "shard_size": 128,
+      "shard_sha256": "7b6c8ea2461aea36758a19d0078697cd206e77ae3fb3049973ff61fa7eb965fb",
+      "torch_threads": 1
+    },
+    {
+      "rank": 15,
+      "pid": 37670,
+      "shard_size": 128,
+      "shard_sha256": "17450348cb756131ab4bc03b9a89aa5f1006c03d03a3bcab3474fec0e6ca3ff6",
+      "torch_threads": 1
+    },
+    {
+      "rank": 16,
+      "pid": 37671,
+      "shard_size": 128,
+      "shard_sha256": "1d4f02fe4134b865a7b61dec792599a0c5c687208dfb4021ae15a37c5366ccc3",
+      "torch_threads": 1
+    },
+    {
+      "rank": 17,
+      "pid": 37672,
+      "shard_size": 128,
+      "shard_sha256": "5731319d925c021d81ac89b17107809d6d08eed7e85d8be964a36c9074b8e16e",
+      "torch_threads": 1
+    },
+    {
+      "rank": 18,
+      "pid": 37673,
+      "shard_size": 128,
+      "shard_sha256": "ceeaa2d0996600c410ac964a509fcaff694288aaa8e0d97ae1281dd42264a4d5",
+      "torch_threads": 1
+    },
+    {
+      "rank": 19,
+      "pid": 37674,
+      "shard_size": 128,
+      "shard_sha256": "3c3de3f4618636f1c1af9d3a20b2c00f591a1d80408545e6e88628355e87fa2c",
+      "torch_threads": 1
+    },
+    {
+      "rank": 20,
+      "pid": 37675,
+      "shard_size": 128,
+      "shard_sha256": "b91d7b03a0886afdcf6b581e99c37510fbdf8f19a8d7430a5960bcf248eb0f2d",
+      "torch_threads": 1
+    },
+    {
+      "rank": 21,
+      "pid": 37676,
+      "shard_size": 128,
+      "shard_sha256": "af25ae72403402cd716b113b18f55029c2c241f4630ebad7db955200bae7441c",
+      "torch_threads": 1
+    },
+    {
+      "rank": 22,
+      "pid": 37677,
+      "shard_size": 128,
+      "shard_sha256": "920b3979b31bfeebc9c162cf26144f7c0f873e44ca92b95af64af2ab47e8716a",
+      "torch_threads": 1
+    },
+    {
+      "rank": 23,
+      "pid": 37678,
+      "shard_size": 128,
+      "shard_sha256": "287ac40b1db17f424712072577a8e6fa4347b459701f0517054da1c46e89f20f",
+      "torch_threads": 1
+    },
+    {
+      "rank": 24,
+      "pid": 37679,
+      "shard_size": 128,
+      "shard_sha256": "8712848a710a5f38c3a740faaf7732c3c63e626ce2bcd4ee89705eaa300e659b",
+      "torch_threads": 1
+    },
+    {
+      "rank": 25,
+      "pid": 37680,
+      "shard_size": 128,
+      "shard_sha256": "bdade8c0bfd21e803eb62a1f7d9d33609dcb989d44ed904b37515540c5f9e74d",
+      "torch_threads": 1
+    },
+    {
+      "rank": 26,
+      "pid": 37681,
+      "shard_size": 128,
+      "shard_sha256": "0beeced609f90215c5e5056147dfae8e25d67dfdfbc904a08675fc0855ff5135",
+      "torch_threads": 1
+    },
+    {
+      "rank": 27,
+      "pid": 37682,
+      "shard_size": 128,
+      "shard_sha256": "73662568c4011cae767004505b1959856e15a757170b02a8e65ae4e21c429164",
+      "torch_threads": 1
+    },
+    {
+      "rank": 28,
+      "pid": 37683,
+      "shard_size": 128,
+      "shard_sha256": "b4f6367422290ff44bd327f77cccab52b35cfa3a42976958e723276897cf148d",
+      "torch_threads": 1
+    },
+    {
+      "rank": 29,
+      "pid": 37684,
+      "shard_size": 128,
+      "shard_sha256": "872d4149dc488e19809d6d9fac7279a537b06e6edca1361e487e3784509d2500",
+      "torch_threads": 1
+    },
+    {
+      "rank": 30,
+      "pid": 37685,
+      "shard_size": 128,
+      "shard_sha256": "cd687be5597b5c29f6e9065e509a1f20c7eef0047935317773e57fb08aef8893",
+      "torch_threads": 1
+    },
+    {
+      "rank": 31,
+      "pid": 37686,
+      "shard_size": 128,
+      "shard_sha256": "c46712db24575b9e85b6337d21e4f1081ee8e39271c068834125d56313ac7c90",
+      "torch_threads": 1
+    }
+  ],
+  "rows": [
+    {
+      "method": "NOG-FO",
+      "base_method": "NOG",
+      "iteration": 12,
+      "round": 12,
+      "block_id": 1,
+      "worker_count": 32,
+      "eval_point": "y_bar",
+      "delta": 0.1,
+      "M": 12,
+      "lr_or_eta": 0.3,
+      "block_oracle_norm": 0.017942950129508972,
+      "time_sec": 4.956490844488144,
+      "training_time": 4.956490844488144,
+      "communication_time": 0.29155929386615753,
+      "evaluation_time": 0.05181661248207092,
+      "formal_seed": 0,
+      "problem_seed": 100000,
+      "partition_seed": 200000,
+      "method_seed": 214743059,
+      "oracle_type": "sfo",
+      "work": 1792,
+      "total_work": 1792,
+      "per_worker_work_max": 56,
+      "per_worker_work": [
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56
+      ],
+      "eval_work": 8192,
+      "communication_round": 14,
+      "depth": 14,
+      "objective": 0.7178272008895874,
+      "stat_proxy": 0.010450267232954502
+    },
+    {
+      "method": "NOG-FO",
+      "base_method": "NOG",
+      "iteration": 48,
+      "round": 48,
+      "block_id": 4,
+      "worker_count": 32,
+      "eval_point": "y_bar",
+      "delta": 0.1,
+      "M": 12,
+      "lr_or_eta": 0.3,
+      "block_oracle_norm": 0.01621430739760399,
+      "time_sec": 14.683929547667503,
+      "training_time": 14.683929547667503,
+      "communication_time": 0.7963242828845978,
+      "evaluation_time": 0.10497008264064789,
+      "formal_seed": 0,
+      "problem_seed": 100000,
+      "partition_seed": 200000,
+      "method_seed": 214743059,
+      "oracle_type": "sfo",
+      "work": 6400,
+      "total_work": 6400,
+      "per_worker_work_max": 200,
+      "per_worker_work": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "eval_work": 16384,
+      "communication_round": 50,
+      "depth": 50,
+      "objective": 0.7178580164909363,
+      "stat_proxy": 0.009378431364893913
+    }
+  ],
+  "launch": {
+    "world_size": 32,
+    "child_pids": [
+      37655,
+      37656,
+      37657,
+      37658,
+      37659,
+      37660,
+      37661,
+      37662,
+      37663,
+      37664,
+      37665,
+      37666,
+      37667,
+      37668,
+      37669,
+      37670,
+      37671,
+      37672,
+      37673,
+      37674,
+      37675,
+      37676,
+      37677,
+      37678,
+      37679,
+      37680,
+      37681,
+      37682,
+      37683,
+      37684,
+      37685,
+      37686
+    ],
+    "master_addr": "127.0.0.1",
+    "master_port": 54053,
+    "end_to_end_time": 21.896620705723763
+  },
+  "schema_version": 1,
+  "config_sha256": "c46a0e2fab79b383bf23ca406fa1b51370f93a5af47d6419cbfda04cb0d4fe5b",
+  "task_fingerprint": "d5604035a6c2c30000cb0c5dbe9109a7c8794fe73020f68cc619ab0613bc8ba1",
+  "task_key": "NOG-FO__m32__seed0__cfgd5604035a6c2",
+  "attempt_id": "c9501bd4ff0448f5b697601cdab64ca6",
+  "started_at_utc": "2026-07-15T08:57:35.159956+00:00",
+  "finished_at_utc": "2026-07-15T08:58:04.080299+00:00"
+}

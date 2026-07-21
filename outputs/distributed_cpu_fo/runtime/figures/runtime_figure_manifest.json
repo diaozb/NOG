@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "created_at_utc": "2026-07-16T12:07:33.834111+00:00",
+  "runtime_manifest_sha256": "32d23c715284d8017bb34be55f2bb0db2fffe12fa90346ad34a8578130a7f758",
+  "source_sha256": {
+    "raw_repeats.csv": "7cd1d81d2757415fe7c94a29b06cc3745f213eba2ed77d3fb9bb60884d76578d",
+    "runtime_summary.csv": "e2d76b600c56da86b65b7f240b453c9b3f36d7ac6f255c9432efb5fb1b221d5b",
+    "speedup_summary.csv": "76deaa1ffa3612962d0bdcbd10786964bcf0af5b2403ec3b909dd687a3ba7cef",
+    "method_runtime_comparison.csv": "c91d5c3b7570e9a20293e284af15ac1a046b3036f8ce2f618abc9cc5655e75cc"
+  },
+  "figure_count": 8,
+  "figures": {
+    "communication_fraction_vs_workers.pdf": "d9cf95b2280a209a77a0a04bcfdfd6fdcea35547e508375529e507ccf6df32ff",
+    "communication_fraction_vs_workers.png": "a6ce279628010b202d6a8ad1afcdc6b1985a782e7ac897e3e3c0f91ebd4530b0",
+    "full_budget_method_comparison.pdf": "4e192f8a9cf368f2052a22c289fee6e77e18bd927989f8f520e29d42c1885a5a",
+    "full_budget_method_comparison.png": "4108075861698fc65406fa5b77486d131a5e565e1e55a75593a54df23fba2e07",
+    "nog_strong_scaling_speedup.pdf": "768a7b1ffc192c7379e882a83a9812a6f31410a5d12556fd795bc6643fd8b530",
+    "nog_strong_scaling_speedup.png": "9ef7a23ba01a9b885955a9dc597e3cc1406ab25e1301f51569b78596851af990",
+    "runtime_vs_workers.pdf": "efc57dc9689a3035411ff9af56b7343bdeca11fa502a366c82d595ecedcf5a84",
+    "runtime_vs_workers.png": "afcfe00b9ab1eda45bc63386d6de93f0e8d1c810750cd64c3ba6bf189a639f11"
+  },
+  "notes_sha256": "2db2bf48a7eda2b9aa441c9e53510fe3d87f40bd1a058a4a68471dbc2b59f952",
+  "plot_protocol": {
+    "repeat_summary": "median with full observed [min, max] over 3 repeats",
+    "outlier_removal": false,
+    "runtime_scope": "complete pilot-frozen budget, not first-hit time-to-epsilon",
+    "training_time_excludes": [
+      "startup",
+      "evaluation",
+      "serialization"
+    ],
+    "end_to_end_time_includes": [
+      "startup",
+      "evaluation",
+      "serialization"
+    ],
+    "strong_scaling_method": "NOG-FO only",
+    "strong_scaling_speedup": "median(m=1) / median(m)",
+    "worker_counts": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "epsilons": [
+      0.01,
+      0.009,
+      0.008
+    ]
+  },
+  "warnings": [
+    "No positive CPU-process strong scaling was observed; do not generalize this single-machine Gloo result to a multi-node cluster.",
+    "ME-DOL total work grows with worker count, so its m=1 timing ratio is not a strong-scaling efficiency measurement.",
+    "Frozen configurations are not empirical-work matched; runtime ratios do not establish finite-work parity or Section 5 Work complexity.",
+    "ME-DOL at epsilon=0.008 is accuracy-censored; full-budget runtime is not an unconditional time-to-epsilon result."
+  ]
+}

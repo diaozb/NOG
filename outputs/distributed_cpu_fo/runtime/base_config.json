@@ -1,0 +1,160 @@
+{
+  "run": {
+    "name": "runtime",
+    "out_dir": "outputs/distributed_cpu_fo",
+    "device": "cpu",
+    "formal_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "problem": {
+    "name": "SyntheticMaxSinL1",
+    "d": 100,
+    "n_data": 4096,
+    "R": 4,
+    "lam": 0.001
+  },
+  "train": {
+    "rounds": 960,
+    "eval_every": 48
+  },
+  "oracle": {
+    "delta": 0.1,
+    "smooth_B": 2,
+    "data_B_total": 64,
+    "eval_smooth_B": 64,
+    "eval_data_B": 128,
+    "evaluation_seed_mode": "fixed_bank"
+  },
+  "nog": {
+    "M": 12,
+    "eta": 0.3
+  },
+  "me_dol": {
+    "epoch_length": 12,
+    "theory_multiplier": 1.0
+  },
+  "distributed": {
+    "execution": "cpu_process",
+    "backend": "gloo",
+    "topology": "complete",
+    "comparison_worker": 8,
+    "scaling_workers": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "split_mode": "total_batch_fixed",
+    "shuffle_partitions": true,
+    "rng_mode": "rank_schedule"
+  },
+  "methods": {
+    "sfo": [
+      "NOG-FO",
+      "ME-DOL-FO"
+    ],
+    "szo": []
+  },
+  "cpu_process": {
+    "threads_per_rank": 1,
+    "process_group_timeout_seconds": 120,
+    "launch_timeout_seconds": 600
+  },
+  "pilot": {
+    "seeds": [
+      100,
+      101,
+      102
+    ],
+    "reference_worker": 8,
+    "epsilons": [
+      0.011,
+      0.01,
+      0.009,
+      0.008,
+      0.0075
+    ],
+    "budgets": [
+      960,
+      1920,
+      3840
+    ],
+    "confirmed_hit_consecutive": 2,
+    "top_n_refinement": 3,
+    "nog": {
+      "M": [
+        4,
+        8,
+        12,
+        16,
+        24
+      ],
+      "eta": [
+        0.03,
+        0.1,
+        0.3,
+        1.0
+      ],
+      "coarse_smooth_B": 2,
+      "refinement_smooth_B": [
+        1,
+        2,
+        4,
+        8
+      ]
+    },
+    "me_dol": {
+      "epoch_length": [
+        6,
+        12,
+        24
+      ],
+      "theory_multiplier": [
+        0.3,
+        1.0,
+        3.0,
+        10.0
+      ]
+    },
+    "estimated_960_seconds": {
+      "NOG-FO": 224.5,
+      "ME-DOL-FO": 163.4
+    }
+  },
+  "runtime": {
+    "epsilons": [
+      0.01,
+      0.009,
+      0.008
+    ],
+    "methods": [
+      "NOG-FO",
+      "ME-DOL-FO"
+    ],
+    "workers": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "benchmark_seed": 0,
+    "repeats": 3,
+    "warmup_mode": "one_update_unit",
+    "reuse_identical_configs": true,
+    "order_rule": "alternating-workers-rotating-config-v1",
+    "conservative_time_multiplier": 1.5,
+    "max_attempts": 2
+  },
+  "wandb": {
+    "enabled": false
+  }
+}

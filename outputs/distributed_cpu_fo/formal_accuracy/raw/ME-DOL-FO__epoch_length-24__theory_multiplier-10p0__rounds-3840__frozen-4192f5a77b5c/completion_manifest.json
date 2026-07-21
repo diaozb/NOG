@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "updated_at_utc": "2026-07-16T04:30:45.108706+00:00",
+  "status": "complete",
+  "expected_tasks": 5,
+  "attempted_tasks": 5,
+  "completed_tasks": 5,
+  "failed_tasks": 0,
+  "environment": {
+    "created_at_utc": "2026-07-16T04:30:45.108727+00:00",
+    "python": "3.10.20",
+    "platform": "Linux-5.4.0-144-generic-x86_64-with-glibc2.31",
+    "hostname": "diaozibo0-0",
+    "torch": "2.1.2+cu121",
+    "cpu_count": 128
+  },
+  "records": [
+    {
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 0,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed0__cfgdb72c3861f5b",
+      "partial_path": "partials/ME-DOL-FO__m8__seed0__cfgdb72c3861f5b.json",
+      "manifest_path": "task_manifests/ME-DOL-FO__m8__seed0__cfgdb72c3861f5b.json",
+      "row_count": 81
+    },
+    {
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 1,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed1__cfgf579f7b1c728",
+      "partial_path": "partials/ME-DOL-FO__m8__seed1__cfgf579f7b1c728.json",
+      "manifest_path": "task_manifests/ME-DOL-FO__m8__seed1__cfgf579f7b1c728.json",
+      "row_count": 81
+    },
+    {
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 2,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed2__cfgbf90d6924679",
+      "partial_path": "partials/ME-DOL-FO__m8__seed2__cfgbf90d6924679.json",
+      "manifest_path": "task_manifests/ME-DOL-FO__m8__seed2__cfgbf90d6924679.json",
+      "row_count": 81
+    },
+    {
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 3,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed3__cfg6c095353b212",
+      "partial_path": "partials/ME-DOL-FO__m8__seed3__cfg6c095353b212.json",
+      "manifest_path": "task_manifests/ME-DOL-FO__m8__seed3__cfg6c095353b212.json",
+      "row_count": 81
+    },
+    {
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 4,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed4__cfgc678aac8af9b",
+      "partial_path": "partials/ME-DOL-FO__m8__seed4__cfgc678aac8af9b.json",
+      "manifest_path": "task_manifests/ME-DOL-FO__m8__seed4__cfgc678aac8af9b.json",
+      "row_count": 81
+    }
+  ]
+}

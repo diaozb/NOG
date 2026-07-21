@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "analysis_stage": "batch-refinement-final",
+  "created_at_utc": "2026-07-16T03:48:43.478114+00:00",
+  "variant_count": 12,
+  "new_variant_count": 9,
+  "reused_variant_count": 3,
+  "task_count": 27,
+  "work_audit_rows": 36,
+  "work_audit_passed": true,
+  "candidate_epsilon_rows": 60,
+  "per_seed_epsilon_rows": 180,
+  "frozen_config_sha256": "25dc7fe50e1c3205798f1ddb5cc8e9804e8f3135fde794bbd3cdbb16684a66de",
+  "unresolved_max_budget": [
+    {
+      "method": "ME-DOL-FO",
+      "epsilon": 0.0075,
+      "hit_rate": 0.6666666666666666
+    }
+  ],
+  "selections": {
+    "0.011": {
+      "NOG-FO": {
+        "status": "full-hit",
+        "selected_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4",
+        "frontier_candidate_ids": [
+          "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-1",
+          "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4"
+        ],
+        "min_depth_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-1",
+        "min_work_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-1",
+        "selected_parameters": {
+          "M": 4,
+          "eta": 1.0,
+          "smooth_B": 4,
+          "data_B_total": 64
+        },
+        "selected_hit_rate": 1.0,
+        "selected_median_final_stat_proxy": 0.008044366724789143,
+        "selected_median_depth": 6,
+        "selected_median_total_work": 1536,
+        "selected_median_training_time": 0.39929643273353577,
+        "selected_stage_rounds": 960,
+        "max_budget_censored": false
+      },
+      "ME-DOL-FO": {
+        "status": "full-hit",
+        "selected_candidate_id": "ME-DOL-FO__epoch_length-6__theory_multiplier-10p0",
+        "frontier_candidate_ids": [
+          "ME-DOL-FO__epoch_length-6__theory_multiplier-10p0"
+        ],
+        "min_depth_candidate_id": "ME-DOL-FO__epoch_length-6__theory_multiplier-10p0",
+        "min_work_candidate_id": "ME-DOL-FO__epoch_length-6__theory_multiplier-10p0",
+        "selected_parameters": {
+          "epoch_length": 6,
+          "theory_multiplier": 10.0
+        },
+        "selected_hit_rate": 1.0,
+        "selected_median_final_stat_proxy": 0.007900403812527657,
+        "selected_median_depth": 6,
+        "selected_median_total_work": 48,
+        "selected_median_training_time": 0.40870365500450134,
+        "selected_stage_rounds": 1920,
+        "max_budget_censored": false
+      }
+    },
+    "0.01": {
+      "NOG-FO": {
+        "status": "full-hit",
+        "selected_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8",
+        "frontier_candidate_ids": [
+          "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8",
+          "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-1"
+        ],
+        "min_depth_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8",
+        "min_work_candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-1",
+        "selected_parameters": {
+          "M": 4,
+          "eta": 1.0,
+          "smooth_B": 8,
+          "data_B_total": 64
+        },
+        "selected_hit_rate": 1.0,
+        "selected_median_final_stat_proxy": 0.007974649779498577,
+        "selected_median_depth": 6,
+        "selected_median_total_work": 3072,
+        "selected_median_training_time": 0.44742272794246674,
+        "selected_stage_rounds": 960,
+        "max_budget_censored": false
+      },
+      "ME-DOL-FO": {
+        "status": "full-hit",
+        "selected_candidate_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0",
+        "frontier_candidate_ids": [
+          "ME-DOL-FO__epoch_length-6__theory_multiplier-10p0",
+          "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0"
+        ],
+        "min_depth_candidate_id": "ME-DOL-FO__epoch_length-6__theory_multiplier-10p0",
+        "min_work_candidate_id": "ME-DOL-FO__epoch_length-6__theory_multiplier-10p0",
+        "selected_parameters": {
+          "epoch_length": 12,
+          "theory_multiplier": 10.0
+        },
+        "selected_hit_rate": 1.0,
+        "selected_median_final_stat_proxy": 0.007865018211305141,
+        "selected_median_depth": 156,
+        "selected_median_total_work": 1248,
+        "selected_median_training_time": 4.380163982510567,
+        "selected_stage_rounds": 1920,
+        "max_budget_censored": false
+      }
+    },
+    "0.009": {
+      "NOG-FO": {
+        "status": "full-hit",
+        "selected_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4",
+        "frontier_candidate_ids": [
+          "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+          "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4",
+          "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-1",
+          "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-1",
+          "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2"
+        ],
+        "min_depth_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+        "min_work_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-1",
+        "selected_parameters": {
+          "M": 4,
+          "eta": 1.0,
+          "smooth_B": 4,
+          "data_B_total": 64
+        },
+        "selected_hit_rate": 1.0,
+        "selected_median_final_stat_proxy": 0.008044366724789143,
+        "selected_median_depth": 54,
+        "selected_median_total_work": 13824,
+        "selected_median_training_time": 2.0302404165267944,
+        "selected_stage_rounds": 960,
+        "max_budget_censored": false
+      },
+      "ME-DOL-FO": {
+        "status": "full-hit",
+        "selected_candidate_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0",
+        "frontier_candidate_ids": [
+          "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0"
+        ],
+        "min_depth_candidate_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0",
+        "min_work_candidate_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0",
+        "selected_parameters": {
+          "epoch_length": 12,
+          "theory_multiplier": 10.0
+        },
+        "selected_hit_rate": 1.0,
+        "selected_median_final_stat_proxy": 0.007865018211305141,
+        "selected_median_depth": 444,
+        "selected_median_total_work": 3552,
+        "selected_median_training_time": 12.013572052121162,
+        "selected_stage_rounds": 1920,
+        "max_budget_censored": false
+      }
+    },
+    "0.008": {
+      "NOG-FO": {
+        "status": "full-hit",
+        "selected_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8",
+        "frontier_candidate_ids": [
+          "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-1",
+          "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+          "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-4",
+          "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8",
+          "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2",
+          "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-4"
+        ],
+        "min_depth_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-4",
+        "min_work_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-1",
+        "selected_parameters": {
+          "M": 8,
+          "eta": 1.0,
+          "smooth_B": 8,
+          "data_B_total": 64
+        },
+        "selected_hit_rate": 1.0,
+        "selected_median_final_stat_proxy": 0.007522081024944782,
+        "selected_median_depth": 58,
+        "selected_median_total_work": 29696,
+        "selected_median_training_time": 2.344397246837616,
+        "selected_stage_rounds": 960,
+        "max_budget_censored": false
+      },
+      "ME-DOL-FO": {
+        "status": "full-hit",
+        "selected_candidate_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0",
+        "frontier_candidate_ids": [
+          "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0"
+        ],
+        "min_depth_candidate_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0",
+        "min_work_candidate_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0",
+        "selected_parameters": {
+          "epoch_length": 12,
+          "theory_multiplier": 10.0
+        },
+        "selected_hit_rate": 1.0,
+        "selected_median_final_stat_proxy": 0.007865018211305141,
+        "selected_median_depth": 1212,
+        "selected_median_total_work": 9696,
+        "selected_median_training_time": 34.772057846188545,
+        "selected_stage_rounds": 1920,
+        "max_budget_censored": false
+      }
+    },
+    "0.0075": {
+      "NOG-FO": {
+        "status": "full-hit",
+        "selected_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8",
+        "frontier_candidate_ids": [
+          "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+          "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-4",
+          "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8",
+          "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2"
+        ],
+        "min_depth_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8",
+        "min_work_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+        "selected_parameters": {
+          "M": 8,
+          "eta": 1.0,
+          "smooth_B": 8,
+          "data_B_total": 64
+        },
+        "selected_hit_rate": 1.0,
+        "selected_median_final_stat_proxy": 0.007522081024944782,
+        "selected_median_depth": 58,
+        "selected_median_total_work": 29696,
+        "selected_median_training_time": 2.344397246837616,
+        "selected_stage_rounds": 960,
+        "max_budget_censored": false
+      },
+      "ME-DOL-FO": {
+        "status": "pilot-infeasible-censored",
+        "selected_candidate_id": "ME-DOL-FO__epoch_length-24__theory_multiplier-10p0",
+        "frontier_candidate_ids": [],
+        "min_depth_candidate_id": "ME-DOL-FO__epoch_length-24__theory_multiplier-10p0",
+        "min_work_candidate_id": "ME-DOL-FO__epoch_length-24__theory_multiplier-10p0",
+        "selected_parameters": {
+          "epoch_length": 24,
+          "theory_multiplier": 10.0
+        },
+        "selected_hit_rate": 0.6666666666666666,
+        "selected_median_final_stat_proxy": 0.007669373881071806,
+        "selected_median_depth": 2352.0,
+        "selected_median_total_work": 18816.0,
+        "selected_median_training_time": 62.23184033483267,
+        "selected_stage_rounds": 3840,
+        "max_budget_censored": true
+      }
+    }
+  },
+  "pilot_complete": true,
+  "formal_runs_started": 0
+}

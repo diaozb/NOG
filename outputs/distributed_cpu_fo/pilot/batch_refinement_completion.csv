@@ -1,0 +1,10 @@
+candidate_id,base_candidate_id,smooth_B,status,completed_tasks,failed_tasks,output_root
+NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-1,NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2,1,complete,3,0,batch_refinement/rounds_960/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-1
+NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4,NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2,4,complete,3,0,batch_refinement/rounds_960/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4
+NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8,NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2,8,complete,3,0,batch_refinement/rounds_960/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8
+NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-1,NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2,1,complete,3,0,batch_refinement/rounds_960/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-1
+NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-4,NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2,4,complete,3,0,batch_refinement/rounds_960/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-4
+NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8,NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2,8,complete,3,0,batch_refinement/rounds_960/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8
+NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-1,NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2,1,complete,3,0,batch_refinement/rounds_960/NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-1
+NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-4,NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2,4,complete,3,0,batch_refinement/rounds_960/NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-4
+NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-8,NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2,8,complete,3,0,batch_refinement/rounds_960/NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-8

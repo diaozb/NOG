@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "attempt_id": "59d45bb84c494155b071475646839b44",
+  "started_at_utc": "2026-07-16T08:56:43.053415+00:00",
+  "failed_at_utc": "2026-07-16T09:06:43.214678+00:00",
+  "parent_pid": 17900,
+  "task_key": "NOG-FO__m16__seed0__cfg93567d390bb8",
+  "task": {
+    "method": "NOG-FO",
+    "formal_seed": 0,
+    "worker_count": 16
+  },
+  "config_sha256": "d4402cc4edee1c13c8d29cfce5e8b83d24a4e96a047635f88839f454bc37e8c1",
+  "task_fingerprint": "93567d390bb82deefd1560a4b3059a4b0c0fe08a1114f7b4968a831d91f593e7",
+  "temporary_output": "partials/.NOG-FO__m16__seed0__cfg93567d390bb8.59d45bb84c494155b071475646839b44.work.json",
+  "error_type": "CpuProcessLaunchError",
+  "message": "CPU process task failed for world_size=16; alive_after_cleanup=[].",
+  "traceback": "Traceback (most recent call last):\n  File \"/data/diaozb/NOG/src/distributed/cpu_process.py\", line 280, in launch_cpu_processes\n    raise TimeoutError(\nTimeoutError: CPU process launch exceeded 600.0s for world_size=16.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/data/diaozb/NOG/src/distributed/cpu_fo_tasks.py\", line 340, in run_or_resume_task\n    run_cpu_fo_task(\n  File \"/data/diaozb/NOG/src/distributed/cpu_fo_algorithms.py\", line 459, in run_cpu_fo_task\n    launch = launch_cpu_processes(\n  File \"/data/diaozb/NOG/src/distributed/cpu_process.py\", line 300, in launch_cpu_processes\n    raise CpuProcessLaunchError(\nsrc.distributed.cpu_process.CpuProcessLaunchError: CPU process task failed for world_size=16; alive_after_cleanup=[].\n",
+  "process_cleanup": {
+    "error_type": "CpuProcessLaunchError",
+    "message": "CPU process task failed for world_size=16; alive_after_cleanup=[].",
+    "cause_type": "TimeoutError",
+    "cause_message": "CPU process launch exceeded 600.0s for world_size=16.",
+    "child_pids": [
+      852,
+      853,
+      854,
+      855,
+      856,
+      857,
+      858,
+      859,
+      860,
+      861,
+      862,
+      863,
+      864,
+      865,
+      866,
+      867
+    ],
+    "alive_after_cleanup": []
+  }
+}

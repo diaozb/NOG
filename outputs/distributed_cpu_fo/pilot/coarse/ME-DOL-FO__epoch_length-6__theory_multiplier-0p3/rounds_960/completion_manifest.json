@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "updated_at_utc": "2026-07-15T16:02:38.395964+00:00",
+  "status": "complete",
+  "expected_tasks": 3,
+  "attempted_tasks": 3,
+  "completed_tasks": 3,
+  "failed_tasks": 0,
+  "environment": {
+    "created_at_utc": "2026-07-15T16:02:38.395982+00:00",
+    "python": "3.10.20",
+    "platform": "Linux-5.4.0-144-generic-x86_64-with-glibc2.31",
+    "hostname": "diaozibo0-0",
+    "torch": "2.1.2+cu121",
+    "cpu_count": 128
+  },
+  "records": [
+    {
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 100,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed100__cfg1b4098943bdd",
+      "partial_path": "partials/ME-DOL-FO__m8__seed100__cfg1b4098943bdd.json",
+      "manifest_path": "task_manifests/ME-DOL-FO__m8__seed100__cfg1b4098943bdd.json",
+      "row_count": 21
+    },
+    {
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 101,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed101__cfg1ba18a736b20",
+      "partial_path": "partials/ME-DOL-FO__m8__seed101__cfg1ba18a736b20.json",
+      "manifest_path": "task_manifests/ME-DOL-FO__m8__seed101__cfg1ba18a736b20.json",
+      "row_count": 21
+    },
+    {
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 102,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed102__cfg1550fd5764c1",
+      "partial_path": "partials/ME-DOL-FO__m8__seed102__cfg1550fd5764c1.json",
+      "manifest_path": "task_manifests/ME-DOL-FO__m8__seed102__cfg1550fd5764c1.json",
+      "row_count": 21
+    }
+  ]
+}

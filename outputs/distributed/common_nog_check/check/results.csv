@@ -1,0 +1,3 @@
+method,base_method,iteration,round,block_id,worker_count,eval_point,delta,M,lr_or_eta,block_oracle_norm,time_sec,formal_seed,problem_seed,partition_seed,method_seed,oracle_type,work,total_work,per_worker_work_max,per_worker_work,eval_work,communication_round,depth,objective,stat_proxy
+NOG-FO,NOG,12,12,1,1,y_bar,0.1,12,0.3,0.009535035118460655,0.18768954277038574,100,100100,200100,554391463,sfo,7168,7168,7168,[7168],8192,14,14,0.7315336465835571,0.01033002883195877
+NOG-ZO,NOG,12,12,1,1,y_bar,0.1,12,0.3,0.07770993560552597,0.13926911354064941,100,100100,200100,1955263306,szo,14336,14336,14336,[14336],8192,14,14,0.7315205335617065,0.0108223557472229

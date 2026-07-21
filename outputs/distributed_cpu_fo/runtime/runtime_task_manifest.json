@@ -1,0 +1,2893 @@
+{
+  "schema_version": 1,
+  "status": "prepared",
+  "created_at_utc": "2026-07-16T08:12:32.354095+00:00",
+  "purpose": "formal-cpu-runtime-scaling",
+  "frozen_config_sha256": "25dc7fe50e1c3205798f1ddb5cc8e9804e8f3135fde794bbd3cdbb16684a66de",
+  "step7_completion_sha256": "60b43f45b4f9a6b4305f803850e575c144ae72370b00e90c5ceedc2a0c1e282e",
+  "profile_csv_sha256": "db1a8a1bc5422489834e52b7881a93d2bb4bebcb23c4670873bacea3ce1f032e",
+  "runtime_protocol": {
+    "epsilons": [
+      0.01,
+      0.009,
+      0.008
+    ],
+    "methods": [
+      "NOG-FO",
+      "ME-DOL-FO"
+    ],
+    "workers": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "benchmark_seed": 0,
+    "repeats": 3,
+    "warmup_mode": "one_update_unit",
+    "reuse_identical_configs": true,
+    "order_rule": "alternating-workers-rotating-config-v1",
+    "conservative_time_multiplier": 1.5,
+    "max_attempts": 2
+  },
+  "cpu_resources": {
+    "logical_cpu_count": 128,
+    "affinity_cpu_count": 128,
+    "affinity_cpu_list": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127
+    ],
+    "cgroup_version": 1,
+    "cgroup_quota_us": 3200000,
+    "cgroup_period_us": 100000,
+    "cgroup_quota_cpus": 32.0
+  },
+  "unique_runtime_config_count": 4,
+  "unique_runtime_config_count_by_method": {
+    "NOG-FO": 3,
+    "ME-DOL-FO": 1
+  },
+  "unique_setting_count": 24,
+  "warmup_task_count": 24,
+  "measured_task_count": 72,
+  "physical_task_count": 96,
+  "expanded_method_epsilon_worker_repeat_rows": 108,
+  "runtime_configs": [
+    {
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "rounds": 1920,
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "selection_status_by_epsilon": {
+        "0.01": "full-hit",
+        "0.009": "full-hit",
+        "0.008": "full-hit"
+      },
+      "warmup_rounds": 12
+    },
+    {
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "rounds": 960,
+      "epsilons": [
+        0.01
+      ],
+      "selection_status_by_epsilon": {
+        "0.01": "full-hit"
+      },
+      "warmup_rounds": 4
+    },
+    {
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "rounds": 960,
+      "epsilons": [
+        0.009
+      ],
+      "selection_status_by_epsilon": {
+        "0.009": "full-hit"
+      },
+      "warmup_rounds": 4
+    },
+    {
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "rounds": 960,
+      "epsilons": [
+        0.008
+      ],
+      "selection_status_by_epsilon": {
+        "0.008": "full-hit"
+      },
+      "warmup_rounds": 8
+    }
+  ],
+  "tasks": [
+    {
+      "sequence": 0,
+      "runtime_task_id": "runtime-task-451066a61ac0cf85",
+      "runtime_task_sha256": "451066a61ac0cf85edfec7b669385c0e86275e6bdf235752323aaeb9ef9ad7c7",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 12,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m1/warmup",
+      "estimated_end_to_end_seconds": 3.809074282646179,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 1,
+      "runtime_task_id": "runtime-task-91988dda4e852cd0",
+      "runtime_task_sha256": "91988dda4e852cd0e4cb7d9fb6a6ce45cfe4864068103ebef9a29a07eb3f58af",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 4,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m1/warmup",
+      "estimated_end_to_end_seconds": 4.140614449977875,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 2,
+      "runtime_task_id": "runtime-task-c0b0c46e15ef0aef",
+      "runtime_task_sha256": "c0b0c46e15ef0aef7f329b5e62b0f46c255c7e6f3a5e16a3f54c39b5784c7ee7",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 4,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m1/warmup",
+      "estimated_end_to_end_seconds": 4.140614449977875,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 3,
+      "runtime_task_id": "runtime-task-5526903e83874f44",
+      "runtime_task_sha256": "5526903e83874f4456b353786f1be0ee29b7c23a6a932a0cc2da079311837bb8",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 8,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m1/warmup",
+      "estimated_end_to_end_seconds": 4.140614449977875,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 4,
+      "runtime_task_id": "runtime-task-7c26cb93361ad2d7",
+      "runtime_task_sha256": "7c26cb93361ad2d79c3a68528d03981f38f641785749ebf901507d3e32216caf",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 4,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m2/warmup",
+      "estimated_end_to_end_seconds": 4.5163234770298,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 5,
+      "runtime_task_id": "runtime-task-76956e70ebf00d94",
+      "runtime_task_sha256": "76956e70ebf00d941c6d808b416dcd0bf4b4224f832b23cd70acf26a3706f6b2",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 12,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m2/warmup",
+      "estimated_end_to_end_seconds": 3.755214586853981,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 6,
+      "runtime_task_id": "runtime-task-acae52b350856716",
+      "runtime_task_sha256": "acae52b350856716299d0ccde6c3088ac04eaea2b111c5fb4e991d9308702616",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 8,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m2/warmup",
+      "estimated_end_to_end_seconds": 4.5163234770298,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 7,
+      "runtime_task_id": "runtime-task-0076a05b1e10f7f9",
+      "runtime_task_sha256": "0076a05b1e10f7f9949a1f19d1f289c9bf8cb9bf570a7a7f3a4fc584039fa0d7",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 4,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m2/warmup",
+      "estimated_end_to_end_seconds": 4.5163234770298,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 8,
+      "runtime_task_id": "runtime-task-75aa73e5b1c353b1",
+      "runtime_task_sha256": "75aa73e5b1c353b11b275c582e9104331fc72721daedf8f4b2a666a883160f73",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 8,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m4/warmup",
+      "estimated_end_to_end_seconds": 4.901932418346405,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 9,
+      "runtime_task_id": "runtime-task-7fa2fd11ee91861d",
+      "runtime_task_sha256": "7fa2fd11ee91861d9dc0a449ddeef5c4c3a8971b6078ce504235550da57a822c",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 4,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m4/warmup",
+      "estimated_end_to_end_seconds": 4.901932418346405,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 10,
+      "runtime_task_id": "runtime-task-1b8e761fccb52cbe",
+      "runtime_task_sha256": "1b8e761fccb52cbe8169522ecc52368946b0fff14aeb1aac6b549aa979771b13",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 12,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m4/warmup",
+      "estimated_end_to_end_seconds": 5.119340598583221,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 11,
+      "runtime_task_id": "runtime-task-c26888b413f9f4df",
+      "runtime_task_sha256": "c26888b413f9f4dfdf33de09218c42afdaf5d7a147bfc91de10af95f0e6af1f6",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 4,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m4/warmup",
+      "estimated_end_to_end_seconds": 4.901932418346405,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 12,
+      "runtime_task_id": "runtime-task-053d383037798005",
+      "runtime_task_sha256": "053d3830377980053e5f1265be92b5d9a6227a6e2e29d638a0c0c2d599e4164d",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 4,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m8/warmup",
+      "estimated_end_to_end_seconds": 7.077880144119263,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 13,
+      "runtime_task_id": "runtime-task-5ff1287e5733da25",
+      "runtime_task_sha256": "5ff1287e5733da25ffead2f21bc4304080b5c599cadb2c5c75d01e6764211872",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 4,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m8/warmup",
+      "estimated_end_to_end_seconds": 7.077880144119263,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 14,
+      "runtime_task_id": "runtime-task-1ff7fa704a092ada",
+      "runtime_task_sha256": "1ff7fa704a092ada392a3dede2e039cf542c4872658b7566a1a94f7199337764",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 8,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m8/warmup",
+      "estimated_end_to_end_seconds": 7.077880144119263,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 15,
+      "runtime_task_id": "runtime-task-b514fa2032e7a6aa",
+      "runtime_task_sha256": "b514fa2032e7a6aadda9506877d1f5aa80ddd1d5c81100a9d807c5466706737d",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 12,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m8/warmup",
+      "estimated_end_to_end_seconds": 8.220742389559746,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 16,
+      "runtime_task_id": "runtime-task-644515f873853b21",
+      "runtime_task_sha256": "644515f873853b214609cb78ab20c390f19dd9d7c5931db9953d2d85ade4d375",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 12,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m16/warmup",
+      "estimated_end_to_end_seconds": 12.180112197995186,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 17,
+      "runtime_task_id": "runtime-task-8097de1e67e5a204",
+      "runtime_task_sha256": "8097de1e67e5a20497904817448d4e57367669da15c06672dccbc24a94196ae6",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 4,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m16/warmup",
+      "estimated_end_to_end_seconds": 11.926635071635246,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 18,
+      "runtime_task_id": "runtime-task-6ede39f1c1525e23",
+      "runtime_task_sha256": "6ede39f1c1525e237b447760562dcd8015cd69392d068848100741f889cee885",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 8,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m16/warmup",
+      "estimated_end_to_end_seconds": 11.926635071635246,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 19,
+      "runtime_task_id": "runtime-task-62ff90098a2de64f",
+      "runtime_task_sha256": "62ff90098a2de64f2f3a07c4cd051670e97a9b03766e10223b8965a4a7bd85a7",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 4,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m16/warmup",
+      "estimated_end_to_end_seconds": 11.926635071635246,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 20,
+      "runtime_task_id": "runtime-task-a0d2020d3ed01b55",
+      "runtime_task_sha256": "a0d2020d3ed01b553750bdba4e05c3e50508f853a78d92a0e4b8acdcc05b514b",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 8,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m32/warmup",
+      "estimated_end_to_end_seconds": 17.22787457704544,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 21,
+      "runtime_task_id": "runtime-task-fba5dd49eaa908c7",
+      "runtime_task_sha256": "fba5dd49eaa908c7b9d56383da68b3e2170c93d8c17df21e0618bba1e6881c25",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 12,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m32/warmup",
+      "estimated_end_to_end_seconds": 11.185699194669724,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 22,
+      "runtime_task_id": "runtime-task-361632770a10d6e2",
+      "runtime_task_sha256": "361632770a10d6e2057c5eb9d245336652de6bd18790797198d94c71f5820674",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 4,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m32/warmup",
+      "estimated_end_to_end_seconds": 17.22787457704544,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 23,
+      "runtime_task_id": "runtime-task-8e4422fb3fc8b2a0",
+      "runtime_task_sha256": "8e4422fb3fc8b2a0017f4bb4161b036bb20a8913ede8b2537a051c69c4727e51",
+      "phase": "warmup",
+      "include_in_summary": false,
+      "repeat": null,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 4,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m32/warmup",
+      "estimated_end_to_end_seconds": 17.22787457704544,
+      "estimate_source": "step5-12-round-end-to-end"
+    },
+    {
+      "sequence": 24,
+      "runtime_task_id": "runtime-task-b3eeada185fbf1b5",
+      "runtime_task_sha256": "b3eeada185fbf1b51fd7f46b11bb6fe8fd17bdaf3ac7ef4fced6b48d4dd2c715",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m1/repeat_0",
+      "estimated_end_to_end_seconds": 26.86363700723633,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 25,
+      "runtime_task_id": "runtime-task-56a09be34e07b4f9",
+      "runtime_task_sha256": "56a09be34e07b4f9fb9335e5a0640c4aa43ef9ea562c97086b51c14ba6040d3f",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m1/repeat_0",
+      "estimated_end_to_end_seconds": 8.139583611646337,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 26,
+      "runtime_task_id": "runtime-task-380e254e57102fb6",
+      "runtime_task_sha256": "380e254e57102fb618f80455a5ef8ae34297fad1e2fcbee1d7e2b30a34f8be86",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m1/repeat_0",
+      "estimated_end_to_end_seconds": 9.574064839666917,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 27,
+      "runtime_task_id": "runtime-task-855a02498402c864",
+      "runtime_task_sha256": "855a02498402c8644aac517a9f480e327aa5babfeea0f0f55daae2e99e9bb09d",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m1/repeat_0",
+      "estimated_end_to_end_seconds": 8.099990121454393,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 28,
+      "runtime_task_id": "runtime-task-97fc4f49b262027e",
+      "runtime_task_sha256": "97fc4f49b262027ef3c98ce840b3a03d2cdd089ccb0346ff0dc7b40a07d018a6",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m2/repeat_0",
+      "estimated_end_to_end_seconds": 7.773037630395482,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 29,
+      "runtime_task_id": "runtime-task-7e42181af734f78b",
+      "runtime_task_sha256": "7e42181af734f78bda1df18de3266370a7bba78018314cb811512ba2039e5396",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m2/repeat_0",
+      "estimated_end_to_end_seconds": 31.637289846273568,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 30,
+      "runtime_task_id": "runtime-task-5b30305a933841a7",
+      "runtime_task_sha256": "5b30305a933841a78215be91326952ab677c20fb4d5be17aef3a01b93b8959a5",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m2/repeat_0",
+      "estimated_end_to_end_seconds": 6.576258786031693,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 31,
+      "runtime_task_id": "runtime-task-19a93b6ae13602a9",
+      "runtime_task_sha256": "19a93b6ae13602a99eef363c108d5fbff3e2002493a709d8ac8329fbe7133992",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m2/repeat_0",
+      "estimated_end_to_end_seconds": 6.608404138537096,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 32,
+      "runtime_task_id": "runtime-task-f35cadf2b852bce8",
+      "runtime_task_sha256": "f35cadf2b852bce8284e7033dbf57917cc04da2aab25efcf9331d74c5fdcf0a8",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m4/repeat_0",
+      "estimated_end_to_end_seconds": 10.389777542326968,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 33,
+      "runtime_task_id": "runtime-task-69ac41ab3ec35773",
+      "runtime_task_sha256": "69ac41ab3ec357738b0750585e4ff42526b41255d5010251c6817a79faa9ba87",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m4/repeat_0",
+      "estimated_end_to_end_seconds": 10.440563722192671,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 34,
+      "runtime_task_id": "runtime-task-10a5dba08930b029",
+      "runtime_task_sha256": "10a5dba08930b02929d914aa70168cfbca344af97f278e7a736a528799a8abf0",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m4/repeat_0",
+      "estimated_end_to_end_seconds": 52.485059362083334,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 35,
+      "runtime_task_id": "runtime-task-8f95bc9a73f92050",
+      "runtime_task_sha256": "8f95bc9a73f92050404da099723cb629749678444fa9907cfe0482a9ba75dd31",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m4/repeat_0",
+      "estimated_end_to_end_seconds": 12.280558663458322,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 36,
+      "runtime_task_id": "runtime-task-b9e214cf0f20ed29",
+      "runtime_task_sha256": "b9e214cf0f20ed299893baa7238080d08d2b73cd8ccf5163a4bda35879e10f57",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m8/repeat_0",
+      "estimated_end_to_end_seconds": 37.33388330042362,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 37,
+      "runtime_task_id": "runtime-task-dae10e5338053811",
+      "runtime_task_sha256": "dae10e5338053811d2e29ad53a26c0b5cf6bd2acc03840c7b288514e6e871cf5",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m8/repeat_0",
+      "estimated_end_to_end_seconds": 43.91342806816101,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 38,
+      "runtime_task_id": "runtime-task-3c565bac411ae2fb",
+      "runtime_task_sha256": "3c565bac411ae2fb905879e4e122e401bc6bc8a95083124a454bdb89f79964dc",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m8/repeat_0",
+      "estimated_end_to_end_seconds": 37.15227957069874,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 39,
+      "runtime_task_id": "runtime-task-f1abe0708006b506",
+      "runtime_task_sha256": "f1abe0708006b50627948afa7b52a303cd140ea1286db72f6692bfd379f8c1ed",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m8/repeat_0",
+      "estimated_end_to_end_seconds": 71.45611056685448,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 40,
+      "runtime_task_id": "runtime-task-862d6d191eaeeb3a",
+      "runtime_task_sha256": "862d6d191eaeeb3aa50ebde268411ff90bae4d0a618cc975552fa0f6140db86a",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m16/repeat_0",
+      "estimated_end_to_end_seconds": 87.80751683231831,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 41,
+      "runtime_task_id": "runtime-task-a098adb055779031",
+      "runtime_task_sha256": "a098adb055779031484ed6a5ce9a0b69d5706b79444e31978a75287a57de6e7f",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m16/repeat_0",
+      "estimated_end_to_end_seconds": 43.36435113520483,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 42,
+      "runtime_task_id": "runtime-task-ce1323107172f3f7",
+      "runtime_task_sha256": "ce1323107172f3f7d3c45c3a7f2c9e4c365e725547e0a9b5ee1ada04788dceb7",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m16/repeat_0",
+      "estimated_end_to_end_seconds": 36.68774148710056,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 43,
+      "runtime_task_id": "runtime-task-a1b10735e4ada186",
+      "runtime_task_sha256": "a1b10735e4ada18610a8eb5b15cc29ea17494621a204dc1c11e7e19dd1ad447c",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m16/repeat_0",
+      "estimated_end_to_end_seconds": 36.867074512320755,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 44,
+      "runtime_task_id": "runtime-task-4c6019297db7687b",
+      "runtime_task_sha256": "4c6019297db7687b3052fc2b2ec90dd37949256f93e6f34ada6ff5a94d267709",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m32/repeat_0",
+      "estimated_end_to_end_seconds": 94.33749023656769,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 45,
+      "runtime_task_id": "runtime-task-565a7a4bf8e1d18f",
+      "runtime_task_sha256": "565a7a4bf8e1d18fcfa5248a46ae97cb67e7b3687bcebc8ddfd30260213cc11f",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m32/repeat_0",
+      "estimated_end_to_end_seconds": 167.0666705008732,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 46,
+      "runtime_task_id": "runtime-task-343d5cba38489712",
+      "runtime_task_sha256": "343d5cba384897126474c76bd546b397b913ca682b9c518d0a8a833bdc21f2bb",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m32/repeat_0",
+      "estimated_end_to_end_seconds": 94.79862048961836,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 47,
+      "runtime_task_id": "runtime-task-65a57ff05f9caf53",
+      "runtime_task_sha256": "65a57ff05f9caf537a4dd4cb51e160e8f988f81c47fee4f260138b2333723c11",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 0,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m32/repeat_0",
+      "estimated_end_to_end_seconds": 111.50547528990947,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 48,
+      "runtime_task_id": "runtime-task-2588bfbe46c8e020",
+      "runtime_task_sha256": "2588bfbe46c8e02092cc51dcdec8d68528c872aabbc0b93f74e4e81dc20aea36",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m32/repeat_1",
+      "estimated_end_to_end_seconds": 111.50547528990947,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 49,
+      "runtime_task_id": "runtime-task-9244081cd33c9797",
+      "runtime_task_sha256": "9244081cd33c97974dde6bb8e36f761ef1ee4ba5d93bac894016a7ef1f51865a",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m32/repeat_1",
+      "estimated_end_to_end_seconds": 167.0666705008732,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 50,
+      "runtime_task_id": "runtime-task-3c7f7d3886b0a8e6",
+      "runtime_task_sha256": "3c7f7d3886b0a8e6c5e9131fe45549de8d947e6bc45cbba9cf32da3deed70969",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m32/repeat_1",
+      "estimated_end_to_end_seconds": 94.33749023656769,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 51,
+      "runtime_task_id": "runtime-task-e461425549e62730",
+      "runtime_task_sha256": "e461425549e627307475cfebd09eb67034e1e93cd919562973b2b1650f2152bb",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m32/repeat_1",
+      "estimated_end_to_end_seconds": 94.79862048961836,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 52,
+      "runtime_task_id": "runtime-task-e88db2127ae0f671",
+      "runtime_task_sha256": "e88db2127ae0f67104a5ee8232caa7c2e16f974e9f074e9f83149387e9154d4f",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m16/repeat_1",
+      "estimated_end_to_end_seconds": 36.68774148710056,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 53,
+      "runtime_task_id": "runtime-task-fe5e2f662181e4b2",
+      "runtime_task_sha256": "fe5e2f662181e4b2f889f1fc02a0417b8b7bea38e02a73db6cf68c0178dbbcb7",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m16/repeat_1",
+      "estimated_end_to_end_seconds": 36.867074512320755,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 54,
+      "runtime_task_id": "runtime-task-3b58bfae9ee90a11",
+      "runtime_task_sha256": "3b58bfae9ee90a11829c0aef38b7d0cace93deb347f860802a67a09ec3850a0d",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m16/repeat_1",
+      "estimated_end_to_end_seconds": 87.80751683231831,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 55,
+      "runtime_task_id": "runtime-task-4d2bd7ead8058277",
+      "runtime_task_sha256": "4d2bd7ead80582771067400c4dbd9010fd9c6179040dc3a329edf2152ec42f52",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m16/repeat_1",
+      "estimated_end_to_end_seconds": 43.36435113520483,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 56,
+      "runtime_task_id": "runtime-task-a78f8a92f0e8913e",
+      "runtime_task_sha256": "a78f8a92f0e8913e9df5bcf9154795e4f8eb8f26fdb4f76a72e237e7547d167b",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m8/repeat_1",
+      "estimated_end_to_end_seconds": 37.33388330042362,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 57,
+      "runtime_task_id": "runtime-task-817428068c832676",
+      "runtime_task_sha256": "817428068c832676f8463717b5feb73791b008c8c355c865a52a1b8ad9143620",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m8/repeat_1",
+      "estimated_end_to_end_seconds": 43.91342806816101,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 58,
+      "runtime_task_id": "runtime-task-1cf591ed8872270e",
+      "runtime_task_sha256": "1cf591ed8872270e1d9cfc18f13f17ea681b2e731741df5d7ec35c9b92dd9cad",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m8/repeat_1",
+      "estimated_end_to_end_seconds": 37.15227957069874,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 59,
+      "runtime_task_id": "runtime-task-5b512405203f3dd8",
+      "runtime_task_sha256": "5b512405203f3dd8c5a535bf29a051312ac9fffb3453099c01f9325907e2acdc",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m8/repeat_1",
+      "estimated_end_to_end_seconds": 71.45611056685448,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 60,
+      "runtime_task_id": "runtime-task-437d7da30e90b8a0",
+      "runtime_task_sha256": "437d7da30e90b8a0f391e802c2cb098100087ec61f0c344b5ff4373c6ff4b2df",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m4/repeat_1",
+      "estimated_end_to_end_seconds": 52.485059362083334,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 61,
+      "runtime_task_id": "runtime-task-9ca00a9494185f1c",
+      "runtime_task_sha256": "9ca00a9494185f1cf9c440003a74cbc2173f2cf4836693b691be7f0923a42579",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m4/repeat_1",
+      "estimated_end_to_end_seconds": 12.280558663458322,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 62,
+      "runtime_task_id": "runtime-task-7067bc912ab53380",
+      "runtime_task_sha256": "7067bc912ab53380fb5cede2ceace11d5fb339a3ea93df5089e93fcc12e3f4ad",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m4/repeat_1",
+      "estimated_end_to_end_seconds": 10.389777542326968,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 63,
+      "runtime_task_id": "runtime-task-11efaffd41aae50d",
+      "runtime_task_sha256": "11efaffd41aae50dbe1751c7ab84c09c5406406ae0d7cfe534e83e263d90abbd",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m4/repeat_1",
+      "estimated_end_to_end_seconds": 10.440563722192671,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 64,
+      "runtime_task_id": "runtime-task-5b8288f0f8ad47c3",
+      "runtime_task_sha256": "5b8288f0f8ad47c3478556712ac39c6bc2fd54d2a6b01fd7ccaf02d6b0269dd8",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m2/repeat_1",
+      "estimated_end_to_end_seconds": 6.576258786031693,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 65,
+      "runtime_task_id": "runtime-task-ae11c43bb74a33b9",
+      "runtime_task_sha256": "ae11c43bb74a33b92035f36b9fbc1cdd368e1ddd03573467b5b9d2d2d4fcb064",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m2/repeat_1",
+      "estimated_end_to_end_seconds": 31.637289846273568,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 66,
+      "runtime_task_id": "runtime-task-256e77f0f06de99b",
+      "runtime_task_sha256": "256e77f0f06de99b9a04dd138a13bdacdc269a1e0e27b2ecd5929ab0c6026c96",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m2/repeat_1",
+      "estimated_end_to_end_seconds": 6.608404138537096,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 67,
+      "runtime_task_id": "runtime-task-ad50c44006c2548e",
+      "runtime_task_sha256": "ad50c44006c2548e423e10bed0df45d11a9a0181c0faa4d16a2ce5df911e5794",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m2/repeat_1",
+      "estimated_end_to_end_seconds": 7.773037630395482,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 68,
+      "runtime_task_id": "runtime-task-a3a08ab0e3d75b97",
+      "runtime_task_sha256": "a3a08ab0e3d75b9703a3af2f0a91e32215acac5a2c3309efe5cdf49c7a97ce2b",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m1/repeat_1",
+      "estimated_end_to_end_seconds": 8.139583611646337,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 69,
+      "runtime_task_id": "runtime-task-df9931b419391c4c",
+      "runtime_task_sha256": "df9931b419391c4c1245e3127f5dd1329b2a330b80e2eab9989669cf2fd29ca5",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m1/repeat_1",
+      "estimated_end_to_end_seconds": 9.574064839666917,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 70,
+      "runtime_task_id": "runtime-task-330ec0bde3afa010",
+      "runtime_task_sha256": "330ec0bde3afa010924777b06218ac9566080600f1fceac9a01058243ca2a007",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m1/repeat_1",
+      "estimated_end_to_end_seconds": 26.86363700723633,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 71,
+      "runtime_task_id": "runtime-task-10144f0563c31e8b",
+      "runtime_task_sha256": "10144f0563c31e8bad89a3ed8e1528fbb3201492869b62f9f429acd3dfd576be",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 1,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m1/repeat_1",
+      "estimated_end_to_end_seconds": 8.099990121454393,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 72,
+      "runtime_task_id": "runtime-task-0b8c7939b3d8119f",
+      "runtime_task_sha256": "0b8c7939b3d8119f82b35bb612a1befaad7b1c78e484bba3842957c1a5b11fed",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m1/repeat_2",
+      "estimated_end_to_end_seconds": 8.099990121454393,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 73,
+      "runtime_task_id": "runtime-task-7062c3e1caf11180",
+      "runtime_task_sha256": "7062c3e1caf11180ebcb38295411da94085c2894d9680b8dde6f893ee7ccc674",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m1/repeat_2",
+      "estimated_end_to_end_seconds": 8.139583611646337,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 74,
+      "runtime_task_id": "runtime-task-baf83c68b83c598a",
+      "runtime_task_sha256": "baf83c68b83c598a6762ecf60e0db5dd750dcf651f59832c2d1d5f02221cc5c2",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m1/repeat_2",
+      "estimated_end_to_end_seconds": 26.86363700723633,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 75,
+      "runtime_task_id": "runtime-task-59b455595b1e722a",
+      "runtime_task_sha256": "59b455595b1e722a83ff788b2cb4037501abfc8b08708b64b0c5878055cc0981",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 1,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m1/repeat_2",
+      "estimated_end_to_end_seconds": 9.574064839666917,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 76,
+      "runtime_task_id": "runtime-task-f53861448cf2f958",
+      "runtime_task_sha256": "f53861448cf2f958c6e9bfad4748dc9675c07a3b67effa2cb5069d640728ca43",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m2/repeat_2",
+      "estimated_end_to_end_seconds": 6.608404138537096,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 77,
+      "runtime_task_id": "runtime-task-275f43c81992d3ac",
+      "runtime_task_sha256": "275f43c81992d3acd408c49964c33ccf78de7bc1c4632dedb7168a648160b32e",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m2/repeat_2",
+      "estimated_end_to_end_seconds": 7.773037630395482,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 78,
+      "runtime_task_id": "runtime-task-d9b0c47c4ab611c3",
+      "runtime_task_sha256": "d9b0c47c4ab611c3ace1d6f2280bde9597a9f685ddf46bb8a5f6fef87ed902a8",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m2/repeat_2",
+      "estimated_end_to_end_seconds": 6.576258786031693,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 79,
+      "runtime_task_id": "runtime-task-14a32ac82c589485",
+      "runtime_task_sha256": "14a32ac82c589485612ed720bbdb8fecbe1243c8310b47e93219f2d35690a07b",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 2,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m2/repeat_2",
+      "estimated_end_to_end_seconds": 31.637289846273568,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 80,
+      "runtime_task_id": "runtime-task-b87103f073d59343",
+      "runtime_task_sha256": "b87103f073d5934339758fe4cc1e3c0c7aaa33c9982d9e52fe3fd0e79115e5eb",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m4/repeat_2",
+      "estimated_end_to_end_seconds": 52.485059362083334,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 81,
+      "runtime_task_id": "runtime-task-4f5c3ff4d4521556",
+      "runtime_task_sha256": "4f5c3ff4d4521556b06d133185b489d3387ffb99412ba253ad1573e96e8b2720",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m4/repeat_2",
+      "estimated_end_to_end_seconds": 12.280558663458322,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 82,
+      "runtime_task_id": "runtime-task-ab0b4a9253361d32",
+      "runtime_task_sha256": "ab0b4a9253361d32b38706b18cc0e322223eb9a2beb049019d73b9a32573ade9",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m4/repeat_2",
+      "estimated_end_to_end_seconds": 10.389777542326968,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 83,
+      "runtime_task_id": "runtime-task-5c204e3b6ac03cf4",
+      "runtime_task_sha256": "5c204e3b6ac03cf47fb8f26b4fa1151c89e5777509160b7310c3a80e87cf22a0",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 4,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m4/repeat_2",
+      "estimated_end_to_end_seconds": 10.440563722192671,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 84,
+      "runtime_task_id": "runtime-task-6bc9f74b87919a6e",
+      "runtime_task_sha256": "6bc9f74b87919a6e13cc68904811915a71f6533230c8665a70e8c2ab41230281",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m8/repeat_2",
+      "estimated_end_to_end_seconds": 37.15227957069874,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 85,
+      "runtime_task_id": "runtime-task-c7cd5bae1a2a5540",
+      "runtime_task_sha256": "c7cd5bae1a2a5540b814455aa633a29f2b7179c5c247ff242638e430bd8fdb03",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m8/repeat_2",
+      "estimated_end_to_end_seconds": 71.45611056685448,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 86,
+      "runtime_task_id": "runtime-task-10c50542676dac1d",
+      "runtime_task_sha256": "10c50542676dac1d2717f84ac7cf5cbc06a8f9af2d77dd679f10061c75e78de5",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m8/repeat_2",
+      "estimated_end_to_end_seconds": 37.33388330042362,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 87,
+      "runtime_task_id": "runtime-task-838c8c9b1391fdd7",
+      "runtime_task_sha256": "838c8c9b1391fdd79fee350280be26678bf5c444acb21ca63ec517c4dbf24369",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 8,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m8/repeat_2",
+      "estimated_end_to_end_seconds": 43.91342806816101,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 88,
+      "runtime_task_id": "runtime-task-01f9aeaaef024dac",
+      "runtime_task_sha256": "01f9aeaaef024dac367bd4e1bb84c88bb4a8cdf0731cb1b312480d6a031c02c5",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m16/repeat_2",
+      "estimated_end_to_end_seconds": 36.867074512320755,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 89,
+      "runtime_task_id": "runtime-task-e7fa05a57e44f67f",
+      "runtime_task_sha256": "e7fa05a57e44f67f7ce6940d7c66f83936e90cb450afa19d071febbc0d998219",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m16/repeat_2",
+      "estimated_end_to_end_seconds": 43.36435113520483,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 90,
+      "runtime_task_id": "runtime-task-b1061aff67bb4099",
+      "runtime_task_sha256": "b1061aff67bb409915c391c8e8d07c844e041b5397b2ebbf2db22f7631cda5ea",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m16/repeat_2",
+      "estimated_end_to_end_seconds": 87.80751683231831,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 91,
+      "runtime_task_id": "runtime-task-825f2fa70715f108",
+      "runtime_task_sha256": "825f2fa70715f1089018224302b08c1e437af6a2652d16f765282f8fc0b45287",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 16,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m16/repeat_2",
+      "estimated_end_to_end_seconds": 36.68774148710056,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 92,
+      "runtime_task_id": "runtime-task-0956667c700e5755",
+      "runtime_task_sha256": "0956667c700e57557e826c315dbc01fe316a4119912a03c2e63c33c11de0000f",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71",
+      "runtime_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.009
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__runtime-be6f4a373a71/m32/repeat_2",
+      "estimated_end_to_end_seconds": 111.50547528990947,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 93,
+      "runtime_task_id": "runtime-task-41bff776aa8e665e",
+      "runtime_task_sha256": "41bff776aa8e665e90357d63ec4307b9fa3007e6fb88cf959a9da7995a79060f",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca",
+      "runtime_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.008
+      ],
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-cbb2f9ab5aca/m32/repeat_2",
+      "estimated_end_to_end_seconds": 94.33749023656769,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 94,
+      "runtime_task_id": "runtime-task-4ec3777713efecd7",
+      "runtime_task_sha256": "4ec3777713efecd792316a451e37bad62d0941425e938b8219396ecb0ffef0bf",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf",
+      "runtime_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "epsilons": [
+        0.01
+      ],
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "full_rounds": 960,
+      "rounds": 960,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__runtime-bf7a41c99cdf/m32/repeat_2",
+      "estimated_end_to_end_seconds": 94.79862048961836,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    },
+    {
+      "sequence": 95,
+      "runtime_task_id": "runtime-task-c2c3f20734910b3b",
+      "runtime_task_sha256": "c2c3f20734910b3bfb1247da945c021dd30bd5f0a37514aaf5ef3475204efb7f",
+      "phase": "measured",
+      "include_in_summary": true,
+      "repeat": 2,
+      "runtime_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027",
+      "runtime_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "full_rounds": 1920,
+      "rounds": 1920,
+      "worker_count": 32,
+      "benchmark_seed": 0,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__runtime-f1b9b7cb1027/m32/repeat_2",
+      "estimated_end_to_end_seconds": 167.0666705008732,
+      "estimate_source": "formal-m8-median-times-step5-96-round-scaling-ratio"
+    }
+  ],
+  "time_estimate": {
+    "estimate_rule": "formal-m8-anchor-step5-scaling-v1",
+    "raw_seconds": 3353.1205654488313,
+    "raw_hours": 0.931422379291342,
+    "conservative_multiplier": 1.5,
+    "conservative_seconds": 5029.680848173247,
+    "conservative_hours": 1.397133568937013,
+    "formal_m8_median_end_to_end_by_config": {
+      "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf": 71.45611056685448,
+      "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603": 37.33388330042362,
+      "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81": 43.91342806816101,
+      "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6": 37.15227957069874
+    },
+    "step5_m_over_m8_end_to_end_ratio": {
+      "NOG-FO__m1": 0.21802134929676548,
+      "NOG-FO__m2": 0.17700821758507268,
+      "NOG-FO__m4": 0.2796538371906842,
+      "NOG-FO__m8": 1.0,
+      "NOG-FO__m16": 0.9874963773699488,
+      "NOG-FO__m32": 2.539211357328657,
+      "ME-DOL-FO__m1": 0.3759459729074207,
+      "ME-DOL-FO__m2": 0.4427513559763886,
+      "ME-DOL-FO__m4": 0.7345076431633962,
+      "ME-DOL-FO__m8": 1.0,
+      "ME-DOL-FO__m16": 1.228831462218552,
+      "ME-DOL-FO__m32": 2.3380319636144384
+    },
+    "caveats": [
+      "Step 5 scaling ratios came from one diagnostic seed and a different short configuration.",
+      "System load and process startup can increase observed wall time.",
+      "Warm-ups are separate short process launches and are excluded from summaries."
+    ]
+  },
+  "interleaving_note": "ME-DOL has one deduplicated config and NOG has three; rotating insertion balances order positions but cannot alternate every adjacent task.",
+  "runtime_manifest_sha256": "32d23c715284d8017bb34be55f2bb0db2fffe12fa90346ad34a8578130a7f758",
+  "launches_started": 0
+}

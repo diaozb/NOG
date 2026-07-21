@@ -1,0 +1,93 @@
+{
+  "method": "NOG-FO",
+  "formal_seed": 0,
+  "worker_count": 4,
+  "rng_mode": "rank_schedule",
+  "rank_metadata": [
+    {
+      "rank": 0,
+      "pid": 65122,
+      "shard_size": 1024,
+      "shard_sha256": "57235b8be5c350cf6ad82259fa0a32ce7de55c836b442fc90db67d4c7565a2a8",
+      "torch_threads": 1
+    },
+    {
+      "rank": 1,
+      "pid": 65123,
+      "shard_size": 1024,
+      "shard_sha256": "c0c61ec848a39a21217fb02bae2cd8137c2b8adcf832507f89676b43e65df69e",
+      "torch_threads": 1
+    },
+    {
+      "rank": 2,
+      "pid": 65124,
+      "shard_size": 1024,
+      "shard_sha256": "ca8dee2213f7243e33a7059f5434e42c43df6abb248a67ea618027e781ed6871",
+      "torch_threads": 1
+    },
+    {
+      "rank": 3,
+      "pid": 65125,
+      "shard_size": 1024,
+      "shard_sha256": "b85989d86698938363b4840656e359ae8df4db911ce63936d808ac02a360741a",
+      "torch_threads": 1
+    }
+  ],
+  "rows": [
+    {
+      "method": "NOG-FO",
+      "base_method": "NOG",
+      "iteration": 12,
+      "round": 12,
+      "block_id": 1,
+      "worker_count": 4,
+      "eval_point": "y_bar",
+      "delta": 0.1,
+      "M": 12,
+      "lr_or_eta": 0.3,
+      "block_oracle_norm": 0.015025111846625805,
+      "time_sec": 0.954295739531517,
+      "training_time": 0.954295739531517,
+      "communication_time": 0.05155658721923828,
+      "evaluation_time": 0.04127863049507141,
+      "formal_seed": 0,
+      "problem_seed": 100000,
+      "partition_seed": 200000,
+      "method_seed": 2137108057,
+      "oracle_type": "sfo",
+      "work": 1792,
+      "total_work": 1792,
+      "per_worker_work_max": 448,
+      "per_worker_work": [
+        448,
+        448,
+        448,
+        448
+      ],
+      "eval_work": 8192,
+      "communication_round": 14,
+      "depth": 14,
+      "objective": 0.7178400754928589,
+      "stat_proxy": 0.010596535168588161
+    }
+  ],
+  "launch": {
+    "world_size": 4,
+    "child_pids": [
+      65122,
+      65123,
+      65124,
+      65125
+    ],
+    "master_addr": "127.0.0.1",
+    "master_port": 56505,
+    "end_to_end_time": 4.901932418346405
+  },
+  "schema_version": 1,
+  "config_sha256": "c35a53f47500285a90d9d3083a979258a8a191f23380aa3e90288bb26d7cc77d",
+  "task_fingerprint": "416851cf0c72c0bbe659daea7934df790004eed8bc222f3a1ecf49319259b671",
+  "task_key": "NOG-FO__m4__seed0__cfg416851cf0c72",
+  "attempt_id": "b8c3950604b54d7990d070efd1ad1cb5",
+  "started_at_utc": "2026-07-15T08:52:51.639461+00:00",
+  "finished_at_utc": "2026-07-15T08:53:00.445549+00:00"
+}

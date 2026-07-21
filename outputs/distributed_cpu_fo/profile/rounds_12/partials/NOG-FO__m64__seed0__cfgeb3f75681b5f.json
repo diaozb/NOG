@@ -1,0 +1,633 @@
+{
+  "method": "NOG-FO",
+  "formal_seed": 0,
+  "worker_count": 64,
+  "rng_mode": "rank_schedule",
+  "rank_metadata": [
+    {
+      "rank": 0,
+      "pid": 7876,
+      "shard_size": 64,
+      "shard_sha256": "dc3e58cbd8326be97faf49321f875fff14b394eeac5a189dcdea9f59f0d6cd5b",
+      "torch_threads": 1
+    },
+    {
+      "rank": 1,
+      "pid": 7877,
+      "shard_size": 64,
+      "shard_sha256": "e2a7eb91c3d6ae9b392b4b5663b9ff4e4fba399bea2ee7a6b369680e4df85b92",
+      "torch_threads": 1
+    },
+    {
+      "rank": 2,
+      "pid": 7878,
+      "shard_size": 64,
+      "shard_sha256": "c713d4f1d509bd61cc9f39bb8e56fd0918115722e4440dfa0dc04b0341411ae2",
+      "torch_threads": 1
+    },
+    {
+      "rank": 3,
+      "pid": 7879,
+      "shard_size": 64,
+      "shard_sha256": "1480805ed5b70a8672debecad19baf172ddea05a4fde21e5ae90aa232059e312",
+      "torch_threads": 1
+    },
+    {
+      "rank": 4,
+      "pid": 7880,
+      "shard_size": 64,
+      "shard_sha256": "acd652bc92eb0828d4c33ab398eae944daf80d7aeb8f73b2ead7e93f122de073",
+      "torch_threads": 1
+    },
+    {
+      "rank": 5,
+      "pid": 7881,
+      "shard_size": 64,
+      "shard_sha256": "9d8c7d82e29d7fff31c87bf16eb915437e6d6c294bbb9c9b9171872e25e175c7",
+      "torch_threads": 1
+    },
+    {
+      "rank": 6,
+      "pid": 7882,
+      "shard_size": 64,
+      "shard_sha256": "0fc772a1374c3a1fba7d7ddc5f80db0a2254d6a816a7a72aedcf17fc8f55a733",
+      "torch_threads": 1
+    },
+    {
+      "rank": 7,
+      "pid": 7883,
+      "shard_size": 64,
+      "shard_sha256": "cda004bd8ea3f148463033cea47b505cc9d32191b1646e2a29cfc98cd72a5f8c",
+      "torch_threads": 1
+    },
+    {
+      "rank": 8,
+      "pid": 7884,
+      "shard_size": 64,
+      "shard_sha256": "376699228b54eae1c0e204f56e713a7fc64d92681addba9818d5766a2ac4a052",
+      "torch_threads": 1
+    },
+    {
+      "rank": 9,
+      "pid": 7885,
+      "shard_size": 64,
+      "shard_sha256": "9a9bbe9729926d330d4a8bb1d36f0220f640954d67424fce145d9f1ac9a46019",
+      "torch_threads": 1
+    },
+    {
+      "rank": 10,
+      "pid": 7886,
+      "shard_size": 64,
+      "shard_sha256": "42d21d2b750b1e39a2058cbfd0713b739b7fae54d5ef6a1f59c98c01d5dc22a4",
+      "torch_threads": 1
+    },
+    {
+      "rank": 11,
+      "pid": 7887,
+      "shard_size": 64,
+      "shard_sha256": "5ef3ab6641e2c6d69af3e25defae88d770689fbf95223d67ca6246032b5b22d1",
+      "torch_threads": 1
+    },
+    {
+      "rank": 12,
+      "pid": 7888,
+      "shard_size": 64,
+      "shard_sha256": "302c3859c791a53e3cf55dc808a28c6d0c998375ca0f18ba98e0028b736c6d69",
+      "torch_threads": 1
+    },
+    {
+      "rank": 13,
+      "pid": 7889,
+      "shard_size": 64,
+      "shard_sha256": "d51f3948c21a850017857ba310d91c96a310e3017911356b22a6634fcdb93ae3",
+      "torch_threads": 1
+    },
+    {
+      "rank": 14,
+      "pid": 7890,
+      "shard_size": 64,
+      "shard_sha256": "e8ba473cf5ba9183a68eac9dc35304d4c33b5605e79a97df2a08162d2b074a84",
+      "torch_threads": 1
+    },
+    {
+      "rank": 15,
+      "pid": 7891,
+      "shard_size": 64,
+      "shard_sha256": "3f7be16cdbe2030c994319c01adbaf0226ab4223596ff279829eb63fdf313cea",
+      "torch_threads": 1
+    },
+    {
+      "rank": 16,
+      "pid": 7892,
+      "shard_size": 64,
+      "shard_sha256": "9862ce7b47fa54347e99a18fd6477ee7346497f03d4c6db1fde3450d0d1c9547",
+      "torch_threads": 1
+    },
+    {
+      "rank": 17,
+      "pid": 7893,
+      "shard_size": 64,
+      "shard_sha256": "1b2516bb0170d5dc376a032301ae774d97799f53b19eccc4bbac6cfef1b0b760",
+      "torch_threads": 1
+    },
+    {
+      "rank": 18,
+      "pid": 7894,
+      "shard_size": 64,
+      "shard_sha256": "b06e9cd15a0ea80fb9f4bce0c8682e2cdf0d7b5277838f9f94b785a1ffe51c46",
+      "torch_threads": 1
+    },
+    {
+      "rank": 19,
+      "pid": 7895,
+      "shard_size": 64,
+      "shard_sha256": "3d2c79d76162e4ed48e7b5a1a6141480d30197f146f2b4953241da2307de521c",
+      "torch_threads": 1
+    },
+    {
+      "rank": 20,
+      "pid": 7896,
+      "shard_size": 64,
+      "shard_sha256": "215e564dd532d12a7aa461298eecafb4734b519591d72de9ac3948e26e29892c",
+      "torch_threads": 1
+    },
+    {
+      "rank": 21,
+      "pid": 7897,
+      "shard_size": 64,
+      "shard_sha256": "e678060d608fd43af1b6d882fdec5747c6d4a6e78541e0e7e48dfd678a1eca6b",
+      "torch_threads": 1
+    },
+    {
+      "rank": 22,
+      "pid": 7898,
+      "shard_size": 64,
+      "shard_sha256": "d3834e46d21f8ca7cea53716108770b9862f788dd92b58680eb6f6e6703b77d6",
+      "torch_threads": 1
+    },
+    {
+      "rank": 23,
+      "pid": 7899,
+      "shard_size": 64,
+      "shard_sha256": "de7a03b33f68c25e64198434141639f1101b593660b9f489e704e91d0f6d794c",
+      "torch_threads": 1
+    },
+    {
+      "rank": 24,
+      "pid": 7900,
+      "shard_size": 64,
+      "shard_sha256": "87e0afad732740155e5eb052727aa6b7c3f6da97c0554198554bc7164737dd03",
+      "torch_threads": 1
+    },
+    {
+      "rank": 25,
+      "pid": 7901,
+      "shard_size": 64,
+      "shard_sha256": "b75361f188bd1089d734e72b459c5a463b0a71fccb76c0e7fbcc41f17481ebc2",
+      "torch_threads": 1
+    },
+    {
+      "rank": 26,
+      "pid": 7902,
+      "shard_size": 64,
+      "shard_sha256": "a19fe519d90d1c1330f3e4b8c94aef9eb99671f87a77965da0e1d606c8b80303",
+      "torch_threads": 1
+    },
+    {
+      "rank": 27,
+      "pid": 7903,
+      "shard_size": 64,
+      "shard_sha256": "f8641bf2f55a210942c0232bae3bad82ba4b022366a42e0e7a8e424fedf18db1",
+      "torch_threads": 1
+    },
+    {
+      "rank": 28,
+      "pid": 7904,
+      "shard_size": 64,
+      "shard_sha256": "7d6d978964a437c2c93ceee6f28ef69c2227d3b0b622438d5b8c7291bbcd264e",
+      "torch_threads": 1
+    },
+    {
+      "rank": 29,
+      "pid": 7905,
+      "shard_size": 64,
+      "shard_sha256": "925a09b9d913779f43a8bdf4e4e76eab8f89fc838ff18e38b23298cfa8597d65",
+      "torch_threads": 1
+    },
+    {
+      "rank": 30,
+      "pid": 7906,
+      "shard_size": 64,
+      "shard_sha256": "c4454ef1c02e9eb08c10a3daecb95534ae751d91f2b495d33a169054dc8ea395",
+      "torch_threads": 1
+    },
+    {
+      "rank": 31,
+      "pid": 7907,
+      "shard_size": 64,
+      "shard_sha256": "dc8e95a3b23caf7eb653af63c7610760425a1d43887435b4aa9039e38727ae6c",
+      "torch_threads": 1
+    },
+    {
+      "rank": 32,
+      "pid": 7908,
+      "shard_size": 64,
+      "shard_sha256": "f7099999ceffde6dd78a7af7e0e4d2ad05ebb5b2c85e36595d95a5020d8f0cc8",
+      "torch_threads": 1
+    },
+    {
+      "rank": 33,
+      "pid": 7909,
+      "shard_size": 64,
+      "shard_sha256": "d9198ee2895a4e810815b0e90ca5cb959bc10240beb9d4e4f1e2803ad2ec6a55",
+      "torch_threads": 1
+    },
+    {
+      "rank": 34,
+      "pid": 7910,
+      "shard_size": 64,
+      "shard_sha256": "69eea4dffc58ddfad7ef354cfe85d81121631c8d4efe26cc95c525f9be49cf66",
+      "torch_threads": 1
+    },
+    {
+      "rank": 35,
+      "pid": 7911,
+      "shard_size": 64,
+      "shard_sha256": "b0639900fbe7641dd1230eb6699b19633da0ffe8cd846f24bf0b3eed645d3dff",
+      "torch_threads": 1
+    },
+    {
+      "rank": 36,
+      "pid": 7912,
+      "shard_size": 64,
+      "shard_sha256": "6dc7359a37f6ed285ee016dfc9d8bfbebd963147c0d0f342ceaaba38a906a99f",
+      "torch_threads": 1
+    },
+    {
+      "rank": 37,
+      "pid": 7913,
+      "shard_size": 64,
+      "shard_sha256": "32adddf021ed7d4e4710c2054345ac53691997c0182a7b2ebb2ffe0469b4bb89",
+      "torch_threads": 1
+    },
+    {
+      "rank": 38,
+      "pid": 7914,
+      "shard_size": 64,
+      "shard_sha256": "8ba7a846b289f7328682575e9414153928b09c7e7e07ba510c997949fb160e84",
+      "torch_threads": 1
+    },
+    {
+      "rank": 39,
+      "pid": 7915,
+      "shard_size": 64,
+      "shard_sha256": "1f267d6f7666a97665e98e80cc49cde1c84e3e5fa8bd86698941532c46e51255",
+      "torch_threads": 1
+    },
+    {
+      "rank": 40,
+      "pid": 7916,
+      "shard_size": 64,
+      "shard_sha256": "52c00d4ed279759e4d4b6adcea5a7fe005ee8fc8c96a3bd91d2a15b972015380",
+      "torch_threads": 1
+    },
+    {
+      "rank": 41,
+      "pid": 7917,
+      "shard_size": 64,
+      "shard_sha256": "e9df007c54f267dbe2661332a1b4c0aa5121db36f22d82ef056972fa7b1ca825",
+      "torch_threads": 1
+    },
+    {
+      "rank": 42,
+      "pid": 7918,
+      "shard_size": 64,
+      "shard_sha256": "bcecbf59291519024a0e57f401e95382a275150350c8920523808b0cbbdc4667",
+      "torch_threads": 1
+    },
+    {
+      "rank": 43,
+      "pid": 7919,
+      "shard_size": 64,
+      "shard_sha256": "06d07b2d7422baeb78cf2dba6033273e3eebe604a7d9571304a9e546107753a0",
+      "torch_threads": 1
+    },
+    {
+      "rank": 44,
+      "pid": 7920,
+      "shard_size": 64,
+      "shard_sha256": "eda19063f827b380d6012c4dc897a9bf241022408ee0e4e7712ac8e899178fa4",
+      "torch_threads": 1
+    },
+    {
+      "rank": 45,
+      "pid": 7921,
+      "shard_size": 64,
+      "shard_sha256": "57b1cf72fa50db286fd7717e7dbab53f9359d0e2acf261dcaf87d2e11815b62b",
+      "torch_threads": 1
+    },
+    {
+      "rank": 46,
+      "pid": 7922,
+      "shard_size": 64,
+      "shard_sha256": "17087ee501a9f825556e6f9b40b7d45e58bf89223d38b4f913cd7e65417e2186",
+      "torch_threads": 1
+    },
+    {
+      "rank": 47,
+      "pid": 7923,
+      "shard_size": 64,
+      "shard_sha256": "83501191be7f9800c62331ac1e2f31c075d3e38b54cdd9c554b54edad54fcf66",
+      "torch_threads": 1
+    },
+    {
+      "rank": 48,
+      "pid": 7924,
+      "shard_size": 64,
+      "shard_sha256": "a076bfc038f3b96a0b977528705e4c6635bfcfaf73fe78b1fff537c84470a13e",
+      "torch_threads": 1
+    },
+    {
+      "rank": 49,
+      "pid": 7925,
+      "shard_size": 64,
+      "shard_sha256": "9ff9390e75b8a1c994a604ffbb2aaef46ce79e57c18bf7cae2fbb5fcce2fd0f1",
+      "torch_threads": 1
+    },
+    {
+      "rank": 50,
+      "pid": 7926,
+      "shard_size": 64,
+      "shard_sha256": "8722ce5c70cce7b8fe2ca4599eafd2fdeeb3b3a0c9045fdc53dae9d27fe3006c",
+      "torch_threads": 1
+    },
+    {
+      "rank": 51,
+      "pid": 7927,
+      "shard_size": 64,
+      "shard_sha256": "2dbfc88d2827317daa2a559a59bf2575a4fa21f5f04c8e3f5527c34de99c4dd5",
+      "torch_threads": 1
+    },
+    {
+      "rank": 52,
+      "pid": 7928,
+      "shard_size": 64,
+      "shard_sha256": "cc9d17d71181274e191700e275b0c154ab032a99110f2d167e3f29bdafcce41d",
+      "torch_threads": 1
+    },
+    {
+      "rank": 53,
+      "pid": 7929,
+      "shard_size": 64,
+      "shard_sha256": "4d84573e3c76d58a0e904902487a4d4eb2931f77ef3b338af19b02747b10297a",
+      "torch_threads": 1
+    },
+    {
+      "rank": 54,
+      "pid": 7930,
+      "shard_size": 64,
+      "shard_sha256": "e0344eca0d712d082d0020dc3627c5b58baab89188b8fdf09ae37be04f920329",
+      "torch_threads": 1
+    },
+    {
+      "rank": 55,
+      "pid": 7931,
+      "shard_size": 64,
+      "shard_sha256": "60795b391bf934a5d39c23d80cd51420831fedff7f40d62ff1ea6ccb04332075",
+      "torch_threads": 1
+    },
+    {
+      "rank": 56,
+      "pid": 7932,
+      "shard_size": 64,
+      "shard_sha256": "cc4ade5c816645a6a85544389329eb675245a5e8d5a68a34dacc73c0bfa51147",
+      "torch_threads": 1
+    },
+    {
+      "rank": 57,
+      "pid": 7933,
+      "shard_size": 64,
+      "shard_sha256": "7370127e216b803b6afc555c285818e0eead23f55e27e33d89b0650ff926ff92",
+      "torch_threads": 1
+    },
+    {
+      "rank": 58,
+      "pid": 7934,
+      "shard_size": 64,
+      "shard_sha256": "49ee055a2ad77e7708d0ce96f73e87c52a0973176322bc6c54a1fcec8c787904",
+      "torch_threads": 1
+    },
+    {
+      "rank": 59,
+      "pid": 7935,
+      "shard_size": 64,
+      "shard_sha256": "840aa79e996eb37b452a9f3a38a1357da28e45d66982e30d1e6c7c194d22c486",
+      "torch_threads": 1
+    },
+    {
+      "rank": 60,
+      "pid": 7936,
+      "shard_size": 64,
+      "shard_sha256": "06248d47a2ace9057810175027c3be92c9194b83887dcd6da064457b70a3d0d9",
+      "torch_threads": 1
+    },
+    {
+      "rank": 61,
+      "pid": 7937,
+      "shard_size": 64,
+      "shard_sha256": "c201128b3160ebe204801128ba560104d5e721182249b573fbdb0ca142bf15cb",
+      "torch_threads": 1
+    },
+    {
+      "rank": 62,
+      "pid": 7938,
+      "shard_size": 64,
+      "shard_sha256": "7336f27fbcb3628d1d4d0018c25491439897ff424b791b93c0e4cbdb654f9918",
+      "torch_threads": 1
+    },
+    {
+      "rank": 63,
+      "pid": 7939,
+      "shard_size": 64,
+      "shard_sha256": "62818f9bf8a26dc98fde064d8e0798b5e286bafe34701d8a214d76d77c9b898f",
+      "torch_threads": 1
+    }
+  ],
+  "rows": [
+    {
+      "method": "NOG-FO",
+      "base_method": "NOG",
+      "iteration": 12,
+      "round": 12,
+      "block_id": 1,
+      "worker_count": 64,
+      "eval_point": "y_bar",
+      "delta": 0.1,
+      "M": 12,
+      "lr_or_eta": 0.3,
+      "block_oracle_norm": 0.018680375069379807,
+      "time_sec": 6.562992617487907,
+      "training_time": 6.562992617487907,
+      "communication_time": 0.7003785967826843,
+      "evaluation_time": 0.06786537170410156,
+      "formal_seed": 0,
+      "problem_seed": 100000,
+      "partition_seed": 200000,
+      "method_seed": 450630985,
+      "oracle_type": "sfo",
+      "work": 1792,
+      "total_work": 1792,
+      "per_worker_work_max": 28,
+      "per_worker_work": [
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28
+      ],
+      "eval_work": 8192,
+      "communication_round": 14,
+      "depth": 14,
+      "objective": 0.7178243398666382,
+      "stat_proxy": 0.010343893431127071
+    }
+  ],
+  "launch": {
+    "world_size": 64,
+    "child_pids": [
+      7876,
+      7877,
+      7878,
+      7879,
+      7880,
+      7881,
+      7882,
+      7883,
+      7884,
+      7885,
+      7886,
+      7887,
+      7888,
+      7889,
+      7890,
+      7891,
+      7892,
+      7893,
+      7894,
+      7895,
+      7896,
+      7897,
+      7898,
+      7899,
+      7900,
+      7901,
+      7902,
+      7903,
+      7904,
+      7905,
+      7906,
+      7907,
+      7908,
+      7909,
+      7910,
+      7911,
+      7912,
+      7913,
+      7914,
+      7915,
+      7916,
+      7917,
+      7918,
+      7919,
+      7920,
+      7921,
+      7922,
+      7923,
+      7924,
+      7925,
+      7926,
+      7927,
+      7928,
+      7929,
+      7930,
+      7931,
+      7932,
+      7933,
+      7934,
+      7935,
+      7936,
+      7937,
+      7938,
+      7939
+    ],
+    "master_addr": "127.0.0.1",
+    "master_port": 43881,
+    "end_to_end_time": 24.164709702134132
+  },
+  "schema_version": 1,
+  "config_sha256": "c35a53f47500285a90d9d3083a979258a8a191f23380aa3e90288bb26d7cc77d",
+  "task_fingerprint": "eb3f75681b5f17cec81a531fe0eaf395663c8c7095e871246601fd5126df91bb",
+  "task_key": "NOG-FO__m64__seed0__cfgeb3f75681b5f",
+  "attempt_id": "d2a3c3dac4b04c6c95b3944a46dd2274",
+  "started_at_utc": "2026-07-15T08:53:51.583656+00:00",
+  "finished_at_utc": "2026-07-15T08:54:17.916352+00:00"
+}
