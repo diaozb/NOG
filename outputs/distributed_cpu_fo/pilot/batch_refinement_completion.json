@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "source_manifest": "nog_batch_refinement_manifest.json",
+  "rounds": 960,
+  "variant_count": 9,
+  "expected_tasks": 27,
+  "completed_tasks": 27,
+  "failed_tasks": 0,
+  "records": [
+    {
+      "candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-1",
+      "base_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+      "smooth_B": 1,
+      "status": "complete",
+      "completed_tasks": 3,
+      "failed_tasks": 0,
+      "output_root": "batch_refinement/rounds_960/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-1"
+    },
+    {
+      "candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4",
+      "base_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+      "smooth_B": 4,
+      "status": "complete",
+      "completed_tasks": 3,
+      "failed_tasks": 0,
+      "output_root": "batch_refinement/rounds_960/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4"
+    },
+    {
+      "candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8",
+      "base_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+      "smooth_B": 8,
+      "status": "complete",
+      "completed_tasks": 3,
+      "failed_tasks": 0,
+      "output_root": "batch_refinement/rounds_960/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8"
+    },
+    {
+      "candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-1",
+      "base_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+      "smooth_B": 1,
+      "status": "complete",
+      "completed_tasks": 3,
+      "failed_tasks": 0,
+      "output_root": "batch_refinement/rounds_960/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-1"
+    },
+    {
+      "candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-4",
+      "base_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+      "smooth_B": 4,
+      "status": "complete",
+      "completed_tasks": 3,
+      "failed_tasks": 0,
+      "output_root": "batch_refinement/rounds_960/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-4"
+    },
+    {
+      "candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8",
+      "base_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+      "smooth_B": 8,
+      "status": "complete",
+      "completed_tasks": 3,
+      "failed_tasks": 0,
+      "output_root": "batch_refinement/rounds_960/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8"
+    },
+    {
+      "candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-1",
+      "base_candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2",
+      "smooth_B": 1,
+      "status": "complete",
+      "completed_tasks": 3,
+      "failed_tasks": 0,
+      "output_root": "batch_refinement/rounds_960/NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-1"
+    },
+    {
+      "candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-4",
+      "base_candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2",
+      "smooth_B": 4,
+      "status": "complete",
+      "completed_tasks": 3,
+      "failed_tasks": 0,
+      "output_root": "batch_refinement/rounds_960/NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-4"
+    },
+    {
+      "candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-8",
+      "base_candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2",
+      "smooth_B": 8,
+      "status": "complete",
+      "completed_tasks": 3,
+      "failed_tasks": 0,
+      "output_root": "batch_refinement/rounds_960/NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-8"
+    }
+  ]
+}

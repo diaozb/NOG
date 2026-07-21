@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "updated_at_utc": "2026-07-16T04:46:29.926314+00:00",
+  "status": "complete",
+  "expected_tasks": 5,
+  "attempted_tasks": 5,
+  "completed_tasks": 5,
+  "failed_tasks": 0,
+  "environment": {
+    "created_at_utc": "2026-07-16T04:46:29.926334+00:00",
+    "python": "3.10.20",
+    "platform": "Linux-5.4.0-144-generic-x86_64-with-glibc2.31",
+    "hostname": "diaozibo0-0",
+    "torch": "2.1.2+cu121",
+    "cpu_count": 128
+  },
+  "records": [
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 0,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed0__cfgd320dc492c0f",
+      "partial_path": "partials/NOG-FO__m8__seed0__cfgd320dc492c0f.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed0__cfgd320dc492c0f.json",
+      "row_count": 21
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 1,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed1__cfgfe43d5a7d220",
+      "partial_path": "partials/NOG-FO__m8__seed1__cfgfe43d5a7d220.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed1__cfgfe43d5a7d220.json",
+      "row_count": 21
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 2,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed2__cfge6057700d441",
+      "partial_path": "partials/NOG-FO__m8__seed2__cfge6057700d441.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed2__cfge6057700d441.json",
+      "row_count": 21
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 3,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed3__cfg448fcabf49ba",
+      "partial_path": "partials/NOG-FO__m8__seed3__cfg448fcabf49ba.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed3__cfg448fcabf49ba.json",
+      "row_count": 21
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 4,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed4__cfg2b54a36650cc",
+      "partial_path": "partials/NOG-FO__m8__seed4__cfg2b54a36650cc.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed4__cfg2b54a36650cc.json",
+      "row_count": 21
+    }
+  ]
+}

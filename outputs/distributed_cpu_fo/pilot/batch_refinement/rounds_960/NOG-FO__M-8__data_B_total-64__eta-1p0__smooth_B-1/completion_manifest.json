@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "updated_at_utc": "2026-07-16T03:03:42.430430+00:00",
+  "status": "complete",
+  "expected_tasks": 3,
+  "attempted_tasks": 3,
+  "completed_tasks": 3,
+  "failed_tasks": 0,
+  "environment": {
+    "created_at_utc": "2026-07-16T03:03:42.430450+00:00",
+    "python": "3.10.20",
+    "platform": "Linux-5.4.0-144-generic-x86_64-with-glibc2.31",
+    "hostname": "diaozibo0-0",
+    "torch": "2.1.2+cu121",
+    "cpu_count": 128
+  },
+  "records": [
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 100,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed100__cfg13e47d31dea8",
+      "partial_path": "partials/NOG-FO__m8__seed100__cfg13e47d31dea8.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed100__cfg13e47d31dea8.json",
+      "row_count": 21
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 101,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed101__cfgcf569af0d2c8",
+      "partial_path": "partials/NOG-FO__m8__seed101__cfgcf569af0d2c8.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed101__cfgcf569af0d2c8.json",
+      "row_count": 21
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 102,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed102__cfg3a8ac51c409a",
+      "partial_path": "partials/NOG-FO__m8__seed102__cfg3a8ac51c409a.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed102__cfg3a8ac51c409a.json",
+      "row_count": 21
+    }
+  ]
+}

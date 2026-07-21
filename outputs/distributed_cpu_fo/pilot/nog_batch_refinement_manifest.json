@@ -1,0 +1,498 @@
+{
+  "schema_version": 1,
+  "status": "prepared",
+  "source_stage": "extension-1920",
+  "initial_rounds": 960,
+  "selection_rule": "union-top3-pareto-by-epsilon",
+  "per_epsilon_base_candidates": {
+    "0.0075": [
+      "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2"
+    ],
+    "0.008": [
+      "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2"
+    ],
+    "0.009": [
+      "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+      "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2"
+    ],
+    "0.01": [
+      "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2"
+    ],
+    "0.011": [
+      "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2"
+    ]
+  },
+  "base_candidate_count": 3,
+  "smooth_B_values": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "variant_count": 12,
+  "reused_variant_count": 3,
+  "runnable_variant_count": 9,
+  "runnable_task_count": 27,
+  "base_candidates": [
+    {
+      "candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+      "method": "NOG-FO",
+      "phase": "coarse",
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 2,
+        "data_B_total": 64
+      },
+      "reasons": [
+        "NOG-FO:epsilon=0.009:top3-pareto",
+        "NOG-FO:epsilon=0.011:top3-pareto"
+      ]
+    },
+    {
+      "candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+      "method": "NOG-FO",
+      "phase": "coarse",
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 2,
+        "data_B_total": 64
+      },
+      "reasons": [
+        "NOG-FO:epsilon=0.0075:top3-pareto",
+        "NOG-FO:epsilon=0.008:top3-pareto",
+        "NOG-FO:epsilon=0.009:top3-pareto"
+      ]
+    },
+    {
+      "candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2",
+      "method": "NOG-FO",
+      "phase": "coarse",
+      "parameters": {
+        "M": 16,
+        "eta": 0.1,
+        "smooth_B": 2,
+        "data_B_total": 64
+      },
+      "reasons": [
+        "NOG-FO:epsilon=0.01:top3-pareto"
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-1",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.009:top3-pareto",
+        "NOG-FO:epsilon=0.011:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 2,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.009:top3-pareto",
+        "NOG-FO:epsilon=0.011:top3-pareto"
+      ],
+      "reuse_existing": true
+    },
+    {
+      "candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.009:top3-pareto",
+        "NOG-FO:epsilon=0.011:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.009:top3-pareto",
+        "NOG-FO:epsilon=0.011:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-1",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.0075:top3-pareto",
+        "NOG-FO:epsilon=0.008:top3-pareto",
+        "NOG-FO:epsilon=0.009:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 2,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.0075:top3-pareto",
+        "NOG-FO:epsilon=0.008:top3-pareto",
+        "NOG-FO:epsilon=0.009:top3-pareto"
+      ],
+      "reuse_existing": true
+    },
+    {
+      "candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-4",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.0075:top3-pareto",
+        "NOG-FO:epsilon=0.008:top3-pareto",
+        "NOG-FO:epsilon=0.009:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.0075:top3-pareto",
+        "NOG-FO:epsilon=0.008:top3-pareto",
+        "NOG-FO:epsilon=0.009:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-1",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 16,
+        "eta": 0.1,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.01:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 16,
+        "eta": 0.1,
+        "smooth_B": 2,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.01:top3-pareto"
+      ],
+      "reuse_existing": true
+    },
+    {
+      "candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-4",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 16,
+        "eta": 0.1,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.01:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-8",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 16,
+        "eta": 0.1,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.01:top3-pareto"
+      ],
+      "reuse_existing": false
+    }
+  ],
+  "runnable_variants": [
+    {
+      "candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-1",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.009:top3-pareto",
+        "NOG-FO:epsilon=0.011:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.009:top3-pareto",
+        "NOG-FO:epsilon=0.011:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.009:top3-pareto",
+        "NOG-FO:epsilon=0.011:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-1",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.0075:top3-pareto",
+        "NOG-FO:epsilon=0.008:top3-pareto",
+        "NOG-FO:epsilon=0.009:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-4",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.0075:top3-pareto",
+        "NOG-FO:epsilon=0.008:top3-pareto",
+        "NOG-FO:epsilon=0.009:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.0075:top3-pareto",
+        "NOG-FO:epsilon=0.008:top3-pareto",
+        "NOG-FO:epsilon=0.009:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-1",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 16,
+        "eta": 0.1,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.01:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-4",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 16,
+        "eta": 0.1,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.01:top3-pareto"
+      ],
+      "reuse_existing": false
+    },
+    {
+      "candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-8",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 16,
+        "eta": 0.1,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.01:top3-pareto"
+      ],
+      "reuse_existing": false
+    }
+  ],
+  "reused_variants": [
+    {
+      "candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 2,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.009:top3-pareto",
+        "NOG-FO:epsilon=0.011:top3-pareto"
+      ],
+      "reuse_existing": true
+    },
+    {
+      "candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 2,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.0075:top3-pareto",
+        "NOG-FO:epsilon=0.008:top3-pareto",
+        "NOG-FO:epsilon=0.009:top3-pareto"
+      ],
+      "reuse_existing": true
+    },
+    {
+      "candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2",
+      "method": "NOG-FO",
+      "phase": "batch-refinement",
+      "parameters": {
+        "M": 16,
+        "eta": 0.1,
+        "smooth_B": 2,
+        "data_B_total": 64
+      },
+      "base_candidate_id": "NOG-FO__M-16__data_B_total-64__eta-0p1__smooth_B-2",
+      "reasons": [
+        "NOG-FO:epsilon=0.01:top3-pareto"
+      ],
+      "reuse_existing": true
+    }
+  ],
+  "launches_started": 0
+}

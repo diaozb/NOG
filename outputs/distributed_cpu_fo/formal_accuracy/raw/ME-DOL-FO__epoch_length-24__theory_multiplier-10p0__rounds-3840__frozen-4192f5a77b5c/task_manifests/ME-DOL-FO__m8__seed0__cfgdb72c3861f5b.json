@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "recovered_manifest": false,
+  "created_at_utc": "2026-07-16T04:20:46.121147+00:00",
+  "task_key": "ME-DOL-FO__m8__seed0__cfgdb72c3861f5b",
+  "task": {
+    "method": "ME-DOL-FO",
+    "formal_seed": 0,
+    "worker_count": 8
+  },
+  "config_sha256": "00cbf9e03d3f74835ec3725d42fed2ff0a04de2b98354d3114add902f2f181e3",
+  "task_fingerprint": "db72c3861f5b3dc29c6fe30ab3a7f9ead50615f8e6b206906055c35ea6e65920",
+  "partial_path": "partials/ME-DOL-FO__m8__seed0__cfgdb72c3861f5b.json",
+  "partial_sha256": "1a56f6309716d4e29e8dce6e928d1ea914fb7d2d6f11fbaee25d68bf7ec622bc",
+  "row_count": 81,
+  "launch": {
+    "world_size": 8,
+    "child_pids": [
+      34447,
+      34448,
+      34449,
+      34450,
+      34451,
+      34452,
+      34453,
+      34454
+    ],
+    "master_addr": "127.0.0.1",
+    "master_port": 57285,
+    "end_to_end_time": 159.31820067763329
+  }
+}

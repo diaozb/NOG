@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "status": "prepared",
+  "created_at_utc": "2026-07-16T04:06:07.546201+00:00",
+  "source_frozen_config": "/data/diaozb/NOG/outputs/distributed_cpu_fo/pilot/selected_config_by_epsilon.yaml",
+  "frozen_config_sha256": "25dc7fe50e1c3205798f1ddb5cc8e9804e8f3135fde794bbd3cdbb16684a66de",
+  "pilot_seeds_excluded": [
+    100,
+    101,
+    102
+  ],
+  "formal_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "reference_worker": 8,
+  "epsilon_count": 5,
+  "method_epsilon_pairs": 10,
+  "unique_config_count": 6,
+  "unique_config_count_by_method": {
+    "NOG-FO": 3,
+    "ME-DOL-FO": 3
+  },
+  "task_count": 30,
+  "raw_estimated_seconds": 1718.7960228323936,
+  "raw_estimated_hours": 0.4774433396756649,
+  "conservative_estimated_hours": 0.7161650095134974,
+  "formal_configs": [
+    {
+      "formal_config_id": "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__frozen-f1b9b7cb1027",
+      "formal_config_sha256": "f1b9b7cb1027e18aecc1ecc0fe8db15c145d7bfdd48f4ec26ae8f9eb6fa83dcf",
+      "method": "ME-DOL-FO",
+      "parameters": {
+        "epoch_length": 12,
+        "theory_multiplier": 10.0
+      },
+      "rounds": 1920,
+      "epsilons": [
+        0.01,
+        0.009,
+        0.008
+      ],
+      "pilot_selection_status_by_epsilon": {
+        "0.01": "full-hit",
+        "0.009": "full-hit",
+        "0.008": "full-hit"
+      },
+      "pilot_timing_samples": 3,
+      "pilot_median_end_to_end_seconds": 58.26950889825821,
+      "estimated_formal_seconds": 291.34754449129105,
+      "task_count": 5,
+      "output_root": "raw/ME-DOL-FO__epoch_length-12__theory_multiplier-10p0__rounds-1920__frozen-f1b9b7cb1027",
+      "tasks": [
+        {
+          "method": "ME-DOL-FO",
+          "formal_seed": 0,
+          "worker_count": 8
+        },
+        {
+          "method": "ME-DOL-FO",
+          "formal_seed": 1,
+          "worker_count": 8
+        },
+        {
+          "method": "ME-DOL-FO",
+          "formal_seed": 2,
+          "worker_count": 8
+        },
+        {
+          "method": "ME-DOL-FO",
+          "formal_seed": 3,
+          "worker_count": 8
+        },
+        {
+          "method": "ME-DOL-FO",
+          "formal_seed": 4,
+          "worker_count": 8
+        }
+      ]
+    },
+    {
+      "formal_config_id": "ME-DOL-FO__epoch_length-24__theory_multiplier-10p0__rounds-3840__frozen-4192f5a77b5c",
+      "formal_config_sha256": "4192f5a77b5c1131c3eef4f0af45689dc81633f3220d3fde5d413f74128a37de",
+      "method": "ME-DOL-FO",
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "rounds": 3840,
+      "epsilons": [
+        0.0075
+      ],
+      "pilot_selection_status_by_epsilon": {
+        "0.0075": "pilot-infeasible-censored"
+      },
+      "pilot_timing_samples": 3,
+      "pilot_median_end_to_end_seconds": 108.60549634695053,
+      "estimated_formal_seconds": 543.0274817347527,
+      "task_count": 5,
+      "output_root": "raw/ME-DOL-FO__epoch_length-24__theory_multiplier-10p0__rounds-3840__frozen-4192f5a77b5c",
+      "tasks": [
+        {
+          "method": "ME-DOL-FO",
+          "formal_seed": 0,
+          "worker_count": 8
+        },
+        {
+          "method": "ME-DOL-FO",
+          "formal_seed": 1,
+          "worker_count": 8
+        },
+        {
+          "method": "ME-DOL-FO",
+          "formal_seed": 2,
+          "worker_count": 8
+        },
+        {
+          "method": "ME-DOL-FO",
+          "formal_seed": 3,
+          "worker_count": 8
+        },
+        {
+          "method": "ME-DOL-FO",
+          "formal_seed": 4,
+          "worker_count": 8
+        }
+      ]
+    },
+    {
+      "formal_config_id": "ME-DOL-FO__epoch_length-6__theory_multiplier-10p0__rounds-1920__frozen-753f0e310e01",
+      "formal_config_sha256": "753f0e310e0166d08a22b3814201cb89071a06eed7f1c7c2dcfe78ac04cf7ae7",
+      "method": "ME-DOL-FO",
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 10.0
+      },
+      "rounds": 1920,
+      "epsilons": [
+        0.011
+      ],
+      "pilot_selection_status_by_epsilon": {
+        "0.011": "full-hit"
+      },
+      "pilot_timing_samples": 3,
+      "pilot_median_end_to_end_seconds": 58.48403550684452,
+      "estimated_formal_seconds": 292.4201775342226,
+      "task_count": 5,
+      "output_root": "raw/ME-DOL-FO__epoch_length-6__theory_multiplier-10p0__rounds-1920__frozen-753f0e310e01",
+      "tasks": [
+        {
+          "method": "ME-DOL-FO",
+          "formal_seed": 0,
+          "worker_count": 8
+        },
+        {
+          "method": "ME-DOL-FO",
+          "formal_seed": 1,
+          "worker_count": 8
+        },
+        {
+          "method": "ME-DOL-FO",
+          "formal_seed": 2,
+          "worker_count": 8
+        },
+        {
+          "method": "ME-DOL-FO",
+          "formal_seed": 3,
+          "worker_count": 8
+        },
+        {
+          "method": "ME-DOL-FO",
+          "formal_seed": 4,
+          "worker_count": 8
+        }
+      ]
+    },
+    {
+      "formal_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__frozen-be6f4a373a71",
+      "formal_config_sha256": "be6f4a373a71cb85cf3f7213b99a7ee0df3a5c384116c5681967d168f6971d81",
+      "method": "NOG-FO",
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 4,
+        "data_B_total": 64
+      },
+      "rounds": 960,
+      "epsilons": [
+        0.011,
+        0.009
+      ],
+      "pilot_selection_status_by_epsilon": {
+        "0.011": "full-hit",
+        "0.009": "full-hit"
+      },
+      "pilot_timing_samples": 3,
+      "pilot_median_end_to_end_seconds": 37.38737764954567,
+      "estimated_formal_seconds": 186.93688824772835,
+      "task_count": 5,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-4__rounds-960__frozen-be6f4a373a71",
+      "tasks": [
+        {
+          "method": "NOG-FO",
+          "formal_seed": 0,
+          "worker_count": 8
+        },
+        {
+          "method": "NOG-FO",
+          "formal_seed": 1,
+          "worker_count": 8
+        },
+        {
+          "method": "NOG-FO",
+          "formal_seed": 2,
+          "worker_count": 8
+        },
+        {
+          "method": "NOG-FO",
+          "formal_seed": 3,
+          "worker_count": 8
+        },
+        {
+          "method": "NOG-FO",
+          "formal_seed": 4,
+          "worker_count": 8
+        }
+      ]
+    },
+    {
+      "formal_config_id": "NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__frozen-bf7a41c99cdf",
+      "formal_config_sha256": "bf7a41c99cdff9dc05372fd89ceba2242211ac772f73009094f567360213c603",
+      "method": "NOG-FO",
+      "parameters": {
+        "M": 4,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "rounds": 960,
+      "epsilons": [
+        0.01
+      ],
+      "pilot_selection_status_by_epsilon": {
+        "0.01": "full-hit"
+      },
+      "pilot_timing_samples": 3,
+      "pilot_median_end_to_end_seconds": 39.98668962717056,
+      "estimated_formal_seconds": 199.9334481358528,
+      "task_count": 5,
+      "output_root": "raw/NOG-FO__M-4__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__frozen-bf7a41c99cdf",
+      "tasks": [
+        {
+          "method": "NOG-FO",
+          "formal_seed": 0,
+          "worker_count": 8
+        },
+        {
+          "method": "NOG-FO",
+          "formal_seed": 1,
+          "worker_count": 8
+        },
+        {
+          "method": "NOG-FO",
+          "formal_seed": 2,
+          "worker_count": 8
+        },
+        {
+          "method": "NOG-FO",
+          "formal_seed": 3,
+          "worker_count": 8
+        },
+        {
+          "method": "NOG-FO",
+          "formal_seed": 4,
+          "worker_count": 8
+        }
+      ]
+    },
+    {
+      "formal_config_id": "NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__frozen-cbb2f9ab5aca",
+      "formal_config_sha256": "cbb2f9ab5aca574d777e6b91f4aae7c52b6c9f4beb94f9e2cf0221357263bac6",
+      "method": "NOG-FO",
+      "parameters": {
+        "M": 8,
+        "eta": 1.0,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "rounds": 960,
+      "epsilons": [
+        0.008,
+        0.0075
+      ],
+      "pilot_selection_status_by_epsilon": {
+        "0.008": "full-hit",
+        "0.0075": "full-hit"
+      },
+      "pilot_timing_samples": 3,
+      "pilot_median_end_to_end_seconds": 41.026096537709236,
+      "estimated_formal_seconds": 205.13048268854618,
+      "task_count": 5,
+      "output_root": "raw/NOG-FO__M-8__data_B_total-64__eta-1p0__smooth_B-8__rounds-960__frozen-cbb2f9ab5aca",
+      "tasks": [
+        {
+          "method": "NOG-FO",
+          "formal_seed": 0,
+          "worker_count": 8
+        },
+        {
+          "method": "NOG-FO",
+          "formal_seed": 1,
+          "worker_count": 8
+        },
+        {
+          "method": "NOG-FO",
+          "formal_seed": 2,
+          "worker_count": 8
+        },
+        {
+          "method": "NOG-FO",
+          "formal_seed": 3,
+          "worker_count": 8
+        },
+        {
+          "method": "NOG-FO",
+          "formal_seed": 4,
+          "worker_count": 8
+        }
+      ]
+    }
+  ],
+  "formal_manifest_sha256": "9889a57cf7e3e2432b8a12d264ccc25be1c99211e9a0c319775faaa654b89f80",
+  "launches_started": 0
+}

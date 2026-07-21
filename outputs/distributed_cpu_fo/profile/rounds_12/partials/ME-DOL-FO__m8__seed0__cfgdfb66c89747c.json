@@ -1,0 +1,129 @@
+{
+  "method": "ME-DOL-FO",
+  "formal_seed": 0,
+  "worker_count": 8,
+  "rng_mode": "rank_schedule",
+  "rank_metadata": [
+    {
+      "rank": 0,
+      "pid": 17268,
+      "shard_size": 512,
+      "shard_sha256": "e0ca6eac35bb4c057a3039395648e53e71777f4b15ac42d1330a5dfb48993fbc",
+      "torch_threads": 1
+    },
+    {
+      "rank": 1,
+      "pid": 17269,
+      "shard_size": 512,
+      "shard_sha256": "21e32a0223bff6e063f577ae6831d9ed0d1c5fb392a766415a6b3c00da6cbb89",
+      "torch_threads": 1
+    },
+    {
+      "rank": 2,
+      "pid": 17270,
+      "shard_size": 512,
+      "shard_sha256": "dad02388a017712a3d2dc65841659b23fdce81daedb32154dd7a7e6d6c55b7b0",
+      "torch_threads": 1
+    },
+    {
+      "rank": 3,
+      "pid": 17271,
+      "shard_size": 512,
+      "shard_sha256": "200f05a1d315739085600a37f0f87e3571be506a6ce8fefa638f16c1c740ec37",
+      "torch_threads": 1
+    },
+    {
+      "rank": 4,
+      "pid": 17272,
+      "shard_size": 512,
+      "shard_sha256": "ab26f27c6322e1145e2e69ee6369a0f5cff18dd363973fffced4ce4130b7dca8",
+      "torch_threads": 1
+    },
+    {
+      "rank": 5,
+      "pid": 17273,
+      "shard_size": 512,
+      "shard_sha256": "478c94203d472636c220f1a2a31fdb36019e63a604c6e27feaab3ef89f71b0bb",
+      "torch_threads": 1
+    },
+    {
+      "rank": 6,
+      "pid": 17274,
+      "shard_size": 512,
+      "shard_sha256": "3d1490c87f701dba7d508e6cfbbe8f167d15b4f05a8a451558df4318545593bd",
+      "torch_threads": 1
+    },
+    {
+      "rank": 7,
+      "pid": 17275,
+      "shard_size": 512,
+      "shard_sha256": "8e2d38d333a2e847ff6083640509f4becc9bc7a44625ecde03d54ab073dca85f",
+      "torch_threads": 1
+    }
+  ],
+  "rows": [
+    {
+      "method": "ME-DOL-FO",
+      "base_method": "ME-DOL",
+      "iteration": 12,
+      "round": 12,
+      "worker_count": 8,
+      "eval_point": "epoch_w_bar",
+      "time_sec": 2.009063497185707,
+      "training_time": 2.009063497185707,
+      "communication_time": 0.06229618191719055,
+      "evaluation_time": 0.07146380841732025,
+      "delta": 0.1,
+      "epoch_length": 12,
+      "domain_radius": 0.000736569563735987,
+      "lr_or_eta": 0.00021262931794992866,
+      "theory_multiplier": 1.0,
+      "formal_seed": 0,
+      "problem_seed": 100000,
+      "partition_seed": 200000,
+      "method_seed": 1570699740,
+      "oracle_type": "sfo",
+      "work": 96,
+      "total_work": 96,
+      "per_worker_work_max": 12,
+      "per_worker_work": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "eval_work": 8192,
+      "communication_round": 12,
+      "depth": 12,
+      "objective": 0.717776894569397,
+      "stat_proxy": 0.010777429677546024
+    }
+  ],
+  "launch": {
+    "world_size": 8,
+    "child_pids": [
+      17268,
+      17269,
+      17270,
+      17271,
+      17272,
+      17273,
+      17274,
+      17275
+    ],
+    "master_addr": "127.0.0.1",
+    "master_port": 49179,
+    "end_to_end_time": 8.220742389559746
+  },
+  "schema_version": 1,
+  "config_sha256": "c35a53f47500285a90d9d3083a979258a8a191f23380aa3e90288bb26d7cc77d",
+  "task_fingerprint": "dfb66c89747ce31909a16d5b59782f55ef9777dcf633ddce21768e0b0fed8755",
+  "task_key": "ME-DOL-FO__m8__seed0__cfgdfb66c89747c",
+  "attempt_id": "e875b59e3e324b1ebd4578178ca8dd64",
+  "started_at_utc": "2026-07-15T08:54:38.497957+00:00",
+  "finished_at_utc": "2026-07-15T08:54:54.099886+00:00"
+}

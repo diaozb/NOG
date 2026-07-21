@@ -1,0 +1,99 @@
+{
+  "method": "ME-DOL-FO",
+  "formal_seed": 0,
+  "worker_count": 1,
+  "rng_mode": "rank_schedule",
+  "rank_metadata": [
+    {
+      "rank": 0,
+      "pid": 50414,
+      "shard_size": 4096,
+      "shard_sha256": "5483d58f55219c926e23608b988cb3c50bb29214351d0b108c137fc3eeb76616",
+      "torch_threads": 1
+    }
+  ],
+  "rows": [
+    {
+      "method": "ME-DOL-FO",
+      "base_method": "ME-DOL",
+      "iteration": 12,
+      "round": 12,
+      "worker_count": 1,
+      "eval_point": "epoch_w_bar",
+      "time_sec": 0.4791266620159149,
+      "training_time": 0.4791266620159149,
+      "communication_time": 0.002167820930480957,
+      "evaluation_time": 0.04311665892601013,
+      "delta": 0.1,
+      "epoch_length": 12,
+      "domain_radius": 0.0020833333333333333,
+      "lr_or_eta": 0.0006014065304058602,
+      "theory_multiplier": 1.0,
+      "formal_seed": 0,
+      "problem_seed": 100000,
+      "partition_seed": 200000,
+      "method_seed": 627185027,
+      "oracle_type": "sfo",
+      "work": 12,
+      "total_work": 12,
+      "per_worker_work_max": 12,
+      "per_worker_work": [
+        12
+      ],
+      "eval_work": 8192,
+      "communication_round": 12,
+      "depth": 12,
+      "objective": 0.717788815498352,
+      "stat_proxy": 0.010766945779323578
+    },
+    {
+      "method": "ME-DOL-FO",
+      "base_method": "ME-DOL",
+      "iteration": 48,
+      "round": 48,
+      "worker_count": 1,
+      "eval_point": "epoch_w_bar",
+      "time_sec": 1.5605403780937195,
+      "training_time": 1.5605403780937195,
+      "communication_time": 0.007447481155395508,
+      "evaluation_time": 0.07846619188785553,
+      "delta": 0.1,
+      "epoch_length": 12,
+      "domain_radius": 0.0020833333333333333,
+      "lr_or_eta": 0.0006014065304058602,
+      "theory_multiplier": 1.0,
+      "formal_seed": 0,
+      "problem_seed": 100000,
+      "partition_seed": 200000,
+      "method_seed": 627185027,
+      "oracle_type": "sfo",
+      "work": 48,
+      "total_work": 48,
+      "per_worker_work_max": 48,
+      "per_worker_work": [
+        48
+      ],
+      "eval_work": 16384,
+      "communication_round": 48,
+      "depth": 48,
+      "objective": 0.7178669571876526,
+      "stat_proxy": 0.010771923698484898
+    }
+  ],
+  "launch": {
+    "world_size": 1,
+    "child_pids": [
+      50414
+    ],
+    "master_addr": "127.0.0.1",
+    "master_port": 45075,
+    "end_to_end_time": 4.602276146411896
+  },
+  "schema_version": 1,
+  "config_sha256": "c46a0e2fab79b383bf23ca406fa1b51370f93a5af47d6419cbfda04cb0d4fe5b",
+  "task_fingerprint": "ae03fc74b364d2c002a4c55c44e52d12e566553a7a79e1ef1c16b03e089babf0",
+  "task_key": "ME-DOL-FO__m1__seed0__cfgae03fc74b364",
+  "attempt_id": "885aca99c97347f08e80ee55d6b5b479",
+  "started_at_utc": "2026-07-15T08:59:16.144854+00:00",
+  "finished_at_utc": "2026-07-15T08:59:25.461372+00:00"
+}

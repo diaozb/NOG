@@ -1,0 +1,66 @@
+{
+  "method": "NOG-FO",
+  "formal_seed": 0,
+  "worker_count": 1,
+  "rng_mode": "rank_schedule",
+  "rank_metadata": [
+    {
+      "rank": 0,
+      "pid": 64682,
+      "shard_size": 4096,
+      "shard_sha256": "5483d58f55219c926e23608b988cb3c50bb29214351d0b108c137fc3eeb76616",
+      "torch_threads": 1
+    }
+  ],
+  "rows": [
+    {
+      "method": "NOG-FO",
+      "base_method": "NOG",
+      "iteration": 12,
+      "round": 12,
+      "block_id": 1,
+      "worker_count": 1,
+      "eval_point": "y_bar",
+      "delta": 0.1,
+      "M": 12,
+      "lr_or_eta": 0.3,
+      "block_oracle_norm": 0.017258506268262863,
+      "time_sec": 0.510315865278244,
+      "training_time": 0.510315865278244,
+      "communication_time": 0.0026744604110717773,
+      "evaluation_time": 0.0549168735742569,
+      "formal_seed": 0,
+      "problem_seed": 100000,
+      "partition_seed": 200000,
+      "method_seed": 1621981262,
+      "oracle_type": "sfo",
+      "work": 1792,
+      "total_work": 1792,
+      "per_worker_work_max": 1792,
+      "per_worker_work": [
+        1792
+      ],
+      "eval_work": 8192,
+      "communication_round": 14,
+      "depth": 14,
+      "objective": 0.7178253531455994,
+      "stat_proxy": 0.010353036224842072
+    }
+  ],
+  "launch": {
+    "world_size": 1,
+    "child_pids": [
+      64682
+    ],
+    "master_addr": "127.0.0.1",
+    "master_port": 47265,
+    "end_to_end_time": 4.140614449977875
+  },
+  "schema_version": 1,
+  "config_sha256": "c35a53f47500285a90d9d3083a979258a8a191f23380aa3e90288bb26d7cc77d",
+  "task_fingerprint": "f982f24489273550e57838b5488ffc43f754e4f8bc5768c52a9e5872f0944c70",
+  "task_key": "NOG-FO__m1__seed0__cfgf982f2448927",
+  "attempt_id": "37234953fdf34f0dba58067a76bc1c95",
+  "started_at_utc": "2026-07-15T08:52:37.070063+00:00",
+  "finished_at_utc": "2026-07-15T08:52:42.166102+00:00"
+}
