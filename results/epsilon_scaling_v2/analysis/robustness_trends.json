@@ -1,0 +1,50 @@
+{
+  "0.1": {
+    "workers": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "depth_ratio_vs_workers": {
+      "log_log_slope": 0.0,
+      "spearman_rho": 0.0
+    },
+    "work_ratio_vs_workers": {
+      "log_log_slope": -1.0,
+      "spearman_rho": -1.0
+    }
+  },
+  "0.01": {
+    "workers": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "depth_ratio_vs_workers": {
+      "log_log_slope": -0.24798843333350198,
+      "spearman_rho": -0.8
+    },
+    "work_ratio_vs_workers": {
+      "log_log_slope": -0.7520115666664982,
+      "spearman_rho": -1.0
+    }
+  },
+  "0.005": {
+    "workers": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "depth_ratio_vs_workers": {
+      "log_log_slope": 0.0,
+      "spearman_rho": 0.0
+    },
+    "work_ratio_vs_workers": {
+      "log_log_slope": -0.9999999999999997,
+      "spearman_rho": -1.0
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "created_at_utc": "2026-07-23T08:09:26.461271+00:00",
+  "robustness_manifest_sha256": "c9e026ffd2b2b7b8e944300b35779ba6c818ca2d5c993a1667a95d6719876d91",
+  "expected_tasks": 240,
+  "audited_tasks": 240,
+  "passed_tasks": 240,
+  "failed_tasks": 0,
+  "new_tasks": 180,
+  "reused_formal_tasks": 60,
+  "trajectory_rows": 105840,
+  "logical_method_epsilon_worker_seed_rows": 240,
+  "workers": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "epsilons": [
+    0.1,
+    0.01,
+    0.005
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "global_errors": [],
+  "historical_failed_attempts": 0
+}
