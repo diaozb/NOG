@@ -1,0 +1,3949 @@
+{
+  "schema_version": 1,
+  "status": "prepared",
+  "created_at_utc": "2026-07-23T05:33:31.063970+00:00",
+  "launches_started": 0,
+  "freeze_sha256": "6787887c8b570c4e0ae1b30a833512402f62e8e7617bb1d0ab6f470e8945627c",
+  "formal_schedule_sha256": "6b7d5289da75c605fb0ee3336bc624d07a343ea6038f048310d51012515d7da4",
+  "workers": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "epsilons": [
+    0.1,
+    0.01,
+    0.005
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "logical_task_count": 240,
+  "runnable_task_count": 180,
+  "reused_formal_task_count": 60,
+  "max_total_worker_processes": 32,
+  "max_concurrent_tasks_by_worker": {
+    "1": 32,
+    "2": 16,
+    "4": 8,
+    "8": 4
+  },
+  "tasks": [
+    {
+      "task_id": "NOG-FO__coarse__m1__seed0",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m1__seed1",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m1__seed2",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m1__seed3",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m1__seed4",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m1__seed5",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m1__seed6",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m1__seed7",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m1__seed8",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m1__seed9",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m2__seed0",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m2__seed1",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m2__seed2",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m2__seed3",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m2__seed4",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m2__seed5",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m2__seed6",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m2__seed7",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m2__seed8",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m2__seed9",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m4__seed0",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m4__seed1",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m4__seed2",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m4__seed3",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m4__seed4",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m4__seed5",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m4__seed6",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m4__seed7",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m4__seed8",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m4__seed9",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m8__seed0",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__coarse__seed0",
+      "source_partial_path": "formal/NOG-FO__coarse/partials/NOG-FO__m8__seed0__cfg92d6c5c9214b.json",
+      "source_partial_sha256": "afaa257fc700a50203851bf9d3e193f98b8a4b3f22c178189098691c2246e42d",
+      "source_manifest_path": "formal/NOG-FO__coarse/task_manifests/NOG-FO__m8__seed0__cfg92d6c5c9214b.json",
+      "source_manifest_sha256": "f0db010019ae24bcba872a7e9ca983bb930eae8ca88e084effa4bc3849788a0c"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m8__seed1",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__coarse__seed1",
+      "source_partial_path": "formal/NOG-FO__coarse/partials/NOG-FO__m8__seed1__cfgd11bb7746cbe.json",
+      "source_partial_sha256": "f86be21fd3ec8bcf28eba1918c0fd92382de718e273e33d3c916b72372d8261e",
+      "source_manifest_path": "formal/NOG-FO__coarse/task_manifests/NOG-FO__m8__seed1__cfgd11bb7746cbe.json",
+      "source_manifest_sha256": "de41a966dd1d9cb99b7cdb1ff90895821e12df2536bb5e6bd6be537a013c44a5"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m8__seed2",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__coarse__seed2",
+      "source_partial_path": "formal/NOG-FO__coarse/partials/NOG-FO__m8__seed2__cfgfac2e6dffbc9.json",
+      "source_partial_sha256": "184638502578a981855b2194fccf5e79598f52f0c10c8ab984b7dac2179987dd",
+      "source_manifest_path": "formal/NOG-FO__coarse/task_manifests/NOG-FO__m8__seed2__cfgfac2e6dffbc9.json",
+      "source_manifest_sha256": "2ea7d22af98ef799217b6e4c7e34789ddba503145c4d0ced826fa49e939c8630"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m8__seed3",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__coarse__seed3",
+      "source_partial_path": "formal/NOG-FO__coarse/partials/NOG-FO__m8__seed3__cfgd727e9bbd143.json",
+      "source_partial_sha256": "eed6079704dacdd8e3ad67c31bf6b0e62c09104c092c85aad8b2fcad882a015e",
+      "source_manifest_path": "formal/NOG-FO__coarse/task_manifests/NOG-FO__m8__seed3__cfgd727e9bbd143.json",
+      "source_manifest_sha256": "c33ee37697626da2cb2016339109d2496b0984fae0ad701555053d6195f2e660"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m8__seed4",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__coarse__seed4",
+      "source_partial_path": "formal/NOG-FO__coarse/partials/NOG-FO__m8__seed4__cfgd59a7e3f4caf.json",
+      "source_partial_sha256": "d0f5e254a752ace987bdf0ac366b1942fef520393dc88e207d1182ef9ee8f6eb",
+      "source_manifest_path": "formal/NOG-FO__coarse/task_manifests/NOG-FO__m8__seed4__cfgd59a7e3f4caf.json",
+      "source_manifest_sha256": "57ab5d8df9a14c1ade7a614871e4829866152fd6b73769ca8b0cadd791f291a4"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m8__seed5",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__coarse__seed5",
+      "source_partial_path": "formal/NOG-FO__coarse/partials/NOG-FO__m8__seed5__cfg3d33720e827d.json",
+      "source_partial_sha256": "8a9a8d8fe8a61659d4ad3f9aa7659bd356e059952cce076a7f1c2a5ffc045eb5",
+      "source_manifest_path": "formal/NOG-FO__coarse/task_manifests/NOG-FO__m8__seed5__cfg3d33720e827d.json",
+      "source_manifest_sha256": "74c70d11f2aedfb4da13af0098a315ea44e959b70232fabe60779719d569e700"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m8__seed6",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__coarse__seed6",
+      "source_partial_path": "formal/NOG-FO__coarse/partials/NOG-FO__m8__seed6__cfg7a3a020de02a.json",
+      "source_partial_sha256": "39fc567d35d129e7326fb37fcae8ce3e388cac3b095d6353fc8baabf9f35337a",
+      "source_manifest_path": "formal/NOG-FO__coarse/task_manifests/NOG-FO__m8__seed6__cfg7a3a020de02a.json",
+      "source_manifest_sha256": "02f3dcb115a9bbcf2f19ea03b284d8a9c7ddc17c2fe9b0ee9d35df821fcd1069"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m8__seed7",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__coarse__seed7",
+      "source_partial_path": "formal/NOG-FO__coarse/partials/NOG-FO__m8__seed7__cfgb7fdbd30980b.json",
+      "source_partial_sha256": "fc16628fc398950f45031358a4fcd317348513f340a3ae486db1e38047a90ad0",
+      "source_manifest_path": "formal/NOG-FO__coarse/task_manifests/NOG-FO__m8__seed7__cfgb7fdbd30980b.json",
+      "source_manifest_sha256": "41b880ec33ffe4b88901f67b72a884c29dc5e9ba511933f88fcbc065af619e8b"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m8__seed8",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__coarse__seed8",
+      "source_partial_path": "formal/NOG-FO__coarse/partials/NOG-FO__m8__seed8__cfg7ee6f7f2008b.json",
+      "source_partial_sha256": "6aac72f92e40964ed8b9237b4148ea81027301d90246903b49fb46cc4b3f7134",
+      "source_manifest_path": "formal/NOG-FO__coarse/task_manifests/NOG-FO__m8__seed8__cfg7ee6f7f2008b.json",
+      "source_manifest_sha256": "123f2ab596123e7db748b8596f4f8406e064722863f3b38ed656c25ea2da4fda"
+    },
+    {
+      "task_id": "NOG-FO__coarse__m8__seed9",
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__coarse__seed9",
+      "source_partial_path": "formal/NOG-FO__coarse/partials/NOG-FO__m8__seed9__cfg8e75228fd4f0.json",
+      "source_partial_sha256": "f05e9c910c46b40340bb1bde832624fe6fd59ad6aac26ae4937b7a20c313e926",
+      "source_manifest_path": "formal/NOG-FO__coarse/task_manifests/NOG-FO__m8__seed9__cfg8e75228fd4f0.json",
+      "source_manifest_sha256": "f4d29ea695abe9afed1a6ff24c1e4afef1d0728018fae60b84f531187615a7b3"
+    },
+    {
+      "task_id": "NOG-FO__medium__m1__seed0",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m1__seed1",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m1__seed2",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m1__seed3",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m1__seed4",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m1__seed5",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m1__seed6",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m1__seed7",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m1__seed8",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m1__seed9",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m2__seed0",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m2__seed1",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m2__seed2",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m2__seed3",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m2__seed4",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m2__seed5",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m2__seed6",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m2__seed7",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m2__seed8",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m2__seed9",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m4__seed0",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m4__seed1",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m4__seed2",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m4__seed3",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m4__seed4",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m4__seed5",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m4__seed6",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m4__seed7",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m4__seed8",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m4__seed9",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__medium__m8__seed0",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__medium__seed0",
+      "source_partial_path": "formal/NOG-FO__medium/partials/NOG-FO__m8__seed0__cfg92d6c5c9214b.json",
+      "source_partial_sha256": "63b1c733f84f2f7157308a33280f2e81d4721b1571b7b86737e660ddcf0149b3",
+      "source_manifest_path": "formal/NOG-FO__medium/task_manifests/NOG-FO__m8__seed0__cfg92d6c5c9214b.json",
+      "source_manifest_sha256": "18a31d4c0178ff08da5c1db8c0c01900e51d91dbf791ce7ea31279cd364094cd"
+    },
+    {
+      "task_id": "NOG-FO__medium__m8__seed1",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__medium__seed1",
+      "source_partial_path": "formal/NOG-FO__medium/partials/NOG-FO__m8__seed1__cfgd11bb7746cbe.json",
+      "source_partial_sha256": "5c3acb009abc49ee0bab83cbc82c3ab8986747f509cc3a9e0a0b780575aefd13",
+      "source_manifest_path": "formal/NOG-FO__medium/task_manifests/NOG-FO__m8__seed1__cfgd11bb7746cbe.json",
+      "source_manifest_sha256": "721082d849702b4c6d5269fc8d2d88b6be610352311523b7dac093fbe39a2f13"
+    },
+    {
+      "task_id": "NOG-FO__medium__m8__seed2",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__medium__seed2",
+      "source_partial_path": "formal/NOG-FO__medium/partials/NOG-FO__m8__seed2__cfgfac2e6dffbc9.json",
+      "source_partial_sha256": "734e967e175f301b6e26705fd148d4e6d07228a390865595d64a2e11541bfcaf",
+      "source_manifest_path": "formal/NOG-FO__medium/task_manifests/NOG-FO__m8__seed2__cfgfac2e6dffbc9.json",
+      "source_manifest_sha256": "1012eeb189f9f28935ccc93b8ab4f17b12ff54b25be75c482563c867405995f3"
+    },
+    {
+      "task_id": "NOG-FO__medium__m8__seed3",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__medium__seed3",
+      "source_partial_path": "formal/NOG-FO__medium/partials/NOG-FO__m8__seed3__cfgd727e9bbd143.json",
+      "source_partial_sha256": "3112f6fec48d5e8e4b0904a6ff07711284c907210afd9d2362701808cb813354",
+      "source_manifest_path": "formal/NOG-FO__medium/task_manifests/NOG-FO__m8__seed3__cfgd727e9bbd143.json",
+      "source_manifest_sha256": "6d059be69fba58b6fc687729c7c0be982c610fec9680f3ef8803dc5df072309b"
+    },
+    {
+      "task_id": "NOG-FO__medium__m8__seed4",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__medium__seed4",
+      "source_partial_path": "formal/NOG-FO__medium/partials/NOG-FO__m8__seed4__cfgd59a7e3f4caf.json",
+      "source_partial_sha256": "e76087b80a586d0b5e8e37c4765c6c110de358a7374f082a4ccbc87dad6999a1",
+      "source_manifest_path": "formal/NOG-FO__medium/task_manifests/NOG-FO__m8__seed4__cfgd59a7e3f4caf.json",
+      "source_manifest_sha256": "54db646b24bf86955e9b835cae5428d87db9e14fdfb8d80e2700adaf03665076"
+    },
+    {
+      "task_id": "NOG-FO__medium__m8__seed5",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__medium__seed5",
+      "source_partial_path": "formal/NOG-FO__medium/partials/NOG-FO__m8__seed5__cfg3d33720e827d.json",
+      "source_partial_sha256": "03d82f364605200bbfd212a27fe687153c87f4dcdb231036c8d06e851e0a6152",
+      "source_manifest_path": "formal/NOG-FO__medium/task_manifests/NOG-FO__m8__seed5__cfg3d33720e827d.json",
+      "source_manifest_sha256": "4f35b13503d4b8a65c147017a8e9156476682980ed38791a7549a693a992e3ce"
+    },
+    {
+      "task_id": "NOG-FO__medium__m8__seed6",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__medium__seed6",
+      "source_partial_path": "formal/NOG-FO__medium/partials/NOG-FO__m8__seed6__cfg7a3a020de02a.json",
+      "source_partial_sha256": "7cb8fc5657361870607c6267305da525d71577fab3ea3ea88bbbdf0d7090430b",
+      "source_manifest_path": "formal/NOG-FO__medium/task_manifests/NOG-FO__m8__seed6__cfg7a3a020de02a.json",
+      "source_manifest_sha256": "b23787dc00dab7936d507f4bd568a8abe164234bcbbe9a7035de31ac68c73782"
+    },
+    {
+      "task_id": "NOG-FO__medium__m8__seed7",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__medium__seed7",
+      "source_partial_path": "formal/NOG-FO__medium/partials/NOG-FO__m8__seed7__cfgb7fdbd30980b.json",
+      "source_partial_sha256": "599852c89c611a71f8454d5df35691b41ac8a4d29c87cb85e3abfb7ada507727",
+      "source_manifest_path": "formal/NOG-FO__medium/task_manifests/NOG-FO__m8__seed7__cfgb7fdbd30980b.json",
+      "source_manifest_sha256": "2e98c0725a9265c07c8e8fd81ea04ef56d16ede04b137bd981ca6e32992f1396"
+    },
+    {
+      "task_id": "NOG-FO__medium__m8__seed8",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__medium__seed8",
+      "source_partial_path": "formal/NOG-FO__medium/partials/NOG-FO__m8__seed8__cfg7ee6f7f2008b.json",
+      "source_partial_sha256": "a3e95ae90f9c1c06c476f07f06a84133461cd23e6001fad1e72a3353c441e670",
+      "source_manifest_path": "formal/NOG-FO__medium/task_manifests/NOG-FO__m8__seed8__cfg7ee6f7f2008b.json",
+      "source_manifest_sha256": "9792c06738dd9430fe6867fb1c0f7a3b7298214d66e41b685dd72a7a56bf628b"
+    },
+    {
+      "task_id": "NOG-FO__medium__m8__seed9",
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "M": 4,
+        "eta": 0.3,
+        "smooth_B": 1,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__medium__seed9",
+      "source_partial_path": "formal/NOG-FO__medium/partials/NOG-FO__m8__seed9__cfg8e75228fd4f0.json",
+      "source_partial_sha256": "1b6d5a059ddc57b8320bfbc60e827ea2a70bf15e13c84b97f7e021a09695fa32",
+      "source_manifest_path": "formal/NOG-FO__medium/task_manifests/NOG-FO__m8__seed9__cfg8e75228fd4f0.json",
+      "source_manifest_sha256": "285a65a785e2aa25bbc0a928c1bbd242122552d384be8a1babc5f90fa12232dd"
+    },
+    {
+      "task_id": "NOG-FO__fine__m1__seed0",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 0,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m1__seed1",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 1,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m1__seed2",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 2,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m1__seed3",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 3,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m1__seed4",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 4,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m1__seed5",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 5,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m1__seed6",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 6,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m1__seed7",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 7,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m1__seed8",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 8,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m1__seed9",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 9,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m2__seed0",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 0,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m2__seed1",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 1,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m2__seed2",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 2,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m2__seed3",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 3,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m2__seed4",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 4,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m2__seed5",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 5,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m2__seed6",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 6,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m2__seed7",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 7,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m2__seed8",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 8,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m2__seed9",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 9,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m4__seed0",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 0,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m4__seed1",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 1,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m4__seed2",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 2,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m4__seed3",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 3,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m4__seed4",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 4,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m4__seed5",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 5,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m4__seed6",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 6,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m4__seed7",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 7,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m4__seed8",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 8,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m4__seed9",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 9,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "NOG-FO__fine__m8__seed0",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 0,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__fine__seed0",
+      "source_partial_path": "formal/NOG-FO__fine/partials/NOG-FO__m8__seed0__cfgfb2721e49c40.json",
+      "source_partial_sha256": "4fbb423ceaf2791b8b4cb9e84fc1587e685a8face8f77a6f1c7e80096a5d591e",
+      "source_manifest_path": "formal/NOG-FO__fine/task_manifests/NOG-FO__m8__seed0__cfgfb2721e49c40.json",
+      "source_manifest_sha256": "568749c52489898e28a109614fbad1cd623eb63c6b7452eae5982bfe8e5499ac"
+    },
+    {
+      "task_id": "NOG-FO__fine__m8__seed1",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 1,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__fine__seed1",
+      "source_partial_path": "formal/NOG-FO__fine/partials/NOG-FO__m8__seed1__cfgc05f9f01e195.json",
+      "source_partial_sha256": "95049808bac17e63ea4bbbff836f2d5612cecefdb687d55e9b8e566d70649f91",
+      "source_manifest_path": "formal/NOG-FO__fine/task_manifests/NOG-FO__m8__seed1__cfgc05f9f01e195.json",
+      "source_manifest_sha256": "ccd68b498392146858b55bc95357a4cd7eebac46d09f87272fcd835f93edfbc5"
+    },
+    {
+      "task_id": "NOG-FO__fine__m8__seed2",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 2,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__fine__seed2",
+      "source_partial_path": "formal/NOG-FO__fine/partials/NOG-FO__m8__seed2__cfg0b8c1d05c3a8.json",
+      "source_partial_sha256": "e4ef5a87105bff7e38cfc83fa64c4777e5ac3561d3f322cc2d9975626094a0a7",
+      "source_manifest_path": "formal/NOG-FO__fine/task_manifests/NOG-FO__m8__seed2__cfg0b8c1d05c3a8.json",
+      "source_manifest_sha256": "a4f52d2aec1dd89b15c46cb6f0add3025577dc7ec18f4cbafea986872366a911"
+    },
+    {
+      "task_id": "NOG-FO__fine__m8__seed3",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 3,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__fine__seed3",
+      "source_partial_path": "formal/NOG-FO__fine/partials/NOG-FO__m8__seed3__cfg05480fbe1b47.json",
+      "source_partial_sha256": "da3b3cf2f6eb177981b87c2d46fe87521916f09d9088377ae5e8ebe46e939384",
+      "source_manifest_path": "formal/NOG-FO__fine/task_manifests/NOG-FO__m8__seed3__cfg05480fbe1b47.json",
+      "source_manifest_sha256": "69f86dba9a86d2d63737f042b01c8d14c4ad23aab3fa9753f5f47ccde04b8be1"
+    },
+    {
+      "task_id": "NOG-FO__fine__m8__seed4",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 4,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__fine__seed4",
+      "source_partial_path": "formal/NOG-FO__fine/partials/NOG-FO__m8__seed4__cfg6de5ded7ba25.json",
+      "source_partial_sha256": "b48909311867de262aa89d22e45c47bcc036383ece0ce58df627877808858f17",
+      "source_manifest_path": "formal/NOG-FO__fine/task_manifests/NOG-FO__m8__seed4__cfg6de5ded7ba25.json",
+      "source_manifest_sha256": "dc5bd03767ea1ebdeb17078ca419526ab90061b2f1974d276e7e7aeaeb6fc138"
+    },
+    {
+      "task_id": "NOG-FO__fine__m8__seed5",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 5,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__fine__seed5",
+      "source_partial_path": "formal/NOG-FO__fine/partials/NOG-FO__m8__seed5__cfg22795941e32b.json",
+      "source_partial_sha256": "0b980aa798b2e15ae714f323bc2586ae80151c45e499f509dae095dd3619dada",
+      "source_manifest_path": "formal/NOG-FO__fine/task_manifests/NOG-FO__m8__seed5__cfg22795941e32b.json",
+      "source_manifest_sha256": "ffddf2e159b30322977517e5371b29ac6047eb5cdec42517d3d7e31518f804dc"
+    },
+    {
+      "task_id": "NOG-FO__fine__m8__seed6",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 6,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__fine__seed6",
+      "source_partial_path": "formal/NOG-FO__fine/partials/NOG-FO__m8__seed6__cfgab1597cb1183.json",
+      "source_partial_sha256": "a5d87b76fe7282af07c4a2839b6674268263ca91c0788a6e20a5bd461901dd97",
+      "source_manifest_path": "formal/NOG-FO__fine/task_manifests/NOG-FO__m8__seed6__cfgab1597cb1183.json",
+      "source_manifest_sha256": "1af03beeb176873dbcb340ba71c4f40b5285ea87ab729b2c3f7cbdebc4759176"
+    },
+    {
+      "task_id": "NOG-FO__fine__m8__seed7",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 7,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__fine__seed7",
+      "source_partial_path": "formal/NOG-FO__fine/partials/NOG-FO__m8__seed7__cfga101b4a6d53c.json",
+      "source_partial_sha256": "eacb256a2c144dfdc003e47f36ebee4bab2e8943472b927f1a508998d5af8d07",
+      "source_manifest_path": "formal/NOG-FO__fine/task_manifests/NOG-FO__m8__seed7__cfga101b4a6d53c.json",
+      "source_manifest_sha256": "0d2713d62c984867bb5b0c412a944a250966f836bbdc0479c38e224c20f0e84c"
+    },
+    {
+      "task_id": "NOG-FO__fine__m8__seed8",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 8,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__fine__seed8",
+      "source_partial_path": "formal/NOG-FO__fine/partials/NOG-FO__m8__seed8__cfg995c0ef935cc.json",
+      "source_partial_sha256": "74de06ebf851ed3e1f7a699a83725327952fbd5926212fe7f5281e536d53ebd2",
+      "source_manifest_path": "formal/NOG-FO__fine/task_manifests/NOG-FO__m8__seed8__cfg995c0ef935cc.json",
+      "source_manifest_sha256": "19ec147e8cb933976f8061d915c8af8cbe40d3e8a9ed392b3952a14100eb6877"
+    },
+    {
+      "task_id": "NOG-FO__fine__m8__seed9",
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 9,
+      "rounds": 61440,
+      "parameters": {
+        "M": 24,
+        "eta": 0.3,
+        "smooth_B": 8,
+        "data_B_total": 64
+      },
+      "source": "reuse-formal",
+      "source_task_id": "NOG-FO__fine__seed9",
+      "source_partial_path": "formal/NOG-FO__fine/partials/NOG-FO__m8__seed9__cfg2328e36f8db3.json",
+      "source_partial_sha256": "8b095bfde90fdb161392d360d42267892908364b192624fa39580f25a0bb9788",
+      "source_manifest_path": "formal/NOG-FO__fine/task_manifests/NOG-FO__m8__seed9__cfg2328e36f8db3.json",
+      "source_manifest_sha256": "2861347b9c920fc7a8ef7714661198190b505f9dfca999e06851f6a3a006867a"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m1__seed0",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m1__seed1",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m1__seed2",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m1__seed3",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m1__seed4",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m1__seed5",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m1__seed6",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m1__seed7",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m1__seed8",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m1__seed9",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m2__seed0",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m2__seed1",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m2__seed2",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m2__seed3",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m2__seed4",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m2__seed5",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m2__seed6",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m2__seed7",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m2__seed8",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m2__seed9",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m4__seed0",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m4__seed1",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m4__seed2",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m4__seed3",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m4__seed4",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m4__seed5",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m4__seed6",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m4__seed7",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m4__seed8",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m4__seed9",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m8__seed0",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__coarse__seed0",
+      "source_partial_path": "formal/ME-DOL-FO__coarse/partials/ME-DOL-FO__m8__seed0__cfg1d18fc5be2d5.json",
+      "source_partial_sha256": "bf6ebd3574cb344307a5eda5ada6ec7e397debf4d065b6dc2871708a004129d0",
+      "source_manifest_path": "formal/ME-DOL-FO__coarse/task_manifests/ME-DOL-FO__m8__seed0__cfg1d18fc5be2d5.json",
+      "source_manifest_sha256": "19133b48d7ef502ceccfa781ac03992b8f4a4a504b8d86e39792f21e6c5f15be"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m8__seed1",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__coarse__seed1",
+      "source_partial_path": "formal/ME-DOL-FO__coarse/partials/ME-DOL-FO__m8__seed1__cfg45cf7386fa06.json",
+      "source_partial_sha256": "2947b02124806e0eff418f79d264163750a28b3c98dc72f17bacb16cc60865e5",
+      "source_manifest_path": "formal/ME-DOL-FO__coarse/task_manifests/ME-DOL-FO__m8__seed1__cfg45cf7386fa06.json",
+      "source_manifest_sha256": "9643f9ad57da1307e83b5c822f3519dca3bc44a9285e90d4d7886e879ed345b8"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m8__seed2",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__coarse__seed2",
+      "source_partial_path": "formal/ME-DOL-FO__coarse/partials/ME-DOL-FO__m8__seed2__cfg71ccb171aef4.json",
+      "source_partial_sha256": "8a2609d1e9ecb661e980d7c64dff6d251abb10b9f008322358610c455b3b535c",
+      "source_manifest_path": "formal/ME-DOL-FO__coarse/task_manifests/ME-DOL-FO__m8__seed2__cfg71ccb171aef4.json",
+      "source_manifest_sha256": "7a3291b68a81877857fea068baa0160642f8bbbe01046ca9d44c2a5a61787469"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m8__seed3",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__coarse__seed3",
+      "source_partial_path": "formal/ME-DOL-FO__coarse/partials/ME-DOL-FO__m8__seed3__cfg2fee36d74590.json",
+      "source_partial_sha256": "f5b098aa68a66d06806872ba96908dcc56fd45384db8491a67f4ccf74a262ce6",
+      "source_manifest_path": "formal/ME-DOL-FO__coarse/task_manifests/ME-DOL-FO__m8__seed3__cfg2fee36d74590.json",
+      "source_manifest_sha256": "78a094ff1390a4cfb9e5f20f49786a8a92bc2cc9e8705ef60120359ca08863cd"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m8__seed4",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__coarse__seed4",
+      "source_partial_path": "formal/ME-DOL-FO__coarse/partials/ME-DOL-FO__m8__seed4__cfg7dff6364728e.json",
+      "source_partial_sha256": "c7496699f2de00af4e2d4388ad4e6725064c18006fa132ec28c491cc4c61f17f",
+      "source_manifest_path": "formal/ME-DOL-FO__coarse/task_manifests/ME-DOL-FO__m8__seed4__cfg7dff6364728e.json",
+      "source_manifest_sha256": "8dad248f715c33963ab807df1c47b7e0b3436c2fc9a5250e78a781e992456053"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m8__seed5",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__coarse__seed5",
+      "source_partial_path": "formal/ME-DOL-FO__coarse/partials/ME-DOL-FO__m8__seed5__cfgd050f75b20fe.json",
+      "source_partial_sha256": "1cdbfad4c4da2ca6016d6dd78228bae402b74f0de32a1899435d701b1729a4f8",
+      "source_manifest_path": "formal/ME-DOL-FO__coarse/task_manifests/ME-DOL-FO__m8__seed5__cfgd050f75b20fe.json",
+      "source_manifest_sha256": "45bda7d087f6c3a4762b470a7027ca8796aa00d5ca62fbc7c42b45decbf20efa"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m8__seed6",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__coarse__seed6",
+      "source_partial_path": "formal/ME-DOL-FO__coarse/partials/ME-DOL-FO__m8__seed6__cfgb85123d4f7e9.json",
+      "source_partial_sha256": "49fa9ef73983c9a7a994e93101ab5b88188e64509a9c0e8c3a8949f8f48890e1",
+      "source_manifest_path": "formal/ME-DOL-FO__coarse/task_manifests/ME-DOL-FO__m8__seed6__cfgb85123d4f7e9.json",
+      "source_manifest_sha256": "7c19a43ca8d0326cbd824e4fc032fbf17e9ce1ad8889ced93f3ec011e9eb1dfc"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m8__seed7",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__coarse__seed7",
+      "source_partial_path": "formal/ME-DOL-FO__coarse/partials/ME-DOL-FO__m8__seed7__cfg024825d5fb54.json",
+      "source_partial_sha256": "02192854a78114b55b0334da5e935b00d37cdd218abb9cbcbde27d0a53323f03",
+      "source_manifest_path": "formal/ME-DOL-FO__coarse/task_manifests/ME-DOL-FO__m8__seed7__cfg024825d5fb54.json",
+      "source_manifest_sha256": "256eb309313b558e5502c5496cfc88bab5f2771b6439fd56e2859597cdcb5e4d"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m8__seed8",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__coarse__seed8",
+      "source_partial_path": "formal/ME-DOL-FO__coarse/partials/ME-DOL-FO__m8__seed8__cfgf097c9b78cc6.json",
+      "source_partial_sha256": "1ea6a7b8083a14db242b6b334b36c6ebf9a97173948f1937b210f8c1a82543c4",
+      "source_manifest_path": "formal/ME-DOL-FO__coarse/task_manifests/ME-DOL-FO__m8__seed8__cfgf097c9b78cc6.json",
+      "source_manifest_sha256": "46973331a83e9910f5f159434bf86865b2b3723f3476aaa046869a9dd9e6e790"
+    },
+    {
+      "task_id": "ME-DOL-FO__coarse__m8__seed9",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 0.3
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__coarse__seed9",
+      "source_partial_path": "formal/ME-DOL-FO__coarse/partials/ME-DOL-FO__m8__seed9__cfg64b9b7f9d499.json",
+      "source_partial_sha256": "448b715c114ec9b2ea1f54429c1f3417f0329cb1652a7f7f83711a7f0013b7a6",
+      "source_manifest_path": "formal/ME-DOL-FO__coarse/task_manifests/ME-DOL-FO__m8__seed9__cfg64b9b7f9d499.json",
+      "source_manifest_sha256": "f62dd605b775dbfd34772d565b861ea2da0f04dfd60bf096fe0c0e45b47833a3"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m1__seed0",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m1__seed1",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m1__seed2",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m1__seed3",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m1__seed4",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m1__seed5",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m1__seed6",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m1__seed7",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m1__seed8",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m1__seed9",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m2__seed0",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m2__seed1",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m2__seed2",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m2__seed3",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m2__seed4",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m2__seed5",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m2__seed6",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m2__seed7",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m2__seed8",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m2__seed9",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m4__seed0",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m4__seed1",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m4__seed2",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m4__seed3",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m4__seed4",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m4__seed5",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m4__seed6",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m4__seed7",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m4__seed8",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m4__seed9",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m8__seed0",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 0,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__medium__seed0",
+      "source_partial_path": "formal/ME-DOL-FO__medium/partials/ME-DOL-FO__m8__seed0__cfg93ee5a043a66.json",
+      "source_partial_sha256": "06eaad8c3cf4454d0b7f3b6fc5197e16684911953123e2daa6d5b37a85fae978",
+      "source_manifest_path": "formal/ME-DOL-FO__medium/task_manifests/ME-DOL-FO__m8__seed0__cfg93ee5a043a66.json",
+      "source_manifest_sha256": "d5b653b2073dffaa778a2775cd80c0a62e643ff81c3ddd019ef82e4f9077d077"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m8__seed1",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 1,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__medium__seed1",
+      "source_partial_path": "formal/ME-DOL-FO__medium/partials/ME-DOL-FO__m8__seed1__cfg3e6c8b0ccdb8.json",
+      "source_partial_sha256": "63bacca10e0977cbfc07ec9ccb51871088906ee8a8a67f3254345913480ab0de",
+      "source_manifest_path": "formal/ME-DOL-FO__medium/task_manifests/ME-DOL-FO__m8__seed1__cfg3e6c8b0ccdb8.json",
+      "source_manifest_sha256": "2ed30580e5a92211e82a23d6bf46c8f360023fbda891a667a0219d2c596ca4e7"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m8__seed2",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 2,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__medium__seed2",
+      "source_partial_path": "formal/ME-DOL-FO__medium/partials/ME-DOL-FO__m8__seed2__cfgb0eff36c1e37.json",
+      "source_partial_sha256": "6ed7d4920fd655aec6f0ab2325cb039ef6e172db0b4bdb9557bbf9e94a8162ef",
+      "source_manifest_path": "formal/ME-DOL-FO__medium/task_manifests/ME-DOL-FO__m8__seed2__cfgb0eff36c1e37.json",
+      "source_manifest_sha256": "3063ca2a499ceb4ffe07f898f9b473c107d4821ce2f63c9b51bc19c20001d12e"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m8__seed3",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 3,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__medium__seed3",
+      "source_partial_path": "formal/ME-DOL-FO__medium/partials/ME-DOL-FO__m8__seed3__cfg1ba0ff2b4abc.json",
+      "source_partial_sha256": "1688dfc6424a40bc409141b5679eea6a0a1c458220ff8a81f62835bc0f30ecad",
+      "source_manifest_path": "formal/ME-DOL-FO__medium/task_manifests/ME-DOL-FO__m8__seed3__cfg1ba0ff2b4abc.json",
+      "source_manifest_sha256": "5135b9e98ff480a237f5eff1ec97dc52ae58072ac47167418e88b2f67ba61d7c"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m8__seed4",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 4,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__medium__seed4",
+      "source_partial_path": "formal/ME-DOL-FO__medium/partials/ME-DOL-FO__m8__seed4__cfgd8443d911b59.json",
+      "source_partial_sha256": "07b697025a153d45e2989778e8eca1102e5850b5a2b1c1f9cb469a826dc38683",
+      "source_manifest_path": "formal/ME-DOL-FO__medium/task_manifests/ME-DOL-FO__m8__seed4__cfgd8443d911b59.json",
+      "source_manifest_sha256": "47b27ffca1a2c456490c21f5cccb723aa611d3f0d81be2dc9a757e64831a6ec5"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m8__seed5",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 5,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__medium__seed5",
+      "source_partial_path": "formal/ME-DOL-FO__medium/partials/ME-DOL-FO__m8__seed5__cfg95f7daa09dbc.json",
+      "source_partial_sha256": "0b11431bc473d16af531001b64b425ea19c50de36f258437a9b39d02602a306a",
+      "source_manifest_path": "formal/ME-DOL-FO__medium/task_manifests/ME-DOL-FO__m8__seed5__cfg95f7daa09dbc.json",
+      "source_manifest_sha256": "226ca975aed96732a8eb9f66c19c0c53e83290e9c0424cc2cad921c74bca3209"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m8__seed6",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 6,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__medium__seed6",
+      "source_partial_path": "formal/ME-DOL-FO__medium/partials/ME-DOL-FO__m8__seed6__cfg21269dd55be0.json",
+      "source_partial_sha256": "1c625e17b2651fa1a081cf68e4219d8f9201c027240f702115b8088a5ed5830b",
+      "source_manifest_path": "formal/ME-DOL-FO__medium/task_manifests/ME-DOL-FO__m8__seed6__cfg21269dd55be0.json",
+      "source_manifest_sha256": "738fc0d0f7e4e6cc6b4c68803b095b77bebfe8105bf4ca990ca5925809aa5796"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m8__seed7",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 7,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__medium__seed7",
+      "source_partial_path": "formal/ME-DOL-FO__medium/partials/ME-DOL-FO__m8__seed7__cfg33864fabe961.json",
+      "source_partial_sha256": "cbb8541e8e2b7372a0b91a3b6bddcf6a31f030a3ca2969fbae8cc6844b7d331c",
+      "source_manifest_path": "formal/ME-DOL-FO__medium/task_manifests/ME-DOL-FO__m8__seed7__cfg33864fabe961.json",
+      "source_manifest_sha256": "72ac4e7116e2aa64469478dfa43e53ba48c49307e73bce5377acbf0615f74aa4"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m8__seed8",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 8,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__medium__seed8",
+      "source_partial_path": "formal/ME-DOL-FO__medium/partials/ME-DOL-FO__m8__seed8__cfg5b3d47f05cc7.json",
+      "source_partial_sha256": "20a11a2eb82ef9f12318bdbb5beb028947407c204ce3b8735e89e178c307d009",
+      "source_manifest_path": "formal/ME-DOL-FO__medium/task_manifests/ME-DOL-FO__m8__seed8__cfg5b3d47f05cc7.json",
+      "source_manifest_sha256": "f41daecae382b22f45d675313da3a07b45afbe26dac3052066c6587b7783647a"
+    },
+    {
+      "task_id": "ME-DOL-FO__medium__m8__seed9",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seed": 9,
+      "rounds": 960,
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 3.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__medium__seed9",
+      "source_partial_path": "formal/ME-DOL-FO__medium/partials/ME-DOL-FO__m8__seed9__cfg81107e91ed44.json",
+      "source_partial_sha256": "626f4eb2bbcda98827edb8c8d8ace215df0541685cf9ea2e7ce9220c73e6bfeb",
+      "source_manifest_path": "formal/ME-DOL-FO__medium/task_manifests/ME-DOL-FO__m8__seed9__cfg81107e91ed44.json",
+      "source_manifest_sha256": "b2c92d766f341360a034ff5f93578ae1275ff2c45bcd288ebeb8726fd56e12df"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m1__seed0",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 0,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m1__seed1",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 1,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m1__seed2",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 2,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m1__seed3",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 3,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m1__seed4",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 4,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m1__seed5",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 5,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m1__seed6",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 6,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m1__seed7",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 7,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m1__seed8",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 8,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m1__seed9",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seed": 9,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m2__seed0",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 0,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m2__seed1",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 1,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m2__seed2",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 2,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m2__seed3",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 3,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m2__seed4",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 4,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m2__seed5",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 5,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m2__seed6",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 6,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m2__seed7",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 7,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m2__seed8",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 8,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m2__seed9",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seed": 9,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m4__seed0",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 0,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m4__seed1",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 1,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m4__seed2",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 2,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m4__seed3",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 3,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m4__seed4",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 4,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m4__seed5",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 5,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m4__seed6",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 6,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m4__seed7",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 7,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m4__seed8",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 8,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m4__seed9",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seed": 9,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "run"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m8__seed0",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 0,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__fine__seed0",
+      "source_partial_path": "formal/ME-DOL-FO__fine/partials/ME-DOL-FO__m8__seed0__cfg7cd712a88932.json",
+      "source_partial_sha256": "db8ee047908c21689a6e477a5388d011b3702137a6ee4cc280ebb2fc798d34b0",
+      "source_manifest_path": "formal/ME-DOL-FO__fine/task_manifests/ME-DOL-FO__m8__seed0__cfg7cd712a88932.json",
+      "source_manifest_sha256": "0316ba3b3a88f584aa986f9c852925aaa07706f62481a1dfac475242b36fe15e"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m8__seed1",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 1,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__fine__seed1",
+      "source_partial_path": "formal/ME-DOL-FO__fine/partials/ME-DOL-FO__m8__seed1__cfg3c717ec38146.json",
+      "source_partial_sha256": "db5b80bae4ffd8556f5b1504947f6112503a01021badcab338d874bdb626cb4f",
+      "source_manifest_path": "formal/ME-DOL-FO__fine/task_manifests/ME-DOL-FO__m8__seed1__cfg3c717ec38146.json",
+      "source_manifest_sha256": "316ae30a14e4a940aefe2a612cefda5dcf7dd4dff1fcb278c17f6e1d66e24a89"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m8__seed2",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 2,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__fine__seed2",
+      "source_partial_path": "formal/ME-DOL-FO__fine/partials/ME-DOL-FO__m8__seed2__cfg4299bcc49458.json",
+      "source_partial_sha256": "964ba442ea4d407cc5bb03186f3c7e346df6ac81d2fdfee69b4c1076942a9665",
+      "source_manifest_path": "formal/ME-DOL-FO__fine/task_manifests/ME-DOL-FO__m8__seed2__cfg4299bcc49458.json",
+      "source_manifest_sha256": "96081870001d08a3a006475d7d1b23ab7eb58a833142b9b8adf591d0957a50e2"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m8__seed3",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 3,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__fine__seed3",
+      "source_partial_path": "formal/ME-DOL-FO__fine/partials/ME-DOL-FO__m8__seed3__cfg868d2bb34ec3.json",
+      "source_partial_sha256": "71512f307a8cf9b1b83f29212e41b55ffc273abb4db2983f802d5f299b5c5753",
+      "source_manifest_path": "formal/ME-DOL-FO__fine/task_manifests/ME-DOL-FO__m8__seed3__cfg868d2bb34ec3.json",
+      "source_manifest_sha256": "3a439ee79619ba553e6358505b132a27916a6346bccc803d94a16ec41ab57f09"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m8__seed4",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 4,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__fine__seed4",
+      "source_partial_path": "formal/ME-DOL-FO__fine/partials/ME-DOL-FO__m8__seed4__cfgdb14bfcc3033.json",
+      "source_partial_sha256": "17e2bfae25e4bc807eac99a54627ce8099529e8a3a8a41e6b684538d7bb526ee",
+      "source_manifest_path": "formal/ME-DOL-FO__fine/task_manifests/ME-DOL-FO__m8__seed4__cfgdb14bfcc3033.json",
+      "source_manifest_sha256": "8e9ffd43d0c30184cbf26b92c26c88345e05be17365cc5ffc2e0b0ed10220c25"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m8__seed5",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 5,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__fine__seed5",
+      "source_partial_path": "formal/ME-DOL-FO__fine/partials/ME-DOL-FO__m8__seed5__cfg5c267128d631.json",
+      "source_partial_sha256": "0fdd6d554a4950c17616e3a2ea365d883d15a3081e4828e8e3db2bacbacb1d98",
+      "source_manifest_path": "formal/ME-DOL-FO__fine/task_manifests/ME-DOL-FO__m8__seed5__cfg5c267128d631.json",
+      "source_manifest_sha256": "2f6e909a353e7d6ed84bb7db0f6aa4ea5234d589583db92c007d863da4fc5872"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m8__seed6",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 6,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__fine__seed6",
+      "source_partial_path": "formal/ME-DOL-FO__fine/partials/ME-DOL-FO__m8__seed6__cfg49384da8c555.json",
+      "source_partial_sha256": "1b9404c8a494873e8697d5eb4b3a6d1961a5f348965d4978b6e15e876487d865",
+      "source_manifest_path": "formal/ME-DOL-FO__fine/task_manifests/ME-DOL-FO__m8__seed6__cfg49384da8c555.json",
+      "source_manifest_sha256": "a2fe8689f59cb1a5901b5e48bf4e5dc59121503212e8ffb00a5e1b1e07717e7c"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m8__seed7",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 7,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__fine__seed7",
+      "source_partial_path": "formal/ME-DOL-FO__fine/partials/ME-DOL-FO__m8__seed7__cfg7684f6726764.json",
+      "source_partial_sha256": "8af19f6eec452a9e13b9de5b6c031127805ed38530fe6ebd07c2a3bd49e9dc86",
+      "source_manifest_path": "formal/ME-DOL-FO__fine/task_manifests/ME-DOL-FO__m8__seed7__cfg7684f6726764.json",
+      "source_manifest_sha256": "6fe172f629aa5b18454755875bfe534e3f89b4ffcd802572a066d25ae1d58598"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m8__seed8",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 8,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__fine__seed8",
+      "source_partial_path": "formal/ME-DOL-FO__fine/partials/ME-DOL-FO__m8__seed8__cfgc9700c18c52a.json",
+      "source_partial_sha256": "9ea9c0fe987c8b0c7a39b610187cfc683d6fc2231b1b6eb8b1c89b318d2f54bb",
+      "source_manifest_path": "formal/ME-DOL-FO__fine/task_manifests/ME-DOL-FO__m8__seed8__cfgc9700c18c52a.json",
+      "source_manifest_sha256": "d0fa23aed730b2a281c100caf74f448447ad61484d6bd7005c2a7c9d30b8b755"
+    },
+    {
+      "task_id": "ME-DOL-FO__fine__m8__seed9",
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seed": 9,
+      "rounds": 61440,
+      "parameters": {
+        "epoch_length": 24,
+        "theory_multiplier": 10.0
+      },
+      "source": "reuse-formal",
+      "source_task_id": "ME-DOL-FO__fine__seed9",
+      "source_partial_path": "formal/ME-DOL-FO__fine/partials/ME-DOL-FO__m8__seed9__cfg3396c5f0809f.json",
+      "source_partial_sha256": "523da9de9928940fad8856d266007c5cda9b43b7aad4817664b0bbc5230bfa09",
+      "source_manifest_path": "formal/ME-DOL-FO__fine/task_manifests/ME-DOL-FO__m8__seed9__cfg3396c5f0809f.json",
+      "source_manifest_sha256": "cc885dfdeb4af1b91aa16b81223b7b02d8f50ec8b831693f6993b52b43a4a57c"
+    }
+  ],
+  "notes": [
+    "The m=8 subset reuses hash-audited formal trajectories for seeds 0-9.",
+    "Runnable tasks are staged by worker count and never exceed 32 worker processes.",
+    "Each epsilon uses the region-frozen parameters selected without formal seeds."
+  ],
+  "manifest_sha256": "c9e026ffd2b2b7b8e944300b35779ba6c818ca2d5c993a1667a95d6719876d91"
+}

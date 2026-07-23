@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "created_at_utc": "2026-07-22T14:05:07.362767+00:00",
+  "source_rounds": 15360,
+  "rounds": 61440,
+  "prefix_audit_passed": true,
+  "prefix_max_abs_difference": 0.0,
+  "selections": {
+    "fine": {
+      "NOG-FO": {
+        "status": "censored-top-candidates",
+        "selected_candidate_id": "NOG-FO__M-24__data_B_total-64__eta-0p3__smooth_B-8",
+        "selected_coverage": 0.3333333333333333,
+        "frontier_candidate_ids": [],
+        "advancing_candidate_ids": [
+          "NOG-FO__M-24__data_B_total-64__eta-0p3__smooth_B-8",
+          "NOG-FO__M-16__data_B_total-64__eta-1p0__smooth_B-8",
+          "NOG-FO__M-24__data_B_total-64__eta-1p0__smooth_B-8"
+        ],
+        "selected_parameters": {
+          "M": 24,
+          "eta": 0.3,
+          "smooth_B": 8,
+          "data_B_total": 64
+        },
+        "selected_stage_rounds": 61440
+      },
+      "ME-DOL-FO": {
+        "status": "censored-top-candidates",
+        "selected_candidate_id": "ME-DOL-FO__epoch_length-24__theory_multiplier-10p0",
+        "selected_coverage": 0.3333333333333333,
+        "frontier_candidate_ids": [],
+        "advancing_candidate_ids": [
+          "ME-DOL-FO__epoch_length-24__theory_multiplier-10p0",
+          "ME-DOL-FO__epoch_length-6__theory_multiplier-10p0",
+          "ME-DOL-FO__epoch_length-12__theory_multiplier-10p0"
+        ],
+        "selected_parameters": {
+          "epoch_length": 24,
+          "theory_multiplier": 10.0
+        },
+        "selected_stage_rounds": 61440
+      }
+    }
+  },
+  "fine_resolved": false,
+  "launches_started": 0,
+  "next_rounds": null,
+  "next_candidate_count": 0,
+  "next_task_count": 0
+}

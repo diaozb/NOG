@@ -1,0 +1,782 @@
+{
+  "schema_version": 1,
+  "protocol_version": "wide-epsilon-regions-censoring-v1",
+  "status": "prepared",
+  "created_at_utc": "2026-07-21T16:07:43.921584+00:00",
+  "launches_started": 0,
+  "epsilons": [
+    0.2,
+    0.15,
+    0.1,
+    0.075,
+    0.05,
+    0.03,
+    0.02,
+    0.015,
+    0.01,
+    0.009,
+    0.008,
+    0.007,
+    0.006,
+    0.005,
+    0.004,
+    0.003,
+    0.002
+  ],
+  "epsilon_range": [
+    0.002,
+    0.2
+  ],
+  "budgets": [
+    960,
+    3840,
+    15360,
+    61440
+  ],
+  "pilot_seeds": [
+    100,
+    101,
+    102,
+    103,
+    104
+  ],
+  "formal_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "regions": [
+    {
+      "name": "coarse",
+      "epsilons": [
+        0.2,
+        0.15,
+        0.1,
+        0.075,
+        0.05
+      ],
+      "representative_epsilons": [
+        0.1,
+        0.05
+      ]
+    },
+    {
+      "name": "medium",
+      "epsilons": [
+        0.03,
+        0.02,
+        0.015,
+        0.01
+      ],
+      "representative_epsilons": [
+        0.03,
+        0.02,
+        0.01
+      ]
+    },
+    {
+      "name": "fine",
+      "epsilons": [
+        0.009,
+        0.008,
+        0.007,
+        0.006,
+        0.005,
+        0.004,
+        0.003,
+        0.002
+      ],
+      "representative_epsilons": [
+        0.008,
+        0.005,
+        0.002
+      ]
+    }
+  ],
+  "primary_trajectory_groups": [
+    {
+      "method": "NOG-FO",
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "epsilons": [
+        0.2,
+        0.15,
+        0.1,
+        0.075,
+        0.05
+      ]
+    },
+    {
+      "method": "NOG-FO",
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "epsilons": [
+        0.03,
+        0.02,
+        0.015,
+        0.01
+      ]
+    },
+    {
+      "method": "NOG-FO",
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "epsilons": [
+        0.009,
+        0.008,
+        0.007,
+        0.006,
+        0.005,
+        0.004,
+        0.003,
+        0.002
+      ]
+    },
+    {
+      "method": "ME-DOL-FO",
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "epsilons": [
+        0.2,
+        0.15,
+        0.1,
+        0.075,
+        0.05
+      ]
+    },
+    {
+      "method": "ME-DOL-FO",
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "epsilons": [
+        0.03,
+        0.02,
+        0.015,
+        0.01
+      ]
+    },
+    {
+      "method": "ME-DOL-FO",
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "epsilons": [
+        0.009,
+        0.008,
+        0.007,
+        0.006,
+        0.005,
+        0.004,
+        0.003,
+        0.002
+      ]
+    }
+  ],
+  "primary_physical_task_count": 120,
+  "primary_logical_method_epsilon_seed_rows": 680,
+  "pilot_candidate_count": 32,
+  "pilot_candidate_count_by_method": {
+    "NOG-FO": 20,
+    "ME-DOL-FO": 12
+  },
+  "pilot_initial_physical_task_count": 160,
+  "pilot_refinement_smooth_B": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "robustness_settings": [
+    {
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "NOG-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "NOG-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "NOG-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 1,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 2,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 4,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "ME-DOL-FO",
+      "epsilon": 0.1,
+      "region": "coarse",
+      "worker_count": 8,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 1,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 2,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 4,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "ME-DOL-FO",
+      "epsilon": 0.01,
+      "region": "medium",
+      "worker_count": 8,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 1,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 2,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 4,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "method": "ME-DOL-FO",
+      "epsilon": 0.005,
+      "region": "fine",
+      "worker_count": 8,
+      "formal_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  ],
+  "robustness_physical_task_count": 240,
+  "max_total_worker_processes": 32,
+  "task_timeout_seconds": 129600,
+  "config_sha256": "8f5a7897ac26a49f92e3cefa3865ab9bbe865c397a8eeee2fff0c6f3b1a49b97",
+  "notes": [
+    "Preparing this manifest launches no worker process.",
+    "Each method-region-seed trajectory is reused across all epsilons in that region.",
+    "Pilot candidates advance by preregistered staged gates rather than all running to 61440.",
+    "Censored seeds remain in every summary."
+  ],
+  "manifest_content_sha256": "bcf61ef52d7f757cd303736c40de31bee1d628134d186717826a65909231e804"
+}

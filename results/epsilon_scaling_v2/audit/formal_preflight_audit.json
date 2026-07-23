@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "created_at_utc": "2026-07-23T02:04:23.731261+00:00",
+  "errors": [],
+  "tests": {
+    "command": "python -m unittest discover -s tests -p test*.py",
+    "passed": 50,
+    "failed": 0
+  },
+  "dry_run_status": "passed",
+  "formal_groups": 6,
+  "physical_tasks": 120,
+  "logical_rows": 680,
+  "worker_process_limit": 32,
+  "workers_per_task": 8,
+  "max_concurrent_tasks": 4,
+  "timing_groups": [
+    {
+      "group_id": "NOG-FO__coarse",
+      "pilot_samples": 5,
+      "mean_task_seconds": 9.220430324599146,
+      "max_task_seconds": 9.552077390020713,
+      "estimated_formal_tasks": 20
+    },
+    {
+      "group_id": "NOG-FO__medium",
+      "pilot_samples": 5,
+      "mean_task_seconds": 9.220430324599146,
+      "max_task_seconds": 9.552077390020713,
+      "estimated_formal_tasks": 20
+    },
+    {
+      "group_id": "NOG-FO__fine",
+      "pilot_samples": 5,
+      "mean_task_seconds": 599.0724604039918,
+      "max_task_seconds": 604.2399871668313,
+      "estimated_formal_tasks": 20
+    },
+    {
+      "group_id": "ME-DOL-FO__coarse",
+      "pilot_samples": 5,
+      "mean_task_seconds": 9.401426009600982,
+      "max_task_seconds": 9.623209118843079,
+      "estimated_formal_tasks": 20
+    },
+    {
+      "group_id": "ME-DOL-FO__medium",
+      "pilot_samples": 5,
+      "mean_task_seconds": 9.247069207765161,
+      "max_task_seconds": 9.822524966904894,
+      "estimated_formal_tasks": 20
+    },
+    {
+      "group_id": "ME-DOL-FO__fine",
+      "pilot_samples": 5,
+      "mean_task_seconds": 353.45344721241855,
+      "max_task_seconds": 355.745668615913,
+      "estimated_formal_tasks": 20
+    }
+  ],
+  "estimated_wall_hours_at_max_concurrency": 1.374465643726354,
+  "estimated_cpu_hours": 43.98290059924333,
+  "longest_pilot_task_seconds": 604.2399871668313,
+  "estimated_output_mib": 53.65044403076172,
+  "free_disk_gib": 10336.046875,
+  "required_runtime_timeout_seconds": 3600,
+  "launch_gate_passed": true,
+  "notes": [
+    "The wall-clock estimate assumes four concurrent 8-worker tasks.",
+    "Use NOG_CPU_LAUNCH_TIMEOUT_SECONDS=3600 so the operational guard does not alter task identity.",
+    "No formal worker process is launched by this audit."
+  ]
+}

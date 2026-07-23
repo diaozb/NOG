@@ -1,12 +1,52 @@
 # NOG First-Order Distributed Experiment
 
+## 2026 wide-epsilon 实验：当前主结果
+
+本节是当前应优先引用的结果。下方原 Step 1–8、5-seed、窄 epsilon 内容保留为
+**历史基线**，不应与本节的 20-seed 数字混合。
+
+- epsilon：`[0.2,...,0.002]`，共 17 个点；图中使用 log x 轴；
+- primary：`m=8`、20 formal seeds，pilot seeds `100–104` 严格隔离；
+- robustness：`m=[1,2,4,8]`、epsilon `[0.1,0.01,0.005]`、10 seeds；
+- 未命中结果全部保留为 right-censored，报告 capped mean、KM restricted mean 和下界；
+- 120/120 primary tasks、240/240 robustness settings 通过哈希、rank/shard、work/depth 审计；
+- 当前完整测试：**57/57 passed**。
+
+### 当前最重要的结论
+
+| epsilon | NOG hits | ME-DOL hits | capped depth ME/NOG | 解释 |
+|---:|---:|---:|---:|---|
+| 0.01 | 20/20 | 14/20 | 4.90 | 存在删失；NOG hit rate 更高 |
+| 0.009 | 20/20 | 20/20 | 12.40 | 完整配对，支持 NOG depth 优势 |
+| 0.008 | 20/20 | 20/20 | 15.27 | 完整配对，depth 优势较 0.009 增大 |
+| 0.007 | 19/20 | 11/20 | 5.90 | 存在删失；NOG hit rate 更高 |
+| 0.006 | 7/20 | 0/20 | 1.30 | 零完整配对，只能解释为 capped/lower-bound 结果 |
+| 0.005 以下 | 0/20 | 0/20 | — | 两者均未命中，不报告虚假的 finite ratio |
+
+worker robustness 在 epsilon=0.01 上支持相同方向：NOG 对
+`m=1,2,4,8` 均为 10/10 hits，ME-DOL 分别为 0/10、4/10、7/10、8/10；
+capped depth `ME-DOL/NOG` 分别约为 6.84、7.26、5.39、4.26。
+
+结论边界也必须明确：全 epsilon 范围的 work ratio 并不稳定，因此当前结果
+**不支持**“work 比例基本不变”的强结论；完整 17 点的 depth ratio 也不是单调曲线，
+只能说在完整命中的 epsilon=0.009 到 0.008 上观察到由 12.4 到 15.3 的增长。
+
+- [完整 wide-epsilon 报告](results/epsilon_scaling_v2/analysis/epsilon_scaling_report.md)
+- [Hit-rate 图](results/epsilon_scaling_v2/analysis/figures/formal_hit_rate_vs_epsilon.png)
+- [Depth/work ratio 图](results/epsilon_scaling_v2/analysis/figures/formal_depth_work_ratios.png)
+- [Worker robustness 图](results/epsilon_scaling_v2/analysis/figures/robustness_hit_rate_by_workers.png)
+
+---
+
+## 历史 Step 1–8 结果（5 seeds；仅保留作基线）
+
 > 本文档是面向当前项目参与者的内部实验说明，重点记录已经完成的
 > **NOG-FO vs ME-DOL-FO** 实验。文档中的 “distributed” 表示使用真实、独立的
 > CPU worker processes 和 PyTorch Gloo collectives；它不是单进程 sequential
 > simulation，也不是 multi-node/GPU benchmark。
 
-当前状态：**Step 1–8 已完成**。Formal accuracy、runtime scaling、审计、绘图和最终
-结果包均已生成；完整测试为 **39/39 passed**。
+历史状态：原 **Step 1–8 已完成**。该批 Formal accuracy、runtime scaling、审计、
+绘图和结果包使用旧协议；当时完整测试为 **39/39 passed**。
 
 ## 目录
 

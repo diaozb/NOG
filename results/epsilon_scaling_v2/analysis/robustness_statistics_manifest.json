@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "created_at_utc": "2026-07-23T10:28:07.451606+00:00",
+  "expanded_rows": 240,
+  "summary_rows": 24,
+  "ratio_rows": 12,
+  "workers": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "epsilons": [
+    0.1,
+    0.01,
+    0.005
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "nonhits_retained": true,
+  "bootstrap_repetitions": 2000
+}

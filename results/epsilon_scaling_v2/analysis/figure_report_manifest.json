@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "created_at_utc": "2026-07-23T10:58:32.484558+00:00",
+  "report": "analysis/epsilon_scaling_report.md",
+  "figures": [
+    {
+      "path": "analysis/figures/formal_hit_rate_vs_epsilon.png",
+      "sha256": "c11db4eb4b0545c966f2c191f0e24236dfefc32910e39c4970b9ec58fe437c8f"
+    },
+    {
+      "path": "analysis/figures/formal_hit_rate_vs_epsilon.pdf",
+      "sha256": "d4bcc80d93d596f9ef93893f4cdb0ade9ce27841585420c58d8e5e19f0933d4c"
+    },
+    {
+      "path": "analysis/figures/formal_depth_work_ratios.png",
+      "sha256": "502747d18bac4567d28a52e0b1b5b1f60d66ac4a6126008f71a40933dc6eac75"
+    },
+    {
+      "path": "analysis/figures/formal_depth_work_ratios.pdf",
+      "sha256": "7b52758053816aef223d15449ca1209e703f62a7c5342f4b156e95ef2513d957"
+    },
+    {
+      "path": "analysis/figures/formal_capped_depth_work.png",
+      "sha256": "aefe79c079631dc1417c216bfc104528dacfc949a373dadfc0b957245c40cfcf"
+    },
+    {
+      "path": "analysis/figures/formal_capped_depth_work.pdf",
+      "sha256": "498c1078b2296020e6dc80d06ac458ac5c99a2be022b6778cd170dddd39196a8"
+    },
+    {
+      "path": "analysis/figures/robustness_hit_rate_by_workers.png",
+      "sha256": "74410fa976d0983774a348b36bfe37a46048e6d9e58958ef0d29039f27651ce7"
+    },
+    {
+      "path": "analysis/figures/robustness_hit_rate_by_workers.pdf",
+      "sha256": "858a02c5cea429affd045fa84e925e561fc9a4a22e624c27fcd9443f8e67010a"
+    },
+    {
+      "path": "analysis/figures/robustness_depth_ratio_by_workers.png",
+      "sha256": "194b8ed7788c0ec804d1ec12b856905dcc270094ee50a693f6eafe73a75beef9"
+    },
+    {
+      "path": "analysis/figures/robustness_depth_ratio_by_workers.pdf",
+      "sha256": "d131c506aa50637c705d2d1508c1fafac0f08e8fd7ca078556015b116f47d09e"
+    }
+  ],
+  "hypotheses": {
+    "depth_advantage": "partially-supported",
+    "work_ratio_stability": "not-supported",
+    "nonhit_reporting": "supported",
+    "worker_robustness_at_0.01": "supported",
+    "finite_comparison_at_0.005": "not-supported"
+  }
+}

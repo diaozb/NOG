@@ -273,12 +273,20 @@ def launch_cpu_processes(
         start_method="spawn",
     )
     child_pids = tuple(int(process.pid) for process in context.processes)
-    deadline = start + float(process_config.launch_timeout_seconds)
+    # A long pilot stage may need a larger operational wall-clock guard without
+    # changing the experiment configuration (and therefore its resume identity).
+    launch_timeout_seconds = float(
+        os.environ.get(
+            "NOG_CPU_LAUNCH_TIMEOUT_SECONDS",
+            process_config.launch_timeout_seconds,
+        )
+    )
+    deadline = start + launch_timeout_seconds
     try:
         while not context.join(timeout=0.25):
             if time.perf_counter() >= deadline:
                 raise TimeoutError(
-                    f"CPU process launch exceeded {process_config.launch_timeout_seconds}s "
+                    f"CPU process launch exceeded {launch_timeout_seconds}s "
                     f"for world_size={world_size}."
                 )
     except BaseException as error:
