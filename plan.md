@@ -92,12 +92,13 @@ depth-ratio Spearman 至少 0.7 且末端大于起点；work ratio 在 0.5--2.0 
 - Package 19、freeze 46、analysis 63 个 manifest entries 的 SHA256 全部复核通过。
 - README、正式报告和 REPRODUCE 的本地链接检查无缺失；`git diff --check` 通过。
 
-### Step 11B：GitHub 发布 — 待完成
+### Step 11B：GitHub 发布 — 已完成
 
 - 仅提交 final v4 config、代码、测试、README/plan 和紧凑结果包；raw trajectories 保持
   在本机并由 `.gitignore` 排除。
-- 明确 staging，提交到 `agent/theory-validation-retest`，推送到 `diaozb/NOG`。
-- 创建 draft PR；不在未经明确要求时自动 merge。
+- 主提交 `8dba5af` 已推送到 `origin/agent/theory-validation-retest`。
+- Draft PR 已创建：`https://github.com/diaozb/NOG/pull/3`。
+- 未自动 merge，保留给用户/导师审阅。
 
 ## 最终结论口径
 
