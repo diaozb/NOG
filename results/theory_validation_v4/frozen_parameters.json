@@ -1,0 +1,447 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "created_at_utc": "2026-07-29T02:12:20.137435+00:00",
+  "selection_happened_before_formal_runs": true,
+  "pilot_seeds": [
+    100,
+    101,
+    102,
+    103,
+    104
+  ],
+  "formal_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "seed_sets_disjoint": true,
+  "primary_epsilons": [
+    0.2,
+    0.18,
+    0.16,
+    0.14,
+    0.12,
+    0.1,
+    0.09,
+    0.08,
+    0.07,
+    0.06,
+    0.05,
+    0.04,
+    0.03,
+    0.025,
+    0.02,
+    0.018,
+    0.016,
+    0.015,
+    0.014,
+    0.013,
+    0.012,
+    0.0115,
+    0.011,
+    0.01075,
+    0.0105,
+    0.01025,
+    0.01
+  ],
+  "confirmed_hit_consecutive": 2,
+  "selection_rule": {
+    "objective": "minimize sum(abs(log(NOG_work/ME_work)))",
+    "constraint": "5/5 pilot hits and NOG batch nondecreasing as epsilon decreases",
+    "switch_penalty": 0.05,
+    "purpose": "compare depth at approximately matched total oracle work"
+  },
+  "formal_success_criteria": {
+    "minimum_primary_hits_of_20": 18,
+    "minimum_depth_ratio_spearman": 0.7,
+    "work_ratio_lower": 0.5,
+    "work_ratio_upper": 2.0,
+    "maximum_work_ratio_cv": 0.25
+  },
+  "fixed_algorithm_parameters": {
+    "NOG-FO": {
+      "M": 2,
+      "eta": 1.0,
+      "smooth_B": 1,
+      "rounds": 960
+    },
+    "ME-DOL-FO": {
+      "epoch_length": 6,
+      "theory_multiplier": 100.0,
+      "rounds": 3840
+    }
+  },
+  "selected_schedule": [
+    {
+      "epsilon": 0.2,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.48816568047337283,
+      "pilot_work_ratio_nog_over_me": 2.0484848484848484
+    },
+    {
+      "epsilon": 0.18,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.49629629629629635,
+      "pilot_work_ratio_nog_over_me": 2.014925373134328
+    },
+    {
+      "epsilon": 0.16,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.5150214592274678,
+      "pilot_work_ratio_nog_over_me": 1.9416666666666667
+    },
+    {
+      "epsilon": 0.14,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.5227272727272728,
+      "pilot_work_ratio_nog_over_me": 1.9130434782608694
+    },
+    {
+      "epsilon": 0.12,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.537542662116041,
+      "pilot_work_ratio_nog_over_me": 1.8603174603174604
+    },
+    {
+      "epsilon": 0.1,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.5584615384615385,
+      "pilot_work_ratio_nog_over_me": 1.790633608815427
+    },
+    {
+      "epsilon": 0.09,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.5737226277372263,
+      "pilot_work_ratio_nog_over_me": 1.7430025445292623
+    },
+    {
+      "epsilon": 0.08,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.5908460471567268,
+      "pilot_work_ratio_nog_over_me": 1.692488262910798
+    },
+    {
+      "epsilon": 0.07,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.59526938239159,
+      "pilot_work_ratio_nog_over_me": 1.6799116997792494
+    },
+    {
+      "epsilon": 0.06,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.6119402985074627,
+      "pilot_work_ratio_nog_over_me": 1.6341463414634148
+    },
+    {
+      "epsilon": 0.05,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.6236933797909409,
+      "pilot_work_ratio_nog_over_me": 1.6033519553072624
+    },
+    {
+      "epsilon": 0.04,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.6503267973856209,
+      "pilot_work_ratio_nog_over_me": 1.537688442211055
+    },
+    {
+      "epsilon": 0.03,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.673228346456693,
+      "pilot_work_ratio_nog_over_me": 1.4853801169590641
+    },
+    {
+      "epsilon": 0.025,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.6908077994428969,
+      "pilot_work_ratio_nog_over_me": 1.4475806451612903
+    },
+    {
+      "epsilon": 0.02,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.7060367454068242,
+      "pilot_work_ratio_nog_over_me": 1.41635687732342
+    },
+    {
+      "epsilon": 0.018,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.7016949152542372,
+      "pilot_work_ratio_nog_over_me": 1.42512077294686
+    },
+    {
+      "epsilon": 0.016,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.7136997538966365,
+      "pilot_work_ratio_nog_over_me": 1.4011494252873564
+    },
+    {
+      "epsilon": 0.015,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.7338129496402878,
+      "pilot_work_ratio_nog_over_me": 1.3627450980392157
+    },
+    {
+      "epsilon": 0.014,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.7666139240506329,
+      "pilot_work_ratio_nog_over_me": 1.304437564499484
+    },
+    {
+      "epsilon": 0.013,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.7976744186046512,
+      "pilot_work_ratio_nog_over_me": 1.2536443148688046
+    },
+    {
+      "epsilon": 0.012,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.8411633109619687,
+      "pilot_work_ratio_nog_over_me": 1.1888297872340425
+    },
+    {
+      "epsilon": 0.0115,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.8797653958944281,
+      "pilot_work_ratio_nog_over_me": 1.1366666666666667
+    },
+    {
+      "epsilon": 0.011,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 1.0064935064935066,
+      "pilot_work_ratio_nog_over_me": 0.9935483870967742
+    },
+    {
+      "epsilon": 0.01075,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 0.9710743801652894,
+      "pilot_work_ratio_nog_over_me": 1.0297872340425531
+    },
+    {
+      "epsilon": 0.0105,
+      "data_B_total": 8,
+      "pilot_depth_ratio_me_over_nog": 1.1025815217391306,
+      "pilot_work_ratio_nog_over_me": 0.9069624152803449
+    },
+    {
+      "epsilon": 0.01025,
+      "data_B_total": 16,
+      "pilot_depth_ratio_me_over_nog": 1.9096509240246407,
+      "pilot_work_ratio_nog_over_me": 1.0473118279569893
+    },
+    {
+      "epsilon": 0.01,
+      "data_B_total": 16,
+      "pilot_depth_ratio_me_over_nog": 2.2,
+      "pilot_work_ratio_nog_over_me": 0.9090909090909091
+    }
+  ],
+  "selected_batches": [
+    8,
+    16
+  ],
+  "input_artifacts": [
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/completion.json",
+      "sha256": "3dc2c5812940566f1bb78a58b7ada5dafef782a91d566089bfe0e6ed25ec9f58"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed100__cfg0677523b1dd4.json",
+      "sha256": "0978c8b705049f8aa5efc01169f2772c9ab0615d4051a84820e0bb3303200866"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed101__cfg6c0f4e0266cb.json",
+      "sha256": "67f4fdf1e998f72e8787e15554cba2dc33d42216aaa020eae4f58e231bb9084c"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed102__cfgcbf109dbf018.json",
+      "sha256": "750d49f2a2540b7cd4a1ba723f30c5cf85e3eda696b3c5318462e92e6fb64bd7"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed103__cfge7bbef74be1c.json",
+      "sha256": "194f5b79ccf8aac1e7280de14f3ab502f064cc0b33910566bc37e7ccd5abc610"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed104__cfg8488915c458c.json",
+      "sha256": "d3a402daf67347549948b25742c9d569054d6b79ad6af3965b474b4a73aca1d1"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-24/partials/NOG-FO__m8__seed100__cfge3f3d8040cd2.json",
+      "sha256": "e4d705da4cb804c57c0ce0042cbb4e5d8ebb2b6807697add6026038e4247da83"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-24/partials/NOG-FO__m8__seed101__cfg15a6f8126bb9.json",
+      "sha256": "e9a97e95fc7adacccee8b98d6b401c42358d3f53d1364022457f751c69f66efc"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-24/partials/NOG-FO__m8__seed102__cfg1037db9b73b3.json",
+      "sha256": "3a4e5ed48bb396ecf18f46e648290dca14fe96c7e808bad271d48b1b1f0680ed"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-24/partials/NOG-FO__m8__seed103__cfgfc163f3252a3.json",
+      "sha256": "87aee3042028d7c03e0cb1d4603a72a6b9ec6f079862ef057729f8285f3625b6"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-24/partials/NOG-FO__m8__seed104__cfg21dd8d25acd9.json",
+      "sha256": "35a74be968b383dc66b9cef7cd3c20c950a7782afd3e0748a9f8e2741404bc8c"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-32/partials/NOG-FO__m8__seed100__cfgfee6077337df.json",
+      "sha256": "bd65df4a4c25a28a0f6c9ada6cc99f5e399047bb836fbd51e7fea7e9152e3517"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-32/partials/NOG-FO__m8__seed101__cfg76497c70eeb6.json",
+      "sha256": "8b01809010b39587f70563b2f2a321789426b64a1e9f5c5cd365c2ba9834d264"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-32/partials/NOG-FO__m8__seed102__cfgca15cad092e4.json",
+      "sha256": "9bd8983c859c78e927d8f29d2b27b0242ace4c04c71f75a278562ca39f27e372"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-32/partials/NOG-FO__m8__seed103__cfgeb12411e17ab.json",
+      "sha256": "3010d1d719f9d03c9f331d8c348de6a4aa6879188fd6910907adb40798c13bae"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-32/partials/NOG-FO__m8__seed104__cfg0bcff4b20a1a.json",
+      "sha256": "d49a84cd0402f55e552105ef8d73d168bc23daca1a066db81ba95f44785d53c4"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-40/partials/NOG-FO__m8__seed100__cfgb879930c2b91.json",
+      "sha256": "64a59ae288abc2be1bb38cd5ec100329485cbc1ebcecce43b88d257c21396412"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-40/partials/NOG-FO__m8__seed101__cfg0497cdddc220.json",
+      "sha256": "174d6f5f2bf0baef0042811874ee6fbc6628827dac4f21a21bad1154c3eed85a"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-40/partials/NOG-FO__m8__seed102__cfg5ce4c98d12c0.json",
+      "sha256": "947f65dd571caf1868722de30120aec9664216c08e7898cc32603445e6aa5a6d"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-40/partials/NOG-FO__m8__seed103__cfg0b2d56ebf884.json",
+      "sha256": "d018895221a5faf823f0a14d4a70f7943c6d182032ed70e2ca8f80911c643a43"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-40/partials/NOG-FO__m8__seed104__cfgbdf7598355b5.json",
+      "sha256": "faaef07d58eb297aebbab2de91b88ad2e1d83242b8488f91fa9e20b1fcc8df0a"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-48/partials/NOG-FO__m8__seed100__cfg09cbbd93a951.json",
+      "sha256": "8e89e28e85fd7923f9fda82bba2e259456f67b56df9caf719d05fc872ad0fc21"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-48/partials/NOG-FO__m8__seed101__cfgd4d1c4b4e991.json",
+      "sha256": "66c72e0f8ba097683d44fa9b9da6e7240541b740db9ab4747cb83ae4894f6470"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-48/partials/NOG-FO__m8__seed102__cfga76b69d77cc9.json",
+      "sha256": "246bb5338cdf48a844b133c3c5d62be33e325681b375918aa73c8bbb017183b5"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-48/partials/NOG-FO__m8__seed103__cfg4ac777f0bb4a.json",
+      "sha256": "c587055a802d11ce623865a4fdcb2de1920caaa7eb49365adea801313eb76dcf"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-48/partials/NOG-FO__m8__seed104__cfgf35b8ab5764e.json",
+      "sha256": "d5ad7dfe10084b6689e2b4664e71aeb5afb469dc23151950b9cbf108f6544ad8"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-56/partials/NOG-FO__m8__seed100__cfg012ab0b9fbca.json",
+      "sha256": "ac1a4001c4834a74afef3fed0120d09193c7b049b22ebb32059bf6e86a20853e"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-56/partials/NOG-FO__m8__seed101__cfg90fac31fce4d.json",
+      "sha256": "de2d27fa1e786e6db726249eb396eac9d883704a612dac31daba21446e0c5b12"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-56/partials/NOG-FO__m8__seed102__cfg1152db3a0eeb.json",
+      "sha256": "153ac41eaf108417c1fe38ba97c46130c6206b8f74b913e907d90c40c12e8c67"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-56/partials/NOG-FO__m8__seed103__cfg42a924142a0a.json",
+      "sha256": "e69b0ed10263b6d52ef01018a41dc3e1fdf1a2fb8bb73e64af533fef3730f60d"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-56/partials/NOG-FO__m8__seed104__cfg6cc61caa5c13.json",
+      "sha256": "947c49f81cb910b87d5004333fd52aea3a45342f0475d9bf182c3908942498e2"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-64/partials/NOG-FO__m8__seed100__cfge587ca23311e.json",
+      "sha256": "f7e8edabe53011e42dc7bbedd6439c66662290be7fd99960950c379dadd0b70b"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-64/partials/NOG-FO__m8__seed101__cfg71be04acb016.json",
+      "sha256": "777179554f7228c0bf574d39d11c7f75eeb740cac5a51a12a5eae7f4a75b13ef"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-64/partials/NOG-FO__m8__seed102__cfg68b60b13d829.json",
+      "sha256": "32af7a4906e95f66ea7dc22fd4da5014da3d0fd04203351f9ec5d9486df30127"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-64/partials/NOG-FO__m8__seed103__cfgf1ef4471d10a.json",
+      "sha256": "61576e6005a2aac38b35a2d12dcf1280a6f27733fecc4aa9a46c185c494be0e1"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-64/partials/NOG-FO__m8__seed104__cfg6462746137d1.json",
+      "sha256": "ca7c2752aaadabfa1b7e0c2f07cb37de595e156d60bde74d90e244e13486ec5f"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed100__cfg686055c05c53.json",
+      "sha256": "aba2e8832b821de75771c4e0a889136a7174148144aa18f3ca6dc2e388aee819"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed101__cfg78a5ee13b55b.json",
+      "sha256": "cb4c0c895ab4214cc16be83fd05155d076f6f31f470b7c91c43bb48d38927657"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed102__cfg1eeeaaf4fa0f.json",
+      "sha256": "3e43670796b1f8d831b530d6422670ae2c5b45c4c3363818ff22dc3f6f2fa069"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed103__cfg7472a2beaebe.json",
+      "sha256": "70cd8c36e7694bad44e0df997793fa170cfa61c01a1886b196d986f217f37c0c"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/batch_grid/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed104__cfgf41a9a7ff0a1.json",
+      "sha256": "a99d60a7ab31ac8bda4abc9c74ca3e3b9025dee672b51b06474702804980f1e7"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/fine_eval/ME-DOL-FO__epoch-6__mult-100__r3840/rounds_3840/partials/ME-DOL-FO__m8__seed100__cfg35080bf6d9ce.json",
+      "sha256": "eb08c570053524faa0853a75e8150c6e180460ebabcfa0c63cd1e28020bc35b2"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/fine_eval/ME-DOL-FO__epoch-6__mult-100__r3840/rounds_3840/partials/ME-DOL-FO__m8__seed101__cfg34c542c19771.json",
+      "sha256": "10252ca3916192f3216715c2ff203a1af0e7e658b0ef84a91639b92bd7d57b86"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/fine_eval/ME-DOL-FO__epoch-6__mult-100__r3840/rounds_3840/partials/ME-DOL-FO__m8__seed102__cfg54256de96d5c.json",
+      "sha256": "666f2460c2491d56971cfa408a2c576ffa840b010e1bc315778db289ff306892"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/fine_eval/ME-DOL-FO__epoch-6__mult-100__r3840/rounds_3840/partials/ME-DOL-FO__m8__seed103__cfgd7fc222eb4f4.json",
+      "sha256": "e284a0394090fa965ffc2d2e46edb4fd974d450a2b2157cf46175adb23bbc46e"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/pilot/fine_eval/ME-DOL-FO__epoch-6__mult-100__r3840/rounds_3840/partials/ME-DOL-FO__m8__seed104__cfg8b4f31bc834d.json",
+      "sha256": "32d3f3fc1b6af8df1c79a0bf89fb80403ebc6fbf84578bf7e449216befa2d31b"
+    }
+  ],
+  "config_sha256": "b03fbc921cc6a95194fb28074e5739707009bde6cdf2156a5414e401f76d9c25"
+}

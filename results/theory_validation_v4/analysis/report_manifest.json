@@ -1,0 +1,44 @@
+{
+  "status": "complete",
+  "created_at_utc": "2026-07-29T06:50:09.560801+00:00",
+  "primary_rows": 27,
+  "exploratory_epsilon_count": 9,
+  "verdict": {
+    "depth_advantage_grows": true,
+    "work_is_matched": false,
+    "hit_rate_passes": true,
+    "primary_claim_supported": false
+  },
+  "inputs": [
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/analysis/formal_summary.csv",
+      "sha256": "1bbfdd47a08a7a32d1050025fbe8f03e2c79f045bccae66104ea8a0ab89374e4"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/analysis/formal_ratios.csv",
+      "sha256": "596af710740b758827c99f604f6cb82128b3c7bc67d7909678d7043ff1877e34"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/analysis/formal_trends.json",
+      "sha256": "c4d8abc91ace1ca559889ba2cc071c9c77ad878bb7ed7c0bd8e1b47a8754d2ca"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/frozen_parameters.json",
+      "sha256": "a6732be43aa4891f4bec47371198c8bee1a8a8ce8c3b7d960b6d6d78ffb9db37"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/analysis/theory_validation_report.md",
+      "sha256": "0c9bdd84165b3a2295fca236847e5e8a2b8910d284b19f9cff1eec72e18cc388"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/analysis/figures/hit_rate_vs_epsilon.png",
+      "sha256": "753b5d13fece3609311804c814fb72481c72b3a788a6f3a109aae192bbb59341"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/analysis/figures/hit_rate_vs_epsilon.pdf",
+      "sha256": "e6019aa332cb9acf0eba95e561283fad75fda5f9fc5566ab1f6d994b2786a101"
+    }
+  ]
+}

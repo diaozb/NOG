@@ -43,6 +43,22 @@ def equivalence_config():
 
 
 class CpuFoEquivalenceTests(unittest.TestCase):
+    def test_problem_feature_scale_is_configurable(self):
+        cfg = equivalence_config()
+        baseline = build_problem(cfg, "cpu", 123)
+        cfg["problem"]["feature_scale"] = 4.0
+        scaled = build_problem(cfg, "cpu", 123)
+        self.assertTrue((scaled.A == 4.0 * baseline.A).all())
+
+    def test_problem_phase_and_common_bias_are_configurable(self):
+        cfg = equivalence_config()
+        cfg["problem"].update({"R": 1, "phase_mode": "zero", "common_feature_bias": 0.25})
+        problem = build_problem(cfg, "cpu", 123)
+        self.assertTrue((problem.b == 0.0).all())
+        cfg["problem"].update({"phase_mode": "random", "common_feature_bias": 0.0})
+        baseline = build_problem(cfg, "cpu", 123)
+        self.assertTrue((problem.A[:, :, 0] == baseline.A[:, :, 0] + 0.25).all())
+
     def assert_rows_close(self, expected, observed):
         excluded = {
             "time_sec",

@@ -1,0 +1,37 @@
+{
+  "primary_epsilon_count": 27,
+  "formal_seed_count": 20,
+  "depth_ratio": {
+    "log_log_slope": 0.2659605309293427,
+    "spearman_rho": 1.0
+  },
+  "work_ratio": {
+    "log_log_slope": -0.19292305020550235,
+    "spearman_rho": -0.9816849816849816
+  },
+  "work_ratio_mean": 1.4889954968038626,
+  "work_ratio_coefficient_of_variation": 0.20760083885750194,
+  "work_ratio_min": 0.98024687790076,
+  "work_ratio_max": 2.048989898989899,
+  "observed_exponents": {
+    "NOG_depth": 0.3718032960620248,
+    "ME_DOL_depth": 0.6362710844404798,
+    "NOG_work": 0.42926322854907417,
+    "ME_DOL_work": 0.6362710844404798
+  },
+  "theory_reference_exponents": {
+    "NOG_depth": 1.6666666666666667,
+    "ME_DOL_depth": 3.0,
+    "depth_ratio": 1.3333333333333333,
+    "NOG_work": 3.0,
+    "ME_DOL_work": 3.0,
+    "work_ratio": 0.0
+  },
+  "all_primary_pairs_hit": true,
+  "verdict": {
+    "depth_advantage_grows": true,
+    "work_is_matched": false,
+    "hit_rate_passes": true,
+    "primary_claim_supported": false
+  }
+}

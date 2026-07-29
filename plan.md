@@ -1,213 +1,110 @@
-# NOG 宽范围 epsilon 实验计划
+# NOG 宽 epsilon 理论验证计划与完成记录
 
-## 0. 目标与动机
+## 目标
 
-本计划根据 2026-07-21 导师反馈，替换此前仅覆盖
-`epsilon=[0.011,0.010,0.009,0.008,0.0075]` 的方案。旧实验已完成真实 CPU
-process/Gloo correctness、pilot、5-seed formal accuracy 和 runtime audit，但存在：
+针对旧实验 epsilon 过窄、只有 5 次重复、ME-DOL non-hit 留空以及 0.010 异常跳变，
+重新建立一组可复现、可审计的 NOG-FO vs ME-DOL-FO 实验。主要检验：epsilon 变小时，
+`ME-DOL/NOG depth` 是否总体上升，同时 `NOG/ME-DOL work` 是否保持常数量级。
 
-1. epsilon 范围过窄，无法观察 scaling 趋势；
-2. formal seeds 只有 5 个，first-hit depth 方差较大；
-3. ME-DOL 在严格 epsilon 上未命中时结果为空；
-4. 每个 epsilon 独立调参，使趋势混入超参数变化。
+原则：pilot 可以用于选参数，formal seeds 不能参与选择；不删除异常 epsilon、non-hit
+seed 或不利结果；精确渐进指数未被数据支持时不得宣称已经验证。
 
-新实验检验：随 epsilon 下降，`NOG/ME-DOL work ratio` 是否保持常数量级，而
-`ME-DOL/NOG communication-depth ratio` 是否总体增长。结果不符合预期时如实报告，
-不事后删除 epsilon、seed 或配置。
+## 冻结协议
 
-## 1. 冻结范围
+- Primary epsilon：27 点，从 `0.2` 到 `0.01`；在 0.011 到 0.01 区间加密。
+- Exploratory/censored epsilon：`0.0095,0.009,0.008,...,0.002`。
+- Pilot seeds：`100--104`；formal seeds：`0--19`；两者严格不相交。
+- Worker count：`m=8`；真实 CPU processes + Gloo exact all-reduce。
+- 并发上限：4 physical tasks，每个 8 workers，总计不超过 32 worker processes。
+- Confirmed hit：连续两个 high-precision checkpoints 的 stat proxy 不高于 epsilon。
+- Evaluation：固定 bank，`256 x 512`；evaluation work 不混入 training SFO work。
+- NOG：`M=2, eta=1, smooth_B=1, rounds=960, eval_every=2`。
+- ME-DOL：`epoch_length=6, theory_multiplier=100, rounds=3840, eval_every=6`。
+- NOG batch grid：`8,16,24,32,40,48,56,64`。
+- Batch 选择：5/5 pilot hits；epsilon 变小时 batch 不下降；最小化
+  `sum(abs(log(NOG_work/ME_work)))`，另加固定 switch penalty 0.05。
 
-- Problem：`SyntheticMaxSinL1`
-- `d=100, n_data=4096, R=4, lambda=0.001, delta=0.1`
-- Methods：`NOG-FO, ME-DOL-FO`
-- 真实独立 CPU processes + Gloo exact all-reduce
-- fixed high-precision evaluation bank；training/evaluation RNG 隔离
-- 本轮不改变 dimension、delta、problem family，不加入 ZO、DGFM、CIFAR、GPU 或多机
+正式成功门槛在 formal 运行前写入 freeze：每个 primary method/epsilon 至少 18/20 hits；
+depth-ratio Spearman 至少 0.7 且末端大于起点；work ratio 在 0.5--2.0 内且 CV 不超过
+0.25。
 
-正式 epsilon：
+## Step 8：问题诊断、pilot 与参数冻结
 
-```text
-[0.2, 0.15, 0.1, 0.075, 0.05, 0.03, 0.02, 0.015,
- 0.01, 0.009, 0.008, 0.007, 0.006, 0.005, 0.004, 0.003, 0.002]
-```
+### Step 8A：恢复与旧结果核验 — 已完成
 
-同一 trajectory 在每个 checkpoint 产生一个 stat-proxy，可复用于全部阈值；增加 epsilon
-点本身不会线性增加训练时间，主要成本来自严格 epsilon 的预算扩展。所有预注册阈值均须
-出现在最终图表中。
+- 确认昨晚的 NOG/ME-DOL high-resolution pilot 各 5/5 完整落盘。
+- 定位旧 0.010 跳变：初始 stationarity proxy 接近 threshold，加上 5 seeds 和稀疏
+  checkpoints，产生了配置边界效应。
 
-## 2. Seeds 与超参数
+### Step 8B：论文理论参数核对 — 已完成
 
-- pilot seeds：`[100,101,102,103,104]`
-- formal seeds：`[0,...,19]`
-- worker robustness seeds：`[0,...,9]`
-- pilot/formal 严格隔离
+- 核对 Theorem 4.1/4.3：first-order NOG 使用 epsilon-dependent oracle variance/batch；
+  理论 depth 为 `epsilon^(-5/3)`，work 为 `epsilon^-3`。
+- 明确固定 batch pilot 只能检验有限区间趋势，不能直接宣称 work exponent 相同。
 
-不再逐 epsilon 调参。按三个区间为每个 method 分别冻结一套配置：
+### Step 8C：batch-grid calibration — 已完成
 
-| 区间 | 范围 | pilot 代表阈值 |
-|---|---|---|
-| coarse | `epsilon >= 0.05` | `0.1, 0.05` |
-| medium | `0.01 <= epsilon < 0.05` | `0.03, 0.02, 0.01` |
-| fine | `epsilon < 0.01` | `0.008, 0.005, 0.002` |
+- 8 batches x 5 seeds = 40/40 tasks 完成，0 失败。
+- 选择仅依赖 pilot seeds；保存所有输入 SHA256 和完整 `pilot_calibration.csv`。
 
-Candidate grids：
+### Step 8D：freeze — 已完成
 
-```yaml
-NOG-FO:
-  M: [4, 8, 12, 16, 24]
-  eta: [0.03, 0.1, 0.3, 1.0]
-  smooth_B: [1, 2, 4, 8]
-  data_B_total: 64
-ME-DOL-FO:
-  epoch_length: [6, 12, 24]
-  theory_multiplier: [0.3, 1.0, 3.0, 10.0]
-```
+- 27 点 schedule 冻结为 batch 8 和 16。
+- 冻结前确认 formal 目录没有 partial；之后不允许根据 formal 结果重选参数。
 
-选择顺序：代表阈值 confirmed-hit coverage、跨 pilot seeds 稳定性、depth/work/time
-Pareto frontier。保存全部候选、选择理由、grid hash；formal seeds 不参与扩网格或重选。
+## Step 9：独立正式实验
 
-## 3. 分阶段预算与 hit
+### Step 9A：runner 与审计实现 — 已完成
 
-```text
-960 -> 3,840 -> 15,360 -> 61,440 communication/update steps
-```
+- 实现 ThreadPool 调度、32-process 硬上限、atomic partial、resume 和 failure record。
+- 实现 SHA256、fingerprint、rank、trajectory、depth/work formula 审计。
 
-- 只扩展服务于尚未解决代表阈值的候选；
-- full-hit 后仅保留该区间 Pareto frontier；
-- 无 full-hit 时保留 hit rate 最高、final stat-proxy 最低的少量候选；
-- 每次扩展验证 trajectory prefix 一致；
-- 单 task 最长 36 小时，整体目标一周内；
-- `61,440` 为预注册上限，仍未命中则报告 censoring/lower bound。
+### Step 9B：20-seed formal — 已完成
 
-Confirmed hit 要求连续两个 evaluation checkpoints 满足 `stat_proxy <= epsilon`，first-hit
-取第一个 checkpoint。单次 transient crossing 不算；evaluation work 不计入 training work。
+- NOG batch 8：20/20 tasks。
+- NOG batch 16：20/20 tasks。
+- ME-DOL extended budget：20/20 tasks。
+- 合计 60/60，0 失败；结果审计 60/60 passed。
 
-## 4. 正式矩阵
+## Step 10：统计、图表、报告与结果包
 
-### 4.1 主 epsilon-scaling
+### Step 10A：formal statistics — 已完成
 
-```text
-methods      = [NOG-FO, ME-DOL-FO]
-workers      = 8
-epsilons     = 17 个预注册阈值
-formal seeds = 20
-parameters   = method x epsilon-region frozen config
-max budget   = 61,440
-```
+- 27/27 primary epsilon 上双方均为 20/20 hits。
+- `ME-DOL/NOG depth` Spearman `rho=1.000`，从 `0.488x` 上升到 `1.919x`。
+- `NOG/ME-DOL work` 均值 `1.489x`，CV `0.208`，范围 `0.980x--2.049x`。
+- Depth 趋势门槛通过，hit 门槛通过；work 门槛因 epsilon=0.2 超出 2.0 约 2.5%
+  而未通过。因此严格总 verdict 为 `not fully supported`。
+- 0.01 以下 9 个点保留 hit rate 和 capped depth/work，不留空、不删除 non-hit。
 
-物理 task 数不等于 `2 x 17 x 20`：同一 method/region/config/seed 的一条最长 trajectory
-复用于该 region 全部 epsilon，manifest 必须记录 deduplication 映射。
+### Step 10B：文档与 package — 已完成
 
-### 4.2 Worker-count 稳健性
+- 生成 3 组 PNG/PDF 图、per-seed/summary/ratio CSV、trend JSON 和完整中文报告。
+- 生成 `results/theory_validation_v4`，包含 19 个带 SHA256 manifest 的文件。
+- README 更新为 v4 当前结果，旧结果明确标注为历史基线。
 
-```text
-methods = [NOG-FO, ME-DOL-FO]
-workers = [1,2,4,8]
-epsilon = [0.1,0.01,0.005]
-seeds   = [0,...,9]
-```
+## Step 11：验证与发布
 
-此实验检查主要 epsilon 趋势是否依赖 `m=8`，不用于声称 strong scaling。总并发 worker
-processes 不超过 32。不重跑 `m=16/32`，旧实验已显示单机 Gloo 在高 worker 下负扩展。
+### Step 11A：完整验证 — 已完成
 
-## 5. Censoring 与统计
+- 完整测试：67 passed，8 subtests passed。
+- 正式结果审计：60/60 passed。
+- Package 19、freeze 46、analysis 63 个 manifest entries 的 SHA256 全部复核通过。
+- README、正式报告和 REPRODUCE 的本地链接检查无缺失；`git diff --check` 通过。
 
-每个 method x epsilon 报告：
+### Step 11B：GitHub 发布 — 已完成
 
-- hit count/rate；
-- hit-only conditional mean/std（明确标注为条件统计）；
-- median first-hit depth/work；
-- deterministic bootstrap 95% CI；
-- capped mean：未命中按最大 depth/work 计入；
-- right-censoring-aware restricted mean；
-- final stat-proxy distribution和 censoring horizon。
+- 仅提交 final v4 config、代码、测试、README/plan 和紧凑结果包；raw trajectories 保持
+  在本机并由 `.gitignore` 排除。
+- 主提交 `8dba5af` 已推送到 `origin/agent/theory-validation-retest`。
+- Draft PR 已创建：`https://github.com/diaozb/NOG/pull/3`。
+- 未自动 merge，保留给用户/导师审阅。
 
-不得静默舍弃未命中 seed，即使只有 1 个未命中也保留 hit rate。
+## 最终结论口径
 
-重点比例：
+可以写：在固定 d、delta 和同一 problem family 的宽 epsilon、20-seed 实验中，NOG 的
+相对 depth 表现随目标精度收紧而严格改善；work ratio 保持在约 1--2 倍常数量级，且
+formal 结果对 seed 噪声稳定。
 
-```text
-depth_ratio = ME-DOL depth / NOG depth
-work_ratio  = NOG total SFO work / ME-DOL total SFO work
-per_worker_work_ratio = NOG per-worker work / ME-DOL per-worker work
-```
-
-报告 paired-seed ratio median/bootstrap CI、ratio of capped/restricted means、双方命中的
-paired seed 数及一方未命中时的 ratio bound。不将 hit-only ratio解释为无条件结果。
-
-趋势分析：
-
-- 对 `log(1/epsilon)` 与 log-ratio 做加权稳健回归；
-- 报 slope、bootstrap CI 和 Spearman correlation；
-- 比较 depth-ratio slope 与 work-ratio slope；
-- 仅在 CI 支持时使用 “increases” 或 “approximately constant”；
-- 本实验不宣称验证精确理论 exponent，因为 d、delta 和 problem family 固定。
-
-## 6. 图表与交付物
-
-生成 PNG/PDF：
-
-1. hit rate vs epsilon；
-2. first-hit depth vs epsilon（CI+censored markers）；
-3. first-hit total work vs epsilon；
-4. `ME-DOL/NOG depth ratio` vs epsilon；
-5. `NOG/ME-DOL work ratio` vs epsilon；
-6. depth/work ratio 同图；
-7. capped/restricted mean sensitivity；
-8. worker-count robustness panels。
-
-x 轴为 log scale，覆盖 `[0.002,0.2]`。Censored 点、下界和 conditional estimates 使用
-不同符号。另交付 per-seed/summary/paired-ratio CSV、trend JSON、accounting audit、figure
-manifest、双语报告、README 更新和复现命令。
-
-## 7. 实施步骤与门槛
-
-### Step 1：协议实现（已完成）
-
-- 新建独立配置/output root，不覆盖旧 Step 7/8；
-- 加入 17 epsilon、20 formal seeds、5 pilot seeds和三个 regions；
-- 将固定预算阶段泛化为任意 stages；
-- 保留 atomic partial、hash identity、resume、failure cleanup；
-- 调度器限制总 CPU processes `<=32`。
-
-### Step 2：统计实现（已完成）
-
-- 实现 capped/restricted mean、paired censoring bounds、deterministic bootstrap、trend stats；
-- 对全命中、部分命中、零命中编写测试；
-- 未命中不得产生误导性空白主结果或被当作真实 hit。
-
-### Step 3：dry-run 与 pilot（已完成）
-
-- 小 problem、2 seeds、短预算 dry-run；
-- 验证 trajectory 多 epsilon 复用；
-- 复用旧 artifacts 或扩展 pilot；
-- 冻结三个 region configs 并生成选择审计。
-
-### Step 4：主 formal（已完成：120/120 通过审计）
-
-- `m=8`、20 seeds，逐 stage 后台运行；
-- 每阶段生成 progress/completion/ETA；
-- 所有完成 task 通过 trajectory、rank/shard、work/depth/hash audit。
-
-### Step 5：worker robustness（已完成：240/240 通过审计）
-
-- `[1,2,4,8] x [0.1,0.01,0.005] x 10 seeds`；
-- 不与高负载主实验争用 CPU。
-
-### Step 6：最终分析（已完成：Step 6A–6D）
-
-- 生成图表、统计和报告；
-- 对预注册假设逐项给出 supported/not supported；
-- 更新 README 并保留旧结果作为历史证据。
-
-长阶段启动门槛：全部测试通过；dry-run 和 audit 通过；输出 task 数、CPU-hours、磁盘和
-最长 task 估计；预计单阶段不超过 36 小时；无冲突实验；output root 与旧结果隔离。
-
-## 8. 资源与后台运行
-
-- CPU process 硬上限 32，并为系统保留余量；
-- 后台 runner 写 PID、stdout/stderr、heartbeat 和 completion manifest；
-- 启动前检查磁盘、内存、load 和现有 NOG processes；
-- 失败时保留 evidence，清理全部 child ranks 后再 retry；
-- 总运行目标一周内；若资源不足，优先保留 17 epsilon 和统计完整性；将 formal seeds
-  从 20 降到 10 只能作为明确记录的资源降级，不优先删除严格 epsilon。
+不应写：实验精确验证了 `epsilon^-5/3` 或 `epsilon^-3`；NOG 在所有 epsilon 上都优于
+ME-DOL；work ratio 完全不变；未命中点可以忽略。

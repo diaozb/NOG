@@ -346,7 +346,7 @@ def atomic_write_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
     try:
         fieldnames = list(rows[0]) if rows else []
         with os.fdopen(descriptor, "w", encoding="utf-8", newline="") as handle:
-            writer = csv.DictWriter(handle, fieldnames=fieldnames)
+            writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
             writer.writeheader()
             writer.writerows(rows)
             handle.flush()
