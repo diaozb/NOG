@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "created_at_utc": "2026-07-29T06:49:53.486244+00:00",
+  "formal_completion_status": "complete",
+  "per_seed_rows": 1440,
+  "summary_rows": 72,
+  "ratio_rows": 27,
+  "verdict": {
+    "depth_advantage_grows": true,
+    "work_is_matched": false,
+    "hit_rate_passes": true,
+    "primary_claim_supported": false
+  },
+  "input_artifacts": [
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/frozen_parameters.json",
+      "sha256": "a6732be43aa4891f4bec47371198c8bee1a8a8ce8c3b7d960b6d6d78ffb9db37"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/completion.json",
+      "sha256": "c2d50e5086d7c873ba3fb7849743964cc84f729245e0d3aca36200894ab203da"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/formal_result_audit.json",
+      "sha256": "f6f6599315e646f41e6010d2cf55cb5dfc2200484f0513692b286ef099ecbd54"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed0__cfgc41f566c92e7.json",
+      "sha256": "e59ede0f05cffcbc19b746a82545102107c3162b1170c8057dc783a2b67b49ee"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed1__cfg3b38b30bd7c5.json",
+      "sha256": "376085295b0da00e225fd3707469dab457443e957f2e4355581bd9be2aef303d"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed2__cfg2d7e61e88d5b.json",
+      "sha256": "f82f89b995adc85a4e270738c314ab2a663730707273773381f71bb37240a2ba"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed3__cfg917754c6b3de.json",
+      "sha256": "ea24aafba2ada261fac46617ee26deb60721e0a490626b6186e46920cd607c86"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed4__cfg26fff436ec20.json",
+      "sha256": "1b370e4df75c14c12188292530bf83a531378990e35d7e432fab6eabca8beabd"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed5__cfg0a04ca65403a.json",
+      "sha256": "a297e00f4eb15a6e9710f5f4ba4e6bde8d83e183f2d63862f4e2d35b73fe8c33"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed6__cfg33efb677d503.json",
+      "sha256": "01698c13b96abaa9d945b2f56504b8c1713c395731865971858da2b7894c32c1"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed7__cfgf95941b7c541.json",
+      "sha256": "f3919c9af1aebed64e0c48dc2d94cbe2618ea3839263c7d6df64ca2c160d8485"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed8__cfg8ed7032409ea.json",
+      "sha256": "1ed77ce5e955774d83e8993d7fc8837422cdd7a988649ee598cbfaf35d4001aa"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed9__cfg9416edc1ab91.json",
+      "sha256": "0ff498b70b9c494beeb525f54c6973dc0bbaee058ae3072ad2a6294a88f9aaf1"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed10__cfgbf1cea5de0b8.json",
+      "sha256": "f2640c182342cba943e9680751aa03425da9c829261d76512ab854269a0fa738"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed11__cfg0ca95848c496.json",
+      "sha256": "8b62e56067c189b8579d182634412a2c47d99c8ca353fe71108980a4924313a8"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed12__cfg52ae69fe5867.json",
+      "sha256": "30fe31e9d05b33df7270dd439e9187cd2d48aca531fc099b55f66569eb3c88b3"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed13__cfg8d44a8781b59.json",
+      "sha256": "0cea1abc4c0a6c54ef82f08b1baeccacc751749397a04df86ddee303fe102647"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed14__cfg3d255bb8ee79.json",
+      "sha256": "7a9ed118d2c76c8d7b564d4d498b8aec3c391c29f6cb6432a01f3b0a1cbf40a9"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed15__cfga84832795dc1.json",
+      "sha256": "4404b12c0bb9aa1dea1d3c55941c28557ff6663aff863b4a069306a5cf29799d"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed16__cfg1570551e276d.json",
+      "sha256": "88888fb0b30e6f2ba25df5f5c329a310e2d4e2c2abec2c67ee451fc38ff85617"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed17__cfg026b75b491b5.json",
+      "sha256": "25398d55a01501f8eafe137c0fbc421f047a8532fc846e6ba063dfb421e6df44"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed18__cfg456f0a8f331a.json",
+      "sha256": "170ab4157e335da3475c3752afd168b34f3ffd9f9b9c748a3da2e44ca392d454"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed19__cfgb432504e4fbd.json",
+      "sha256": "0c53525f841cb5e537f213098722d1b3f9f5e5c0f5abeef952cf9e2a6ddaf22b"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed0__cfg8d5d470f5a85.json",
+      "sha256": "0563f067e8817faa15eb12acf30643f8f4f9b1cf84cbb01927e364ca9a1019e0"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed1__cfg8985804b79d6.json",
+      "sha256": "d1fd59a2fea6828514afa91d48553ae7778fbc8b5e211d9d8939e4f112f793c7"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed2__cfge1ffc8b23661.json",
+      "sha256": "fb61f89cc63d1942c30f73773e6b24c8c34cee3f441720837b1b511331a5af33"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed3__cfg341fbfac1875.json",
+      "sha256": "f91b78344ba747cb7b7368b479e37b57b88348492bad0f7798bb86280ad5bda2"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed4__cfg02c1b15641e4.json",
+      "sha256": "b2a401885f11354035a38b8094234c553eb709fa7813bb0775405451583e1bb5"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed5__cfg047b2b541f5a.json",
+      "sha256": "b2ef9a22650dbd661d3a75c01a9ce0814c3a79af1b0f19b432d5c53ea997981f"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed6__cfg97f3b8e1a9d5.json",
+      "sha256": "8dc8edd48f39dca66d5cf0f5a3b1cae9c646c2b2bc9178f7a415f9caa6fe71c8"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed7__cfg0acb6d3b7b08.json",
+      "sha256": "4a3c18606999456446e42bb8a234db99988cbb2c23bac46824f7d6e1753fe22b"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed8__cfg241af10f2133.json",
+      "sha256": "2812345a919550053a251d038ae4a3c63ded93d5b3ed17bf79decaeab038bfb7"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed9__cfge9c6006dd4c7.json",
+      "sha256": "ce8a72f3b24fabce0fd2ef06bc4ef146b65469b278d8e702babc21fc0c2df611"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed10__cfgf19b59b98143.json",
+      "sha256": "2238fd3a640a364aa86cd974bb302c51465660756fdbda6e87addfb2396e1ceb"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed11__cfg2df86d3776a1.json",
+      "sha256": "0e65e905b820fa2257dc49a1dbdb82f2ab18d88ee535731bd1254b56279f3943"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed12__cfgb001915a28f5.json",
+      "sha256": "738e46fe95c861b8d044d61d3415299ed345296d09a300653dc99d2fb5a0afdc"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed13__cfg9592e7a25166.json",
+      "sha256": "5bd2b71e315eea1f120dd6084c2c5eb1e5a6cb70b85e450ba0c849cae9a479e5"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed14__cfg316b80110cd6.json",
+      "sha256": "ffaea730b3d3f9e420d219c5522a949981fb9cd60fd977a8e24a5927d1ff2fb3"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed15__cfg3f8af1c7d1af.json",
+      "sha256": "ef81ad587b5cdf502ab7881c0cc863b35d0186690001ce0eceb40fcb2e051ff9"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed16__cfg8e2afd63a41d.json",
+      "sha256": "e625dda90580743482aa7fdb7aee1767dc66cfffbe086db416b7cc78d01cb469"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed17__cfgf8dcd156633b.json",
+      "sha256": "c53243568093e35c98f75b3d7a434bf098490ba30c79e977006d0b82bf5dcbbb"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed18__cfgc59d37522aef.json",
+      "sha256": "b2e28dcabf9358b9bd0ba06b979924ba296ffa9b1eb5fc25d60bac49a0f658ac"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed19__cfgbe917de0375b.json",
+      "sha256": "203f1c91feb1dee68a744df1c1112771be3195db251151577df43d3bd1414d58"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed0__cfg6fcf47fb7f70.json",
+      "sha256": "83e3738199e1e3c43c51d109ebe468625936173fe82908991daf3b69de857309"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed1__cfgc8a3c99d6211.json",
+      "sha256": "21f0e514ab193152f2c68e4beb18a91d24fb413652f8eaf7ea710e91f70d2c67"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed2__cfg9aeab186bb63.json",
+      "sha256": "0774275dbebbfab6c059db45be6f8875a9e90da3a803941151a725151e45a942"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed3__cfg9ea8c899f6b5.json",
+      "sha256": "1b2bba50c484c9a042c69b3dc4a13c37283e7e4c43a7822b848547743dfda185"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed4__cfg05ca0be9b231.json",
+      "sha256": "a025c180c47254fcc71a3e3f94ff1fd2fba91d7efb6049b3660645229d40c556"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed5__cfg3e6a6d7751ed.json",
+      "sha256": "4b38c0430f969ecbafa9aa239e71a35a8805c71dd4409acec13fb36e12cfb586"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed6__cfg6ad5f36e4f57.json",
+      "sha256": "acb11ff4c891aa0db1437542f4e1848e8e2c073e7e1796a50d123c6be9e7328d"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed7__cfge9c512a4f60d.json",
+      "sha256": "71c5dd78291c4b7882fbb9ecaf683a9811f7e4ff75d8a54821d2ce6a037d8a62"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed8__cfg3e4391c99c5d.json",
+      "sha256": "9e2c6685322ca58f68d6723a9a9b7153e2e2a97a13d5af127c662d157275d5aa"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed9__cfg2bbe95d358b1.json",
+      "sha256": "48106f1a342483bbc4ed7c08612578bc42a7c346af856b9cdd080f2b51a46f31"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed10__cfg87cc74982636.json",
+      "sha256": "fb81979edaa8bfb0d4b2318caf3b379cd76835ab76db7199ef73819292bc7bbe"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed11__cfge7d286e855ed.json",
+      "sha256": "865540af066374b22bc166ccaa90f13e6f73cf0760af7d7ce644c72ead83eff9"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed12__cfg3289357ec140.json",
+      "sha256": "e9707fb0af7b65af62f7ed02d1745da2df573f58426dba8b37c9800c2693d3fe"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed13__cfg3613f33b9e9e.json",
+      "sha256": "15ace4d2337daafc8747ba6f0329302ccd80a4eaeb0e7ce749ab209e603667a3"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed14__cfg1aa018d73f2d.json",
+      "sha256": "bf61061e6d770621cf7f056bb60d89154d17464c0877664d00e0728181c0ef3e"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed15__cfgb5b350d8a638.json",
+      "sha256": "0a39f0c1ecb4083bc1e06397b62db66abd2c8a79c1cb00f7d7a55e29378862e9"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed16__cfg274c9f1b1764.json",
+      "sha256": "5b7b6c093cd4f2340cb6590b3974d451f8b3476f837befcf1a938eaaab8db98c"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed17__cfg172a4e6524a0.json",
+      "sha256": "44f541dfb5c1608185f1dfa49703884d53ee5981f209e21c4570a1d7123ab035"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed18__cfg9017d59c5b7a.json",
+      "sha256": "59ae1d039746bf8c4e5c13afc7f4cdd48e6430fb10e26be3500e167d35d15a78"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed19__cfg71745bfd14bd.json",
+      "sha256": "4528810348a9df5f8aeaa5b2f8248d72c8d47404e193f4610c38f7c0a1666987"
+    }
+  ]
+}

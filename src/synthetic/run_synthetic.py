@@ -80,6 +80,9 @@ class SyntheticMaxSinL1:
         R: int,
         lam: float,
         device: str,
+        feature_scale: float = 1.0,
+        common_feature_bias: float = 0.0,
+        phase_mode: str = "random",
     ):
         self.d = d
         self.n = n_data
@@ -87,8 +90,22 @@ class SyntheticMaxSinL1:
         self.lam = lam
         self.device = device
 
-        self.A = torch.randn(n_data, R, d, device=device) / math.sqrt(d)
-        self.b = 2.0 * math.pi * torch.rand(n_data, R, device=device)
+        self.feature_scale = float(feature_scale)
+        self.A = (
+            self.feature_scale
+            * torch.randn(n_data, R, d, device=device)
+            / math.sqrt(d)
+        )
+        self.common_feature_bias = float(common_feature_bias)
+        if self.common_feature_bias:
+            self.A[:, :, 0].add_(self.common_feature_bias)
+        self.phase_mode = str(phase_mode)
+        if self.phase_mode == "random":
+            self.b = 2.0 * math.pi * torch.rand(n_data, R, device=device)
+        elif self.phase_mode == "zero":
+            self.b = torch.zeros(n_data, R, device=device)
+        else:
+            raise ValueError(f"Unknown phase_mode: {self.phase_mode}")
 
     def loss(self, x: torch.Tensor, idx: Optional[torch.Tensor] = None) -> torch.Tensor:
         if idx is None:

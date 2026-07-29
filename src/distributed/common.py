@@ -111,6 +111,9 @@ def build_problem(cfg: Dict[str, Any], device: str, problem_seed: int) -> Synthe
         R=int(pcfg["R"]),
         lam=float(pcfg["lam"]),
         device=device,
+        feature_scale=float(pcfg.get("feature_scale", 1.0)),
+        common_feature_bias=float(pcfg.get("common_feature_bias", 0.0)),
+        phase_mode=str(pcfg.get("phase_mode", "random")),
     )
 
 
