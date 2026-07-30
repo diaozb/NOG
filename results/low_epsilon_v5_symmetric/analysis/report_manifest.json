@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "created_at_utc": "2026-07-30T14:40:24.066370+00:00",
+  "verdict": {
+    "depth_advantage_grows": false,
+    "work_is_matched": false,
+    "hit_rate_passes": true,
+    "no_unresolved_large_depth_drop": false,
+    "low_epsilon_claim_supported": false
+  },
+  "report_path": "outputs/distributed_cpu_fo_v5/epsilon_low_extension_v5_symmetric/analysis/low_epsilon_report.md",
+  "report_sha256": "11461641d6261546b306b20f71cbc6d12f98cc574036b040d061868e90627c3d",
+  "input_artifacts": [
+    {
+      "path": "outputs/distributed_cpu_fo_v5/epsilon_low_extension_v5_symmetric/frozen_parameters.json",
+      "sha256": "9bc1d52c6fa1db23249c1f10e4b04c5b7cdfd2ed596ef2562ae4e4e08d3b2359"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v5/epsilon_low_extension_v5_symmetric/analysis/formal_trends.json",
+      "sha256": "54ee685c7804432486cf08b75638ac5967d34df734ed71756c09bb1c77602f99"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v5/epsilon_low_extension_v5_symmetric/analysis/formal_ratios.csv",
+      "sha256": "781c083845f800aea2967e344cd0773057a57806741ad5123a841d4af6921f27"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v5/epsilon_low_extension_v5_symmetric/analysis/formal_summary.csv",
+      "sha256": "c34040b9ae7eca6f2ec84af8df1f18e4ba0b5476c4ce3565f8e016ea5e0b0cc5"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v5/epsilon_low_extension_v5_symmetric/analysis/fixed_batch_diagnostics.csv",
+      "sha256": "61d96ed9cc009a876beb7dc9c99aac9ca525cbcd9ff98f4fc2deaedb0546a4fb"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v5/epsilon_low_extension_v5_symmetric/analysis/analysis_manifest.json",
+      "sha256": "1050d8ea9b843360540357659d48027ff9398f83b9c45e79299054cdbaaecfb4"
+    }
+  ]
+}

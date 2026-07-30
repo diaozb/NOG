@@ -4,12 +4,82 @@
 nonsmooth nonconvex stochastic optimization 中精度要求 epsilon 对通信深度（depth）
 和随机一阶 oracle 工作量（work）的影响。
 
-当前正式结果是 [theory_validation_v4](results/theory_validation_v4/)：27 个 primary
-epsilon（0.2 到 0.01）、20 个独立 formal seeds，并完整保留 0.01 以下未命中实验的
-删失信息。历史 [epsilon_scaling_v2](results/epsilon_scaling_v2/) 使用了不同的问题
-实例和算法参数，只用于追溯，不能与 v4 直接混合比较。
+当前有两套互不混用的正式结果：宽范围 `epsilon=0.2--0.01` 使用
+[theory_validation_v4](results/theory_validation_v4/)；低 epsilon `0.01000--0.00400`
+使用新的 [low_epsilon_v5_symmetric](results/low_epsilon_v5_symmetric/)。v5 采用双方对称调参、
+新 seeds、共同 evaluation grid 和更高预算。历史
+[epsilon_scaling_v2](results/epsilon_scaling_v2/) 仅用于追溯。
 
-## 结论摘要
+## 当前低 epsilon 对称验证：v5
+
+v5 在 25 个预注册 epsilon、30 个 formal/confirmation seeds 上得到双方全部 `30/30`
+confirmed hits。算法参数由全新 pilot seeds `110--114` 自动冻结为：
+
+| 方法 | 冻结算法参数 | 最大训练 rounds | 最大记录 depth |
+|---|---|---:|---:|
+| NOG-FO | `M=4, eta=2, smooth_B=1` | 15360 | 15362（含两次初始化通信） |
+| ME-DOL-FO | `H=12, multiplier=200, smooth_B=1` | 15360 | 15360 |
+
+双方各使用 6 个算法候选、相同总 batch 128 和相同 pilot 预算；随后都从总 batch
+`32,64,96,128,192,256` 中独立选择 5/5 hit 后 first-hit work 最小的非递减 schedule。
+Formal seeds `20--39` 与 pilot 严格隔离。检测到相邻 depth-ratio 下降超过 20% 后，按冻结
+协议追加 seeds `40--49` 和中点 `epsilon=0.007375`，没有重新选择参数。
+
+### v5 严格结论
+
+- 预注册 schedule 的 `ME-DOL/NOG depth` 从 `0.462x` 增至 `1.087x`，但
+  Spearman `rho=0.373 < 0.7`，未通过单调趋势门槛。
+- `NOG/ME-DOL work` 均值 `1.456x`，范围 `0.799x--2.176x`，CV `0.348`；超出
+  预注册范围/CV 门槛。
+- `epsilon=0.00750 -> 0.00725` 时 ME-DOL batch 从 32 切到 64，depth ratio 从
+  `0.679x` 降到 `0.436x`；增加到 30 seeds 后下降仍为 35.7%。
+- 因此 v5 的预注册总 verdict 是 **not fully supported**。只有 hit-rate 门槛通过，
+  不能写成对称实验已经验证了完整理论主张。
+- 固定共同 batch 诊断中，batch 32/64/96/128 的 depth ratio 都随 epsilon 收紧而上升，
+  Spearman 为 `0.992--1.000`；但同 batch 下 work ratio 会相应下降，所以该诊断只说明
+  主曲线跳变主要来自 schedule 切换，不能替代主 verdict。
+
+### v5 全部 25 点绝对结果
+
+比例先在相同 seed 内计算，再对 30 seeds 求均值；depth 列为均值 ± 样本标准差。
+
+| ε | N batch | ME batch | N hit | ME hit | N depth | ME depth | ME/N depth | N work | ME work | N/ME work |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 0.01000 | 32 | 32 | 30/30 | 30/30 | 626.8 ± 23.1 | 289.6 ± 25.2 | 0.462x | 20,058 | 9,267 | 2.176x |
+| 0.00975 | 32 | 32 | 30/30 | 30/30 | 631.6 ± 23.3 | 295.2 ± 28.3 | 0.468x | 20,211 | 9,446 | 2.156x |
+| 0.00950 | 32 | 32 | 30/30 | 30/30 | 641.2 ± 27.1 | 301.6 ± 31.9 | 0.471x | 20,518 | 9,651 | 2.145x |
+| 0.00925 | 32 | 32 | 30/30 | 30/30 | 647.6 ± 27.0 | 305.6 ± 33.9 | 0.472x | 20,723 | 9,779 | 2.139x |
+| 0.00900 | 32 | 32 | 30/30 | 30/30 | 650.8 ± 25.6 | 313.6 ± 35.6 | 0.482x | 20,826 | 10,035 | 2.096x |
+| 0.00875 | 32 | 32 | 30/30 | 30/30 | 658.0 ± 30.4 | 324.0 ± 37.2 | 0.492x | 21,056 | 10,368 | 2.053x |
+| 0.00850 | 32 | 32 | 30/30 | 30/30 | 665.2 ± 28.5 | 337.6 ± 44.1 | 0.508x | 21,286 | 10,803 | 2.000x |
+| 0.00825 | 32 | 32 | 30/30 | 30/30 | 670.8 ± 32.0 | 358.4 ± 54.2 | 0.536x | 21,466 | 11,469 | 1.912x |
+| 0.00800 | 32 | 32 | 30/30 | 30/30 | 681.2 ± 37.9 | 388.8 ± 75.5 | 0.572x | 21,798 | 12,442 | 1.811x |
+| 0.00775 | 32 | 32 | 30/30 | 30/30 | 690.8 ± 39.9 | 420.0 ± 94.7 | 0.608x | 22,106 | 13,440 | 1.717x |
+| 0.00750 | 32 | 32 | 30/30 | 30/30 | 705.2 ± 40.4 | 477.6 ± 132.1 | 0.679x | 22,566 | 15,283 | 1.571x |
+| 0.00725 | 32 | 64 | 30/30 | 30/30 | 721.2 ± 43.4 | 314.4 ± 31.1 | 0.436x | 23,078 | 20,122 | 1.154x |
+| 0.00700 | 32 | 64 | 30/30 | 30/30 | 730.0 ± 42.4 | 323.2 ± 30.7 | 0.444x | 23,360 | 20,685 | 1.137x |
+| 0.00675 | 32 | 64 | 30/30 | 30/30 | 737.2 ± 42.5 | 340.8 ± 38.0 | 0.463x | 23,590 | 21,811 | 1.093x |
+| 0.00650 | 32 | 64 | 30/30 | 30/30 | 752.4 ± 53.1 | 356.8 ± 44.0 | 0.475x | 24,077 | 22,835 | 1.068x |
+| 0.00625 | 32 | 64 | 30/30 | 30/30 | 777.2 ± 56.4 | 389.6 ± 62.0 | 0.502x | 24,870 | 24,934 | 1.019x |
+| 0.00600 | 32 | 96 | 30/30 | 30/30 | 815.6 ± 90.1 | 345.6 ± 48.2 | 0.427x | 26,099 | 33,178 | 0.799x |
+| 0.00575 | 32 | 96 | 30/30 | 30/30 | 851.6 ± 104.6 | 357.6 ± 51.3 | 0.426x | 27,251 | 34,330 | 0.808x |
+| 0.00550 | 32 | 96 | 30/30 | 30/30 | 928.4 ± 175.1 | 380.0 ± 56.4 | 0.420x | 29,709 | 36,480 | 0.828x |
+| 0.00525 | 64 | 128 | 30/30 | 30/30 | 633.2 ± 67.0 | 359.2 ± 43.9 | 0.573x | 40,525 | 45,978 | 0.893x |
+| 0.00500 | 64 | 128 | 30/30 | 30/30 | 707.6 ± 97.4 | 373.6 ± 50.3 | 0.537x | 45,286 | 47,821 | 0.961x |
+| 0.00475 | 96 | 128 | 30/30 | 30/30 | 578.8 ± 92.7 | 424.0 ± 81.3 | 0.744x | 55,565 | 54,272 | 1.050x |
+| 0.00450 | 128 | 128 | 30/30 | 30/30 | 550.8 ± 110.6 | 468.8 ± 96.4 | 0.871x | 70,502 | 60,006 | 1.207x |
+| 0.00425 | 256 | 192 | 30/30 | 30/30 | 389.2 ± 54.8 | 394.4 ± 52.2 | 1.026x | 99,635 | 75,725 | 1.333x |
+| 0.00400 | 256 | 192 | 30/30 | 30/30 | 430.0 ± 84.6 | 456.0 ± 73.8 | 1.087x | 110,080 | 87,552 | 1.283x |
+
+- [v5 完整中文报告](results/low_epsilon_v5_symmetric/analysis/low_epsilon_report.md)
+- [v5 主 depth/work ratio 图](results/low_epsilon_v5_symmetric/analysis/figures/low_epsilon_ratios.png)
+- [v5 固定共同 batch 诊断图](results/low_epsilon_v5_symmetric/analysis/figures/fixed_batch_diagnostics.png)
+- [v5 hit-rate 图](results/low_epsilon_v5_symmetric/analysis/figures/low_epsilon_hit_rates.png)
+- [v5 每 seed 绝对数据](results/low_epsilon_v5_symmetric/analysis/formal_per_seed.csv)
+- [v5 两阶段冻结参数与哈希](results/low_epsilon_v5_symmetric/frozen_parameters.json)
+- [v5 复现命令](results/low_epsilon_v5_symmetric/REPRODUCE.md)
+
+## v4 结论摘要
 
 - 27 个 primary 点上，两种方法均为 20/20 confirmed hits。
 - paired-seed `ME-DOL/NOG depth` 均值从 0.49x 上升到 1.92x，随 epsilon 变小严格
@@ -180,7 +250,11 @@ depth/work。
 first-hit depth/work 的无偏估计。尤其是 ME-DOL 0/20 hit 时，只能给出下界或删失结论，
 不能声称测得了有限比例。
 
-## 为什么 v4 与历史 v2 差别很大
+## 2026 wide-epsilon 实验：当前主结果（历史 v2）
+
+这一标题为旧报告和测试保留；当前正式讨论应优先使用上方 v4/v5，v2 只用于追溯。
+
+### 为什么 v4 与历史 v2 差别很大
 
 v4 不是在 v2 完全相同的设置下仅增加 epsilon 点和 seeds。问题实例、评估精度、算法
 参数、每层 work 和统计口径都发生了实质变化，因此两版不是 apples-to-apples
@@ -271,6 +345,30 @@ epsilon 区间中，ME-DOL/NOG depth ratio 随精度要求增强而上升，work
 量级。不能表述为已经精确验证 epsilon^-5/3 或 epsilon^-3，也不能声称所有有限
 epsilon 上 NOG 都更快。
 
+## 安装和复现 v5
+
+激活按照 `requirements.txt` 配置的 `NOG` 环境后，可以运行完整的可恢复流水线：
+
+```bash
+conda activate NOG
+bash scripts/run_low_epsilon_v5.sh
+```
+
+流水线依次执行：
+
+1. 双方各 6 个算法候选的对称 pilot；
+2. 冻结 NOG/ME-DOL 全局算法参数；
+3. 双方相同 6 档总 batch 的对称 pilot；
+4. 冻结各自非递减 batch schedule；
+5. formal、artifact/work 审计和相邻异常确认；
+6. 30-seed 统计、固定 batch 诊断图、中文报告和紧凑结果包。
+
+runner 会复用 fingerprint/SHA256 一致的完整 partial；最多同时运行 4 个任务、每任务
+8 workers。各条独立命令、seed 集合和输出目录见
+[v5 REPRODUCE.md](results/low_epsilon_v5_symmetric/REPRODUCE.md)。Raw trajectories 位于
+`outputs/distributed_cpu_fo_v5/`，不提交 Git；可审计的紧凑结果包位于
+`results/low_epsilon_v5_symmetric/`。
+
 ## 安装和复现 v4
 
 仓库已有名为 `NOG` 的 Conda 环境时，只需激活并确认依赖：
@@ -307,6 +405,18 @@ conda run -n NOG python -m src.distributed.theory_validation_package
 
 ## 代码和结果索引
 
+- [low_epsilon_runner.py](src/distributed/low_epsilon_runner.py)：对称 algorithm/batch
+  pilot、formal/extra 调度、32-worker 上限和 resume；
+- [low_epsilon_freeze.py](src/distributed/low_epsilon_freeze.py)：两阶段自动选择、seed
+  隔离、非递减 batch schedule 和冻结哈希；
+- [low_epsilon_audit.py](src/distributed/low_epsilon_audit.py)：formal/extra 的哈希、进程、
+  checkpoint 和精确 work 审计；
+- [low_epsilon_analysis.py](src/distributed/low_epsilon_analysis.py)：30-seed paired ratios、
+  bootstrap、异常确认与固定 batch 诊断；
+- [low_epsilon_report.py](src/distributed/low_epsilon_report.py)：25 点绝对值、比例和图表；
+- [low_epsilon_package.py](src/distributed/low_epsilon_package.py)：v5 紧凑结果包；
+- [v5 正式中文报告](results/low_epsilon_v5_symmetric/analysis/low_epsilon_report.md)；
+- [v5 结果包清单](results/low_epsilon_v5_symmetric/package_manifest.json)；
 - [theory_validation_runner.py](src/distributed/theory_validation_runner.py)：32-process
   调度、pilot/formal 和 resume；
 - [theory_validation_freeze.py](src/distributed/theory_validation_freeze.py)：pilot-only
