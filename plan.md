@@ -140,7 +140,7 @@ ME-DOL；work ratio 完全不变；未命中点可以忽略。
 ### Step 12D：正式发布 — 不执行（由 Step 13 对称协议替代）
 
 
-## Step 13：对称低 epsilon 验证（方案 B）— 进行中
+## Step 13：对称低 epsilon 验证（方案 B）— 已完成
 
 ### Step 13A：协议重新冻结 — 已完成
 
@@ -174,10 +174,12 @@ ME-DOL；work ratio 完全不变；未命中点可以忽略。
 - 严格 verdict 为 not fully supported；固定 batch 诊断和不利主结果同时报告。
 - 已生成三组 PNG/PDF、完整 CSV/JSON、中文报告和 22 项 hash-verified 结果包。
 
-### Step 13D：完整测试、README 与 GitHub 发布 — 进行中
+### Step 13D：完整测试、README 与 GitHub 发布 — 已完成
 
 - README 已加入 v5 全 25 点 absolute depth/work、比例、参数、复现和严格 verdict。
 - 完整测试 71 passed、8 subtests passed；v5 专项 4 passed。
 - Base/extra 审计分别 200/200 和 100/100 passed。
+- 发布提交：`df2c956`（分支 `agent/low-epsilon-v5`）。
+- GitHub 草稿 PR：<https://github.com/diaozb/NOG/pull/5>。
 - 最新 freeze/analysis/package 依赖链共 455 个 SHA256 校验通过；22 项结果包、
   文档链接、脚本语法和 diff 检查通过。
