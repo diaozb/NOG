@@ -183,3 +183,31 @@ ME-DOL；work ratio 完全不变；未命中点可以忽略。
 - GitHub 草稿 PR：<https://github.com/diaozb/NOG/pull/5>。
 - 最新 freeze/analysis/package 依赖链共 455 个 SHA256 校验通过；22 项结果包、
   文档链接、脚本语法和 diff 检查通过。
+
+
+## Step 14：v6 逐 epsilon 联合重调参 — 进行中
+
+### Step 14A：审计 v5 单参数冻结 — 已完成
+
+- v5 先在共同 batch 128 上选一个覆盖全区间的算法参数，再单独选择 batch；这不是
+  `algorithm parameter × batch` 的联合最优。
+- NOG `M=2, eta=1` 在 pilot `epsilon=0.010` 的平均 depth 为 170，优于最终冻结
+  `M=4, eta=2` 的 362；前者因为不能覆盖最小 epsilon 而被全局淘汰。
+- ME-DOL 也存在区域最优切换，因此 v5 的全区间固定参数不能继续解释为逐 epsilon 最优。
+
+### Step 14B：v6 协议重新冻结 — 进行中
+
+- 25 个 epsilon 保持 `0.01000--0.00400`，联合搜索算法参数与 batch。
+- screen seeds `210--212`、confirmation pilot seeds `213--214`、formal seeds
+  `50--69` 完全隔离。
+- pilot 最大 depth 7680，formal 最大 depth 15360，统一每 24 rounds 评估；并发仍为
+  4 tasks × 8 workers，不超过 32 worker processes。
+- 同时冻结 `work-optimal` 与 `depth-optimal` 两套 Pareto 口径，不用正式比例反向挑参数。
+
+### Step 14C：联合 pilot 与边界检查 — 待执行
+
+### Step 14D：pilot-only 逐 epsilon 冻结 — 待执行
+
+### Step 14E：全新 formal 重测、审计与统计 — 待执行
+
+### Step 14F：README、结果包与 GitHub 发布 — 待执行
