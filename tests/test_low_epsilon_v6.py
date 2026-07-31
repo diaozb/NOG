@@ -1,7 +1,11 @@
 from pathlib import Path
 
 from src.distributed.cpu_fo_correctness import load_config
-from src.distributed.low_epsilon_v6_freeze import _best, _shortlist_rows
+from src.distributed.low_epsilon_v6_freeze import (
+    _best,
+    _clean_descriptor,
+    _shortlist_rows,
+)
 from src.distributed.low_epsilon_v6_analysis import _formal_label
 from src.distributed.low_epsilon_v6_runner import candidate_map
 
@@ -75,3 +79,27 @@ def test_formal_labels_replace_pilot_depth_without_changing_parameters():
     }
     assert _formal_label(nog, 15360).endswith("batch-total-16__rounds-15360")
     assert _formal_label(me, 15360).endswith("batch-total-32__rounds-15360")
+
+
+def test_clean_descriptors_have_identical_csv_columns():
+    nog = _clean_descriptor(
+        {
+            "label": "nog",
+            "method": "NOG-FO",
+            "M": 2,
+            "eta": 1.0,
+            "batch_total": 16,
+            "config": {},
+        }
+    )
+    me = _clean_descriptor(
+        {
+            "label": "me",
+            "method": "ME-DOL-FO",
+            "epoch_length": 6,
+            "theory_multiplier": 100.0,
+            "batch_total": 32,
+            "config": {},
+        }
+    )
+    assert list(nog) == list(me)

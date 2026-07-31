@@ -52,7 +52,15 @@ def _completion_payloads(
 
 
 def _clean_descriptor(descriptor: Dict[str, Any]) -> Dict[str, Any]:
-    return {key: value for key, value in descriptor.items() if key != "config"}
+    return {
+        "label": str(descriptor["label"]),
+        "method": str(descriptor["method"]),
+        "batch_total": int(descriptor["batch_total"]),
+        "M": descriptor.get("M"),
+        "eta": descriptor.get("eta"),
+        "epoch_length": descriptor.get("epoch_length"),
+        "theory_multiplier": descriptor.get("theory_multiplier"),
+    }
 
 
 def _measure(
