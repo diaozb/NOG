@@ -52,7 +52,7 @@ methods:
 cpu_process:
   threads_per_rank: 1
   process_group_timeout_seconds: 120
-  launch_timeout_seconds: 600
+  launch_timeout_seconds: 129600
   max_total_worker_processes: 32
   task_timeout_seconds: 129600
 
