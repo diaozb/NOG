@@ -5,3 +5,6 @@ synthetic_result.tar.gz
 outputs/distributed_cpu_fo_v2/epsilon_scaling_v2/
 outputs/distributed_cpu_fo_v3/
 outputs/distributed_cpu_fo_v4/
+outputs/distributed_cpu_fo_v5/
+outputs/distributed_cpu_fo_v6/
+outputs/distributed_cpu_fo_v7/

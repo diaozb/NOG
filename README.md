@@ -1,115 +1,99 @@
 # NOG distributed first-order experiments
 
-本仓库在真实 CPU processes/Gloo 环境中实现并比较 NOG-FO 与 ME-DOL-FO，用于研究
-nonsmooth nonconvex stochastic optimization 中精度要求 epsilon 对通信深度（depth）
-和随机一阶 oracle 工作量（work）的影响。
+本仓库在真实 CPU processes/Gloo 环境中实现并比较 NOG-FO 与 ME-DOL-FO，研究
+nonsmooth nonconvex stochastic optimization 中精度要求 $\epsilon$ 对通信深度
+（depth）和随机一阶 oracle 工作量（work）的影响。
 
-当前正式结果是 [theory_validation_v4](results/theory_validation_v4/)：27 个 primary
-epsilon（0.2 到 0.01）、20 个独立 formal seeds，并完整保留 0.01 以下未命中实验的
-删失信息。历史 [epsilon_scaling_v2](results/epsilon_scaling_v2/) 使用了不同的问题
-实例和算法参数，只用于追溯，不能与 v4 直接混合比较。
+本文档以 **theory validation v4** 为唯一主结果。v4 的 confirmatory 区间为
+$\epsilon=0.2\text{--}0.01$；同一冻结协议还留下了 $\epsilon<0.01$ 的探索性结果，
+其中只有 $\epsilon=0.0095$ 是双方均 20/20 命中的完整延伸点。更小的目标出现预算
+删失，必须与主结果分开解释。
 
 ## 结论摘要
 
-- 27 个 primary 点上，两种方法均为 20/20 confirmed hits。
-- paired-seed `ME-DOL/NOG depth` 均值从 0.49x 上升到 1.92x，随 epsilon 变小严格
-  上升，Spearman rho=1.000。
-- paired-seed `NOG/ME-DOL work` 均值为 1.49x，范围 0.98x--2.05x，CV=0.208，
-  属于相同常数量级，但不是严格不变。
-- 预先冻结的 work-ratio 上限是 2.00x；epsilon=0.2 的正式值为 2.049x，超出约
-  2.5%。因此预注册总 verdict 是 **not fully supported**，不能改写成完全通过。
-- epsilon=0.01025 时 NOG batch 从 8 切换为 16。该处 depth 和 work 的跳变同时包含
-  参数切换效应，不能解释为只由 epsilon 引起。
-- v4 是固定 d、delta 和单一 problem family 上的有限区间、定性 scaling evidence，
-  没有精确验证 worst-case 渐进指数。
+- 在 27 个 primary $\epsilon$ 和每点 20 个独立 formal seeds 上，两种方法全部
+  20/20 confirmed hits。
+- paired-seed `ME-DOL/NOG depth` 从 0.488x 增长到 1.919x，随 $\epsilon$ 变小严格
+  上升，Spearman $\rho=1.000$。
+- paired-seed `NOG/ME-DOL work` 均值为 1.489x，范围 0.980x--2.049x，CV=0.208。
+  因此 work 处于相同常数量级，但不能表述为严格不变。
+- 在探索性延伸点 $\epsilon=0.0095$，双方仍为 20/20 hits；`ME-DOL/NOG depth`
+  为 3.135x，`NOG/ME-DOL work` 为 0.772x。
+- 预注册 work-ratio 上限为 2.000x，而 $\epsilon=0.2$ 的正式值为 2.049x，超出约
+  2.5%。所以预注册总 verdict 是 **not fully supported**，不能改写成全部门槛通过。
+- 这些结果是在固定 $d$、$\delta$ 和单一问题族上的有限区间定性 scaling evidence，
+  不是对 worst-case 渐进指数的精确验证。
 
-## 指标和统计口径
+![v4 depth/work ratios](results/theory_validation_v4/analysis/figures/depth_work_ratios.png)
+
+## 指标与统计口径
 
 | 名称 | 定义 |
 |---|---|
-| hit | stationarity proxy 连续两个高精度 checkpoints 不超过目标 epsilon |
+| hit | stationarity proxy 连续两个高精度 checkpoints 不超过目标 $\epsilon$ |
 | depth | 第一次 confirmed hit 对应的通信/算法深度 |
 | total work | 到 confirmed hit 为止累计的 stochastic first-order oracle evaluations |
-| ME/NOG depth | 先在相同 formal seed 内计算 `ME depth / NOG depth`，再对 20 seeds 求均值 |
-| NOG/ME work | 先在相同 formal seed 内计算 `NOG work / ME work`，再对 20 seeds 求均值 |
-| capped value | 未命中时使用预注册最大预算对应的 depth/work，不把 non-hit 当成真正 hit |
+| ME/NOG depth | 先在相同 formal seed 内计算 `ME depth / NOG depth`，再跨 seeds 求均值 |
+| NOG/ME work | 先在相同 formal seed 内计算 `NOG work / ME work`，再跨 seeds 求均值 |
+| capped value | 未命中时用预注册最大预算对应的 depth/work；它是删失描述，不是真实 first hit |
 
-表中的 depth/work 是跨 seed 的均值，比例是 paired-seed ratio 的均值，因此比例不一定
-严格等于两个均值相除。每个 seed 的第一次 reach 值见
+表中的绝对 depth/work 是跨 seed 均值，比例是 paired-seed ratios 的均值，因此比例
+不一定严格等于两个绝对均值相除。完整逐 seed 数据见
 [formal_per_seed.csv](results/theory_validation_v4/analysis/formal_per_seed.csv)。
 
 ## v4 问题与运行设置
 
-### SyntheticMaxSinL1 问题
+### 问题、评估与分布式环境
 
-| 项目 | v4 正式设置 |
+| 项目 | v4 设置 |
 |---|---|
 | problem | `SyntheticMaxSinL1` |
-| dimension `d` | 100 |
-| number of data points `n_data` | 4096 |
-| constraint radius `R` | 1 |
-| L1 coefficient `lambda` | 0.001 |
-| feature scale | 1.0 |
-| common feature bias | 0.25 |
-| phase mode | `zero` |
-| smoothing radius `delta` | 0.1 |
+| dimension $d$ | 100 |
+| number of data points | 4096 |
+| constraint radius $R$ | 1 |
+| L1 coefficient $\lambda$ | 0.001 |
+| feature scale / common bias / phase | 1.0 / 0.25 / `zero` |
+| smoothing radius $\delta$ | 0.1 |
 | evaluation bank | `eval_smooth_B=256`, `eval_data_B=512` |
-| evaluation cost | 131,072 SFO calls/checkpoint |
-| evaluation seed mode | one fixed bank |
-
-### 分布式、seed 和预算
-
-| 项目 | v4 正式设置 |
-|---|---|
+| evaluation cost | 131,072 SFO calls/checkpoint，固定 evaluation bank |
 | workers | `m=8` real CPU processes |
-| backend/topology | Gloo / complete topology / exact mean |
-| partition mode | total batch fixed, shuffled partitions |
-| RNG mode | rank schedule |
-| pilot seeds | 100--104 |
-| formal seeds | 0--19，与 pilot 严格不重叠 |
-| evaluation interval | 24 |
-| confirmed hit | 连续 2 个 checkpoints |
-| NOG maximum rounds | 960（有效 censoring depth 约 962） |
-| ME-DOL maximum rounds | 3840 |
-| CPU 上限 | 4 physical tasks × 8 workers = 32 worker processes |
-| task timeout | 129,600 seconds |
+| backend / topology | Gloo / complete topology / exact mean |
+| partition / RNG | total batch fixed、shuffled partitions / rank schedule |
+| evaluation interval | 24 rounds |
+| confirmed hit | 连续 2 个 checkpoints 达标 |
+| CPU concurrency | 最多 4 tasks × 8 workers = 32 worker processes |
 
-同一条 trajectory 可同时判断多个 epsilon，所以增加 threshold 点不会使训练成本按点数
-线性增加。Raw trajectories 较大，不提交到 Git；冻结文件和分析 manifest 保留了全部
-输入的 SHA256。
+### Seed、预算与冻结参数
 
-### 冻结后的算法参数
+Pilot seeds 为 100--104；formal seeds 为 0--19，两组严格不重叠。算法参数和 batch
+schedule 在任何 formal 结果生成前冻结，formal seeds 不参与参数选择。
 
-| method | parameter | value |
-|---|---|---:|
-| NOG-FO | `M` | 2 |
-| NOG-FO | `eta` | 1.0 |
-| NOG-FO | `smooth_B` | 1 |
-| NOG-FO | rounds | 960 |
-| ME-DOL-FO | `epoch_length` | 6 |
-| ME-DOL-FO | `theory_multiplier` | 100.0 |
-| ME-DOL-FO | rounds | 3840 |
+| method | 冻结参数 | 最大训练 rounds | 有效 censoring depth |
+|---|---|---:|---:|
+| NOG-FO | `M=2`, `eta=1.0`, `smooth_B=1` | 960 | 约 962（含初始化通信） |
+| ME-DOL-FO | `epoch_length=6`, `theory_multiplier=100` | 3840 | 3840 |
 
-NOG 的 global data batch 是 pilot-only、matched-work 冻结规则选出的单调 schedule：
+NOG 的 global data batch 由 pilot-only matched-work 规则选择，并约束为当 $\epsilon$
+变小时不下降：
 
-- epsilon=0.2 到 0.0105：`data_B_total=8`；
-- epsilon=0.01025 到 0.002：`data_B_total=16`。
+- $\epsilon=0.2$ 到 0.0105：`data_B_total=8`；
+- $\epsilon=0.01025$ 到 0.002：`data_B_total=16`。
 
-ME-DOL 使用 8 workers，每层总 work 为 8。NOG 在 batch=8 区间每层 work 为 8，
-在 batch=16 区间每层 work 为 16。这解释了为什么 batch 切换会同时改变 depth 和
-work，也是解读 0.01025 跳变时必须保留的限制。
+ME-DOL 每层总 work 为 8；NOG 每层总 work 在两个区间分别为 8 和 16。因此
+$\epsilon=0.0105\rightarrow0.01025$ 的 depth/work 跳变包含 NOG batch 切换效应，
+不能解释成只由 $\epsilon$ 引起。
 
-完整配置和冻结记录：
+冻结与审计记录：
 
-- [v4 完整运行配置](configs/distributed_cpu_fo_theory_validation_v4.yaml)
-- [结果包内配置](results/theory_validation_v4/config.yaml)
-- [冻结参数与输入哈希](results/theory_validation_v4/frozen_parameters.json)
+- [运行配置](results/theory_validation_v4/config.yaml)
+- [冻结参数、选择规则与输入哈希](results/theory_validation_v4/frozen_parameters.json)
 - [正式结果审计](results/theory_validation_v4/audit/formal_result_audit.json)
+- [结果包清单](results/theory_validation_v4/package_manifest.json)
 
-## v4 primary 完整结果
+## v4 primary 结果：$\epsilon=0.2\text{--}0.01$
 
-下表同时给出 hit 数、绝对 depth/work 均值和 paired ratios。全部 primary 点均为
-20/20 hits，因此这些绝对值是真实 first-hit 均值，不是预算上限替代值。
+全部 27 个点均为双方 20/20 hits，所以下列绝对值是真实 first-hit 均值，不含预算
+上限替代值。
 
 | epsilon | NOG batch | NOG hit | ME hit | NOG depth | ME depth | ME/NOG depth | NOG work | ME work | NOG/ME work |
 |---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -141,31 +125,44 @@ work，也是解读 0.01025 跳变时必须保留的限制。
 | 0.01025 | 16 | 20/20 | 20/20 | 400.4 | 685.2 | 1.72x | 6,406.4 | 5,481.6 | 1.25x |
 | 0.01000 | 16 | 20/20 | 20/20 | 408.9 | 783.0 | 1.92x | 6,542.4 | 6,264.0 | 1.14x |
 
-机器可读数据：
+机器可读结果：
 
 - [formal_summary.csv](results/theory_validation_v4/analysis/formal_summary.csv)：绝对
-  depth/work、标准差和 hit rate；
-- [formal_ratios.csv](results/theory_validation_v4/analysis/formal_ratios.csv)：paired
-  ratios、标准差和 bootstrap CI；
-- [formal_per_seed.csv](results/theory_validation_v4/analysis/formal_per_seed.csv)：每个
-  seed 的第一次 reach；
-- [formal_trends.json](results/theory_validation_v4/analysis/formal_trends.json)：趋势、
-  斜率和预注册 verdict。
+  depth/work、标准差、hit rate 与 capped values；
+- [formal_ratios.csv](results/theory_validation_v4/analysis/formal_ratios.csv)：primary
+  paired ratios、标准差和 bootstrap CI；
+- [formal_per_seed.csv](results/theory_validation_v4/analysis/formal_per_seed.csv)：逐 seed
+  第一次 reach 与删失上限；
+- [formal_trends.json](results/theory_validation_v4/analysis/formal_trends.json)：趋势、斜率和
+  预注册 verdict；
+- [完整 v4 中文报告](results/theory_validation_v4/analysis/theory_validation_report.md)。
 
-![Depth/work ratios](results/theory_validation_v4/analysis/figures/depth_work_ratios.png)
+![v4 depth/work versus epsilon](results/theory_validation_v4/analysis/figures/depth_work_vs_epsilon.png)
 
-![Depth/work versus epsilon](results/theory_validation_v4/analysis/figures/depth_work_vs_epsilon.png)
+## v4 在 0.01 以下的结果
 
-## v4 在 0.01 以下的 exploratory/censored 结果
+### 完整延伸点：$\epsilon=0.0095$
 
-这些点不参与 primary 参数选择或主趋势 verdict。命中不足时不报告伪造的有限
-first-hit mean，也不留空；下表明确报告 hit 数以及把 non-hit 计到预算上限后的 capped
-depth/work。
+这个点沿用同一 v4 问题、冻结算法参数、formal seeds、评估口径和预算；双方均 20/20
+命中，因此可以报告真实 first-hit 值。不过它在冻结文件中被预先标记为
+`exploratory_censored` scope，不参与 primary 参数选择或主趋势 verdict，论文中应单列为
+探索性延伸，不能无说明地并入 27 点 confirmatory 曲线。
+
+| epsilon | NOG batch | NOG hit | ME hit | NOG depth | ME depth | ME/NOG depth | NOG work | ME work | NOG/ME work |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 0.00950 | 16 | 20/20 | 20/20 | 418.7 ± 38.8 | 1,316.4 ± 658.8 | 3.135x | 6,699.2 ± 620.4 | 10,531.2 ± 5,270.7 | 0.772x |
+
+这里的两个比例同样是 20 个 paired-seed ratios 的均值，而不是两个表中均值直接相除。
+
+### 更小目标：预算删失结果
+
+从 $\epsilon=0.0090$ 起至少一方未能在固定 v4 预算内全部命中。表中把 non-hit 计到
+预注册预算上限，给出 capped mean；它们只能用于展示命中率和预算下界，不能当作双方
+真实 first-hit ratio。
 
 | epsilon | NOG hit | ME hit | NOG capped depth | ME capped depth | NOG capped work | ME capped work | 解释 |
-|---:|---:|---:|---:|---:|---:|---:|---|
-| 0.0095 | 20/20 | 20/20 | 418.7 | 1,316.4 | 6,699.2 | 10,531.2 | full |
-| 0.0090 | 20/20 | 12/20 | 451.4 | 2,497.8 | 7,222.4 | 19,982.4 | ME censored |
+|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| 0.0090 | 20/20 | 12/20 | 451.4 | 2,497.8 | 7,222.4 | 19,982.4 | ME-DOL censored |
 | 0.0080 | 18/20 | 0/20 | 659.7 | 3,840.0 | 10,555.2 | 30,720.0 | both censored |
 | 0.0070 | 2/20 | 0/20 | 950.1 | 3,840.0 | 15,201.6 | 30,720.0 | both censored |
 | 0.0060 | 0/20 | 0/20 | 962.0 | 3,840.0 | 15,392.0 | 30,720.0 | no finite ratio |
@@ -174,113 +171,27 @@ depth/work。
 | 0.0030 | 0/20 | 0/20 | 962.0 | 3,840.0 | 15,392.0 | 30,720.0 | no finite ratio |
 | 0.0020 | 0/20 | 0/20 | 962.0 | 3,840.0 | 15,392.0 | 30,720.0 | no finite ratio |
 
-![Hit rate](results/theory_validation_v4/analysis/figures/hit_rate_vs_epsilon.png)
+![v4 hit rate](results/theory_validation_v4/analysis/figures/hit_rate_vs_epsilon.png)
 
-当任一方法存在 non-hit 时，capped ratio 只是固定预算下的描述性量，不是双方真实
-first-hit depth/work 的无偏估计。尤其是 ME-DOL 0/20 hit 时，只能给出下界或删失结论，
-不能声称测得了有限比例。
+## 理论参照与结论边界
 
-## 为什么 v4 与历史 v2 差别很大
+| method | theory depth | theory work | v4 primary observed log-log slope: depth | work |
+|---|---:|---:|---:|---:|
+| NOG | $O(d^{1/3}\delta^{-1}\epsilon^{-5/3})$ | $O(\delta^{-1}\epsilon^{-3})$ | 0.372 | 0.429 |
+| ME-DOL | $O(\delta^{-1}\epsilon^{-3})$ | $O(\delta^{-1}\epsilon^{-3})$ | 0.636 | 0.636 |
 
-v4 不是在 v2 完全相同的设置下仅增加 epsilon 点和 seeds。问题实例、评估精度、算法
-参数、每层 work 和统计口径都发生了实质变化，因此两版不是 apples-to-apples
-replication。
+观测斜率明显小于 worst-case theory exponent。适合论文的表述是：
 
-| 项目 | 历史 v2 | 当前 v4 |
-|---|---|---|
-| `R` | 4 | 1 |
-| phase | random | zero |
-| common feature bias | 0 | 0.25 |
-| evaluation bank | `64 × 128 = 8,192` | `256 × 512 = 131,072` |
-| NOG coarse/medium | `M=4, eta=0.3, smooth_B=1, batch=64` | `M=2, eta=1, smooth_B=1, batch=8/16` |
-| NOG fine | `M=24, eta=0.3, smooth_B=8, batch=64` | 同一 global 参数，batch=16 |
-| ME-DOL coarse/medium | `epoch=6, multiplier=0.3/3` | `epoch=6, multiplier=100` |
-| ME-DOL fine | `epoch=24, multiplier=10` | `epoch=6, multiplier=100` |
-| formal maximum rounds | 960 或 61,440 | NOG 960、ME-DOL 3,840 |
-| NOG work/depth | coarse/medium 64，fine 512 | 8 或 16 |
-| ME-DOL work/depth | 8 | 8 |
-| 主要 ratio 口径 | ratio of capped means | mean of paired-seed ratios |
+> 在当前固定问题和有限 $\epsilon$ 区间中，ME-DOL/NOG depth ratio 随精度要求增强而
+> 上升，而两者 work 保持同一常数量级；$\epsilon=0.0095$ 的探索性完整点延续了该方向。
 
-v2 在 epsilon=0.2 到 0.015 时，两种算法均在最早记录深度 6 达到目标，导致 depth
-ratio 全为 1；这个区间出现 checkpoint saturation，无法展示更宽松阈值下的真实轨迹
-差异。v2 的 4--6x 主要出现在 epsilon=0.01 及其不同删失统计口径中，并不是严格
-epsilon>0.01 的正式结果。
+不应表述为已经精确验证 $\epsilon^{-5/3}$ 或 $\epsilon^{-3}$，也不应把删失点写成测得
+的有限比例。
 
-### v2 代表性绝对值
+## 复现 v4
 
-以下是 v2 的 capped means；full 行等于真实 first-hit mean。
-
-| epsilon | NOG hit | ME hit | NOG depth | ME depth | ME/NOG depth | NOG work | ME work | NOG/ME work | 状态 |
-|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| 0.200 | 20/20 | 20/20 | 6.0 | 6.0 | 1.00x | 384.0 | 48.0 | 8.00x | full |
-| 0.100 | 20/20 | 20/20 | 6.0 | 6.0 | 1.00x | 384.0 | 48.0 | 8.00x | full |
-| 0.050 | 20/20 | 20/20 | 6.0 | 6.0 | 1.00x | 384.0 | 48.0 | 8.00x | full |
-| 0.030 | 20/20 | 20/20 | 6.0 | 6.0 | 1.00x | 384.0 | 48.0 | 8.00x | full |
-| 0.020 | 20/20 | 20/20 | 6.0 | 6.0 | 1.00x | 384.0 | 48.0 | 8.00x | full |
-| 0.015 | 20/20 | 20/20 | 6.0 | 6.0 | 1.00x | 384.0 | 48.0 | 8.00x | full |
-| 0.010 | 20/20 | 14/20 | 116.4 | 570.6 | 4.90x | 7,449.6 | 4,564.8 | 1.63x | ME censored |
-| 0.009 | 20/20 | 20/20 | 131.6 | 1,632.0 | 12.40x | 67,379.2 | 13,056.0 | 5.16x | full |
-| 0.008 | 20/20 | 20/20 | 508.4 | 7,761.6 | 15.27x | 260,300.8 | 62,092.8 | 4.19x | full |
-
-v2 epsilon=0.01 的 `ME/NOG depth` 会随口径变化：
-
-- ratio of capped means：4.90x；
-- capped paired ratios 的均值：6.19x；
-- 只对双方均 hit 的 paired ratios 求均值：5.73x。
-
-所以旧文档中出现 4x、5x、6x 并不一定是三次不同运行，也可能是同一批删失数据的
-不同统计量。v2 的完整文件：
-
-- [v2 正式报告](results/epsilon_scaling_v2/analysis/epsilon_scaling_report.md)
-- [v2 绝对值](results/epsilon_scaling_v2/analysis/formal_summary.csv)
-- [v2 比例](results/epsilon_scaling_v2/analysis/formal_ratios.csv)
-- [v2 分区冻结参数](results/epsilon_scaling_v2/audit/frozen_region_configs.json)
-
-若要严格归因 v2/v4 的差异，需要做逐项控制变量的 bridge/ablation：固定 problem
-只换算法参数、固定算法只换 problem，再逐项改变 evaluation bank 和 batch。当前 v4
-结果不能单独回答哪个变化贡献了全部差异。
-
-## Pilot、冻结和防止事后挑选
-
-1. 使用 pilot seeds 100--104 测试 NOG 的 `M, eta, smooth_B` 和 ME-DOL 的
-   `epoch_length, theory_multiplier`，formal seeds 不参与参数选择。
-2. 对 NOG global batch `8,16,...,64` 做 dense-epsilon pilot 校准。
-3. 冻结要求所有 primary epsilon 在 pilot 为 5/5 hits，且 batch 随 epsilon 变小
-   不能下降；目标是最小化 matched-work 偏差。
-4. 冻结参数并确认 formal 输出目录为空后，才运行 seeds 0--19。
-5. 60/60 physical formal tasks 通过 SHA256、task fingerprint、rank/shard、trajectory
-   和精确 SFO work-accounting 审计。
-6. formal 结果没有用于重新选择最有利的参数；预注册门槛也没有在看到结果后修改。
-
-## 理论参照和结论边界
-
-| method | depth | work |
-|---|---:|---:|
-| ME-DOL | `O(delta^-1 epsilon^-3)` | `O(delta^-1 epsilon^-3)` |
-| NOG | `O(d^(1/3) delta^-1 epsilon^(-5/3))` | `O(delta^-1 epsilon^-3)` |
-
-| metric | theory exponent | observed log-log slope |
-|---|---:|---:|
-| NOG depth | 1.667 | 0.372 |
-| ME-DOL depth | 3.000 | 0.636 |
-| NOG work | 3.000 | 0.429 |
-| ME-DOL work | 3.000 | 0.636 |
-
-观测斜率明显小于 worst-case theory exponent。合适的表述是：在当前固定问题和有限
-epsilon 区间中，ME-DOL/NOG depth ratio 随精度要求增强而上升，work 保持同一常数
-量级。不能表述为已经精确验证 epsilon^-5/3 或 epsilon^-3，也不能声称所有有限
-epsilon 上 NOG 都更快。
-
-## 安装和复现 v4
-
-仓库已有名为 `NOG` 的 Conda 环境时，只需激活并确认依赖：
-
-```bash
-conda activate NOG
-pip install -r requirements.txt
-```
-
-从仓库根目录依次执行：
+依赖见 `requirements.txt`。仓库已有按该文件配置的 `NOG` Conda 环境时，从仓库根目录
+依次运行：
 
 ```bash
 conda run -n NOG python -m src.distributed.theory_validation_runner pilot-batch-grid
@@ -292,31 +203,33 @@ conda run -n NOG python -m src.distributed.theory_validation_report
 conda run -n NOG python -m src.distributed.theory_validation_package
 ```
 
-运行阶段：
+流程依次执行 pilot-only batch calibration、冻结、formal、审计、统计、报告和紧凑打包。
+Runner 支持 fingerprint/SHA256 一致的原子 partial 恢复。Raw trajectories 因体积较大不
+提交 Git；冻结文件和 analysis manifest 保存了所有输入哈希。详细说明见
+[v4 REPRODUCE.md](results/theory_validation_v4/REPRODUCE.md)。
 
-1. `pilot-batch-grid`：只使用 pilot seeds 搜索 batch schedule；
-2. `freeze`：根据 pilot 结果冻结参数和输入哈希；
-3. `formal`：运行独立 formal seeds，支持原子 partial 和安全 resume；
-4. `audit`：检查任务完整性、trajectory 和 work accounting；
-5. `analysis`：生成绝对值、paired ratios、bootstrap CI 和趋势；
-6. `report`：生成 Markdown 报告和 PNG/PDF 图；
-7. `package`：生成可提交 Git 的紧凑结果包。
-
-详细说明见 [REPRODUCE.md](results/theory_validation_v4/REPRODUCE.md)。完整测试基线为
-**67 passed, 8 subtests passed**。
-
-## 代码和结果索引
+主要实现：
 
 - [theory_validation_runner.py](src/distributed/theory_validation_runner.py)：32-process
   调度、pilot/formal 和 resume；
 - [theory_validation_freeze.py](src/distributed/theory_validation_freeze.py)：pilot-only
-  参数选择、单调 batch schedule 和冻结哈希；
+  选择、单调 batch schedule 和冻结哈希；
 - [theory_validation_audit.py](src/distributed/theory_validation_audit.py)：artifact 与
   work-accounting 审计；
 - [theory_validation_analysis.py](src/distributed/theory_validation_analysis.py)：
-  censoring-aware 统计、bootstrap 和趋势；
+  censoring-aware 统计、paired ratios、bootstrap 和趋势；
 - [theory_validation_report.py](src/distributed/theory_validation_report.py)：结果表和图；
-- [theory_validation_package.py](src/distributed/theory_validation_package.py)：紧凑结果包；
-- [v4 正式中文报告](results/theory_validation_v4/analysis/theory_validation_report.md)；
-- [v4 结果包清单](results/theory_validation_v4/package_manifest.json)；
-- [实验计划和完成记录](plan.md)。
+- [theory_validation_package.py](src/distributed/theory_validation_package.py)：紧凑结果包。
+
+## 历史与探索性版本
+
+以下文件保留用于审计和追溯，但不参与本 README 的主结论，也不应与 v4 拼接成一条
+同配置曲线：
+
+- [epsilon_scaling_v2](results/epsilon_scaling_v2/)：问题实例、evaluation bank、算法
+  参数、work/depth 和删失统计口径均与 v4 不同；
+- [low_epsilon_v5_symmetric](results/low_epsilon_v5_symmetric/)：使用新参数、新 seeds、
+  独立 batch schedule 和更高预算，预注册趋势/work verdict 未完全通过；
+- 后续未形成独立紧凑结果包的 v6/v7 探索不作为论文证据，也不用于替换 v4 数值。
+
+实验计划与完成记录见 [plan.md](plan.md)。

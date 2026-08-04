@@ -208,11 +208,14 @@ def _run_nog_fo_rank(
         block_id = iteration // block_size
         y_bar = torch.stack(block_points).mean(dim=0)
         block_oracle_norm = float(torch.stack(block_oracles).mean(dim=0).norm().item())
-        should_evaluate = (
-            block_id == 1
-            or iteration == rounds
-            or iteration - last_eval_iteration >= eval_every
-        )
+        if bool(cfg["train"].get("strict_eval_grid", False)):
+            should_evaluate = iteration == rounds or iteration % eval_every == 0
+        else:
+            should_evaluate = (
+                block_id == 1
+                or iteration == rounds
+                or iteration - last_eval_iteration >= eval_every
+            )
         if should_evaluate:
             metrics, eval_calls = _rank0_evaluate(
                 rank,
@@ -280,6 +283,11 @@ def _run_me_dol_fo_rank(
         if isinstance(multiplier_config, dict)
         else multiplier_config
     )
+    smooth_batch = int(cfg["me_dol"].get("smooth_B", 1))
+    data_batch = int(cfg["me_dol"].get("data_B_per_worker", 1))
+    if smooth_batch < 1 or data_batch < 1:
+        raise ValueError("ME-DOL oracle batch sizes must be positive.")
+    calls_per_rank = smooth_batch * data_batch
     radius = multiplier * delta / (4.0 * epoch_length * world_size**0.5)
     learning_rate = radius / epoch_length**0.5
     accounting = WorkAccounting("sfo", world_size)
@@ -324,20 +332,23 @@ def _run_me_dol_fo_rank(
                     "sfo_local_oracle",
                     oracle_call_index,
                     rank,
-                    smooth_batch=1,
-                    data_batch=1,
+                    smooth_batch=smooth_batch,
+                    data_batch=data_batch,
                 )
                 oracle_call_index += 1
-                accounting.add_training(1)
+                accounting.add_training(calls_per_rank)
                 accounting.communicate()
                 epoch_points.append(w.detach().clone())
 
         iteration = epoch_start + epoch_length
-        should_evaluate = (
-            iteration == epoch_length
-            or iteration == rounds
-            or iteration - last_eval_iteration >= eval_every
-        )
+        if bool(cfg["train"].get("strict_eval_grid", False)):
+            should_evaluate = iteration == rounds or iteration % eval_every == 0
+        else:
+            should_evaluate = (
+                iteration == epoch_length
+                or iteration == rounds
+                or iteration - last_eval_iteration >= eval_every
+            )
         if should_evaluate:
             local_epoch_mean = torch.stack(epoch_points).mean(dim=0)
             metrics = None
@@ -383,6 +394,8 @@ def _run_me_dol_fo_rank(
                         "domain_radius": radius,
                         "lr_or_eta": learning_rate,
                         "theory_multiplier": multiplier,
+                        "smooth_B": smooth_batch,
+                        "data_B_per_worker": data_batch,
                         **seed_bundle.as_dict(),
                         **accounting.snapshot(),
                         **metrics,

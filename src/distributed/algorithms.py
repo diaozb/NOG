@@ -268,6 +268,10 @@ def run_me_dol(
         if isinstance(multiplier_config, dict)
         else multiplier_config
     )
+    smooth_batch = int(cfg["me_dol"].get("smooth_B", 1))
+    data_batch = int(cfg["me_dol"].get("data_B_per_worker", 1))
+    if smooth_batch < 1 or data_batch < 1:
+        raise ValueError("ME-DOL oracle batch sizes must be positive.")
     theory_radius = delta / (4.0 * epoch_length * n_workers**0.5)
     radius = multiplier * theory_radius
     learning_rate = radius / epoch_length**0.5
@@ -319,8 +323,8 @@ def run_me_dol(
                 shards,
                 oracle_type,
                 delta,
-                smooth_batch=1,
-                data_batch=1,
+                smooth_batch=smooth_batch,
+                data_batch=data_batch,
                 seed_bundle=seed_bundle if use_schedule else None,
                 oracle_call_index=oracle_call_index if use_schedule else None,
             )
@@ -365,6 +369,8 @@ def run_me_dol(
                     "domain_radius": radius,
                     "lr_or_eta": learning_rate,
                     "theory_multiplier": multiplier,
+                    "smooth_B": smooth_batch,
+                    "data_B_per_worker": data_batch,
                 }
             )
             rows.append(row)
