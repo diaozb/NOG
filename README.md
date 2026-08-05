@@ -164,7 +164,7 @@ $\epsilon=0.0105\rightarrow0.01025$ 的 depth/work 跳变包含 NOG batch 切换
 真实 first-hit ratio。
 
 | epsilon | NOG hit | ME hit | NOG capped depth | ME capped depth | NOG capped work | ME capped work | 解释 |
-|---:|---:|---:|---:|---:|---:|---:|---:|---|
+|---:|---:|---:|---:|---:|---:|---:|---|
 | 0.0090 | 20/20 | 12/20 | 451.4 | 2,497.8 | 7,222.4 | 19,982.4 | ME-DOL censored |
 | 0.0080 | 18/20 | 0/20 | 659.7 | 3,840.0 | 10,555.2 | 30,720.0 | both censored |
 | 0.0070 | 2/20 | 0/20 | 950.1 | 3,840.0 | 15,201.6 | 30,720.0 | both censored |
