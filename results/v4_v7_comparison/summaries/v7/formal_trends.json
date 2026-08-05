@@ -1,0 +1,17 @@
+{
+  "depth_ratio": {
+    "log_log_slope": -1.1702324829759496,
+    "spearman_rho": -0.4623076923076923
+  },
+  "work_ratio": {
+    "log_log_slope": 3.0778393229938694,
+    "spearman_rho": 0.9915384615384616
+  },
+  "depth_ratio_start": 6.985994971053333,
+  "depth_ratio_end": 3.589275432191088,
+  "work_ratio_mean": 1.5917192063587717,
+  "work_ratio_min": 0.28748670669239973,
+  "work_ratio_max": 20.695391865117198,
+  "work_ratio_coefficient_of_variation": 2.572243452107933,
+  "all_paired_hits": false
+}
