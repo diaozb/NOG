@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "created_at_utc": "2026-08-05T05:26:57.347645+00:00",
+  "stage": "stage2",
+  "budgets": {
+    "NOG-FO": 15360,
+    "ME-DOL-FO": 61440
+  },
+  "artifact_audit": "passed",
+  "prefix_validation": {
+    "status": "passed",
+    "source_root": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal",
+    "checked_tasks": 40,
+    "checked_rows": 22400,
+    "ignored_fields": [
+      "communication_time",
+      "data_B_per_worker",
+      "evaluation_time",
+      "smooth_B",
+      "time_sec",
+      "training_time"
+    ],
+    "errors": []
+  },
+  "fully_observed_epsilons": [
+    0.0095,
+    0.009
+  ],
+  "input_artifacts": [
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/extension_protocol.json",
+      "sha256": "bce0194bc40748cb427a4e22511804c94a5e2cea647d904ee18bee90b658de35"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/completion.json",
+      "sha256": "6ccd11aaa2e4fc7d112d3d2fb5f85fd006dbb4c8364d0830c1d7486c3ea66378"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/formal_result_audit.json",
+      "sha256": "c2307d7f9c4f53a0b9b7ab71180454234105f06819dab7e4300aeb207220d9d8"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed0__cfg396c86750345.json",
+      "sha256": "43183bed26780497b43e27f7b3244a65a3d28daad59a2964caac513b0f59dafc"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed1__cfg5342624d2214.json",
+      "sha256": "00f0ee76bb6bacae5c27dfa86b6a9246b50f81bfeb07cc35bcdf4dcfc66f6451"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed2__cfg83e30b9d7032.json",
+      "sha256": "0280ebcbb622c3d32580f9a7e6245d6cc12351a59d0a3ad5163b3edc5c7e8818"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed3__cfg1d8d3a184ba7.json",
+      "sha256": "0a130037f9e07c335615ad79675a39cfb2a9fd2742f0578e96573dd43946ac0c"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed4__cfg6343a4dfc99f.json",
+      "sha256": "4d563c99b277fb6d25e8979aa4a5e0f2be821a7f1ff47f3c8db4e52d8a6c436e"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed5__cfg984905235341.json",
+      "sha256": "cd0a5984bcdd83455ab5b1943f15dc6ce6ee09c088c325842028f1c2ae747267"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed6__cfg3e3d6d3b1327.json",
+      "sha256": "5023aae247c1e458adc7fa4f5f695510641b7ca169111a7a78983e7ba2e9ecb1"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed7__cfgc030319ae129.json",
+      "sha256": "bbbd397704dda7c9f21b31051bbd181f3cd6a50450fe3afa138350fc80a5c9c1"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed8__cfgae2de0f02b15.json",
+      "sha256": "4840f8f15bee9ffa3f134b420c95e847bcf302842aae75150d6161d2646d2497"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed9__cfg0a4aecacc5b5.json",
+      "sha256": "839576001c3bf00b1080d0c1d129c487fc2b3044970ec9cc801c3e56718993a9"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed10__cfg21cb5b9b8da3.json",
+      "sha256": "8341e33de7376e6fe0162d0133d35aca97019a854b49a8814c04eba79cf17606"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed11__cfgd0ad94bb6e0e.json",
+      "sha256": "550d349cf154bd4cac5728efc9ed2e050b257b8844f5c4027ed092f9cc38e581"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed12__cfg4c9dd291a6f1.json",
+      "sha256": "533df405fd6b8954a0c501bbab2043e87814af2f4255178bc07d704d82bda803"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed13__cfg570a9d4a6735.json",
+      "sha256": "3092622c995943b68e321538a1de443fa47ad24d66170b3b809991ae6da5e923"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed14__cfgf8c0e34a1c4f.json",
+      "sha256": "7759da6dcb056f93326ffcd15d4d9fbd9cb1f4cca08fa78f8087ef60e852e668"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed15__cfg9e7c2e45644f.json",
+      "sha256": "4526df54f5c12740f3b45128564b74af13c84a30df006b63f21c7c395a7a319f"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed16__cfga180990964ff.json",
+      "sha256": "a1a896dfdc484db746a5ceda580be40f5e03542ed6330fc20113cb461284a247"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed17__cfg4c049668cbf0.json",
+      "sha256": "013057699d54d634fb0ac78a47739ecd25c7717b59d07ad876bd9149d93b7174"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed18__cfg4ba03419bea8.json",
+      "sha256": "c0bd6806de57f19b3215cfc1a9978db38fc61102e41fa6c12b978dfeb7968f07"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/ME-DOL-FO__epoch-6__mult-100__rounds-61440/partials/ME-DOL-FO__m8__seed19__cfg384ec901fd1f.json",
+      "sha256": "7a862a502c5fc7819c85b5a3fc49d5ac1190c02c98045ba1404167685a240830"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed0__cfg018bda677e25.json",
+      "sha256": "5269309de712b8652b717e844ba1dbe12b4085e5f19769f79544b95156e9948d"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed1__cfgc81a9d0b7c7d.json",
+      "sha256": "62c5836e64c8542790a090c8fa7e3daddd998bf200f49c77867577abfed66dc3"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed2__cfge4100db2266c.json",
+      "sha256": "22bd2ac93360de9c0df3391f32d7bc3a01ba061d34ee8de4625587687aa53966"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed3__cfg0274e1874b23.json",
+      "sha256": "967db8d365fe8bab5ccb05b397b949455023e5e6a151c1d7f1f6e99bc577238b"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed4__cfg4a8f8100dad3.json",
+      "sha256": "de67a5644d297ff2dcb097f742e4a9395dca6d39539552ffdfc752925d62338f"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed5__cfg403dfb420a69.json",
+      "sha256": "0344c718a312e6160a8490128e625ed3a5a30dac77dd9eaab2626dcc61fa78e3"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed6__cfgfcd8dc3d653f.json",
+      "sha256": "b95baa7abbeb9be4e34815916b8092880665bea449f13401184aece58d4d7170"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed7__cfgb758509b80b1.json",
+      "sha256": "c0e59394aa94b572ba7cd8cc00653135d518eab939b1001a592a1bb0085444c8"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed8__cfgc0b561f2d72d.json",
+      "sha256": "d851e2049b20f35b86cc16ccebb173d7f05c93fc83d04dc26210a23eeea8fbf2"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed9__cfgcf7537aecedc.json",
+      "sha256": "064ff76dc993955b4143b41828586f934343cdc676011891fb69b98c374af0c0"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed10__cfga362c104afde.json",
+      "sha256": "9ff1d8c8866aa3e6c192d3681097c2cd6151c9b4cc481bd5e1b93ebe1bd5eba9"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed11__cfg035c924b30a2.json",
+      "sha256": "7241de0202984eee17dd9eb0889a1a807b73564ec98eb6f0015bca9747a96eda"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed12__cfgd4a76c90f43f.json",
+      "sha256": "2d475a29f9cac75e5adc7badfd3324cd89c5cce6b50f0f5b56b5c86d24c624a7"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed13__cfgd30b4cb11e5d.json",
+      "sha256": "1c785fdfa74f98fb307e5a64721830eb804c6ec2289d26231d360fa9686bc215"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed14__cfg4153a557c952.json",
+      "sha256": "1352b31459774c628a48f960d7f7edf78afb620fdfd123278a1f22a16f27f9c9"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed15__cfge316c0ba03d8.json",
+      "sha256": "9901582a721a337eb0e46f9224af5149a75f00531bd710cb7d769c6c79e6c292"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed16__cfgbc5a701a7f87.json",
+      "sha256": "9106bdf48e930b2c9418b21a81f7d77ec67f24a10ae31ccb23c82b3540bb5841"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed17__cfgb62a352c1240.json",
+      "sha256": "4b861069191aa385389ce10d65e2a233682bee1d0b1666873aaf667c455dc535"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed18__cfgb3a47e40a29c.json",
+      "sha256": "0a99309ff5cb48244d6f61db261eecac54d0feb05aef2ac8dfe375eb57a4a9a2"
+    },
+    {
+      "path": "outputs/distributed_cpu_fo_v4_extended_budget/stage2/NOG-FO__rounds-15360__data-B-total-16/partials/NOG-FO__m8__seed19__cfg0aec050fb4d2.json",
+      "sha256": "2d11176940b00eb9ded0aeee06e70dbe9479b5c99753993636f3cad8febd9ac3"
+    }
+  ]
+}

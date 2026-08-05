@@ -6,8 +6,9 @@ nonsmooth nonconvex stochastic optimization 中精度要求 $\epsilon$ 对通信
 
 本文档以 **theory validation v4** 为唯一主结果。v4 的 confirmatory 区间为
 $\epsilon=0.2\text{--}0.01$；同一冻结协议还留下了 $\epsilon<0.01$ 的探索性结果，
-其中只有 $\epsilon=0.0095$ 是双方均 20/20 命中的完整延伸点。更小的目标出现预算
-删失，必须与主结果分开解释。
+原始预算下只有 $\epsilon=0.0095$ 是双方均 20/20 命中的完整延伸点；后续独立扩预算
+实验又使 $\epsilon=0.0090$ 达到双方 20/20。更小目标仍存在删失，必须与主结果
+分开解释。
 
 ## 结论摘要
 
@@ -17,8 +18,10 @@ $\epsilon=0.2\text{--}0.01$；同一冻结协议还留下了 $\epsilon<0.01$ 的
   上升，Spearman $\rho=1.000$。
 - paired-seed `NOG/ME-DOL work` 均值为 1.489x，范围 0.980x--2.049x，CV=0.208。
   因此 work 处于相同常数量级，但不能表述为严格不变。
-- 在探索性延伸点 $\epsilon=0.0095$，双方仍为 20/20 hits；`ME-DOL/NOG depth`
+- 在原始探索性延伸点 $\epsilon=0.0095$，双方为 20/20 hits；`ME-DOL/NOG depth`
   为 3.135x，`NOG/ME-DOL work` 为 0.772x。
+- 在只增加最大 rounds 的扩预算延伸中，$\epsilon=0.0090$ 也达到双方 20/20；
+  depth ratio 为 8.792x，work ratio 为 0.478x。
 - 预注册 work-ratio 上限为 2.000x，而 $\epsilon=0.2$ 的正式值为 2.049x，超出约
   2.5%。所以预注册总 verdict 是 **not fully supported**，不能改写成全部门槛通过。
 - 这些结果是在固定 $d$、$\delta$ 和单一问题族上的有限区间定性 scaling evidence，
@@ -173,6 +176,70 @@ $\epsilon=0.0105\rightarrow0.01025$ 的 depth/work 跳变包含 NOG batch 切换
 
 ![v4 hit rate](results/theory_validation_v4/analysis/figures/hit_rate_vs_epsilon.png)
 
+## v4 扩预算延伸实验
+
+为判断原 v4 在 $\epsilon<0.01$ 的 non-hit 是否主要来自预算上限，扩预算实验保持
+v4 的问题、算法参数、batch、evaluation bank、8 workers 和 formal seeds 0--19 不变，
+只分两阶段增加最大 rounds。它是独立的 exploratory continuation，不会追溯性改变原
+v4 primary verdict。
+
+| 阶段 | NOG maximum rounds | ME-DOL maximum rounds | 任务与审计 |
+|---|---:|---:|---|
+| 原 v4 | 960 | 3,840 | 低 $\epsilon$ 出现删失 |
+| Stage 1 | 3,840 | 15,360 | 40/40 完成，审计通过 |
+| Stage 2 | 15,360 | 61,440 | 40/40 完成，审计通过 |
+
+Stage 2 单任务超过 10 分钟，因此进程管理 `launch_timeout_seconds` 从 600 调整为 3,600；该字段不参与数值 process fingerprint，也不改变算法轨迹。
+
+两个扩预算阶段都通过了原 v4 数值轨迹前缀验证：去除运行时间和当前代码新增的记录字段
+后，40 个任务在旧预算覆盖的所有 checkpoints 上逐行一致。Stage 2 的最终结果如下。
+
+| epsilon | NOG hit | ME hit | ME/NOG depth | NOG/ME work | 统计状态 |
+|---:|---:|---:|---:|---:|---|
+| 0.0095 | 20/20 | 20/20 | 3.135x | 0.772x | full |
+| 0.0090 | 20/20 | 20/20 | 8.792x | 0.478x | full |
+| 0.0085 | 20/20 | 16/20 | -- | -- | ME-DOL censored |
+| 0.0080 | 20/20 | 1/20 | -- | -- | ME-DOL censored |
+| 0.0075 | 20/20 | 0/20 | -- | -- | ME-DOL censored |
+| 0.0070 | 16/20 | 0/20 | -- | -- | both censored |
+| 0.0065 | 3/20 | 0/20 | -- | -- | both censored |
+| 0.0060 | 0/20 | 0/20 | -- | -- | no finite ratio |
+| 0.0055 | 0/20 | 0/20 | -- | -- | no finite ratio |
+| 0.0050 | 0/20 | 0/20 | -- | -- | no finite ratio |
+| 0.0045 | 0/20 | 0/20 | -- | -- | no finite ratio |
+| 0.0040 | 0/20 | 0/20 | -- | -- | no finite ratio |
+| 0.0035 | 0/20 | 0/20 | -- | -- | no finite ratio |
+| 0.0030 | 0/20 | 0/20 | -- | -- | no finite ratio |
+| 0.0025 | 0/20 | 0/20 | -- | -- | no finite ratio |
+| 0.0020 | 0/20 | 0/20 | -- | -- | no finite ratio |
+
+双方 20/20 命中的两个点可报告真实 first-hit 绝对值和 paired-seed ratios：
+
+| epsilon | NOG depth | ME depth | ME/NOG depth | NOG work | ME work | NOG/ME work |
+|---:|---:|---:|---:|---:|---:|---:|
+| 0.0095 | 418.7 ± 38.8 | 1,316.4 ± 658.8 | 3.135x ± 1.461 | 6,699.2 ± 620.4 | 10,531.2 ± 5,270.7 | 0.772x ± 0.349 |
+| 0.0090 | 451.4 ± 68.7 | 3,823.2 ± 3,316.7 | 8.792x ± 8.102 | 7,222.4 ± 1,099.7 | 30,585.6 ± 26,533.6 | 0.478x ± 0.388 |
+
+扩预算消除了 $\epsilon=0.0090$ 的原始删失：ME-DOL hit 从原 v4 的 12/20 提高到
+20/20。但即使达到 Stage 2 上限，$\epsilon=0.0085$ 的 ME-DOL 仍只有 16/20 hit，
+$\epsilon=0.0080$ 只有 1/20，说明进一步收紧目标后不能再报告无偏的有限比例。
+合适的论文表述是：完整延伸到 $\epsilon=0.0090$ 时，depth ratio 继续增大，而 work
+仍处于同一常数量级；更小目标只能作为预算删失和 hit-rate 结果。
+
+![v4 extended-budget hit and ratios](results/theory_validation_v4_extended_budget/stage2/analysis/figures/extended_hit_and_ratios.png)
+
+机器可读文件与复现说明：
+
+- [Stage 2 完整报告](results/theory_validation_v4_extended_budget/stage2/analysis/extended_budget_report.md)
+- [Stage 2 逐 seed 数据](results/theory_validation_v4_extended_budget/stage2/analysis/extended_per_seed.csv)
+- [Stage 2 绝对值汇总](results/theory_validation_v4_extended_budget/stage2/analysis/extended_summary.csv)
+- [Stage 2 paired/capped 比例](results/theory_validation_v4_extended_budget/stage2/analysis/extended_ratios.csv)
+- [Stage 2 正式结果审计](results/theory_validation_v4_extended_budget/stage2/formal_result_audit.json)
+- [Stage 1 报告](results/theory_validation_v4_extended_budget/stage1/analysis/extended_budget_report.md)
+- [完整紧凑结果包](results/theory_validation_v4_extended_budget/)
+- [复现命令](results/theory_validation_v4_extended_budget/REPRODUCE.md)
+
+
 ## 理论参照与结论边界
 
 | method | theory depth | theory work | v4 primary observed log-log slope: depth | work |
@@ -183,7 +250,8 @@ $\epsilon=0.0105\rightarrow0.01025$ 的 depth/work 跳变包含 NOG batch 切换
 观测斜率明显小于 worst-case theory exponent。适合论文的表述是：
 
 > 在当前固定问题和有限 $\epsilon$ 区间中，ME-DOL/NOG depth ratio 随精度要求增强而
-> 上升，而两者 work 保持同一常数量级；$\epsilon=0.0095$ 的探索性完整点延续了该方向。
+> 上升，而两者 work 保持同一常数量级；$\epsilon=0.0095$ 以及扩预算后的
+> $\epsilon=0.0090$ 完整点延续了该方向。
 
 不应表述为已经精确验证 $\epsilon^{-5/3}$ 或 $\epsilon^{-3}$，也不应把删失点写成测得
 的有限比例。

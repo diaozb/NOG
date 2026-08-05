@@ -1,0 +1,420 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "created_at_utc": "2026-08-05T05:26:47.688568+00:00",
+  "expected_tasks": 40,
+  "audited_tasks": 40,
+  "passed_tasks": 40,
+  "failed_tasks": 0,
+  "checks": [
+    "completion count and seed/config identity",
+    "partial SHA256 and task/config fingerprints",
+    "rank metadata and unique child processes",
+    "strictly increasing iteration/depth/work",
+    "exact total and per-worker SFO work accounting",
+    "finite nonnegative stationarity proxy"
+  ],
+  "errors": [],
+  "tasks": [
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 0,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 1,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 2,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 3,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 4,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 5,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 6,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 7,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 8,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 9,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 10,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 11,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 12,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 13,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 14,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 15,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 16,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 17,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 18,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-61440",
+      "method": "ME-DOL-FO",
+      "formal_seed": 19,
+      "data_B_total": 8,
+      "row_count": 10240,
+      "final_depth": 61440,
+      "final_total_work": 491520,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 0,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 1,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 2,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 3,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 4,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 5,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 6,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 7,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 8,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 9,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 10,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 11,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 12,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 13,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 14,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 15,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 16,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 17,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 18,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    },
+    {
+      "label": "NOG-FO__rounds-15360__data-B-total-16",
+      "method": "NOG-FO",
+      "formal_seed": 19,
+      "data_B_total": 16,
+      "row_count": 7680,
+      "final_depth": 15362,
+      "final_total_work": 245792,
+      "passed": true
+    }
+  ]
+}
