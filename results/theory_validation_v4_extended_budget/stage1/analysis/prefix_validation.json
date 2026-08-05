@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "source_root": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal",
+  "checked_tasks": 40,
+  "checked_rows": 22400,
+  "ignored_fields": [
+    "communication_time",
+    "data_B_per_worker",
+    "evaluation_time",
+    "smooth_B",
+    "time_sec",
+    "training_time"
+  ],
+  "errors": []
+}

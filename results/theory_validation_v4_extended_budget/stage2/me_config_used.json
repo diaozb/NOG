@@ -1,0 +1,139 @@
+{
+  "run": {
+    "name": "epsilon_theory_validation_v4_extended_budget",
+    "out_dir": "outputs/distributed_cpu_fo_v4_extended_budget",
+    "device": "cpu",
+    "formal_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ]
+  },
+  "problem": {
+    "name": "SyntheticMaxSinL1",
+    "d": 100,
+    "n_data": 4096,
+    "R": 1,
+    "lam": 0.001,
+    "feature_scale": 1.0,
+    "common_feature_bias": 0.25,
+    "phase_mode": "zero"
+  },
+  "train": {
+    "rounds": 61440,
+    "eval_every": 6
+  },
+  "oracle": {
+    "delta": 0.1,
+    "smooth_B": 2,
+    "data_B_total": 64,
+    "eval_smooth_B": 256,
+    "eval_data_B": 512,
+    "evaluation_seed_mode": "fixed_bank"
+  },
+  "nog": {
+    "M": 12,
+    "eta": 0.3
+  },
+  "me_dol": {
+    "epoch_length": 6,
+    "theory_multiplier": 100.0
+  },
+  "distributed": {
+    "execution": "cpu_process",
+    "backend": "gloo",
+    "topology": "complete",
+    "comparison_worker": 8,
+    "scaling_workers": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "split_mode": "total_batch_fixed",
+    "shuffle_partitions": true,
+    "rng_mode": "rank_schedule"
+  },
+  "methods": {
+    "sfo": [
+      "ME-DOL-FO"
+    ],
+    "szo": []
+  },
+  "cpu_process": {
+    "threads_per_rank": 1,
+    "process_group_timeout_seconds": 120,
+    "launch_timeout_seconds": 3600,
+    "max_total_worker_processes": 32,
+    "task_timeout_seconds": 129600
+  },
+  "extended_budget": {
+    "source_protocol": "theory_validation_v4",
+    "source_freeze": "results/theory_validation_v4/frozen_parameters.json",
+    "source_formal_root": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal",
+    "confirmed_hit_consecutive": 2,
+    "epsilons": [
+      0.0095,
+      0.009,
+      0.0085,
+      0.008,
+      0.0075,
+      0.007,
+      0.0065,
+      0.006,
+      0.0055,
+      0.005,
+      0.0045,
+      0.004,
+      0.0035,
+      0.003,
+      0.0025,
+      0.002
+    ],
+    "fixed_parameters": {
+      "NOG-FO": {
+        "M": 2,
+        "eta": 1.0,
+        "smooth_B": 1,
+        "data_B_total": 16,
+        "eval_every": 2
+      },
+      "ME-DOL-FO": {
+        "epoch_length": 6,
+        "theory_multiplier": 100.0,
+        "per_layer_total_work": 8,
+        "eval_every": 6
+      }
+    },
+    "stages": {
+      "stage1": {
+        "NOG-FO": 3840,
+        "ME-DOL-FO": 15360
+      },
+      "stage2": {
+        "NOG-FO": 15360,
+        "ME-DOL-FO": 61440
+      }
+    }
+  },
+  "wandb": {
+    "enabled": false
+  }
+}

@@ -8,3 +8,5 @@ outputs/distributed_cpu_fo_v4/
 outputs/distributed_cpu_fo_v5/
 outputs/distributed_cpu_fo_v6/
 outputs/distributed_cpu_fo_v7/
+outputs/distributed_cpu_fo_v4_extended_budget/
+logs/v4_extended_budget_*.log

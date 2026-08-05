@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "frozen_extension",
+  "created_at_utc": "2026-08-04T14:09:59.723846+00:00",
+  "stage": "stage1",
+  "source_protocol": "theory_validation_v4",
+  "source_freeze": "results/theory_validation_v4/frozen_parameters.json",
+  "source_freeze_sha256": "a6732be43aa4891f4bec47371198c8bee1a8a8ce8c3b7d960b6d6d78ffb9db37",
+  "formal_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "selected_batches": [
+    16
+  ],
+  "confirmed_hit_consecutive": 2,
+  "epsilons": [
+    0.0095,
+    0.009,
+    0.0085,
+    0.008,
+    0.0075,
+    0.007,
+    0.0065,
+    0.006,
+    0.0055,
+    0.005,
+    0.0045,
+    0.004,
+    0.0035,
+    0.003,
+    0.0025,
+    0.002
+  ],
+  "budgets": {
+    "NOG-FO": 3840,
+    "ME-DOL-FO": 15360
+  },
+  "labels": {
+    "NOG-FO": "NOG-FO__rounds-3840__data-B-total-16",
+    "ME-DOL-FO": "ME-DOL-FO__epoch-6__mult-100__rounds-15360"
+  },
+  "config_sha256": {
+    "NOG-FO": "f746e1bdff44e22c2d31d955ce78ef74189fbc6ba836489de3547ed28748d740",
+    "ME-DOL-FO": "d599501c260b8642500e8d2886b4de2e5d71ba0ed2fbe622e90b81cb67eef375"
+  },
+  "only_protocol_change": "maximum training rounds",
+  "max_parallel_tasks": 4,
+  "max_worker_processes": 32
+}
