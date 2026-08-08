@@ -8,7 +8,7 @@
 
 ### 1.1 优化问题
 
-本项目依据论文 [Highly-Parallel Algorithms for Non-Smooth Non-Convex Optimization](NeurIPS_NOG.pdf)，考虑随机非光滑、非凸优化问题
+本项目依据论文 [Highly-Parallel Algorithms for Non-Smooth Non-Convex Optimization](../NeurIPS_NOG.pdf)，考虑随机非光滑、非凸优化问题
 
 $$
 f(x)=\mathbb{E}_{\xi}[F(x;\xi)]，
@@ -570,10 +570,10 @@ Stage 2 为控制资源改成单任务并发；这只改变调度速度，不改
 
 建议首先阅读：
 
-- [v4 主实验复现说明](results/theory_validation_v4/REPRODUCE.md)
-- [扩展预算复现说明](results/theory_validation_v4_extended_budget/REPRODUCE.md)
-- [主配置](results/theory_validation_v4/config.yaml)
-- [冻结参数](results/theory_validation_v4/frozen_parameters.json)
+- [v4 主实验复现说明](../results/theory_validation_v4/REPRODUCE.md)
+- [扩展预算复现说明](../results/theory_validation_v4_extended_budget/REPRODUCE.md)
+- [主配置](../results/theory_validation_v4/config.yaml)
+- [冻结参数](../results/theory_validation_v4/frozen_parameters.json)
 
 在仓库根目录、`NOG` conda 环境中，可以按阶段执行：
 
@@ -592,22 +592,22 @@ conda run -n NOG python -m src.distributed.theory_validation_runner audit
 ### 15.1 v4 主实验
 
 - [README 总览](README.md)
-- [论文 PDF](NeurIPS_NOG.pdf)
-- [实验配置](results/theory_validation_v4/config.yaml)
-- [冻结参数](results/theory_validation_v4/frozen_parameters.json)
-- [Pilot 校准记录](results/theory_validation_v4/pilot_calibration.csv)
-- [Formal per-seed 结果](results/theory_validation_v4/analysis/formal_per_seed.csv)
-- [Formal 绝对量汇总](results/theory_validation_v4/analysis/formal_summary.csv)
-- [Formal paired ratios](results/theory_validation_v4/analysis/formal_ratios.csv)
-- [趋势统计](results/theory_validation_v4/analysis/formal_trends.json)
-- [Formal 审计结果](results/theory_validation_v4/audit/formal_result_audit.json)
+- [论文 PDF](../NeurIPS_NOG.pdf)
+- [实验配置](../results/theory_validation_v4/config.yaml)
+- [冻结参数](../results/theory_validation_v4/frozen_parameters.json)
+- [Pilot 校准记录](../results/theory_validation_v4/pilot_calibration.csv)
+- [Formal per-seed 结果](../results/theory_validation_v4/analysis/formal_per_seed.csv)
+- [Formal 绝对量汇总](../results/theory_validation_v4/analysis/formal_summary.csv)
+- [Formal paired ratios](../results/theory_validation_v4/analysis/formal_ratios.csv)
+- [趋势统计](../results/theory_validation_v4/analysis/formal_trends.json)
+- [Formal 审计结果](../results/theory_validation_v4/audit/formal_result_audit.json)
 
 ### 15.2 低 $\epsilon$ 扩展实验
 
-- [扩展预算分析报告](results/theory_validation_v4_extended_budget/stage2/analysis/extended_budget_report.md)
-- [扩展绝对量汇总](results/theory_validation_v4_extended_budget/stage2/analysis/extended_summary.csv)
-- [扩展 paired ratios](results/theory_validation_v4_extended_budget/stage2/analysis/extended_ratios.csv)
-- [轨迹前缀一致性验证](results/theory_validation_v4_extended_budget/stage2/analysis/prefix_validation.json)
+- [扩展预算分析报告](../results/theory_validation_v4_extended_budget/stage2/analysis/extended_budget_report.md)
+- [扩展绝对量汇总](../results/theory_validation_v4_extended_budget/stage2/analysis/extended_summary.csv)
+- [扩展 paired ratios](../results/theory_validation_v4_extended_budget/stage2/analysis/extended_ratios.csv)
+- [轨迹前缀一致性验证](../results/theory_validation_v4_extended_budget/stage2/analysis/prefix_validation.json)
 
 ## 16. 最终结论
 

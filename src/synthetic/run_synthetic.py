@@ -107,7 +107,13 @@ class SyntheticMaxSinL1:
         else:
             raise ValueError(f"Unknown phase_mode: {self.phase_mode}")
 
-    def loss(self, x: torch.Tensor, idx: Optional[torch.Tensor] = None) -> torch.Tensor:
+    def component_losses(
+        self,
+        x: torch.Tensor,
+        idx: Optional[torch.Tensor] = None,
+    ) -> torch.Tensor:
+        """Return per-sample losses for one point or paired sample/point rows."""
+
         if idx is None:
             A = self.A
             b = self.b
@@ -115,9 +121,22 @@ class SyntheticMaxSinL1:
             A = self.A[idx]
             b = self.b[idx]
 
-        vals = torch.sin(torch.einsum("nrd,d->nr", A, x) + b)
+        if x.ndim == 1:
+            points = x.unsqueeze(0).expand(A.shape[0], -1)
+        elif x.ndim == 2 and x.shape[0] == A.shape[0]:
+            points = x
+        else:
+            raise ValueError(
+                "x must be a single point or have one row per selected sample; "
+                f"got x={tuple(x.shape)} and samples={A.shape[0]}."
+            )
+
+        vals = torch.sin(torch.einsum("nrd,nd->nr", A, points) + b)
         max_vals = vals.max(dim=1).values
-        return max_vals.mean() + self.lam * x.abs().sum()
+        return max_vals + self.lam * points.abs().sum(dim=1)
+
+    def loss(self, x: torch.Tensor, idx: Optional[torch.Tensor] = None) -> torch.Tensor:
+        return self.component_losses(x, idx).mean()
 
 
 # ============================================================

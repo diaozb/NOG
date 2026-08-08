@@ -230,29 +230,43 @@ def zeroth_order_two_point_estimator(
     data_batch: int,
     idx_pool: torch.Tensor,
 ) -> torch.Tensor:
-    """Mini-batch two-point estimator; every sample costs two SZO calls."""
+    """Mini-batch estimator with independent direction and data pairs."""
 
-    estimates = []
-    for _ in range(int(smooth_batch)):
-        direction = sample_sphere(1, problem.d, problem.device).squeeze(0)
-        positions = torch.randint(
-            0,
-            idx_pool.numel(),
-            (int(data_batch),),
-            device=problem.device,
+    if delta <= 0:
+        raise ValueError(f"delta must be positive, got {delta}.")
+    if smooth_batch < 1 or data_batch < 1:
+        raise ValueError(
+            "smooth_batch and data_batch must be positive, got "
+            f"{smooth_batch} and {data_batch}."
         )
-        indices = idx_pool[positions]
-        with torch.no_grad():
-            value_plus = problem.loss(x + delta * direction, indices)
-            value_minus = problem.loss(x - delta * direction, indices)
-        estimate = (
-            problem.d
-            / (2.0 * delta)
-            * (value_plus - value_minus)
-            * direction
+    if idx_pool.numel() < 1:
+        raise ValueError("A worker shard is empty.")
+
+    pair_count = int(smooth_batch) * int(data_batch)
+    directions = sample_sphere(pair_count, problem.d, problem.device)
+    positions = torch.randint(
+        0,
+        idx_pool.numel(),
+        (pair_count,),
+        device=problem.device,
+    )
+    indices = idx_pool[positions]
+    with torch.no_grad():
+        value_plus = problem.component_losses(
+            x.unsqueeze(0) + delta * directions,
+            indices,
         )
-        estimates.append(estimate)
-    return torch.stack(estimates).mean(dim=0)
+        value_minus = problem.component_losses(
+            x.unsqueeze(0) - delta * directions,
+            indices,
+        )
+    estimates = (
+        problem.d
+        / (2.0 * delta)
+        * (value_plus - value_minus).unsqueeze(1)
+        * directions
+    )
+    return estimates.mean(dim=0)
 
 
 def local_batch_size(cfg: Dict[str, Any], n_workers: int) -> int:
@@ -289,6 +303,7 @@ def distributed_mean_oracle(
     oracle_type: OracleType,
     data_batch: int | None = None,
     smooth_batch: int | None = None,
+    smoothing_delta: float | None = None,
     seed_bundle: SeedBundle | None = None,
     oracle_call_index: int | None = None,
 ) -> Tuple[torch.Tensor, List[int]]:
@@ -302,7 +317,9 @@ def distributed_mean_oracle(
     local_smooth_batch = (
         int(ocfg["smooth_B"]) if smooth_batch is None else int(smooth_batch)
     )
-    delta = float(ocfg["delta"])
+    delta = float(
+        ocfg["delta"] if smoothing_delta is None else smoothing_delta
+    )
     estimator = (
         first_order_smoothed_estimator
         if oracle_type == "sfo"
@@ -380,12 +397,15 @@ def evaluate_point(
     ocfg = cfg["oracle"]
     eval_smooth_batch = int(ocfg["eval_smooth_B"])
     eval_data_batch = int(ocfg["eval_data_B"])
+    evaluation_delta = float(
+        ocfg.get("evaluation_delta", ocfg.get("target_delta", ocfg["delta"]))
+    )
     all_indices = torch.arange(problem.n, device=problem.device)
     with isolated_torch_seed(eval_seed, problem.device):
         gradient = first_order_smoothed_estimator(
             problem=problem,
             x=x,
-            delta=float(ocfg["delta"]),
+            delta=evaluation_delta,
             smooth_batch=eval_smooth_batch,
             data_batch=eval_data_batch,
             idx_pool=all_indices,
@@ -395,6 +415,7 @@ def evaluate_point(
     metrics = {
         "objective": objective,
         "stat_proxy": float(gradient.norm().item()),
+        "evaluation_delta": evaluation_delta,
     }
     return metrics, eval_smooth_batch * eval_data_batch
 
@@ -477,6 +498,33 @@ def validate_experiment_config(cfg: Dict[str, Any]) -> None:
     missing = [key for key in required if key not in cfg]
     if missing:
         raise ValueError(f"Missing config sections: {missing}.")
+
+    delta_fields = {
+        "oracle.delta": cfg["oracle"]["delta"],
+        "oracle.target_delta": cfg["oracle"].get(
+            "target_delta", cfg["oracle"]["delta"]
+        ),
+        "oracle.evaluation_delta": cfg["oracle"].get(
+            "evaluation_delta",
+            cfg["oracle"].get("target_delta", cfg["oracle"]["delta"]),
+        ),
+        "nog.smoothing_delta": cfg["nog"].get(
+            "smoothing_delta", cfg["oracle"]["delta"]
+        ),
+    }
+    for section in ("me_dol", "dgfm", "dgfm_plus"):
+        if section in cfg:
+            delta_fields[f"{section}.smoothing_delta"] = cfg[section].get(
+                "smoothing_delta", cfg["oracle"]["delta"]
+            )
+    invalid_deltas = {
+        name: value for name, value in delta_fields.items() if float(value) <= 0
+    }
+    if invalid_deltas:
+        raise ValueError(
+            "All target/evaluation/smoothing deltas must be positive: "
+            f"{invalid_deltas}."
+        )
 
     rounds = int(cfg["train"]["rounds"])
     block = int(cfg["nog"]["M"])

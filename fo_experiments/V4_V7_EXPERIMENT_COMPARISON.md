@@ -42,24 +42,24 @@
 
 对应的冻结证据：
 
-- [v4 frozen parameters](results/theory_validation_v4/frozen_parameters.json)
-- [v5 frozen parameters](results/low_epsilon_v5_symmetric/frozen_parameters.json)
-- [v6 frozen parameters](results/v4_v7_comparison/summaries/v6/frozen_parameters.json)
-- [v7 frozen parameters](results/v4_v7_comparison/summaries/v7/frozen_parameters.json)
+- [v4 frozen parameters](../results/theory_validation_v4/frozen_parameters.json)
+- [v5 frozen parameters](../results/low_epsilon_v5_symmetric/frozen_parameters.json)
+- [v6 frozen parameters](../results/v4_v7_comparison/summaries/v6/frozen_parameters.json)
+- [v7 frozen parameters](../results/v4_v7_comparison/summaries/v7/frozen_parameters.json)
 
 ## 4. 四版本总览图
 
 ### 4.1 绝对 first-hit depth 与 work
 
-![v4-v7 absolute depth and work](results/v4_v7_comparison/figures/v4_v7_absolute_metrics.png)
+![v4-v7 absolute depth and work](../results/v4_v7_comparison/figures/v4_v7_absolute_metrics.png)
 
-[PDF 版本](results/v4_v7_comparison/figures/v4_v7_absolute_metrics.pdf)
+[PDF 版本](../results/v4_v7_comparison/figures/v4_v7_absolute_metrics.pdf)
 
 ### 4.2 Paired depth/work ratios
 
-![v4-v7 depth and work ratios](results/v4_v7_comparison/figures/v4_v7_ratio_metrics.png)
+![v4-v7 depth and work ratios](../results/v4_v7_comparison/figures/v4_v7_ratio_metrics.png)
 
-[PDF 版本](results/v4_v7_comparison/figures/v4_v7_ratio_metrics.pdf)
+[PDF 版本](../results/v4_v7_comparison/figures/v4_v7_ratio_metrics.pdf)
 
 图中每一行使用该版本自己的横轴范围和冻结协议。v6 同时画出 work-optimal 与 depth-optimal；v7 的黑色 `×` 表示该点使用 capped ratio，因为至少一方未全部命中。
 
@@ -94,9 +94,9 @@
 | 0.01025 | 16 | 400.4 | 685.2 | 1.72x | 6,406.4 | 5,481.6 | 1.25x |
 | 0.01000 | 16 | 408.9 | 783.0 | **1.92x** | 6,542.4 | 6,264.0 | **1.14x** |
 
-![v4 ratios](results/theory_validation_v4/analysis/figures/depth_work_ratios.png)
+![v4 ratios](../results/theory_validation_v4/analysis/figures/depth_work_ratios.png)
 
-![v4 absolute metrics](results/theory_validation_v4/analysis/figures/depth_work_vs_epsilon.png)
+![v4 absolute metrics](../results/theory_validation_v4/analysis/figures/depth_work_vs_epsilon.png)
 
 ### 6.2 扩展预算结果
 
@@ -109,14 +109,14 @@
 
 从 0.0085 开始出现删失；不能把 capped mean 当作真实 first-hit ratio。
 
-![v4 extended-budget results](results/theory_validation_v4_extended_budget/stage2/analysis/figures/extended_hit_and_ratios.png)
+![v4 extended-budget results](../results/theory_validation_v4_extended_budget/stage2/analysis/figures/extended_hit_and_ratios.png)
 
 数据文件：
 
-- [v4 absolute summary](results/theory_validation_v4/analysis/formal_summary.csv)
-- [v4 paired ratios](results/theory_validation_v4/analysis/formal_ratios.csv)
-- [v4 extended summary](results/theory_validation_v4_extended_budget/stage2/analysis/extended_summary.csv)
-- [v4 extended ratios](results/theory_validation_v4_extended_budget/stage2/analysis/extended_ratios.csv)
+- [v4 absolute summary](../results/theory_validation_v4/analysis/formal_summary.csv)
+- [v4 paired ratios](../results/theory_validation_v4/analysis/formal_ratios.csv)
+- [v4 extended summary](../results/theory_validation_v4_extended_budget/stage2/analysis/extended_summary.csv)
+- [v4 extended ratios](../results/theory_validation_v4_extended_budget/stage2/analysis/extended_ratios.csv)
 
 ## 7. v5：全区间单配置的对称协议
 
@@ -134,17 +134,17 @@ v5 在 25 个点上双方均为 30/30 hits，但 batch schedule 多次切换。
 
 总体统计：depth ratio 从 0.462 到 1.087，Spearman $\rho=0.373$；work ratio 均值 1.456，范围 0.799–2.176，CV 0.348。预注册综合 verdict 为 **not fully supported**。
 
-![v5 ratios](results/low_epsilon_v5_symmetric/analysis/figures/low_epsilon_ratios.png)
+![v5 ratios](../results/low_epsilon_v5_symmetric/analysis/figures/low_epsilon_ratios.png)
 
-![v5 hit rates](results/low_epsilon_v5_symmetric/analysis/figures/low_epsilon_hit_rates.png)
+![v5 hit rates](../results/low_epsilon_v5_symmetric/analysis/figures/low_epsilon_hit_rates.png)
 
-![v5 fixed-batch diagnostics](results/low_epsilon_v5_symmetric/analysis/figures/fixed_batch_diagnostics.png)
+![v5 fixed-batch diagnostics](../results/low_epsilon_v5_symmetric/analysis/figures/fixed_batch_diagnostics.png)
 
 数据文件：
 
-- [v5 absolute summary](results/low_epsilon_v5_symmetric/analysis/formal_summary.csv)
-- [v5 paired ratios](results/low_epsilon_v5_symmetric/analysis/formal_ratios.csv)
-- [v5 complete report](results/low_epsilon_v5_symmetric/analysis/low_epsilon_report.md)
+- [v5 absolute summary](../results/low_epsilon_v5_symmetric/analysis/formal_summary.csv)
+- [v5 paired ratios](../results/low_epsilon_v5_symmetric/analysis/formal_ratios.csv)
+- [v5 complete report](../results/low_epsilon_v5_symmetric/analysis/low_epsilon_report.md)
 
 ## 8. v6：逐 $\epsilon$ 联合重调参
 
@@ -174,13 +174,13 @@ Work-optimal 的 work ratio 很稳定：均值 0.915、范围 0.742–1.209、CV
 | Work-ratio 范围 | 1.067–2.094 |
 | Work-ratio CV | 0.265 |
 
-![v6 work-optimal and depth-optimal ratios](results/v4_v7_comparison/figures/v6_joint_retune_ratios.png)
+![v6 work-optimal and depth-optimal ratios](../results/v4_v7_comparison/figures/v6_joint_retune_ratios.png)
 
 数据文件：
 
-- [v6 absolute summary](results/v4_v7_comparison/summaries/v6/formal_summary.csv)
-- [v6 paired ratios](results/v4_v7_comparison/summaries/v6/formal_ratios.csv)
-- [v6 trend statistics](results/v4_v7_comparison/summaries/v6/formal_trends.json)
+- [v6 absolute summary](../results/v4_v7_comparison/summaries/v6/formal_summary.csv)
+- [v6 paired ratios](../results/v4_v7_comparison/summaries/v6/formal_ratios.csv)
+- [v6 trend statistics](../results/v4_v7_comparison/summaries/v6/formal_trends.json)
 
 ## 9. v7：分段理论 scaling
 
@@ -213,9 +213,9 @@ v7 的绝对量和比例显示在本文第 4 节两张总览图的最后一行�
 
 数据文件：
 
-- [v7 absolute summary](results/v4_v7_comparison/summaries/v7/formal_summary.csv)
-- [v7 paired/capped ratios](results/v4_v7_comparison/summaries/v7/formal_ratios.csv)
-- [v7 trend statistics](results/v4_v7_comparison/summaries/v7/formal_trends.json)
+- [v7 absolute summary](../results/v4_v7_comparison/summaries/v7/formal_summary.csv)
+- [v7 paired/capped ratios](../results/v4_v7_comparison/summaries/v7/formal_ratios.csv)
+- [v7 trend statistics](../results/v4_v7_comparison/summaries/v7/formal_trends.json)
 
 ## 10. 最终趋势汇总
 

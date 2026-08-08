@@ -10,3 +10,11 @@ outputs/distributed_cpu_fo_v6/
 outputs/distributed_cpu_fo_v7/
 outputs/distributed_cpu_fo_v4_extended_budget/
 logs/v4_extended_budget_*.log
+
+# Generated ZO trajectories and resumable partials are large and may be
+# actively written by background experiments. Commit the compact summaries in
+# zo_experiments/ instead.
+outputs/distributed_zo/
+
+# Local edit/merge backups are not reproducibility artifacts.
+*.orig

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "created_at": "2026-08-07",
+  "selection_happened_before_formal_runs": true,
+  "primary_claim": "relative communication-depth scaling as epsilon decreases",
+  "secondary_claim": "work ratios are descriptive and not a hard acceptance criterion",
+  "base_config": "outputs/distributed_zo/zo_theory_validation/pilot/refine_work_983040_baselines_dense_eval4/config_base.yaml",
+  "target_total_work": 983040,
+  "worker_count": 8,
+  "eval_every": 4,
+  "eval_smooth_B": 256,
+  "eval_data_B": 512,
+  "confirmed_hit_consecutive": 2,
+  "pilot_seeds": [100, 101, 102, 103, 104],
+  "formal_seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+  "seed_sets_disjoint": true,
+  "selected_candidates": [
+    {
+      "method": "NOG-ZO",
+      "parameters": {"M": 2, "eta": 0.01, "smooth_B": 8},
+      "pilot_summary": "outputs/distributed_zo/zo_theory_validation/pilot/refine_work_983040_nog_dense_eval4/summary.csv"
+    },
+    {
+      "method": "ME-DOL-ZO",
+      "parameters": {"epoch_length": 12, "theory_multiplier": 60.0},
+      "pilot_summary": "outputs/distributed_zo/zo_theory_validation/pilot/refine_work_983040_baselines_dense_eval4/summary.csv"
+    },
+    {
+      "method": "DGFM",
+      "parameters": {"eta": 0.05},
+      "pilot_summary": "outputs/distributed_zo/zo_theory_validation/pilot/refine_work_983040_baselines_dense_eval4/summary.csv"
+    },
+    {
+      "method": "DGFM+",
+      "parameters": {"eta": 0.05},
+      "pilot_summary": "outputs/distributed_zo/zo_theory_validation/pilot/refine_work_983040_baselines_dense_eval4/summary.csv"
+    }
+  ],
+  "input_sha256": {
+    "outputs/distributed_zo/zo_theory_validation/pilot/refine_work_983040_baselines_dense_eval4/summary.csv": "2f6ac9fce6ce82e30a12c0a6b21bb9168b4b9ea17780f78bdbe1ca18ddd7dc7b",
+    "outputs/distributed_zo/zo_theory_validation/pilot/refine_work_983040_nog_dense_eval4/summary.csv": "f7af06cae22fbfda04a9baec67a767fa1310f2fc7acb6adf3711f914c5359589",
+    "outputs/distributed_zo/zo_theory_validation/pilot/refine_work_983040_baselines_dense_eval4/config_base.yaml": "b24d74d4b0e82ebf4fc8bd00e6a63f4a2f37fb5d5bc8b05129d1637be7d44a0a"
+  }
+}
