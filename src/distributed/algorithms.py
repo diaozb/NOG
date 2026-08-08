@@ -40,10 +40,13 @@ def run_nog(
     tcfg, ocfg, ncfg = cfg["train"], cfg["oracle"], cfg["nog"]
     rounds = int(tcfg["rounds"])
     eval_every = int(tcfg["eval_every"])
-    delta = float(ocfg["delta"])
+    target_delta = float(ocfg.get("target_delta", ocfg["delta"]))
+    smoothing_delta = float(
+        ncfg.get("smoothing_delta", ocfg["delta"])
+    )
     block_size = int(ncfg["M"])
     eta = float(ncfg["eta"])
-    radius = delta / block_size
+    radius = smoothing_delta / block_size
     n_workers = len(shards)
 
     if rounds % block_size != 0:
@@ -63,6 +66,7 @@ def run_nog(
             cfg,
             shards,
             oracle_type,
+            smoothing_delta=smoothing_delta,
             seed_bundle=seed_bundle if use_schedule else None,
             oracle_call_index=oracle_call_index if use_schedule else None,
         )
@@ -131,7 +135,9 @@ def run_nog(
                 "block_id": block_id,
                 "worker_count": n_workers,
                 "eval_point": "y_bar",
-                "delta": delta,
+                "delta": target_delta,
+                "target_delta": target_delta,
+                "smoothing_delta": smoothing_delta,
                 "M": block_size,
                 "lr_or_eta": eta,
                 "block_oracle_norm": block_oracle_norm,
@@ -261,7 +267,10 @@ def run_me_dol(
         )
 
     n_workers = len(shards)
-    delta = float(cfg["oracle"]["delta"])
+    target_delta = float(
+        cfg["oracle"].get("target_delta", cfg["oracle"]["delta"])
+    )
+    smoothing_delta = float(cfg["me_dol"].get("smoothing_delta", cfg["oracle"]["delta"]))
     multiplier_config = cfg["me_dol"]["theory_multiplier"]
     multiplier = float(
         multiplier_config[oracle_type]
@@ -272,7 +281,7 @@ def run_me_dol(
     data_batch = int(cfg["me_dol"].get("data_B_per_worker", 1))
     if smooth_batch < 1 or data_batch < 1:
         raise ValueError("ME-DOL oracle batch sizes must be positive.")
-    theory_radius = delta / (4.0 * epoch_length * n_workers**0.5)
+    theory_radius = target_delta / (4.0 * epoch_length * n_workers**0.5)
     radius = multiplier * theory_radius
     learning_rate = radius / epoch_length**0.5
     mixing = complete_graph_mixing(n_workers, problem.device)
@@ -322,7 +331,7 @@ def run_me_dol(
                 w,
                 shards,
                 oracle_type,
-                delta,
+                smoothing_delta,
                 smooth_batch=smooth_batch,
                 data_batch=data_batch,
                 seed_bundle=seed_bundle if use_schedule else None,
@@ -364,7 +373,9 @@ def run_me_dol(
             )
             row.update(
                 {
-                    "delta": delta,
+                    "delta": target_delta,
+                    "target_delta": target_delta,
+                    "smoothing_delta": smoothing_delta,
                     "epoch_length": epoch_length,
                     "domain_radius": radius,
                     "lr_or_eta": learning_rate,
@@ -390,7 +401,10 @@ def run_dgfm(
     seed_all(seed_bundle.method_seed)
     rounds = int(cfg["train"]["rounds"])
     eval_every = int(cfg["train"]["eval_every"])
-    delta = float(cfg["oracle"]["delta"])
+    target_delta = float(
+        cfg["oracle"].get("target_delta", cfg["oracle"]["delta"])
+    )
+    smoothing_delta = float(cfg["dgfm"].get("smoothing_delta", cfg["oracle"]["delta"]))
     eta = float(cfg["dgfm"]["eta"])
     batch_size = int(cfg["dgfm"].get("batch_size", 1))
     n_workers = len(shards)
@@ -409,7 +423,7 @@ def run_dgfm(
             x,
             shards,
             "szo",
-            delta,
+            smoothing_delta,
             smooth_batch=batch_size,
             data_batch=1,
         )
@@ -441,7 +455,15 @@ def run_dgfm(
                 accounting,
                 metrics,
             )
-            row.update({"delta": delta, "lr_or_eta": eta, "batch_size": batch_size})
+            row.update(
+                {
+                    "delta": target_delta,
+                    "target_delta": target_delta,
+                    "smoothing_delta": smoothing_delta,
+                    "lr_or_eta": eta,
+                    "batch_size": batch_size,
+                }
+            )
             rows.append(row)
 
     return rows
@@ -463,16 +485,22 @@ def _zo_from_pairs(
     indices: torch.Tensor,
     directions: torch.Tensor,
 ) -> torch.Tensor:
-    estimates = []
     with torch.no_grad():
-        for index, direction in zip(indices, directions):
-            one_index = index.reshape(1)
-            value_plus = problem.loss(x + delta * direction, one_index)
-            value_minus = problem.loss(x - delta * direction, one_index)
-            estimates.append(
-                problem.d / (2.0 * delta) * (value_plus - value_minus) * direction
-            )
-    return torch.stack(estimates).mean(dim=0)
+        value_plus = problem.component_losses(
+            x.unsqueeze(0) + delta * directions,
+            indices,
+        )
+        value_minus = problem.component_losses(
+            x.unsqueeze(0) - delta * directions,
+            indices,
+        )
+        estimates = (
+            problem.d
+            / (2.0 * delta)
+            * (value_plus - value_minus).unsqueeze(1)
+            * directions
+        )
+    return estimates.mean(dim=0)
 
 
 def run_dgfm_plus(
@@ -487,8 +515,11 @@ def run_dgfm_plus(
     seed_all(seed_bundle.method_seed)
     rounds = int(cfg["train"]["rounds"])
     eval_every = int(cfg["train"]["eval_every"])
-    delta = float(cfg["oracle"]["delta"])
     dcfg = cfg["dgfm_plus"]
+    target_delta = float(
+        cfg["oracle"].get("target_delta", cfg["oracle"]["delta"])
+    )
+    smoothing_delta = float(dcfg.get("smoothing_delta", cfg["oracle"]["delta"]))
     eta = float(dcfg["eta"])
     small_batch = int(dcfg["small_batch"])
     large_batch = int(dcfg["large_batch"])
@@ -514,7 +545,7 @@ def run_dgfm_plus(
             for worker, shard in enumerate(shards):
                 indices, directions = _draw_zo_pairs(problem, shard, large_batch)
                 current_v_rows.append(
-                    _zo_from_pairs(problem, x[worker], delta, indices, directions)
+                    _zo_from_pairs(problem, x[worker], smoothing_delta, indices, directions)
                 )
             current_v = torch.stack(current_v_rows)
             accounting.add_training(2 * large_batch)
@@ -526,10 +557,10 @@ def run_dgfm_plus(
             for worker, shard in enumerate(shards):
                 indices, directions = _draw_zo_pairs(problem, shard, small_batch)
                 gradient_current = _zo_from_pairs(
-                    problem, x[worker], delta, indices, directions
+                    problem, x[worker], smoothing_delta, indices, directions
                 )
                 gradient_previous = _zo_from_pairs(
-                    problem, previous_x[worker], delta, indices, directions
+                    problem, previous_x[worker], smoothing_delta, indices, directions
                 )
                 current_v_rows.append(
                     previous_v[worker] + gradient_current - gradient_previous
@@ -570,7 +601,9 @@ def run_dgfm_plus(
             )
             row.update(
                 {
-                    "delta": delta,
+                    "delta": target_delta,
+                    "target_delta": target_delta,
+                    "smoothing_delta": smoothing_delta,
                     "lr_or_eta": eta,
                     "small_batch": small_batch,
                     "large_batch": large_batch,

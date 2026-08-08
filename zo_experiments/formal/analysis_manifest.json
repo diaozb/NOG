@@ -1,0 +1,22 @@
+{
+  "analysis": "Step ZO-5B",
+  "raw_results": "outputs/distributed_zo/zo_theory_validation/formal/fixed_work_983040/results.csv",
+  "raw_results_sha256": "92f8918e8b0a4fa80363f95223615d4a6b9e8a2525a01229284feae5a4663cfc",
+  "frozen_parameters": "outputs/distributed_zo/zo_theory_validation/formal/fixed_work_983040/frozen_parameters.json",
+  "frozen_parameters_sha256": "6849e49a7481d99198ec9215b865000249adf622ca8325af92ecd48c51b09f0e",
+  "confirmed_hit_consecutive": 2,
+  "bootstrap_repetitions": 2000,
+  "bootstrap_seed": 20260806,
+  "generated_sha256": {
+    "zo_experiments/formal/audit.json": "62695bea959e691a38e2d69e9892a59b534ced464d94a72d92a2e7610d81c6c8",
+    "zo_experiments/formal/formal_per_seed.csv": "fb364869ca4e8b465a778e2e854a10462456ea6edbdf79fa24d505be6600905b",
+    "zo_experiments/formal/formal_summary.csv": "1c82f401a4d925be51da5bde9110b27975c728717f4d6d05e725980e7e37f650",
+    "zo_experiments/formal/formal_ratios.csv": "62f3efa879d69f0741fd612d06eee380875dcf8e5df7f7e4406ee7791742ce09",
+    "zo_experiments/formal/formal_trends.json": "f96fc9fbda96869aa9b4737e39931837b29d5fd65dab0b35527c226856bb8bbf",
+    "zo_experiments/formal/README.md": "2ee390e27746f6b485cbc578402eb5e244441121f17a49c888b76c7d66d83c51",
+    "zo_experiments/formal/figures/formal_hit_depth_work.png": "50eea56ee11b2fcc26dfd09305cedb13bad2246d3a5245aa96350d79efe9519e",
+    "zo_experiments/formal/figures/formal_hit_depth_work.pdf": "8ad4b9ae96ff632988952ebb5ce9342081f4fd83d0b645ae2765f88f597aa93c",
+    "zo_experiments/formal/figures/formal_ratios.png": "8f0c17067a7e9eeda1e7aab6d2ce15df8795e41e330830befcb70283ac47614f",
+    "zo_experiments/formal/figures/formal_ratios.pdf": "f3dd1c53c9fb5eb0ecc19afcbd4b36489d2037fc03fed969370155f0f9b9cf5a"
+  }
+}

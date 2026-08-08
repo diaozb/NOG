@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "step": "ZO-7B",
+  "status": "frozen",
+  "created_at": "2026-08-08",
+  "selection_happened_before_dimension_formal_runs": true,
+  "paper_result_role": "formal_fixed_configuration_dimension_sensitivity",
+  "claim_boundary": "qualitative dimension trend only; not exact dimension exponents",
+  "primary_epsilons": [0.05, 0.03],
+  "descriptive_censored_epsilons": [0.02, 0.018, 0.016, 0.015, 0.01],
+  "dimensions": [25, 50, 100, 200],
+  "dimensions_to_run": [25, 50, 200],
+  "reuse_dimension_100_formal_results": true,
+  "formal_seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+  "calibration_seed": 300,
+  "formal_and_calibration_seeds_disjoint": true,
+  "target_total_work": 983040,
+  "worker_count": 8,
+  "eval_every": 4,
+  "eval_smooth_B": 256,
+  "eval_data_B": 512,
+  "confirmed_hit_consecutive": 2,
+  "parameter_policy": "reuse d=100 frozen candidates without dimension retuning",
+  "primary_endpoint": "same-seed baseline/NOG-ZO confirmed-first-hit depth ratio versus dimension",
+  "secondary_endpoint": "same-seed baseline/NOG-ZO work ratio versus dimension",
+  "theory_reference_ratio_powers": {
+    "ME-DOL-ZO/NOG-ZO": {
+      "depth": 0.6666666666666666,
+      "work": 0.0
+    },
+    "DGFM/NOG-ZO": {
+      "depth": 1.1666666666666667,
+      "work": 0.5
+    },
+    "DGFM+/NOG-ZO": {
+      "depth": 1.1666666666666667,
+      "work": 0.5
+    }
+  },
+  "exact_exponent_acceptance_test": false,
+  "calibration_rule": "both primary epsilons had confirmed hits for all methods and dimensions on seed 300",
+  "merge_policy": {
+    "dimension_100_source": "outputs/distributed_zo/zo_theory_validation/formal/fixed_work_983040/results.csv",
+    "new_dimensions_source": "outputs/distributed_zo/zo_theory_validation/dimension/formal_fixed_params_eps003_005/results.csv",
+    "merge_only_during_audited_analysis": true
+  },
+  "frozen_candidates_source": "zo_experiments/frozen_parameters.json",
+  "input_sha256": {
+    "zo_experiments/frozen_parameters.json": "6849e49a7481d99198ec9215b865000249adf622ca8325af92ecd48c51b09f0e",
+    "outputs/distributed_zo/zo_theory_validation/formal/fixed_work_983040/results.csv": "92f8918e8b0a4fa80363f95223615d4a6b9e8a2525a01229284feae5a4663cfc",
+    "outputs/distributed_zo/zo_theory_validation/dimension/calibration_fixed_params_work983040/results.csv": "390ed9f7f9b1a458a4d99ec8a80eae7d3791c37ac34014151a38841ea764282b",
+    "outputs/distributed_zo/zo_theory_validation/dimension/calibration_fixed_params_work983040/summary.csv": "93067df2db8edb4aaf569b4ac514a446c99822fa307c9318667ac506a1a5b999",
+    "outputs/distributed_zo/zo_theory_validation/dimension/calibration_fixed_params_work983040/task_runtimes.csv": "6bd70c7494208176cd3a78d873881c198b3d6dae69436025f1163772a04c731d"
+  }
+}

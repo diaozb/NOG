@@ -2,6 +2,7 @@ import copy
 import math
 import random
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 import torch
@@ -18,6 +19,7 @@ from src.distributed.common import (
     validate_experiment_config,
     validate_mixing_matrix,
     validate_shards,
+    zeroth_order_two_point_estimator,
 )
 
 
@@ -56,6 +58,49 @@ def tiny_config():
 
 
 class CommonSimulationTests(unittest.TestCase):
+    def test_component_losses_match_scalar_loss(self):
+        cfg = tiny_config()
+        problem = build_problem(cfg, "cpu", problem_seed=100)
+        indices = torch.tensor([1, 4, 7])
+        points = torch.randn(3, problem.d)
+        batched = problem.component_losses(points, indices)
+        scalar = torch.stack(
+            [
+                problem.loss(point, index.reshape(1))
+                for point, index in zip(points, indices)
+            ]
+        )
+        self.assertTrue(torch.allclose(batched, scalar, atol=1e-7, rtol=1e-6))
+
+    def test_zo_estimator_draws_one_direction_per_counted_pair(self):
+        cfg = tiny_config()
+        problem = build_problem(cfg, "cpu", problem_seed=100)
+        shard = torch.arange(problem.n)
+        observed_counts = []
+
+        def deterministic_directions(num, dim, device):
+            observed_counts.append(num)
+            rows = torch.eye(dim, device=device)
+            repeats = math.ceil(num / dim)
+            return rows.repeat(repeats, 1)[:num]
+
+        with patch(
+            "src.distributed.common.sample_sphere",
+            side_effect=deterministic_directions,
+        ):
+            estimate = zeroth_order_two_point_estimator(
+                problem=problem,
+                x=torch.zeros(problem.d),
+                delta=0.1,
+                smooth_batch=2,
+                data_batch=3,
+                idx_pool=shard,
+            )
+
+        self.assertEqual(observed_counts, [6])
+        self.assertEqual(tuple(estimate.shape), (problem.d,))
+        self.assertTrue(torch.isfinite(estimate).all())
+
     def test_shards_and_complete_mixing(self):
         shards = make_worker_shards(32, 4, "cpu", partition_seed=17)
         validate_shards(shards, 32)
@@ -135,6 +180,46 @@ class CommonSimulationTests(unittest.TestCase):
                 self.assertEqual(observed, expected[method])
                 self.assertTrue(math.isfinite(final["objective"]))
                 self.assertTrue(math.isfinite(final["stat_proxy"]))
+
+    def test_common_target_and_method_specific_smoothing_deltas(self):
+        cfg = tiny_config()
+        cfg["oracle"].update({"target_delta": 0.1, "evaluation_delta": 0.1})
+        cfg["nog"]["smoothing_delta"] = 0.05
+        cfg["me_dol"]["smoothing_delta"] = 0.05
+        cfg["dgfm"]["smoothing_delta"] = 0.1
+        cfg["dgfm_plus"]["smoothing_delta"] = 0.1
+        validate_experiment_config(cfg)
+
+        problem = build_problem(cfg, "cpu", problem_seed=100)
+        shards = make_worker_shards(32, 2, "cpu", partition_seed=200)
+        runners = {
+            "NOG-ZO": lambda seed: run_nog(
+                problem, cfg, shards, seed, "szo", "NOG-ZO"
+            ),
+            "ME-DOL-ZO": lambda seed: run_me_dol(
+                problem, cfg, shards, seed, "szo", "ME-DOL-ZO"
+            ),
+            "DGFM": lambda seed: run_dgfm(problem, cfg, shards, seed),
+            "DGFM+": lambda seed: run_dgfm_plus(problem, cfg, shards, seed),
+        }
+        expected_smoothing = {
+            "NOG-ZO": 0.05,
+            "ME-DOL-ZO": 0.05,
+            "DGFM": 0.1,
+            "DGFM+": 0.1,
+        }
+        for method, runner in runners.items():
+            with self.subTest(method=method):
+                final = runner(make_seed_bundle(0, method, 2))[-1]
+                self.assertEqual(final["target_delta"], 0.1)
+                self.assertEqual(final["evaluation_delta"], 0.1)
+                self.assertEqual(final["smoothing_delta"], expected_smoothing[method])
+
+    def test_nonpositive_method_delta_is_rejected(self):
+        cfg = tiny_config()
+        cfg["dgfm"]["smoothing_delta"] = 0.0
+        with self.assertRaisesRegex(ValueError, "must be positive"):
+            validate_experiment_config(cfg)
 
     def test_reproducible_trajectory_ignoring_time(self):
         cfg = tiny_config()

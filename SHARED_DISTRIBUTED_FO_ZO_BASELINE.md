@@ -1,5 +1,7 @@
 # NOG distributed baseline 实验说明与复现指南
 
+> 本文件是早期 SFO/SZO 共同基线的历史归档。当前 FO 主结论见 [fo_experiments/README.md](fo_experiments/README.md)；后续 ZO 实验可复用这里的 SZO 实现与审计口径，但应使用独立配置和结果目录。
+
 本文档记录 2026-07-14 完成的 distributed synthetic experiment：做了哪些代码修改、实验如何设置、如何复现、结果如何解释，以及后续应从哪里验证或调整。
 
 > 本实验是单张 GPU 上的 **single-process logical distributed simulation**。代码维护独立的 worker data shards 和 optimizer states，并显式计算 communication depth，但 workers 实际上顺序执行。因此，本文中的 wall-clock time 只用于诊断，不能作为真实多机或多卡 speedup 的证据。
@@ -20,7 +22,7 @@ SFO 和 SZO 使用不同类型的 oracle，不能放在一起直接比较 oracle
 3. 同时必须报告 total/per-worker oracle work，防止把更大的 batch 隐藏起来；
 4. 不使用 single-process wall-clock time 声称真实 distributed speedup。
 
-完整的事前实验计划见 [plan.md](plan.md)。
+完整的事前实验计划见 [plan.md](fo_experiments/PLAN.md)。
 
 ## 2. 修改和新增的文件
 
@@ -87,7 +89,7 @@ SFO 和 SZO 使用不同类型的 oracle，不能放在一起直接比较 oracle
   - 忽略 wall time 后的 deterministic trajectory。
 - [.gitignore](.gitignore)
   - 保留/整理了 `wandb/`、`__pycache__/`、`data/` 和旧 synthetic archive 的忽略项。
-- [plan.md](plan.md)
+- [plan.md](fo_experiments/PLAN.md)
   - 记录实验范围、公平性规则、预计步骤和当前完成状态。
 
 原有 [src/synthetic/run_synthetic.py](src/synthetic/run_synthetic.py) 没有为本轮实验重写；新代码复用了其中的 `SyntheticMaxSinL1`、`sample_ball`、`project_l2_ball` 和 seed/device utilities。

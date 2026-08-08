@@ -1,0 +1,1081 @@
+
+
+% \section{Relationship of Assumption \ref{asm:ZO} and \ref{asm:FO}}
+
+% Below, we prove that under regular conditions on $f(\,\cdot\,)$ and $F(\,\cdot\,;\xi)$, we can get Assumption \ref{asm:FO} from Assumption \ref{asm:ZO}. 
+
+% \begin{lem} \label{lem:cor-main-assmp}
+	% Under Assumption \ref{asm:ZO}, if both $f(\,\cdot\,)$ and $F(\,\cdot\,;\xi)$ are differentiable everywhere, we have
+	% \begin{enumerate}
+		%     \item[(a)] $f(\,\cdot\,)$ is $L$-Lipschitz continuous. 
+		%     \item[(b)]  $ \E_{\xi \sim \Xi}[\nabla F(\vx;\xi)] = \nabla f(\vx)$ and $\E_{\xi \sim \Xi} \Vert \nabla F(\vx;\xi) \Vert^2 \le L^2$.
+		% % Assumption \ref{asm:ZO} implies Assumption \ref{asm:FO}  with $\vg(\vx;\xi) = \nabla F(\vx; \xi)$ and  $G=L$.
+		% % % Under Assumption \ref{asm:main}, we have
+		% \end{enumerate}
+	% \end{lem}
+
+% \begin{proof}
+	% Below, we derive (a) and (b) from Assumption \ref{asm:ZO} separately. 
+	% \begin{enumerate}
+		%     \item[(a)] By Assumption \ref{asm:ZO}(a) and Jensen's inequality, for any $\vx, \vx' \in \sR^d$ we have that 
+		%     \begin{align*}
+			%         \vert f(\vx) - f(\vx') \vert \le \E_{\xi \sim \Xi} \vert f(\vx) - f(\vx') \vert \le \E_{\xi \sim \Xi}[L(\xi)] \Vert \vx - \vx' \Vert \le L \Vert \vx - \vx' \Vert. 
+			%     \end{align*}
+		%     \item[(b)] At any point $\vx \in \sR^d$ such that $\nabla f(\vx)$ and $\nabla F(\vx ;\xi)$ both exist, we have that
+		%     \begin{align} \label{eq:lim-grad}
+			%         \lim_{\vh \rightarrow \vzero} \frac{f(\vx+\vh) - f(\vx) - \E_{\xi \sim \Xi }\langle \nabla F(\vx;\xi), \vh \rangle  }{\Vert \vh \Vert} &= \lim_{\vh \rightarrow \vzero} \E_{\xi \sim \Xi } \left[ \frac{F(\vx+\vh; \xi) - F(\vx; \xi) - \langle \nabla F(\vx;\xi), \vh \rangle  }{\Vert \vh \Vert} \right].
+			%     \end{align}
+		%     The differentiability of $\nabla F(\,\cdot\,;\xi)$ at point $\vx $ implies that 
+		%     \begin{align*}
+			%         \lim_{\vh \rightarrow \vzero} \frac{F(\vx+\vh; \xi) - F(\vx; \xi) - \langle \nabla F(\vx;\xi), \vh \rangle  }{\Vert \vh \Vert}  = \vzero,
+			%     \end{align*}
+		%     while Assumption \ref{asm:ZO}(b) implies that 
+		%     \begin{align*}
+			%         \frac{\vert F(\vx+\vh; \xi) - F(\vx; \xi)\vert }{\Vert \vh \Vert} \le L(\xi), \quad {\rm and} \quad \frac{\vert \langle \nabla F(\vx;\xi), \vh \rangle \vert }{\Vert \vh \Vert}  \le L(\xi). 
+			%     \end{align*}
+		%     Since $\E[L(\xi)] \le L $, we can apply Lebesgue's dominated convergence theorem on (\ref{eq:lim-grad}) to obtain that 
+		%     \begin{align*}
+			%          \lim_{\vh \rightarrow \vzero} \frac{f(\vx+\vh) - f(\vx) - \E_{\xi \sim \Xi }\langle \nabla F(\vx;\xi), \vh \rangle  }{\Vert \vh \Vert}  = \vzero.
+			%     \end{align*}
+		%     This completes the proof of $ \E_{\xi \sim \Xi}[\nabla F(\vx;\xi)] = \nabla f(\vx)$. Finally, we calculate the second-order moment bound by
+		%     \begin{align*}
+			%         \E_{\xi \sim \Xi} \Vert \nabla F(\vx;\xi) \Vert^2 \le   \E_{\xi \sim \Xi} [L(\xi)]^2 \le L^2.
+			%     \end{align*}
+		% \end{enumerate}
+	% \end{proof}
+
+% \begin{rmk}
+	% The condition that both $f(\,\cdot\,)$ and $F(\,\cdot\,;\xi)$ are differentiable everywhere in Lemma \ref{lem:cor-main-assmp} is mild and without loss of generality because the Rademacher’s theorem indicates that any Lipschitz continuous function is differentiable almost everywhere, and therefore such conditions can be fulfilled with probability 1 by adding arbitrarily small random permutations on the original functions. It is a standard technique used in previous works, which can refer to \textit{e.g.}  \citep[Proposition 2]{cutkosky2023optimal}, \citep[Lemma 2.3]{davis2022gradient}, or \citep[Lemma 3.2]{tian2022finite}.
+	% \end{rmk}
+
+\section{Proof of Randomized Smoothing}
+
+\propfdeltasmooth*
+
+\begin{proof}
+	We verify each items one by one as follows.
+	\begin{enumerate}
+		\item[(a)] It follows the definition of $f_{\delta}$ (Definition \ref{dfn:f-delta}) and Jensen's inequality that 
+		\begin{align*}
+			\vert f_{\delta}(\vx) - f(\vx) \vert \le \E_{\vu \sim {\rm Unif}(\sB^d)} \vert f(\vx + \delta \vu) -f(\vx) \vert \le L \delta \E_{\vu \sim {\rm Unif}(\sB^d)} \Vert \vu \Vert \le L \delta.
+		\end{align*}
+		\item[(b)] By the definition of $f_{\delta}$ (Definition \ref{dfn:f-delta}), the Lipschitz continuity of $f$ and Jensen's inequality, for any $\vx, \vx' \in \sR^d$ we have that 
+		\begin{align*}
+			\vert f_{\delta}(\vx) - f_{\delta}(\vx') \vert &= \vert  \E_{\vu \sim {\rm Unif}(\sB^d)} [f(\vx+ \delta \vu)] -  \E_{\vu' \sim {\rm Unif}(\sB^d)} [f(\vx'+ \delta \vu')] \vert \\
+			&= \vert  \E_{\vu \sim {\rm Unif}(\sB^d)} [f(\vx+ \delta \vu)] -  \E_{\vu \sim {\rm Unif}(\sB^d)} [f(\vx' + \delta \vu)] \vert \\
+			&\le \E_{\vu \sim {\rm Unif}(\sB^d)} \vert f(\vx+ \delta \vu) - f(\vx' + \delta \vu) \vert \le L \Vert \vx - \vx' \Vert.
+		\end{align*}
+		\item[(c)] See \citep[Lemma 4]{kornowski2024algorithm} for a proof. 
+		\item[(d)] It is first proven in \cite{yousefian2012stochastic}. See also \citep[Proposition 2.2]{lin2022gradient} for a more complete proof. 
+	\end{enumerate}
+\end{proof}
+
+\section{Proof of the Nonconvex Optimistic Gradient Method}
+
+% \lemsmoothonc*
+
+% \begin{proof}
+	% We start from the fundamental theorem of calculus that
+	% \begin{align*}
+		%     f(\vx_{t}) - f(\vx_{t-1}) =& \left \langle \int_0^1 \nabla f(\vx_{t-1}) + s \vDelta_t) {\rm d} s, \vDelta_t \right \rangle \\
+		%     =& \langle \nabla f(\vy_t), \vDelta_t \rangle +  \left \langle \int_0^1 (\nabla f(\vx_{t-1}) + s \vDelta_t) - \nabla f(\vy_t) ) {\rm d} s, \vDelta_t \right \rangle
+		% \end{align*}
+	% For the right-hand side, we further apply
+	% (1) Cauchy-Schwarz inequality, (2) $H$-smoothness of the function~$f$, (3) the identity $\vy_t = \vx_{t-1} + \vDelta_t/2$, and (4) $\Vert \Delta_t \Vert \le D$, which gives
+	% \begin{align*}
+		%     f(\vx_{t}) - f(\vx_{t-1}) \le& \langle \nabla f(\vy_t), \vDelta_t \rangle +  \int_0^1 \Vert\nabla f(\vx_{t-1}) + s \vDelta_t) - \nabla f(\vy_t) \Vert \Vert \vDelta_t \Vert {\rm d} s \\
+		%     \le& \langle \nabla f(\vy_t), \vDelta_t \rangle +  H \int_0^1 \Vert\vx_{t-1} + s \vDelta_t-\vy_t \Vert \Vert \Vert \vDelta_t \Vert {\rm d} s  \\
+		%     =& \langle \nabla f(\vy_t), \vDelta_t \rangle + H\int_0^1 \left \vert s- \frac{1}{2} \right \vert \Vert \vDelta_t \Vert^2 {\rm d} s = \langle \nabla f(\vy_t), \vDelta_t \rangle + \frac{H D^2}{4}. 
+		% \end{align*}
+	% Note that conditioned on $\Delta_t$, we have $\E [\mO_f(\vy_t)] =\nabla f(\vy_t)$. Therefore, we can take the expectation on both sides and then replace $\nabla f(\vy_t)$ with $\mO_f(\vy_t)$ on the right-hand side, which gives
+	% \begin{align*}
+		%     \E[f(\vx_{t}) - f(\vx_{t-1})] 
+		%     \le& \E \langle \mO_f(\vy_t), \vDelta_t \rangle + \frac{H D^2}{4}. 
+		% \end{align*}
+	% Telescoping this inequality for $t = (k-1)M+1,\cdots,kM$ and rearranging the right-hand side, we obtain
+	% \begin{align*}
+		%     \E[f(\vx_{kM}) - f(\vx_{(k-1)M})] \le& \sum_{t=(k-1)M+1}^{k(k+1)M}  \E \langle \mO_f(\vy_t), \Delta_t - \vu_k \rangle + \sum_{t=(k-1)M+1}^{k(k+1)M}  \E \langle \mO_f(\vy_t), \vu_k \rangle + \frac{M H D^2}{4}.
+		% \end{align*}
+	% Letting $\vu_k = - D \sum_{t=(k-1)M+1}^{(k+1)M} \mO_f(\vy_t) / \Vert \sum_{t=(k-1)M+1}^{(k+1)M} \mO_f(\vy_t) \Vert $ in the above, we have
+	% \begin{align*}
+		%     \E[f(\vx_{kM}) - f(\vx_{(k-1)M})] \le& \sum_{t=(k-1)M+1}^{(k+1)M} \E \langle \mO_f(\vy_t), \Delta_t - \vu_k \rangle  - D \E \left \Vert \sum_{t=(k-1)M+1}^{(k+1)M} \mO_f(\vy_t) \right \Vert + \frac{M HD^2}{4}.
+		% \end{align*}
+	% Next, using the definition of $\sigma$-SFO that $\E \mO_f(\vy_t) = \nabla f(\vy_t)$ and $\E \Vert \mO_f(\vy_t) -\nabla f(\vy_t) \Vert^2 \le \sigma^2$, we know that $\E \left \Vert \sum_{t=(k-1)M+1}^{k(k+1)M} \mO_f(\vy_t) - \nabla f(\vy_t) \right \Vert \le \sqrt{M} \sigma$. Hence, using the triangle inequality, we can further obtain that
+	% \begin{align*}
+		%      \E[f(\vx_{kM}) - f(\vx_{(k-1)M})] \le& \sum_{t=(k-1)M+1}^{(k+1)M}  \E \langle \mO_f(\vy_t), \Delta_t - \vu_k \rangle  - D \E \left \Vert \sum_{t=(k-1)M+1}^{(k+1)M} \nabla f(\vy_t) \right \Vert + D\sqrt{M} \sigma+ \frac{MHD^2}{4}.
+		% \end{align*}
+	% Finally, summing up this inequality for $k = 1,\cdots,K$, dividing both sides by $KDM$, and rearranging gives
+	% \begin{align*}
+		%    \frac{1}{K} \E \left \Vert \frac{1}{M} \sum_{t=(k-1)M+1}^{(k+1)M} \nabla f(\vy_t) \right \Vert \le \frac{f(\vx_0) - f(\vx_{K})}{KDM} + \frac{{\rm Reg}_{T,K}}{KDM} + \frac{\sigma}{\sqrt{M}} + \frac{HD}{4}.
+		% \end{align*}
+	% \end{proof}
+
+% \lemsmoothreg*
+
+% \begin{proof}
+	% Recall Lemma \ref{lem:odog} tells that
+	% \begin{align} \label{eq:regret-odog-lem}
+		% \begin{split}
+			%     \sum_{t= (k-1)M +1}^{k M} \E \langle \mO_f(\vy_t), \vDelta_t - \vu_k \rangle \le& \frac{4 D^2}{\eta} + \frac{3\eta}{2}\E \Vert \mO_f(\vy_{(k-1)M}) - \mO_f(\vz_{(k-1)M}) \Vert^2 \\
+			%     + & \sum_{t= (k-1)M +1}^{k M} \E \left[\eta \Vert \mO_f(\vy_t) - \mO_f(\vz_t) \Vert^2 - \frac{1}{4 \eta} \Vert \vDelta_t - \vDelta_{t-1} \Vert^2\right]. 
+			% \end{split}
+		% \end{align}
+	% We know from  (1) Young's inequality, (2) the definition of $\sigma$-SFO, (3) and $H$-smoothness of $f$, and (4) the identity $\vy_t - \vz_t = (\vDelta_t - \vDelta_{t-1})/2$ that
+	% \begin{align*}
+		%     \Vert \mO_f(\vy_t) - \mO_f(\vz_t) \Vert^2 \le&
+		% 3 \Vert \mO_f(\vy_t) - \nabla f(\vy_t) \Vert^2 + 3 \Vert \mO_f(\vz_t) - \nabla f(\vz_t) \Vert^2 + 3 \Vert \nabla f(\vy_t) - \nabla f(\vz_t) \Vert^3 \\
+		% \le& 6 \sigma^2 + 3H^2 \Vert \vy_t - \vz_t \Vert^2 = 6 \sigma^2 + \frac{3H^2}{4} \Vert \vDelta_t - \vDelta_{t-1} \Vert^2,
+		% \end{align*}
+	% which is an analog to \citep[Lemma B.3]{patitucci2025improving}. And the remaining proofs are also similar to those in \citep{patitucci2025improving}. Substituting into the regret bound in inequality (\ref{eq:regret-odog-lem}), rearranging, and using the fact $\Vert \vDelta_t \Vert \le D$, we have 
+	% \begin{align*}
+		%   \sum_{t= (k-1)M +1}^{k M} \E \langle \mO_f(\vy_t), \vDelta_t - \vu_k \rangle \le& \frac{4 D^2}{\eta} + \frac{9\eta H^2 D^2}{2} + 9 M \eta \sigma^2 - \left( \frac{1}{4 \eta} - \frac{3 H^2}{4} \right)  \sum_{t= (k-1)M +1}^{k M} \E \Vert \vDelta_t - \vDelta_{t-1} \Vert^2.   
+		%   % \\
+		%   %   &\E [{\rm Reg}_{T,K}] \le \frac{4 KD^2}{\eta} +
+		%   %   15 \eta KM \sigma^2 + \frac{15 \eta H^2 D^2}{8}  -
+		%   %   \left( \frac{1}{4 \eta} -\frac{15 \eta H^2 }{8}   \right)\sum_{t=2}^{KM} \E  
+		% \end{align*}
+	% Note that by setting $\eta \le \frac{1}{\sqrt{3} H}$,  we can guarantee that $\frac{1}{4 \eta} -\frac{3 \eta H^2}{4} \ge 0$ and drop the last term in the above. Then, we obtain 
+	% \begin{align*}
+		%     \sum_{t= (k-1)M +1}^{k M} \E \langle \mO_f(\vy_t), \vDelta_t - \vu_k \rangle \le& \frac{4 D^2}{\eta} +\frac{9\eta H^2 D^2}{2} + 9 M \eta \sigma^2.   
+		% \end{align*}
+	% Next, by selecting the stepsize as $\eta = \min \left\{ \frac{1}{2H}, \frac{2D}{3 \sigma \sqrt{M}} \right\}$ and using the basic inequality $\frac{1}{\min\{a,b \}} \le a+b$, we can further bounded the right-hand side above as
+	% \begin{align*}
+		%  \sum_{t= (k-1)M +1}^{k M} \E \langle \mO_f(\vy_t), \vDelta_t - \vu_k \rangle \le 18 H D^2 + 12 \sigma \sqrt{M} D.
+		% \end{align*}
+	% Summing up this inequality for all $k = 1,\cdots,K$, we know that the $K$-shifting regret can be bounded by $K$ times of its right-hand side, which gives
+	% \begin{align*}
+		%     \E [{\rm Reg}_{T,K} ] \le 6K \left( 3 H D^2 +2 \sigma \sqrt{M} D^2 \right).
+		% \end{align*}
+	% \end{proof}
+% \thmodogs*
+
+% \begin{proof}
+	% Plug the regret bound of Lemma \ref{lem:reg-smooth-surrogate} into Lemma \ref{lem:smooth-o2nc}, we get
+	% \begin{align*}
+		%     \E \Vert \nabla f(\bar \vy_{\rm out}) \Vert \le 
+		%     \frac{F_0}{KDM} +
+		%     \frac{18 H D}{M} + \frac{13 \sigma}{\sqrt{M}} + \frac{HD}{4}.
+		% \end{align*}
+	% For $D = \delta/M$, $T = KM$ and $H= c \sqrt{d} L / \delta$, we have that
+	% \begin{align*}
+		%      \E \Vert \nabla f(\bar \vy_{\rm out}) \Vert \le 
+		%     \frac{M F_0}{\delta T} +
+		%     \frac{73c \sqrt{d} L}{4 M} + \frac{13 \sigma}{\sqrt{M}}.
+		% \end{align*}
+	% By selecting $M = \max \left\{ \left( \frac{73 c \sqrt{d} L \delta T}{4 F_0} \right)^{1/2}, \left( \frac{13 \sigma \delta T}{F_0} \right)^{2/3} \right\}$ and using the basic inequality $\max\{a,b \} \le a+b$, we can further bounded the right-hand side above as
+	% \begin{align*}
+		%      \E \Vert \nabla f(\bar \vy_{\rm out}) \Vert \le \left( 
+		%      \frac{73 c\sqrt{d} L F_0}{\delta T}
+		%      \right)^{1/2} + \frac{2 F_0^{1/3}\left(13 \sigma \right)^{2/3}}{\left(\delta T \right)^{1/3}}.
+		% \end{align*}
+	% Therefore, to find a $(\delta,\epsilon)$-Goldstein stationary point, the number of oracles $\sO_{f_\delta}$ required by the algorithm is no more than
+	% \begin{align*}
+		%     T = \gO \left( \frac{\sqrt{d} L F_0}{\delta \epsilon^2} + \frac{\sigma^2 F_0}{\delta \epsilon^{3}} \right).
+		% \end{align*}
+	% \end{proof}
+\lemregretong*
+
+\begin{proof}
+	We start from Lemma \ref{lem:odog} that
+	\begin{align*}
+		\E [{\rm Reg}_{T,K}] \le \frac{4 K D^2}{\eta} + \frac{5 \eta}{2} \sum_{t=1}^{KM} \E \Vert \mO(\vy_t) - \mO(\vy_{t-1}) \Vert^2.
+	\end{align*}
+	Applying Young's inequality on the second term, we further obtain that
+	\begin{align*}
+		\E [{\rm Reg}_{T,K}] \le& \frac{4 K D^2}{\eta} + \frac{15 \eta}{2} \sum_{t=1}^{KM} \E [\Vert \nabla f_\delta(\vy_t) - \nabla f_\delta(\vy_{t-1}) \Vert^2 \\
+		+ &\Vert \mO(\vy_t) - \nabla f_\delta(\vy_t) \Vert^2 + \Vert \mO(\vy_{t-1}) - \nabla f_\delta(\vy_{t-1}) \Vert^2].
+	\end{align*}
+	By Proposition \ref{prop:f-delta-smooth}(d) we have $\Vert \nabla f_\delta(\vy_t) - \nabla f_\delta(\vy_{t-1}) \Vert \le (c \sqrt{d} L /\delta) \Vert \vy_t - \vy_{t-1} \Vert$, and by the definition of $(\delta,\sigma)$ oracle (Definition \ref{dfn:delta-SFO}) we have $\E \Vert \mO(\vy) - \nabla f_\delta(\vy) \Vert^2 \le \sigma^2 $. Therefore, we get
+	\begin{align*}
+		\E [{\rm Reg}_{T,K}] \le \frac{4 K D^2}{\eta} + \frac{15 \eta c^2 d L^2 }{2\delta^2}  \sum_{t=1}^{KM} \E \Vert \vy_t - \vy_{t-1} \Vert^2  + 15 \eta KM \sigma^2.
+	\end{align*}
+	In Algorithm \ref{alg:O2NC}, we have $\vy_t - \vy_{t-1} = (\vx_{t-1} + s_t \vDelta_t) - (\vx_{x-2} + s_{t-1} \vDelta_{t-1}) = (1- s_{t-1}) \vDelta_{t-1} + s_t \vDelta_t \in \sB_{3D}^d(\vzero) $. Therefore, we can further bound the right-hand side in the above inequality as
+	\begin{align*}
+		\E[{\rm Reg}_{T,K}] \le \frac{4 K D^2}{\eta} + 15 \eta KM \left( \frac{9 c^2 d L^2 D^2}{2 \delta^2} + \sigma^2 \right).
+	\end{align*}
+\end{proof}
+
+\thmong*
+\begin{proof}
+	Selecting the stepsize $\eta = \Theta \left( \frac{\delta}{L\sqrt{d M}} \land \frac{D}{\sigma \sqrt{M}}  \right)$ to minimize the regret in Lemma \ref{lem:regret-o2ng}, we obtain
+	\begin{align*}
+		\E[{\rm Reg}_{T,K}] = \gO \left( K \left( \frac{D^2 L \sqrt{dM}}{\delta} + D \sigma \sqrt{M}  \right)  \right).
+	\end{align*}
+	Substituting the above regret bound into Lemma \ref{lem:O2NC}, we have
+	\begin{align*}
+		\E\left[{\rm dist} \left(\partial_\delta f_{\delta}(\bar \vy_{\rm out}), \vzero \right) \right] = \gO \left( \frac{f_\delta(\vzero) - f_\delta^*}{K DM} + \frac{\sqrt{d} LD}{\sqrt{M}} + \frac{\sigma}{\sqrt{M}} \right).
+	\end{align*}
+	Note that by Assumption \ref{asm:Lip} we have $f(\vzero) - f^* \le \gamma$ and by Proposition \ref{prop:f-delta-smooth}(a) we have $\vert f_\delta(\,\cdot\,) - f(\,\cdot\,) \vert \le \delta L$. Therefore, we have $f_\delta(\vzero) - f_\delta^* \le \gamma + \delta L$ and
+	\begin{align*}
+		\E\left[{\rm dist} \left(\partial_\delta f_{\delta}(\bar \vy_{\rm out}), \vzero \right) \right] = \gO \left( \frac{\gamma + \delta L}{K DM} + \frac{\sqrt{d} LD}{\delta \sqrt{M}} + \frac{\sigma}{\sqrt{M}} \right).
+	\end{align*}
+	For $T = KM$ and $D = \delta/ M$, we have
+	\begin{align*}
+		\E\left[{\rm dist} \left(\partial_\delta f_{\delta}(\bar \vy_{\rm out}), \vzero \right) \right] = \gO \left( \frac{M(\gamma + \delta L)}{\delta T} + \frac{\sqrt{d} L}{M^{3/2}} + \frac{\sigma}{\sqrt{M}} \right).
+	\end{align*}
+	Selecting the parameter $M = \Theta \left( \left( 
+	\frac{\sqrt{d} L \delta T}{\gamma + \delta L}
+	\right)^{2/5} \lor \left( \frac{\sigma \delta T}{\gamma + \delta L} \right)^{2/3} \right)$ to minimize the right-hand side, we obtain
+	\begin{align*}
+		\E\left[{\rm dist} \left(\partial_\delta f_{\delta}(\bar \vy_{\rm out}), \vzero \right) \right]  = \gO \left(
+		d^{1/5} L^{2/5} \left( \frac{\gamma + \delta L}{\delta T} \right)^{3/5} + \sigma^{2/3} \left( \frac{\gamma + \delta L}{\delta T} \right)^{1/3}
+		\right).
+	\end{align*}
+	Recalling Proposition that \ref{prop:f-delta-smooth}(d) $\partial_{\delta} f_{\delta}(\,\cdot\,) \in \partial_{2 \delta} f(\,\cdot\,)$, we know that the algorithm can provably find a $(2\delta,\epsilon)$-Goldstein stationary point in total iterations no more than 
+	\begin{align*}
+		T = \gO \left( \frac{\gamma + \delta L}{\delta}  \left( \frac{ d^{1/3} L^{2/3}}{\epsilon^{5/3}} + \frac{\sigma^2}{\epsilon^3} \right) \right).
+	\end{align*}
+\end{proof}
+% \lemregret*
+% \begin{proof}
+	% Note that Line \ref{line:O2NC-extra} and \ref{line:O2NC-OGD} in Algorithm \ref{alg:fast-O2NC} are exactly the update of optimistic online gradient descent \citep{hazan2010extracting,rakhlin2013online} or extragradient \cite{korpelevich1976extragradient} on the domain $\sB(\vzero, D)$. Following the standard analysis for this update, (see \textit{e.g.} \citep[Lemma 15]{chen2021impossible}, for any $\vu \in \sB(\vzero, D)$, we have 
+	% \begin{align*}
+		%     \langle \vg_t , \vDelta_{t} - \vu \rangle &\le  \langle \vg_{t} - \vh_{t}, \vDelta_{t}  - \vv_t \rangle + \frac{1}{2 \eta} \Vert \vu - \vv_t \Vert^2 \\
+		%     &- \frac{1}{2 \eta} \Vert \vu - \vv_{t+1} \Vert^2 - \frac{1}{2 \eta } \Vert \vv_{t+1} - \vDelta_{t}  \Vert^2 - \frac{1}{2 \eta} \Vert \vDelta_{t}  - \vv_t \Vert^2.
+		% \end{align*}
+	% We can use Young's inequality to get
+	% \begin{align*}
+		%     \langle \vg_t , \vDelta_{t}  - \vu \rangle &\le  \frac{\eta}{2} \Vert \vg_t - \vh_{t} \Vert^2 + \frac{1}{2 \eta} \Vert \vu - \vv_t \Vert^2 - \frac{1}{2 \eta} \Vert \vu - \vv_{t+1} \Vert^2 
+		% \end{align*}
+	% {\color{red} Use ODOG analysis to provide a tighter regret bound.}
+	
+	
+	% Telescoping yields that
+	% \begin{align*}
+		%     R_M(\vu_1,\cdots,\vu_K) &= \sum_{k=1}^K \sum_{m= (k-1)M +1}^{k M} \langle \vg_m, \vv_{m+1/2} - \vu_k \rangle \\
+		%     &\le \frac{\eta}{2} \sum_{k=1}^K \sum_{m = (k-1)M +1}^{kM} \Vert \vg_m - \vg_{m-1} \Vert^2 + \frac{1}{2 \eta} \sum_{k=1}^K  \Vert \vu_k  - \vv_{(k-1)M+1)} \Vert^2.  
+		% \end{align*}
+	% Taking expectation, and leveraging the variance bound in the $(\delta,\sigma)$ SFO (Definition \ref{dfn:SFO}), we have that
+	% \begin{align*}
+		%     \E[ R_M(\vu_1,\cdots,\vu_K) ] &\le \eta \sum_{k=1}^K \sum_{m = (k-1)M +1}^{kM} \E \Vert \nabla f_{\delta}(\vy_{m}) - \nabla f_{\delta}(\vy_{m-1}) \Vert^2  \\
+		%     &\quad  +  4 \eta  KM \sigma^2 +  \frac{1}{2 \eta} \sum_{k=1}^K  \Vert \vu_k  - \vv_{(k-1)M+1)} \Vert^2, 
+		% \end{align*}
+	% where we define $\vy_0 = \vzero$ in the above.
+	% Now, we use Proposition \ref{prop:f-delta-smooth}(b) that $f_{\delta}(\,\cdot\,)$ is $L$-Lipschitz and  Proposition \ref{prop:f-delta-smooth}(d) that $f_{\delta}(\,\cdot\,)$ is $(c \sqrt{d}  / \delta)$-smooth for some numerical constant $c>0$ to get
+	% \begin{align} \label{eq:tele-regret}
+		% \begin{split}
+			% \E[ R_M(\vu_1,\cdots,\vu_K) ] &\le \frac{ c^2 \eta  d L^2}{\delta^2}  \sum_{k=1}^K \sum_{m = (k-1)M +1}^{kM} \Vert \vy_m - \vy_{m-1} \Vert^2   \\
+			%         &\quad +  4 \eta  KM \sigma^2 +  \frac{1}{2 \eta} \sum_{k=1}^K  \Vert \vu_k  - \vv_{(k-1)M+1)} \Vert^2.
+			% \end{split}
+		% \end{align}
+	% By the update of the algorithm and triangle inequality, we can obtain that
+	% \begin{align*}
+		%     \Vert \vy_t - \vy_{t-1} \Vert \le \Vert \vy_t - \vx_{t-1} \Vert + \Vert \vx_t - \vx_{t-1} \Vert + \Vert \vy_{t-1} - \vx_{t-1} \Vert \le 3D.
+		% \end{align*}
+	% In addition, we also have
+	% \begin{align*}
+		%     \Vert \vu_k  - \vv_{(k-1)M+1)} \Vert \le \Vert \vu_k \Vert + \Vert \vv_{(k-1)M+1)} \Vert \le 2D.
+		% \end{align*}
+	% Using these two bounds in (\ref{eq:tele-regret}), we then get
+	% \begin{align*}
+		%     \E[ R_M(\vu_1,\cdots,\vu_K) ] &\le \frac{9 c^2 \eta d L^2 K M  D^2}{\delta^2}  +  4 \eta  KM \sigma^2 + \frac{2K D^2}{\eta}. 
+		% \end{align*}
+	% \end{proof}
+
+% \thmupper*
+% \begin{proof}
+	
+	
+	% Setting 
+	% \begin{align} \label{eq:setting-eta}
+		%     \eta = \sqrt{\frac{2 K D^2}{ 9 c^2 d L^2 KM D^2/ \delta^2  + 4 K M \sigma^2 }}
+		% \end{align}
+	% yields that
+	% \begin{align*}
+		%     \E[ R_M(\vu_1,\cdots,\vu_K) ] &\le \sqrt{2 K } D \cdot \sqrt{9 c^2 d L^2 KM D^2/ \delta^2  + 4 K M \sigma^2 } \\
+		%     &\le 3 c \sqrt{2d M} L D^2 K / \delta + 2\sqrt{2 M } DK \sigma.
+		% \end{align*}
+	% We now substitute the above regret bound into (\ref{eq:regre-O2NC}) to get
+	% \begin{align*}
+		%      &\quad \frac{1}{K} \sum_{k=1}^{K-1} \E \left \Vert \frac{1}{M} \sum_{m=1}^M \nabla f_{\delta}( \vy_{(k-1)M+m} ) \right \Vert \\
+		%      &\le \frac{f_{\delta}(\vx_0) - f_{\delta}^*}{ D T} + \frac{3 c \sqrt{2d M} L D K}{\delta T}  + \frac{2\sqrt{2 M } K \sigma}{T} + \frac{\sigma}{\sqrt{M}}.
+		% \end{align*}
+	% Next, we substitute $D =\delta / M$ and $T = KM$ to get
+	% \begin{align*}
+		%     &\quad \frac{1}{K} \sum_{k=1}^{K-1} \E \left \Vert \frac{1}{M} \sum_{m=1}^M \nabla f_{\delta}( \vy_{(k-1)M+m} ) \right \Vert \\
+		%     &\le \frac{M (f_{\delta}(\vx_0) - f_{\delta}^*)}{\delta T} + \frac{3 c \sqrt{2 d} L }{M^{\frac{3}{2}}} + \frac{(2 \sqrt{2} + 1) \sigma}{\sqrt{M}}.
+		% \end{align*}
+	% Furthermore, by Proposition \ref{prop:f-delta-smooth} we know $\vert f_{\delta}(\,\cdot\,) - f(\,\cdot\,) \vert \le \delta L$, and hence $f_{\delta}(\vx_0) - f_{\delta}^* \le \gamma + \delta L$ in the above.
+	% From Proposition \ref{prop:Q-FO-estimator} we know a first-order quantum algorithm with $\tilde \gO(B)$ QSFO complexity can ensure $\sigma \le \sqrt{d} L / B)$, and from Proposition \ref{prop:Q-ZO-estimator} we know a zeroth-order quantum algorithm with $\tilde \gO(B)$ QSZO complexity can ensure $\sigma \le d L / B$. 
+	% Here, we can view $B$ as a virtual batch size. To show the upper bound for both first-order and zeroth-order in a unified way, we define $\sigma = d^{\alpha} L / B$, where $\alpha = 1/2$ for first-order method and $\alpha = 1$ for zeroth-order method. 
+	% We define
+	% the total complexity of the algorithm (zeroth-order or first-order) by $N = T B$. 
+	% Therefore, the above inequality can also be written as
+	% \begin{align*}
+		%     &\quad \frac{1}{K} \sum_{k=1}^{K-1} \E \left \Vert \frac{1}{M} \sum_{m=1}^M \nabla f_{\delta}( \vy_{(k-1)M+m} ) \right \Vert \\
+		%     &\le \frac{B M (\gamma + \delta L)}{\delta N} + \frac{3 c \sqrt{2 d} L }{M^{\frac{3}{2}}} + \frac{(2 \sqrt{2} + 1) d^{\alpha} L}{\sqrt{M} B }.
+		% \end{align*}
+	% From the above inequality, we can see the optimal choice of $B$ is 
+	% \begin{align} \label{eq:setting-B}
+		%     B = \frac{ (2 \sqrt{2} + 1)^{\frac{1}{2}} d^{\frac{\alpha}{2}} L^{\frac{1}{2}} (\delta N)^{\frac{1}{2}} }{ M^{\frac{3}{4} } (\gamma + \delta L)^{\frac{1}{2}}}.
+		% \end{align}
+	% The above setting yields that
+	% \begin{align*}
+		%      &\quad \frac{1}{K} \sum_{k=1}^{K-1} \E \left \Vert \frac{1}{M} \sum_{m=1}^M \nabla f_{\delta}( \vy_{(k-1)M+m} ) \right \Vert \\ 
+		%      &\le \frac{ (2 \sqrt{2} + 1)^{\frac{1}{2}} M^{\frac{1}{4}} (\gamma +\delta L)^{\frac{1}{2}} d^{\frac{\alpha}{2}} L^{\frac{1}{2}}}{ (\delta N)^{\frac{1}{2}} } + \frac{3 c \sqrt{2 d} L }{M^{\frac{3}{2}}}.
+		% \end{align*}
+	% From the above, we can see the optimal choice of parameter $M$ is
+	% \begin{align}  \label{eq:setting-M}
+		%     M = \left( \frac{3 c \sqrt{2 d} L (\delta N)^{\frac{1}{2}}}{ (2 \sqrt{2} + 1)^{\frac{1}{2}} M^{\frac{1}{4}} (\gamma +\delta L)^{\frac{1}{2}} d^{\frac{\alpha}{2}} L^{\frac{1}{2}} }  \right)^{\frac{4}{7}},
+		% \end{align}
+	% which will lead to the final upper bound of
+	% \begin{align*}
+		%      &\quad \frac{1}{K} \sum_{k=1}^{K-1} \E \left \Vert \frac{1}{M} \sum_{m=1}^M \nabla f_{\delta}( \vy_{(k-1)M+m} ) \right \Vert \\  
+		%      &\le  \left( \frac{ 3c \sqrt{2} (2 \sqrt{2} +1)^3 (\gamma+ \delta L)^3 d^{3 \alpha+\frac{1}{2}} L^4 }{ (\delta N)^3 } \right)^{\frac{1}{7}}.
+		% \end{align*}
+	% It means the algorithm will provably output a $(\delta,\epsilon)$-stationary point in the total complexity of  
+	% \begin{align*}
+		%     N = \gO\left(  \frac{d^{\alpha+ \frac{1}{6}} L^{\frac{4}{3}}(\gamma + \delta L)}{\delta \epsilon^{\frac{7}{3}}}  \right).
+		% \end{align*}
+	% \end{proof}
+% \paragraph{Upper Bound of (a)} From the previous discussion, we know that the output of $\mA_K$ is independent of $\vu_T$ and (\ref{eq:bound-uT}) holds conditioned on $\mA_K$ under event $G$. Therefore, for any $\vx \sim p_{K \mid G}$, for $\vz = \rho_R(\vx)$ with $R = 2 \sqrt{T}$ we have that $\vert \langle \vu_T, \vz \rangle \vert < 1 /4$. Our next goal is to following similar analysis to \citep[Lemma 25]{cutkosky2023optimal} to show that this implies that $\vx$ can not lie in the sets of $(1/2)$-stationary points $S =  \{ \vx \in \sR^d : \Vert \nabla \hat f_{T;\mU}(\vx) \Vert \le 1/2 \}$. 
+% We consider two cases, either $\Vert \vx \Vert > \sqrt{T}$ or not. 
+
+% If $\Vert \vx \Vert > \sqrt{T}$, we have that
+% \begin{align*}
+	%     \Vert \nabla \hat f_{T; \mU} (\vx) \Vert &\ge \lambda \Vert \nabla q_R(\vx) \Vert - \Vert \mJ_{\rho_R} (\vx) \Vert \Vert \nabla \bar f_{T; \mU}(\vy) \Vert \\
+	%     &\ge \lambda \Vert \nabla q_R(\vx) \Vert - \Vert \nabla \bar f(\vy) \Vert \\
+	%     &\ge \frac{\lambda \Vert \vx \Vert}{\sqrt{1 + \Vert \vx \Vert^2/ R^2}} - L_0 \sqrt{T} \\
+	%     &\ge 3 \lambda R - L_0 \sqrt{T} \ge .
+	% \end{align*}
+
+
+
+
+
+
+
+
+% Above, the first inequality comes from the triangle inequality; the second one uses that fact $\Vert \mJ_{\rho_R}(\vx) \Vert \le 1$ by (\ref{eq:Jacobian}); the third one uses Lemma \ref{lem:prop-q}(b) and Lemma \ref{lem:Carmon}(c); and the last line uses 
+% the monotonicity of function $q_R(\,\cdot\,)$.
+% \begin{align*}
+	%      \vert \le \Vert \vu_T \Vert \Vert \vz \Vert \le \beta / 4. 
+	% \end{align*}
+
+
+% To further upper bound (\ref{eq:P-TV}), we need to bound $\BP( \vx \in S \mid \vx \sim p_{K \mid F}, F  )$. 
+% It means that conditioned on both events $E$ and $F$, for any $\vx \sim p_{K \mid F}$, we have that
+% \begin{align*}
+	%     \vert 
+	% \end{align*}
+% Conditioned on event $E$, we have that $\vert \vu_T, \vx $
+
+% the worst-case construction of QSFO in  is independent of $\mU_T$. Therefore, by choosing $\vu_T$ 
+
+
+% % represent the states $\psi_K$ and $\psi_0$ conditioned on event $F$.
+
+% % Then, by Markov's inequality, there exists an event $F$ with $\BP(F) \ge 2/3$ such that
+% % \begin{align} \label{eq:norm-Ak-A0}
+	% %     \Vert  \psi_{K \mid F}  - \psi_{0 \mid F} \Vert^2 \le \frac{1}{48 T^2},
+	% % \end{align}
+
+% % where we use 
+% % Next, conditioned on event $F$,  we let $p_{0 \mid F} = \vert \psi_K \vert^2$ and $p_{K \mid F} = \vert \psi_0 \vert^2$
+
+
+
+
+
+
+
+
+
+
+% to denote the  $\psi_{0 \mid F}$ and $\psi_{K \mid F}$. 
+
+
+% Let $F$ be the event that the above happens, then we have $\BP(F) \ge 2/3$.
+
+% Conditioned on event $F$, 
+% where  Define $\psi_{K \mid F}(\vx)$ and $\psi_{0 \mid F}(\vx)$ the wave functions of these states, which satisfy that $\vert \psi_{0 \mid F} (\vx) \vert^2 = p_{0 \mid F}$ and   $\vert \psi_{K \mid F} (\vx) \vert^2 = p_{K \mid F}$.
+
+
+% We define $\psi_{K \mid \mU, \zeta }$ and $\psi_{0 \mid \mU, \zeta }$ to 
+
+
+% Define
+% $p_{K}(\vx) $ and $p_0(\vx)$ as the probability distribution obtained by measuring the state $\psi_K $ and $\psi_0 $, respectively. Similarly, we can define the conditional distribution $p_{K; \mU, \zeta}$ and $p_{0; \mU, \zeta}$, and we have the relationship that $p_{K;\mU,\zeta}(\vx) = \vert \psi_{K;\mU,\zeta}(\vx) \vert^2$ and $p_{0;\mU,\zeta}(\vx) = \vert \psi_{0;\mU,\zeta}(\vx) \vert^2$.
+%  , we have that
+
+
+% \begin{align*}
+	%     d_{\rm TV}(p_0,p_K) &= \frac{1}{2}\iiint  \vert p_0(\vx) - p_K(\vx) \vert {\rm d} \vx {\rm d} \mU {\rm d} \zeta  \\
+	%     &=  \frac{1}{2}  \iint_F \int \vert p_0(\vx) - p_K(\vx) \vert {\rm d} \vx {\rm d} \mU {\rm d} \zeta +  \frac{1}{2} \iint_{F^C} \int  \vert p_0(\vx) - p_K(\vx) \vert {\rm d} \vx {\rm d} \mU {\rm d} \zeta \\
+	%     &= \frac{1}{2}  \iint_F \int \vert p_{0; \mU, \zeta}(\vx) p_\mU(\mU) p_\zeta(\zeta) - p_{K; \mU, \zeta}(\vx) p_\mU(\mU) p_\zeta(\zeta) \vert {\rm d} \vx {\rm d} \mU {\rm d} \zeta \\
+	%     &\quad + \frac{1}{2}  \iint_{F^C} \int \vert p_{0; \mU, \zeta}(\vx) p_\mU(\mU) p_\zeta(\zeta) - p_{K; \mU, \zeta}(\vx) p_\mU(\mU) p_\zeta(\zeta) \vert {\rm d} \vx {\rm d} \mU {\rm d} \zeta \\
+	%     &\le  \frac{1}{2}  \iint_F \int \vert p_{0; \mU, \zeta}(\vx) p_\mU(\mU) p_\zeta(\zeta) - p_{K; \mU, \zeta}(\vx) p_\mU(\mU) p_\zeta(\zeta) \vert {\rm d} \vx {\rm d} \mU {\rm d} \zeta + \sR() \\
+	%     &= \frac{1}{2}\int \left\vert \vert \psi_0(\vx) \vert^2 - \vert \psi_K(\vx) \vert^2 \right \vert {\rm d} \vx \\
+	%     &= \frac{1}{2}\int \left(\vert \psi_0(\vx) \vert + \vert \psi_K(\vx) \vert \right) \cdot \left \vert \psi_0(\vx) - \psi_K(\vx) \right \vert {\rm d} \vx \\
+	%     &\le \frac{1}{2} \sqrt{ \int  \left(\vert \psi_0(\vx) \vert + \vert \psi_K(\vx) \vert \right)^2 {\rm d} \vx} \sqrt{ \int  \left \vert \psi_0(\vx) - \psi_K(\vx) \right \vert^2 {\rm d} \vx} \\
+	%     &\le \frac{1}{2} \sqrt{ 2 ( \Vert \psi_0 \Vert^2 + \Vert \psi_K \Vert^2)  } \cdot  \Vert \psi_0 - \psi_K \Vert  = \Vert \psi_0 - \psi_K \Vert \le \frac{1}{6T},
+	% \end{align*}
+
+% %where the randomness comes from both $\mU$ and the stochasticity of QSFO. We let the above randomness be included by a random variable $\zeta$.
+
+% The total variation distance between these two distributions is
+% \begin{align*}
+	%     d_{\rm TV}(p_K, p_0) = 
+	% \end{align*}
+% % and the quantum oracle $\hat \mO_{T;\mU}  \leftrightarrow \bar \mO_{T;\mU} $  that a quantum algorithm $\hat \mA_{\rm quan}$ which has access to oracle $\hat \mO_{T;\mU}$ can also viewed as an 
+
+\section{Proof of Classical Gradient Estimators}
+\propzoest*
+
+% \subsection{Proof of Lemma \ref{lem:ZO-estimator}}
+\begin{proof}
+	To prove this proposition, it suffices to show that each single-batch estimator $\mO_j$ is a $(\delta, c \sqrt{d} L)$-SFO of the function $f$, which implies that the mini-batch estimator $\mO(\vx) = \frac{1}{B} \sum_{j=1}^B \mO_j(\vx)$ satisfies $\E [\mO(\vx)] = \nabla f_{\delta}(\vx) $ and ${\rm Var}[\mO(\vx)] = \frac{1}{B} {\rm Var}[\mO_1(\vx)] \le \sigma^2$. In the following, we prove the unbiasedness and variance bound in Definition~\ref{dfn:delta-SFO} separately. 
+	% For the simplicity of notation.
+	% In the following we use $\E[\,\cdot\,]$ to denote $\E_{\vv \sim {\rm Unif}(\sS^{d-1}), \xi \sim \Xi}[\,\cdot\,]$ 
+	\begin{enumerate}
+		\item \underline{Unbiasedness.} See \citep[Lemma 1]{flaxman2005online} as an application of generalized Stokes' theorem.
+		\item \underline{Variance Bound.} It is first proven in \citep[Lemma 10]{shamir2017optimal}, but without explicit numerical constants $c$. 
+		A value of the constant $c = 4 \sqrt[4]{2} \sqrt{\pi} $ is given by \citep[Lemma D.1]{lin2022gradient}.
+	\end{enumerate}
+	
+	
+	\underline{}{} 
+\end{proof}
+
+% \subsection{Proof of Lemma \ref{lem:FO-estimator}}
+\propfoest*
+\begin{proof}
+	Similar to the proof of Proposition \ref{prop:ZO-estimator}, it suffices to show that each single-batch estimator $\mO_j$ is a $(\delta, c \sqrt{d} L)$-SFO of the function $f$. Below, we prove the unbiasedness and variance bound in Definition~\ref{dfn:delta-SFO} separately.
+	We use $\E[\,\cdot\,]$ to denote $\E_{\vu \sim {\rm Unif}(\sB^d), \xi \sim \Xi}[\,\cdot\,]$ for simplicity of notation.
+	\begin{enumerate}
+		\item \underline{Unbiasedness.}
+		Since $F(\,\cdot\,,\xi)$ is Lipschitz continuous, Rademacher's Theorem guarantees that it is differentiable almost everywhere with respect to the Lebesgue measure. This ensures that $\nabla F(\vx+ \delta \vu; \xi)$ exist for almost all $\vu \in {\rm Unif}(\sB^d)$.
+		Then, under the condition that $\nabla F(\vx+\delta \vu,;\xi)$ exists, we can show that the expectation jointly in $\xi, \vu$ and derivative are interchangeable, which implies that $ \E [\nabla F(\vx+ \delta \vu;\xi)] = \nabla f_\delta(\vx)$.
+		Since we have $f_\delta(\vx) = \E[F(\vx+\delta\vu;\xi)]$ by definition, we know that the following identity holds:
+		\begin{align} \label{eq:lim-grad}
+			\begin{split}
+				&\lim_{\vh \rightarrow \vzero} \frac{f_\delta(\vx+\vh) - f_\delta(\vx) - \E\langle \nabla F(\vx+\delta \vu;\xi), \vh \rangle  }{\Vert \vh \Vert} \\
+				=& \lim_{\vh \rightarrow \vzero} \E\left[ \frac{F(\vx+\delta\vu+ \vh; \xi) - F(\vx+\delta \vu; \xi) - \langle \nabla F(\vx+\delta \vu;\xi), \vh \rangle  }{\Vert \vh \Vert} \right].    
+			\end{split}
+			% \begin{split}
+				%      & \lim_{\vh \rightarrow \vzero}  \left[ \frac{f(\vx+\vh) - f(\vx) - \E_{ \xi \sim \Xi} \langle \nabla F(\vx + \delta \vu;\xi), \vh \rangle  }{\Vert \vh \Vert} \right] \\
+				%     = &\lim_{\vh \rightarrow \vzero} \E_{ \vu \sim {\rm Unif}(\sB^d)}  \left[ \frac{F(\vx+\delta \vu +\vh) - F(\vx+ \delta \vu) - \langle \nabla F(\vx + \delta \vu;\xi), \vh \rangle  }{\Vert \vh \Vert} \right].
+				% \end{split}
+		\end{align}
+		%  Without loss of generality, we assume that both $f(\,\cdot\,)$ and $F(\,\cdot\,;\xi)$ are differentiable everywhere.
+		% Otherwise, the Rademacher’s theorem indicates that any Lipschitz continuous function is differentiable almost everywhere and therefore such conditions can be fulfilled with probability 1 for all the points queried by the algorithms after adding arbitrarily small random permutations on the original functions. It is a standard technique used in previous works, \textit{e.g.}  \citep[Proposition 2]{cutkosky2023optimal}, \citep[Lemma 2.3]{davis2022gradient}, or \citep[Lemma 3.2]{tian2022finite}. 
+		% At any point $\vx \in \sR^d$ such that $\nabla f(\vx)$ and $\nabla F(\vx ;\xi)$ both exist, we have that
+		% \begin{align} \label{eq:lim-grad}
+			%     \lim_{\vh \rightarrow \vzero} \frac{f(\vx+\vh) - f(\vx) - \E_{\xi \sim \Xi }\langle \nabla F(\vx;\xi), \vh \rangle  }{\Vert \vh \Vert} &= \lim_{\vh \rightarrow \vzero} \E_{\xi \sim \Xi } \left[ \frac{F(\vx+\vh; \xi) - F(\vx; \xi) - \langle \nabla F(\vx;\xi), \vh \rangle  }{\Vert \vh \Vert} \right].
+			% \end{align}
+		The differentiability of $\nabla F(\,\cdot\,;\xi)$ at the point $\vx+ \delta \vu $ implies that 
+		\begin{align*}
+			\lim_{\vh \rightarrow \vzero} \frac{F(\vx+\delta \vu + \vh; \xi) - F(\vx+\delta \vu; \xi) - \langle \nabla F(\vx+\delta \vu;\xi), \vh \rangle  }{\Vert \vh \Vert}  = 0,
+		\end{align*}
+		while Assumption \ref{asm:Lip} implies that 
+		\begin{align*}
+			\frac{\vert F(\vx+\delta \vu+\vh; \xi) - F(\vx+\delta \vu; \xi)\vert }{\Vert \vh \Vert} \le L(\xi), \quad {\rm and} \quad \frac{\vert \langle \nabla F(\vx+\delta \vu;\xi), \vh \rangle \vert }{\Vert \vh \Vert}  \le L(\xi). 
+		\end{align*}
+		Since $\E[L(\xi)] \le L $, we can apply Lebesgue's dominated convergence theorem on (\ref{eq:lim-grad}) to obtain that 
+		\begin{align*}
+			\lim_{\vh \rightarrow \vzero} \frac{f_\delta(\vx+\vh) - f_\delta(\vx) - \E\langle \nabla F(\vx+\delta \vu;\xi), \vh \rangle  }{\Vert \vh \Vert} =0.
+		\end{align*}
+		This completes the proof of $ \E [\nabla F(\vx+ \delta \vu;\xi)] = \nabla f_\delta(\vx)$.    
+		%     Therefore, we have
+		% \begin{align*}
+			%     \E [\nabla F(\vx+\delta \vu;\xi)] =  \E_{\vu} [\nabla f(\vx+ \delta \vu)] = \nabla \E_{\vu} [f(\vx + \delta \vu) ]= \nabla f_{\delta}(\vx).
+			% \end{align*}
+		% By Proposition \ref{prop:f-delta-smooth}(d) we know that the smoothed surrogate is differentiable everywhere, therefore $\nabla f_{\delta}(\vx)$ always exists. Next, by the Rademacher’s theorem $F(\,\cdot\,; \xi)$ is differentiable almost everywhere, therefore $\nabla F(\vx+ \delta \vu;\xi)$ with $\vu \sim {\rm Unif}(\sR^d)$ exists with probability 1 for any random index $\xi$. 
+		% The remaining steps are identical to the proof of Lemma \ref{lem:cor-main-assmp}(e), except that now we need to take expectation \textit{jointly} on random variables $\vu$ and $\xi$, while Lemma \ref{lem:cor-main-assmp}(e) only takes expectation on $\xi$. 
+		\item \underline{Variance Bound.} We directly bound the variance with the second-order moment and obtain
+		\begin{align*}
+			{\rm Var}[ \nabla F(\vx+ \delta \vu; \xi)] \le 
+			\E \Vert \nabla F(\vx + \delta \vu;\xi) \Vert^2 \le \E \Vert \nabla F(\vx+ \delta \vu ; \xi) \Vert^2 \le \E[L(\xi)^2] \le L^2.
+		\end{align*}
+	\end{enumerate}
+	
+\end{proof}
+
+\propdist* 
+
+\begin{proof}
+	As the proofs of the single-agent estimator, we complete the proof by verifying the unbiasedness and variance bound in Definition~\ref{dfn:delta-SFO} separately. Below, we use $\E[\,\cdot\,]$ to denote $\E_{\vu \sim {\rm Unif}(\sB^d), \xi_1 \sim \Xi_1,\cdots,\xi_m \sim \Xi_m}[\,\cdot\,]$ for the simplicity of notation.
+	\begin{enumerate}
+		\item \underline{Unbiasedness.} It follows from the interchangeability of mean, derivative, and expectation:
+		\begin{align*}
+			\E[\mO(\vx)] =&  \frac{1}{m} \sum_{i=1}^m \E [ \mO_i(\vx)] =   \frac{1}{m} \sum_{i=1}^m \nabla \E[ f_i( \vx + \delta \vu)]  \\
+			=&\E \left[  \frac{1}{m}  \sum_{i=1}^m  \nabla f_i(\vx+ \delta \vu) \right] = \nabla \E[f(\vx+\delta \vu)] = \nabla f_\delta(\vx).
+		\end{align*}
+		\item \underline{Variance bound.} Using the identity $\E \Vert \sum_{i=1}^m \va_i \Vert^2 =  \sum_{i=1}^m \E \Vert \va_i \Vert^2$, we have
+		\begin{align*}
+			{\rm Var}\left[ \frac{1}{m} \sum_{i=1}^m \mO_i(\vx) \right] = \frac{1}{m^2} \sum_{i=1}^m {\rm Var}[\mO_i(\vx)] \le \frac{\sigma^2}{m}.
+		\end{align*}
+	\end{enumerate}
+\end{proof}
+
+\section{Proof of Quantum Gradient Estimators}
+
+% Our quantum estimators rely on the following facts in the classical setting. 
+
+%\subsection{Proof of Proposition \ref{prop:f-delta-smooth}}
+
+
+
+
+% We provide the full details here for the sake of completeness.  Similar to the proof of Lemma \ref{lem:cor-main-assmp}(e), we start from 
+% \begin{align} \label{eq:lim-grad-new}
+	% \begin{split}
+		%      &\quad  \lim_{\vh \rightarrow \vzero} \frac{f_{\delta}(\vx+\vh) - f_{\delta}(\vx) - \E \langle \nabla F(\vx + \delta \vu;\xi), \vh \rangle  }{\Vert \vh \Vert} \\
+		%        &= \lim_{\vh \rightarrow \vzero} \E \left[ \frac{F(\vx+ \delta \vu + \vh; \xi) - F(\vx+ \delta \vu; \xi) - \langle \nabla F(\vx + \delta \vu;\xi), \vh \rangle  }{\Vert \vh \Vert} \right].
+		% \end{split}
+	% \end{align}
+%     The existence of $\nabla F(\vx+ \delta \vu,;\xi)$ implies that 
+%     \begin{align*}
+	%         \lim_{\vh \rightarrow \vzero} \frac{F(\vx+\delta \vu+ \vh; \xi) - F(\vx+ \delta \vu; \xi) - \langle \nabla F(\vx+ \delta \vu;\xi), \vh \rangle  }{\Vert \vh \Vert}  = \vzero,
+	%     \end{align*}
+%     while Assumption \ref{asm:main}(c) implies that 
+%     \begin{align*}
+	%         \frac{\vert F(\vx+\vh; \xi) - F(\vx; \xi)\vert }{\Vert \vh \Vert} \le L(\xi), \quad {\rm and} \quad \frac{\vert \langle \nabla F(\vx;\xi), \vh \rangle \vert }{\Vert \vh \Vert}  \le L(\xi). 
+	%     \end{align*}
+%     Since $\E[L(\xi)] \le L $, we can apply Lebesgue's dominated convergence theorem on (\ref{eq:lim-grad}) to obtain that 
+%     \begin{align*}
+	%          \lim_{\vh \rightarrow \vzero} \frac{f(\vx+\vh) - f(\vx) - \E_{\xi \sim \Xi }\langle \nabla F(\vx;\xi), \vh \rangle  }{\Vert \vh \Vert}  = \vzero.
+	%     \end{align*}
+%     This completes the proof.
+
+% Finally, the above analysis 
+% fulfills the conditions in Lemma \ref{lem:cor-main-assmp}(e), which indicates that 
+% \begin{align*}
+	%     \E_{\vu \sim {\rm Unif}(\sB^d), \xi \sim \Xi} [\nabla F(\vx+\delta \vu;\xi)] = \nabla 
+	% \end{align*}
+
+
+
+
+
+
+% Now, we prove Proposition \ref{prop:Q-ZO-estimator} and \ref{prop:Q-FO-estimator} in a unified manner. 
+
+We use Proposition \ref{prop:QVR} to both prove Proposition \ref{prop:Q-ZO-estimator} and \ref{prop:Q-FO-estimator} in a similar manner. Moreover, in the following proofs, we also give explicit constructions of the quantum gradient estimators for our algorithms.
+
+% \subsection{Proof of Proposition \ref{prop:Q-ZO-estimator}}
+
+\propqzoest*
+\begin{proof}
+	To invoke Proposition \ref{prop:QVR}, we define the random variable $Z_x$ as
+	\begin{align*}
+		Z_x =  \frac{d}{2 \delta} ( F(\vx + \delta \vv;\xi ) - F(\vx - \delta \vv;\xi) \vv, \quad {\rm where} \quad \vv \sim {\rm Unif}(\sS^{d-1}), ~~ \xi \sim \Xi.
+	\end{align*}
+	And in the proof of Proposition \ref{prop:ZO-estimator}, we have shown that $ \E[Z_x] = \nabla f_{\delta}(\vx)$ and ${\rm Var}[Z_x] \le 16 \sqrt{2 \pi} dL^2$. 
+	Then by Proposition \ref{prop:QVR} the \texttt{QuantumMeanEstimation+} can output a $(\delta,\sigma)$-SFO oracle with $\tilde \gO( d L / \sigma)$ quantum sampling oracle of the random variable $Z_x$. Finally, we finish the proof by explicitly constructing the quantum sampling oracle. It is clear that it can be implemented by QSZO oracle (Definition \ref{dfn:QSZO}) given we have access to the quantum sampling oracle to $\vv$ and $\xi$. 
+	The quantum sampling oracle to $\xi \sim \Xi$ is nothing else but a uniform distribution $\int_0^1 | \xi \rangle {\rm d} \xi$, which can be prepared using Hadamard gates. To construct the quantum sampling oracle to $\vv \sim {\rm Unif}(\sB^{d-1})$, we can mimic the Box-Muller transform in quantum computers, such as  \citep[Section 5.3]{chakrabarti2023quantum}. Specifically, we can first prepare two uniformly distributed random variables $\int_0^1 | \xi_1 \rangle {\rm d} \xi_1$ and $\int_0^1 | \xi_2 \rangle {\rm d} \xi_2$. Then applying the quantum Box-Muller transform given by
+	\begin{align*}
+		| \xi_1 \rangle \otimes |\xi_2 \rangle  \mapsto \left| \sqrt{-4 \ln \xi_1} \cos 2 \pi \xi_2 \right \rangle \otimes \left| \sqrt{-4 \ln \xi_1} \sin 2 \pi \xi_2 \right \rangle
+	\end{align*}
+	yields the following result:
+	\begin{align*}
+		\int_0^1 | \xi_1 \rangle {\rm d} \xi_1 \otimes \int_0^1 | \xi_2 \rangle {\rm d} \xi_2 \mapsto \int_{\sR} \frac{1}{\sqrt[4]{2 \pi}} \exp(-z_1^2 /4) | z_1 \rangle {\rm d} z_1 \otimes \int_{\sR} \frac{1}{\sqrt[4]{2 \pi}} \exp(-z_2^2 /4) | z_2 \rangle {\rm d} z_2.
+	\end{align*}
+	By applying the above procedure on $d/2$ pairs, we can obtain the quantum sampling oracle for $d$-dimensional normal distribution
+	\begin{align*}
+		\int_{\sR^d} \frac{1}{\sqrt[4]{2 \pi}} \exp( - \Vert \vz \Vert^2/4) | \vz \rangle {\rm d} \vz. 
+	\end{align*}
+	Next, we can apply a normalization transform $ | \vz \rangle \mapsto | \vz / \Vert \vz \Vert \rangle $ to the above state, by the isotropy of $d$-dimensional normal distribution, we get the uniform distribution over the unit sphere
+	\begin{align} \label{eq:state-sphere}
+		\sqrt{ \frac{2 \pi^{d/2}}{\Gamma(d/2)} }\int_{\sS^{d-1}} | \vv \rangle {\rm d} \vv.
+	\end{align}
+\end{proof}
+
+% \subsection{Proof of Proposition \ref{prop:Q-FO-estimator}}
+
+\propqfoest*
+To invoke Proposition \ref{prop:QVR}, we define the random variable $Z_x$ as
+\begin{align*}
+	Z_x = \nabla F (\vx+ \delta \vu; \xi), \quad {\rm where} \quad \vu \sim {\rm Unif}(\sB^d), ~~ \xi \sim \Xi.
+\end{align*}
+And in the proof of Proposition \ref{prop:FO-estimator}, we have shown that $ \E[Z_x] = \nabla f_{\delta}(\vx)$ and ${\rm Var}[Z_x] \le L^2$. 
+Then by Proposition~\ref{prop:QVR} the \texttt{QuantumMeanEstimation+} can output a $(\delta,\sigma)$-SFO oracle with $\tilde \gO( \sqrt{d} L / \sigma)$ quantum sampling oracle of the random variable $Z_x$. Finally, we finish the proof by explicitly constructing the quantum sampling oracle, as we have done in the proof of Proposition \ref{prop:Q-ZO-estimator}. It is clear that it can be implemented by QSFO oracle (Definition \ref{dfn:QSFO}) given we have access to the quantum sampling oracle to $\vu$ and $\xi$. The quantum sampling oracle to $\xi \sim \Xi$ is just the same, and we only need to focus on generating the quantum sampling oracle to $\vu \sim {\rm Unif}(\sB^d)$. We achieve this by
+applying the transform $| \vz \rangle \otimes | r \rangle \mapsto | r \vz \rangle \otimes | r \rangle $ to the uniform distribution over the unit sphere in (constructed as the same way we get Eq. \ref{eq:state-sphere}) and the uniform distribution over $[0,1]$ (constructed via Hadamard transform), which yields that
+\begin{align*}
+	\sqrt{ \frac{2 \pi^{d/2}}{\Gamma(d/2)} }\int_{\sS^{d-1}} | \vv \rangle {\rm d} \vv \otimes \int_{0}^1 | r \rangle {\rm d} r \mapsto \sqrt{\frac{\pi^{d/2}}{\Gamma(d/2+1)}} \int_{\sB^d} | \vu \rangle {\rm d} \vu \otimes \int_{0}^1 | r \rangle {\rm d} r.
+\end{align*}
+
+\section{Proof of the Complexity of Quantum Algorithms}
+
+\thmQZO*
+\begin{proof}
+	Combining Theorem \ref{thm:o2ng} and Proposition \ref{prop:Q-ZO-estimator}, the total QSZO complexity to find a $(\delta,\epsilon)$-Goldstein stationary point is
+	\begin{align*}
+		\tilde \gO \left( \frac{\gamma + \delta L}{\delta}  \left( \frac{ d^{1/3} L^{2/3}}{\epsilon^{5/3}} + \frac{\sigma^2}{\epsilon^3} \right) \frac{dL}{\sigma}  \right).
+	\end{align*}
+	By selecting $\sigma= d^{1/6} L^{1/3} \epsilon^{2/3} $ to minimize the complexity above, we obtain the total QSZO complexity of $\tilde \gO(d^{7/6}(\gamma + \delta L) L^{4/3} \delta^{-1} \epsilon^{-7/3})$.
+\end{proof}
+
+\thmQFO*
+\begin{proof}
+	Combining Theorem \ref{thm:o2ng} and Proposition \ref{prop:Q-FO-estimator}, the total QSFO complexity to find a $(\delta,\epsilon)$-Goldstein stationary point is
+	\begin{align*}
+		\tilde \gO \left( \frac{\gamma + \delta L}{\delta}  \left( \frac{ d^{1/3} L^{2/3}}{\epsilon^{5/3}} + \frac{\sigma^2}{\epsilon^3} \right) \frac{\sqrt{d}L}{\sigma}  \right).
+	\end{align*}
+	By selecting $\sigma= d^{1/6} L^{1/3} \epsilon^{2/3} $ to minimize the complexity above, we obtain the total QSFO complexity of $\tilde \gO(d^{2/3}(\gamma + \delta L) L^{4/3} \delta^{-1} \epsilon^{-7/3})$.
+\end{proof}
+
+\section{Numerical Experiments}\label{app:numerical-experiments}
+
+\subsection{First-order experiments}\label{app:fo-experiments}
+
+\paragraph{Objective and distributed setting.}
+We use the finite-sum synthetic objective
+\begin{equation}\label{eq:fo-synthetic-objective}
+	F(\vx;\xi)=\max_{1\leq r\leq R}
+	\sin(\mathbf{a}_{\xi,r}^{\top}\vx+b_{\xi,r})
+	+\lambda\lVert\vx\rVert_1,
+\end{equation}
+with $d=100$, $n=4096$, $R=1$, $\lambda=10^{-3}$, smoothing radius
+$\delta=0.1$, feature scale one, zero phases, and a $0.25$ common offset in
+the first feature coordinate. The sinusoid makes the objective nonconvex and
+the $\ell_1$ term makes it nonsmooth. Because $R=1$, this experiment does not
+exercise additional nonsmoothness from switching between multiple sinusoidal
+branches. All methods start from the origin. The data are partitioned into
+eight disjoint shards and optimized by eight CPU processes over a complete
+mixing graph. We count one synchronized oracle layer as one unit of
+\emph{depth}, and all training SFO calls across workers as \emph{work}; the
+high-precision evaluation calls described below are excluded from training
+work. The experiment consequently studies algorithmic communication/work
+accounting, rather than multi-machine wall-clock speedup.
+
+\paragraph{Pilot calibration and frozen configurations.}
+Pilot seeds $100$--$104$ are used for parameter selection and formal seeds
+$0$--$19$ are used only for reporting. The two sets are disjoint. Within the
+same formal seed, both methods share the problem instance, data partition, and
+evaluation bank, while retaining independent method-specific random streams.
+Within the searched grids, the frozen NOG-FO configuration is $M=2$, $\eta=1$, one
+smoothing sample, a global data batch of eight, and 960 main rounds. Its
+perturbation radius is $\delta/M=0.05$; two explicitly counted initialization
+queries give a maximum accounted depth of 962. The frozen ME-DOL-FO
+configuration uses epoch length six, radius multiplier 100, one data sample per
+worker per layer, and 3840 rounds. Its Euclidean domain radius and learning
+rate are
+\begin{equation}
+	r_{\mathrm{ME}}=\frac{100\delta}{4\cdot6\sqrt{8}}\simeq0.1473,
+	\qquad
+	\eta_{\mathrm{ME}}=r_{\mathrm{ME}}/\sqrt{6}\simeq0.0601.
+\end{equation}
+The pilot objective minimizes the aggregate log-distance of the NOG/ME-DOL
+work ratio from one, subject to all five pilot seeds hitting and to a
+nondecreasing NOG batch schedule as $\epsilon$ decreases. These are
+pilot-calibrated, locally good configurations within the searched grids, not
+certified globally optimal parameters.
+
+The complete v4 schedule changes the NOG batch from eight to 16 at
+$\epsilon=0.01025$. Such a change affects depth and work simultaneously.
+Accordingly, the homogeneous scaling comparison in the paper includes only
+$\epsilon\geq0.0105$, for which the global batch remains eight; neither the
+$0.01025$ nor the $0.010$ batch-16 result is used. A future extension below
+this boundary should be rerun with the batch fixed at eight if it is to be
+combined with the present curve.
+
+\paragraph{Stationarity proxy and confirmed first hit.}
+Computing the exact distance from the origin to the Goldstein subdifferential
+is intractable for this stochastic test problem. At every checkpoint we
+therefore estimate the norm of the gradient of the randomly smoothed objective
+using 256 smoothing samples and 512 data samples per smoothing sample
+($131{,}072$ evaluation samples). A method-independent evaluation bank is
+fixed for each formal seed. NOG is evaluated every two depth layers and
+ME-DOL at every six-layer epoch. To reduce false hits caused by Monte Carlo
+noise, a threshold is declared reached only when two consecutive checkpoints
+satisfy $\widehat{\operatorname{stat}}(\vx)\leq\epsilon$; the first
+checkpoint of that pair defines the reported first-hit depth and work. This
+quantity is a high-precision empirical proxy for Goldstein stationarity, not
+the exact Goldstein subdifferential distance.
+
+\paragraph{Statistical protocol.}
+One trajectory per method and formal seed is reused to locate first hits for
+all 25 thresholds, so thresholds within a seed are correlated. Absolute values
+below are means $\pm$ sample standard deviations over 20 seeds. Ratios are
+formed per seed and then averaged; they therefore need not equal ratios of the
+two absolute means. Figure~\ref{fig:fo-v4-fixed-batch} uses 2000 paired
+bootstrap resamples for the ratio confidence intervals. All 1000 reported
+method--threshold--seed combinations reach the corresponding threshold within
+their prescribed budgets, so no capped or censored observations enter the
+table.
+
+\begin{table}[t]
+\centering
+\caption{Complete FO results in the homogeneous batch-8 regime. Depth ratio
+is ME-DOL/NOG and work ratio is NOG/ME-DOL; ratios are per-seed paired means.}
+\label{tab:fo-v4-fixed-batch-full}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}rrrrrrr@{}}
+\toprule
+$\epsilon$ & NOG depth & ME-DOL depth & Depth ratio & NOG work & ME-DOL work & Work ratio \\
+\midrule
+0.20000 & 135.8 $\pm$ 1.7 & 66.3 $\pm$ 1.3 & 0.488 & 1086.4 $\pm$ 13.6 & 530.4 $\pm$ 10.7 & 2.049 \\
+0.18000 & 162.6 $\pm$ 1.6 & 82.5 $\pm$ 2.7 & 0.507 & 1300.8 $\pm$ 12.8 & 660.0 $\pm$ 21.3 & 1.973 \\
+0.16000 & 187.2 $\pm$ 1.8 & 96.0 $\pm$ 0.0 & 0.513 & 1497.6 $\pm$ 14.1 & 768.0 $\pm$ 0.0 & 1.950 \\
+0.14000 & 211.2 $\pm$ 2.0 & 111.0 $\pm$ 3.1 & 0.526 & 1689.6 $\pm$ 15.9 & 888.0 $\pm$ 24.6 & 1.904 \\
+0.12000 & 235.6 $\pm$ 2.3 & 127.5 $\pm$ 2.7 & 0.541 & 1884.8 $\pm$ 18.4 & 1020.0 $\pm$ 21.3 & 1.848 \\
+0.10000 & 260.5 $\pm$ 3.0 & 146.1 $\pm$ 2.9 & 0.561 & 2084.0 $\pm$ 23.7 & 1168.8 $\pm$ 23.5 & 1.784 \\
+0.09000 & 274.1 $\pm$ 3.5 & 156.9 $\pm$ 2.2 & 0.572 & 2192.8 $\pm$ 28.2 & 1255.2 $\pm$ 17.6 & 1.747 \\
+0.08000 & 288.6 $\pm$ 4.2 & 168.6 $\pm$ 1.8 & 0.584 & 2308.8 $\pm$ 33.3 & 1348.8 $\pm$ 14.8 & 1.712 \\
+0.07000 & 304.9 $\pm$ 3.9 & 182.4 $\pm$ 3.6 & 0.598 & 2439.2 $\pm$ 30.9 & 1459.2 $\pm$ 28.7 & 1.672 \\
+0.06000 & 323.3 $\pm$ 4.4 & 198.0 $\pm$ 4.4 & 0.613 & 2586.4 $\pm$ 35.3 & 1584.0 $\pm$ 34.8 & 1.633 \\
+0.05000 & 345.7 $\pm$ 5.8 & 217.2 $\pm$ 5.4 & 0.628 & 2765.6 $\pm$ 46.2 & 1737.6 $\pm$ 42.9 & 1.593 \\
+0.04000 & 372.4 $\pm$ 6.4 & 241.5 $\pm$ 6.7 & 0.649 & 2979.2 $\pm$ 51.5 & 1932.0 $\pm$ 53.7 & 1.543 \\
+0.03000 & 408.4 $\pm$ 10.0 & 275.1 $\pm$ 13.8 & 0.674 & 3267.2 $\pm$ 80.2 & 2200.8 $\pm$ 110.4 & 1.489 \\
+0.02500 & 429.8 $\pm$ 12.4 & 297.6 $\pm$ 15.7 & 0.693 & 3438.4 $\pm$ 99.4 & 2380.8 $\pm$ 125.9 & 1.448 \\
+0.02000 & 459.9 $\pm$ 14.4 & 330.9 $\pm$ 20.6 & 0.720 & 3679.2 $\pm$ 115.4 & 2647.2 $\pm$ 165.0 & 1.395 \\
+0.01800 & 476.6 $\pm$ 20.8 & 347.7 $\pm$ 22.9 & 0.731 & 3812.8 $\pm$ 166.2 & 2781.6 $\pm$ 183.3 & 1.376 \\
+0.01600 & 492.4 $\pm$ 20.9 & 369.0 $\pm$ 25.3 & 0.751 & 3939.2 $\pm$ 167.5 & 2952.0 $\pm$ 202.2 & 1.340 \\
+0.01500 & 499.2 $\pm$ 19.7 & 381.3 $\pm$ 25.1 & 0.765 & 3993.6 $\pm$ 157.4 & 3050.4 $\pm$ 200.9 & 1.315 \\
+0.01400 & 508.0 $\pm$ 19.9 & 394.8 $\pm$ 28.1 & 0.778 & 4064.0 $\pm$ 159.2 & 3158.4 $\pm$ 224.9 & 1.293 \\
+0.01300 & 518.9 $\pm$ 23.2 & 418.8 $\pm$ 35.6 & 0.809 & 4151.2 $\pm$ 185.6 & 3350.4 $\pm$ 284.9 & 1.248 \\
+0.01200 & 538.9 $\pm$ 28.5 & 446.1 $\pm$ 51.0 & 0.831 & 4311.2 $\pm$ 227.7 & 3568.8 $\pm$ 408.0 & 1.222 \\
+0.01150 & 546.0 $\pm$ 28.2 & 468.3 $\pm$ 61.5 & 0.861 & 4368.0 $\pm$ 225.9 & 3746.4 $\pm$ 491.6 & 1.183 \\
+0.01100 & 566.2 $\pm$ 29.3 & 535.8 $\pm$ 107.7 & 0.948 & 4529.6 $\pm$ 234.7 & 4286.4 $\pm$ 861.8 & 1.091 \\
+0.01075 & 574.1 $\pm$ 30.3 & 590.4 $\pm$ 133.5 & 1.036 & 4592.8 $\pm$ 242.7 & 4723.2 $\pm$ 1067.8 & 1.019 \\
+0.01050 & 587.2 $\pm$ 37.7 & 642.9 $\pm$ 197.4 & 1.102 & 4697.6 $\pm$ 301.2 & 5143.2 $\pm$ 1579.4 & 0.980 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\paragraph{Interpretation relative to Theorem~\ref{thm:parallel-FO}.}
+For first-order oracles, the theorem gives NOG depth
+$\widetilde O(d^{1/3}\delta^{-1}\epsilon^{-5/3})$ and work
+$\widetilde O(\delta^{-1}\epsilon^{-3})$, whereas ME-DOL has the reference
+depth and work dependence $\widetilde O(\delta^{-1}\epsilon^{-3})$. Thus the
+worst-case bounds suggest a relative depth factor proportional to
+$\epsilon^{-4/3}/d^{1/3}$ while the two work complexities remain of the same
+order. On the fixed-batch grid, the observed paired depth ratio rises
+monotonically from 0.488 to 1.102, while the paired work ratio stays between
+0.980 and 2.049. The latter maximum slightly exceeds the preregistered
+matched-work window $[0.5,2]$ at $\epsilon=0.2$, so we describe the work as
+order-one rather than claiming that every preregistered criterion passes.
+
+The depth and work ratios in this particular fixed-batch design are also not
+independent measurements: both methods spend eight SFO calls per depth layer,
+so, up to NOG's explicitly counted initialization, their per-seed ratios are
+reciprocally coupled. Moreover, worst-case upper bounds need not be tight on
+one finite synthetic instance, and the present $\epsilon$ range need not be
+asymptotic. We therefore use the experiment only as qualitative evidence for
+the predicted improvement in relative depth without an order-of-magnitude work
+gap; it neither proves the theory nor identifies the exact $5/3$, $3$, or
+$4/3$ exponents.
+
+\paragraph{Reproducibility and audit.}
+The supplementary artifact stores the full configuration, frozen schedule,
+per-seed summaries, paired ratios, and SHA256 audit records under
+\path{results/theory_validation_v4}. The formal audit checks all 60 underlying
+trajectories for seed/configuration identity, strictly increasing depth and
+work, exact total and per-worker SFO accounting, and finite nonnegative
+stationarity proxies; all 60 pass. From the repository root, the complete
+pipeline is reproduced by successively running the modules
+\path{src.distributed.theory_validation_runner} (with
+\path{pilot-batch-grid}, then \path{formal}),
+\path{src.distributed.theory_validation_freeze},
+\path{src.distributed.theory_validation_audit},
+\path{src.distributed.theory_validation_analysis},
+\path{src.distributed.theory_validation_report}, and
+\path{src.distributed.theory_validation_package} in the \path{NOG} Conda
+environment.
+
+
+% \section{Proof of the Lower Bound}
+
+% We recall the (unscaled) hard instance for smooth nonconvex optimization, introduced by \citet{carmon2020lower}:
+% \begin{align} \label{eq:hard-nc}
+	%    \bar f_T(\vx) = - \Psi(1) \Phi(x_1) + \sum_{i=2}^T [ \Psi(-x_{i-1} \Phi(-x_i) - \Psi(x_{i-1}) \Phi(x_i)],
+	% \end{align}
+% where
+% \begin{align*}
+	%     \Psi(x) &= \begin{cases}
+		%         0, & x \le 1/2, \\
+		%         \exp(1 - 1/(2x-1)^2), & x > 1/2,
+		%     \end{cases} \quad {\rm and} \quad
+	%     \Phi(x) = \sqrt{\rm e} \int_{-\infty}^x \exp (-t^2/2) {\rm d} t.
+	% \end{align*}
+% We list the properties of this function as follows. They can all be found in different parts of \citep{carmon2020lower}, and they are summarized in \citep[Lemma 2]{arjevani2023lower} with explicit numerical constants. We restate them as follows. 
+% \begin{lem}[{\citep[Lemma 2]{arjevani2023lower}}] \label{lem:Carmon}
+	% Let ${\rm prog}_c (\vx) = \max\{i : \vert x_i \vert \ge c  \}$. The hard instance defined in (\ref{eq:hard-nc}) satisfies 
+	% \begin{enumerate}
+		%     \item[(a)] $\bar f_T(\vzero) = 0 $ and $\inf_{\vx \in \sR^d} \bar f_T(\vx) \ge - \gamma_0 T$ with $\gamma_0 = 12$.
+		%     \item[(b)] $\bar f_T(\,\cdot\,)$ is $H_0$-smooth with $H_0 = 152$. 
+		%     \item[(c)] $\bar f_T(\,\cdot\,)$ is $L_0 \sqrt{T}$-Lipschitz with $L_0 = 23$.
+		%     \item[(d)] ${\rm prog}_0  (\nabla \bar f_T(\vx)) \leq {\rm prog}_{1/2} (\vx) + 1$ 
+		%     \item[(e)] ${\rm prog}_1(\vx) < T \Rightarrow \Vert \nabla \bar f_T(\vx) \Vert \ge \vert \nabla \bar f_T(\vx)_{{\rm prog}_1(\vx)+1} \vert \ge 1$.
+		% \end{enumerate}
+	% \end{lem}
+
+% Lemma \ref{lem:Carmon}(d) means that any \textit{zero-respecting} algorithms defined in \citep{carmon2020lower}, which are the algorithms that never explore directions with zero derivatives, can only make at least one more zero coordinate become non-zero with one first-order oracle call.
+% In this way, the progress of any zero-respecting algorithm is restricted to a chain-like structure, and Lemma \ref{lem:Carmon}(e) indicates that the algorithm needs to make $\Omega(T)$ first-order oracle calls to reach the end of the chain in order to find a point with small gradient norm. 
+% The above properties lead to an $\Omega(\epsilon^{-2})$ lower bound in the classical setting by appropriately scaling the function: simple calculus shows that the largest possible $T$ to meet the regular conditions for the objective and ensure a lower bound for finding $\epsilon$-stationary points.
+
+% As shown in \citep{carmon2020lower},
+% the lower bound for zero-respecting algorithms can further be extended to any deterministic algorithms using reduction via \textit{resisting oracles} \citep{nemirovskij1983problem}, and to any randomized algorithms by defining a distribution over the rotated function % Combined with Lemma \ref{lem:Carmon}(e), any zero-respecting algorithm beginning at $\vzero$ requires $\Omega(T)$ first-order oracle calls to reach a $1$-stationary point. Then, by appropriately scaling the function, we can conclude an $\Omega(\epsilon^{-2})$  
+% % require at least $\Omega(\epsilon^{-2})$ first-order oracle complexity to find an $\epsilon$-stationary point of $\bar f_T(\vx)$ \citep[Theorem 1]{carmon2020lower}.
+% % \citet{carmon2020lower} proved that the function defined in (\ref{eq:hard-nc}) is hard for any \textit{zero-respecting} algorithms such that they require at least $\Omega(\epsilon^{-2})$ first-order queries to find an $\epsilon$-stationary point of $\nabla \bar f_T(\,\cdot\,)$. Furthermore, for any classical randomized algorithm \texttt{A} which produces iterates of the form
+% % \begin{align*}
+	% %     \vx_t = \texttt{A}(r, \nabla f(\vx_1), \cdots, \nabla f(\vx_{t-1})),
+	% % \end{align*}
+% % where $r $ is a random uniform variable on $[0,1]$, one can also prove an $\Omega(\epsilon^{-2})$ lower bound by define the rotated function
+% \begin{align} \label{eq:rotated-hatd-instance}
+	%     \bar f_{T;\mU}(\vx): = \bar f_{T}(\mU^T \vx),
+	% \end{align}
+% where $\mU \in \sR^{d \times T}$ (with columns $ \vu_1,\cdots,\vu_T $) is an orthogonal matrix chosen at random from the space of orthogonal matrices ${\rm Orth}(d,T) = \{ \mV \in \sR^{d \times T} \mid \mV^\top \mV = \mI_T \}$. 
+
+% The lower bound under the stochastic setting also relies on the above hard instance under the deterministic setting. Recently, \citet{zhang2023quantum} embedded the lower bound for quantum mean estimation under the stochastic setting to the probability of each coordinate being activated (changing from non-zero to zero) \textcolor{red}{is $\gO(\epsilon^2)$}. This demonstrates an $\Omega(\epsilon^{-4})$ lower bound for quantum stochastic-first-order algorithm. 
+
+% % $\mU \in \sR^{d \times T}$ is a random orthogonal matrix that is chosen uniformly from the space of orthogonal matrices $ \{ \mU \in \sR^{d \times T}: \mU^\top \mU = \mI_{T} \}$. In the following, we also let $\vu_1,\cdots,\vu_T$ to be the columns of $\mU$ and define $\mU_t$ be the sub-matrix generated by the first $t$ columns of $\mU$.
+
+% Given the above facts, \citet{zhang2023quantum} explicitly construct a worst-case stochastic gradient estimator $\bar \vg_{T; \mU}(\vx;\xi)$ for any $\bar f_{T; \mU}$ that satisfies Assumption \ref{asm:FO}(b), showing that an $\Omega(\epsilon^{-4})$ lower bound for any quantum algorithms in cases $d = \Omega(\epsilon^{-4})$, which generalizes the lower bound for stochastic smooth nonconvex optimization in the classical setting \citep{arjevani2023lower}. Specifically, \citet{zhang2023quantum} constructed the following QS
+
+
+
+
+
+% \begin{algorithm}[t] \label{alg:hard-QSFO}
+	%     \caption{The Quantum Stochastic First-Order Oracle}
+	%     \begin{algorithmic}[1]
+		%     {\Procedure{\texttt{Initialize}}{$ $ }
+			%     \State Sample $\mU \in \sR^{d \times T}$ uniformly from ${\rm Orth}(d,T)$.
+			%     \State Create $T$ disjoint orthogonal subspaces $ \fV_1,\cdots,  \fV_T$ from ${\rm Orth}(d,T)$.  
+			%     % \While{$x>-5$}
+			%     % \State $x\gets x-1$ 
+			%     % \EndWhile 
+			%     \EndProcedure   }
+		%     {\Procedure{\texttt{Query}}{$\vx$}
+			%     \State 
+			%     \EndProcedure
+			%     }
+		%     \end{algorithmic}
+	%     \end{algorithm} 
+
+% \citet{zhang2023quantum} uses the hybrid argument (which is developed by \citet{garg2020no}) to prove their quantum lower bound. Specifically, for any quantum algorithm $\bar \mA_{\rm quan}$ that queries no more than $KS/2$ calls of oracles 
+% \begin{align*}
+	%     \bar \mO_{T;\mU}: | \vx \rangle \otimes | \xi \rangle \otimes | \vy \rangle \mapsto | \vx \rangle \otimes | \xi \rangle \otimes | \bar \vg_{T; \mU}(\vx, \xi) + \vy \rangle,
+	% \end{align*}
+% we can define a sequence of unitary transforms as follows (where $\mA_0 = \bar \mA_{\rm quan})$:
+% \begin{align} \label{eq:hybrid}
+	% \begin{split}
+		%         \mA_0 &:= \mB_{K+1} \mB_{K;\mU}  \cdots \mB_{2;\mU} \mB_{1;\mU} \\
+		%     \mA_1 &:= \mB_{K+1} \mB_{K; \mU}  \cdots \mB_{2; \mU}  \mB_{1;\mU_1} \\
+		%     \mA_2 &:= \mB_{K+1} \mB_{K; \mU} \cdots \mB_{2; \mU_2}  \mB_{1;\mU_1} \\
+		%     \vdots & \\
+		%     \mA_K &:= \mB_{K+1} \mB_{K; \mU_K} \cdots \mB_{2; \mU_2}  \mB_{1;\mU_1},
+		% \end{split}
+	% \end{align}
+% where $\mB_{k;\mU_k} $ takes the form of
+% \begin{align*}
+	%     \mB_{k; \mU_k} := \bar \mO_{k:\mU_k} \mV_{k, S/2} \cdots \bar \mO_{k; \mU_k} \mV_{k,2} \bar \mO_{k, \mU_k} \mV_{k,1}.
+	% \end{align*}
+% In the above $\mV_{k,1},\cdots ,\mV_{k,S/2}$ are unitary transforms by the basic postulate in quantum mechanisms \citep[Postulate 2]{nielsen2010quantum}, which comes from the celebrated Schrodinger equation. For the above hybrids, \citep[Lemma D.3]{zhang2023quantum} claims the following indistinguishable result if all the iterates lie in a bounded set.
+
+% % \begin{asm} \label{asm:bounded}
+	% %  Assume the quantum algorithm $\bar \mA_{\rm quan}$ only queries stochastic gradients of the points $\vx$ that lie in the bounded set $\sB(\vzero, 2 \sqrt{T} )$.    
+	% % \end{asm}
+
+% \begin{lem}[{\citep[Lemma D.3 and D.10]{zhang2023quantum}}] \label{lem:chenyi}
+	% Recall the numerical constant defined in Lemma \ref{lem:Carmon}(c) that $L_0= 23$.
+	% Let $d \ge 2 S T \log S$, then there exists a distribution of functions $f_{T;\mU}$ defined in (\ref{eq:rotated-hatd-instance}) and a distribution over stochastic gradients $\bar \vg_{T; \mU}$ that satisfies $\E_{\xi}[\bar \vg_{T;\mU}(\vx; \xi)] = \nabla f_{T;\mU}(\vx)$ and ${\rm Var}_{\xi}[\bar \vg_{T;\mU}] \le 4 L_0^2 S$, such that the hybrids defined in (\ref{eq:hybrid}) with $ \mA_0 = \bar \mA_{\rm quan}$ satisfies
+	% \begin{align*}
+		%     \E_{\vu_t,\cdots, \vu_T, \zeta} \Vert \mA_t | \vzero \rangle - \mA_{t-1} | \vzero \rangle \Vert^2 \le {1}/{(72 T^4)},
+		% \end{align*}
+	% where $\zeta$ represents the randomness in generating $\bar \vg_{T;\mU}$, and $\mU$ does not depend on $\zeta$.
+	% \end{lem}
+
+% By apply Lemma \ref{lem:chenyi} recursively on the hybrids defined in (\ref{eq:hybrid}), we can conclude that $\mA_{\rm quan}$ will have outputs similar to $\mA_K$. \citet{zhang2023quantum} used the above lemma to prove their lower bound, by arguing that $\mA_K$ can not find an $\epsilon$-stationary point because conditional  $\mU_K$ the vector $\vu_T$ still looks random for $\mA_K$ when $K < T$.
+% However, the proof of \citet{zhang2023quantum} is specified for smooth objectives, and in the following we adapt their analysis to our setting by using a similar technique in \citep[Section 7]{arjevani2023lower}.
+% Inspired by \citet{cutkosky2023optimal},  we define the following auxiliary functions
+% \begin{align} \label{eq:func-aux}
+	%     \rho_R(\vx) = \frac{\vx}{\sqrt{1 + \Vert \vx \Vert^2 / R^2}}, \quad q_R(\vx) =  \vx^\top \rho_R(\vx).
+	% \end{align}
+% And then define the regularized function as
+% \begin{align} \label{eq:reg-hard-ins}
+	%     \hat f_{T;\mU}(\vx) = \bar f_{T; \mU}(\rho_R(\vx)) + \lambda q_R(\vx).
+	% \end{align}
+% In the above, the bijective function $\rho_R(\vx)$ projects $\vx$ onto the bounded set, and the Lipschitz-type regularizer $q_R(\vx)$ penalizes the points with large norm such that they would have large gradients. 
+% The regularized objective in (\ref{eq:reg-hard-ins}) has the following properties.
+% \begin{lem}[{\citep{cutkosky2023optimal}}] \label{lem:ashok-25}
+	% Let $\lambda = 1/10$ and $R = 10 L_0 \sqrt{T}$ in (\ref{eq:reg-hard-ins}), where $L_0=23$ is the numerical constant defined in Lemma \ref{lem:Carmon}(c). Then the function $\hat f_{T; \mU}(\vx)$ satisfies
+	% \begin{enumerate}
+		%  \item[(a)] $\hat f_{T;\mU}(\vzero) = 0 $ and $\inf_{\vx \in \sR^d} \bar f_{T;\mU}(\vx) \ge - \gamma_0 T$ with $\gamma_0 = 12$.
+		%     \item[(b)] $\hat f_{T;\mU}(\,\cdot\,)$ is $\hat H_0$-smooth with $\hat H_0 = 156$. 
+		%     \item[(c)] $\hat f_{T;\mU}(\,\cdot\,)$ is $\hat L_0 \sqrt{T}$-Lipschitz with $\hat L_0 = 92$.
+		%     \item[(d)] Let $\vy = \rho_R(\vx)$. If ${\rm prog}_{1/4} (\mU^\top \vy) <T$, then $\Vert \nabla \hat f_{T; \mU}(\vx) \Vert \ge 1/2$.   
+		% \end{enumerate} % \begin{align*}
+		% % \end{align*}
+	% \end{lem}
+
+% We remark that the above (a-c) can be found in {\citep[Lemma 26]{cutkosky2023optimal}}, while (d) appears in {\citep[Lemma 25]{cutkosky2023optimal}}.
+% For this hard instance $\hat f_{T; \mU}$,
+% We further define the stochastic gradient associated as
+% \begin{align} \label{eq:stoc-grad-reg}
+	%     \hat \vg_{T; \mU}(\vx;\xi) = \mJ_{\rho_R}(\vx)^\top \bar \vg_{T; \mU}(\rho_R(\vx);\xi) + \lambda \nabla q_R(\vx),
+	% \end{align}
+% where $\mJ_{\rho_R}(\vx)$ denotes the Jacobian of the function $\rho_R$ evaluated at the point $\vx$, which by calculation is
+% \begin{align} \label{eq:Jacobian}
+	%     \mJ_{\rho_R}(\vx) = \frac{\mI_d - \rho_R(\vx) \rho_R(\vx)^\top / R^2}{\sqrt{1 + \Vert \vx \Vert^2 / R^2}}.
+	% \end{align}
+% The above stochastic gradient estimator (\ref{eq:reg-hard-ins}) induces
+% the following QSFO oracle 
+% \begin{align} \label{eq:QSFO-reg}
+	%     \hat \mO_{T;\mU}: | \vx \rangle \otimes | \xi \rangle \otimes | \vy \rangle \mapsto | \vx \rangle \otimes | \xi \rangle \otimes | \hat \vg_{T; \mU}(\vx, \xi) + \vy \rangle.
+	% \end{align}
+% % Now we define $\vz = \rho_R(\vx)$ and recall \citep[Lemma 25]{cutkosky2023optimal}.
+
+% % \begin{lem}[{\citep[Lemma 25]{cutkosky2023optimal}}] \label{lem:ashok-25}
+	% % Recall the numerical constant defined in Lemma \ref{lem:Carmon}(c) that $L_0= 23$. If we define $R = 10 L_0 \sqrt{T}$ and $\lambda = 1/10$ in (\ref{eq:reg-hard-ins}), then
+	% % \begin{align*}
+		% %     {\rm prog}_{1/4}(\mU^\top \vz) <T \quad \Rightarrow \quad \Vert \nabla \hat f_{T; \mU}(\vx) \Vert \ge 1/2.
+		% % \end{align*}
+	% % \end{lem}
+
+% Below, we formally prove the following key result.
+
+% \begin{thm} \label{thm:hard-T2}
+	% Under the same parameter setting as Lemma \ref{lem:chenyi} and Lemma \ref{lem:ashok-25}
+	% there exist a distribution of function $\hat f_{T;\mU} $ defined as (\ref{eq:reg-hard-ins}) and a distribution of QSFO defined as (\ref{eq:QSFO-reg}), such that 
+	% any quantum algorithm $\hat \mA_{\rm quan}$ that uses less than $(T S/ 2)$ randomly selected QSFO calls cannot output an $(1/2)$-stationary point of $ \hat f_{T; \mU}$ with probability larger than $1/2$. Specifically, let $ p_{\rm out} $ be the probability distribution over $\vx $ obtained by measuring the state $ \hat \mA_{\rm quan} | \vzero \rangle $, we have
+	% \begin{align*}
+		%     \BP_{\vx \sim p_{\rm out}}( \Vert \nabla \hat f_{T; \mU}(\vx) \Vert \le 1/2  ) < 1/2.
+		% \end{align*}
+	% % then there exists a randomized wors-case stochastic gradient $\bar \vg_{T; \mU}$ of the rotated function $\bar f_{T;\mU}$ defined in (\ref{eq:rotated-hatd-instance}) that satisfies Assumption \ref{asm:FO}(b), such that
+	% %     Let xxx. Let xxx. There exists a  such that  $\gO(\delta^{-1} \epsilon^{-3})$ QSZO calls can not xxx.
+	% \end{thm}
+
+% \begin{proof}
+	% Let $\vz = \rho_R(\vx)$. It is clear that there is a bijection between the variables $\vx$ and $\vz$. Moreover, we know there also exist a bijection between the stochastic gradient estimators $  \hat \vg_{T; \mU}(\vx; \xi) $ and $\bar \vg_{T;\mU}(\vz; \xi)$: Given $\vz$ and $\bar \vg_{T;\mU}(\vz,\xi)$ we can calculate $\vx = \rho_R^{-1}(\vz)$ and then use the formula in (\ref{eq:QSFO-reg}) to calculate $\hat \vg_{T;\mU}(\vx;\xi)$; Conversely, given $\vx$ and $\hat \vg_{T;\mU}(\vx;\xi)$, we can also obtain $\bar \vg_{T;\mU}(\vz,\xi)$ from $\bar \vg_{T;\mU}(\vz,\xi) = [\mJ_{\rho_R}]^{-1} (\hat \vg_{T;\mU}(\vx;\xi) - \lambda \nabla q_R(\vx))$. Therefore, for the quantum algorithm $\hat \mA_{\rm quan}$ running on $\vx$ which uses $N$ oracle  calls of $\hat \mO_{T;\mU}$, there exists an one-to-one mapping of another quantum algorithm $\bar \mA_{\rm quan}$ running on $\vz = \rho_R(\vx)$ which uses $N$ oracle calls of $\bar \mO(T;\mU)$. 
+	% Next, we invoke Lemma \ref{lem:chenyi} recursively to get 
+	% \begin{align*}
+		%     \E_{\mU, \zeta} \Vert \mA_K | \vzero \rangle - \mA_0 | \vzero \rangle \Vert^2 \le K \sum_{t=1}^{K-1} \E_{\mU, \zeta} \Vert \mA_{t+1} | \vzero \rangle - \mA_t | \vzero \rangle \Vert^2 \le \frac{1}{72T^2}.
+		% \end{align*}
+	% By Markov's inequality, with probability at least $5/6$ it holds that
+	% % there exists an event $F$ with $\BP(F) \ge 2/3$ such that
+	% \begin{align} \label{eq:norm-Ak-A0}
+		%     \Vert \mA_K | \vzero \rangle - \mA_0 | \vzero \rangle \Vert^2 \le \frac{1}{60 T^2}.
+		% \end{align}
+	% We let $F$ be the event that the above happens, so $\BP(F) \ge 5/6$.
+	
+	% Recall the definition of $\mA_K$ in (\ref{eq:hybrid}), we know that the output of $\mA_K$ is fully determined by $\{ \vu_1,\cdots,\vu_K\}$ and the random variable $\zeta$ which represents the randomness in the QSFO calls. Note that 
+	% in the construction of Lemma \ref{lem:chenyi} $\mU$ does not depend on $\zeta$. Therefore, conditioned on $\{ \vu_1,\cdots,\vu_K\}$ and $\zeta$, $\vu_T$ is a random unit vector in the orthogonal complement of the subspace spanned by $\{ \vu_1,\cdots,\vu_K\}$. In other words, $\vu_T$ follows a uniform distribution over the unit sphere in a $(d-K)$ space. By a standard concentration of measure
+	% bound on the sphere (see, \textit{e.g.} \citep[Lemma 2.2]{ball1997elementary}), for any vector $\vy \in \sR^d$ which is independent of $ \vu_T$ it holds 
+	% \begin{align*}
+		%     \BP( \vert \langle \vu_T, \vy \rangle  > c \Vert \vy \Vert ) \le 2 \exp( - (d-K) c^2 /2).
+		% \end{align*}
+	% Plugging into $c = 1/ (4R)$ in the above and recall in Lemma \ref{lem:ashok-25} that $R = 10 L_0 \sqrt{T}$, we get 
+	% \begin{align*}
+		%     \BP( \vert \langle \vu_T, \vy \rangle \vert > \Vert \vy \Vert/ (4R) ) \le 2 \exp( -(d-K) / (3600T) ) .
+		% \end{align*}
+	% Taking $d = \Omega(T)$, specifically, $d \ge (3600 \ln 12 +1)T$, then with probability at least $5/6$, it holds that 
+	% \begin{align} \label{eq:bound-uT}
+		%     \vert \langle \vu_T, \vy \rangle \vert \le 1/4, \quad \forall \vy \in \sR(\vzero, R) \text{ that is independent of } \vu_T.
+		% \end{align} % Now we let $E$ be the event that the above happens, so $\BP(E) \ge 5/6$. Note that $G$ is taken to be independent of $\mA_K$. 
+	% % As we have discussed, any output of the quantum algorithm $\mA_K$ are independent of $\vu_T$. 
+	% Recall the event $F$ defined as (\ref{eq:norm-Ak-A0}) happens and $\BP(F) \ge 5/6$. We know that 
+	% \begin{align*}
+		%     \BP(E \cap F) = 1 - \BP(E^c \cup F^c) \ge 1 - \BP(E^c) - \BP(F^c) \ge 2/3.  
+		% \end{align*}
+	% We let $G = E \cap F$.
+	% Now, define the sets of $\vz = \rho_R(\vx)$ such that $\vx$ is a $(1/2)$-stationary point: $S =  \{ \vz \in \sR^d : \Vert \nabla \hat f_{T;\mU}(\rho_R^{-1}(\vz)) \Vert \le 1/2  \}$. 
+	% We let $\psi_{K \mid G}(\vz)$ and $\psi_{0 \mid G}(\vz)$ to represent the wave functions associated with the states $\mA_K | \vzero \rangle$ and $\mA_0 | \vzero \rangle$ conditioned on the event $G$. 
+	% Then 
+	% $ p_{K \mid G} = \vert \psi_{K \mid G} \vert^2$ and $ p_{0 \mid G} = \vert \psi_{0 \mid G} \vert^2 $ represent the 
+	% probability distribution obtained by measuring the states $\mA_K | \vzero \rangle$ and $\mA_0 | \vzero \rangle$ conditioned on the event $G$. 
+	% The definition of total variation distance indicates
+	% \begin{align} \label{eq:P-TV}
+		%     \BP( \vz \in S \mid \vz \sim p_{0 \mid G}, G ) \le  \underbrace{\BP( \vz \in S \mid \vz \sim p_{K \mid G}, G  )}_{\rm (I)} + \underbrace{d_{\rm TV}(p_{0 \mid G}, p_{K \mid G})}_{\rm (II)}.
+		% \end{align}
+	% Note that by Lemma \ref{lem:ashok-25}(a) and (\ref{eq:bound-uT}), (I) above is always zero. Therefore we only need to upper bound (II). By the equivalent definition of total variation distance \citep[Proposition 4.2]{levin2017markov}, we have
+	% \begin{align*}
+		% d_{\rm TV} (p_{0 \mid G}, p_{K \mid G})  
+		%      &= \frac{1}{2}\int \left\vert p_{0 \mid G}(\vz) - p_{K \mid G}(\vz) \right \vert {\rm d} \vz \\
+		%     &= \frac{1}{2}\int \left(\vert \psi_{0 \mid G}(\vz) \vert + \vert \psi_{K \mid G}(\vz) \vert \right) \cdot \left \vert \psi_{0 \mid G}(\vz) - \psi_{K \mid G}(\vz) \right \vert {\rm d} \vz \\
+		%     &\le \frac{1}{2} \sqrt{ \int  \left(\vert \psi_{0 \mid G}(\vz) \vert + \vert \psi_{K \mid G}(\vz) \vert \right)^2 {\rm d} \vz} \sqrt{ \int  \left \vert \psi_{0 \mid G}(\vz) - \psi_{K \mid G}(\vz) \right \vert^2 {\rm d} \vz} \\
+		%     &\le \sqrt{ \int  \left \vert \psi_{0 \mid G}(\vz) - \psi_{ K \mid G}(\vz) \right \vert^2 {\rm d} \vz}  \le \frac{1}{2 \sqrt{15} T}.
+		% \end{align*}
+	% Above, the second last is from the normalized condition $\int \vert \psi_{0 \mid G}(\vz) \vert^2 {\rm d} \vz = 1$ and $\int \vert \psi_{K \mid G}(\vz) \vert^2 {\rm d} \vz = 1$, and the last inequality is due to (\ref{eq:norm-Ak-A0}). Because $T \ge 1$, (\ref{eq:P-TV}) becomes
+	% \begin{align*}
+		%     \BP( \vz \in S \mid \vz \sim p_{0 \mid G}, G ) \le  \frac{1}{2 \sqrt{15}}.
+		% \end{align*}
+	% Then we can conclude
+	% \begin{align*}
+		%     \BP( \vz \in S \mid \vz \sim p_{0}) \le \BP(\vz \in S \mid \vz \sim p_{0 \mid G}, G) + \BP(G^c) < \frac{1}{2}.
+		% \end{align*}
+	
+	% \end{proof}
+% Finally, we scale the hard instance above to prove the lower bound for quantum algorithms in finding $(\delta,\epsilon)$-stationary points.
+% \thmlb* 
+
+% \begin{proof}
+	%    We scale the hard instance in Theorem \ref{thm:hard-T2} by $f_{T; \mU}(\vx) = \alpha \hat f_{T,\mU}(\vx / \beta)$ to simultaneously fulfill all the assumptions on the function class, as detailed below.
+	%    \paragraph{I. Can not Find Stationary Points} Note that $\nabla f_{T; \mU} (\vx) = (\alpha / \beta) \nabla \hat f_{T; \mU}(\vx/ \beta)$, Theorem \ref{thm:hard-T2} that any quantum algorithm can not find an $(1/2)$-stationary point of $\hat f_{T; \mU}(\vx)$ implies that any quantum algorithm can not find an $(\alpha/(2 \beta))$-stationary point of $f_{T; \mU}(\vx)$. We let $\alpha = 6 \epsilon \beta $ to give a lower bound for finding $3\epsilon$-stationary points. 
+	%    \paragraph{II. Can not Find Goldstein Stationary Points} Our next goal is to make the lower bound for finding $\epsilon$-stationary points to the lower bound for finding $(\delta,\epsilon)$-stationary points. This is where Proposition \ref{prop:zhang-rela} comes into play. From Proposition \ref{prop:zhang-rela}  we know that for an $H$-smooth objective, the lower bound for finding $3 \epsilon$-stationary point also implies the lower bound for finding $(\delta,\epsilon)$-stationary points with $\delta \le \epsilon / H$. And the smooth constant can be calculated as follows: By Lemma \ref{lem:ashok-25}(b) the unscaled function $\hat f_{T;\mU}$ is $\hat H_0$-smooth with $\hat H_0=156$, so the scaled function is $(\alpha \hat H_0/ \beta^2) $-smooth. Therefore, we can set $\alpha \hat H_0  / \beta^2 = \epsilon / \delta$.
+	%    \paragraph{III. Bounded Initial Suboptimality Gap} 
+	%    By Lemma \ref{lem:ashok-25}(a), we have $f_{T,\mU}(\vzero) = 0$ and $\inf_{\vx \in \sR^d} f(\vx) \ge - \gamma_0 \alpha T$, where $\gamma_0  =12$. Therefore, we can set $T = \gamma / (\gamma_0 \alpha)$ to fulfill the condition $f_{T; \mU}(\vzero) - \inf_{\vx \in \sR^d} f(\vx) \le \gamma$. 
+	%     \paragraph{IV. Bounded Variance}  From $\nabla f_{T; \mU} (\vx) = (\alpha / \beta) \nabla \hat f_{T; \mU}(\vx/ \beta)$, the stochastic gradient estimator is also scaled as $ \vg_{T; \mU}(\vx; \xi) = (\alpha/ \beta) \hat \vg_{T; \mU}(\vx / \beta; \xi) $. Recall the definition of $\hat \vg_{T;\mU}$ in (\ref{eq:stoc-grad-reg}), then we have
+	%    \begin{align*}
+		%         \vg_{T; \mU}(\vx; \xi)  = (\alpha/ \beta) \left( \mJ_{\rho_R}(\vx / \beta)^\top \bar \vg_{T; \mU}(\rho_R(\vx / \beta);\xi) + \lambda \nabla q_R(\vx/ \beta) \right). 
+		%    \end{align*}
+	%    From (\ref{eq:Jacobian}) we know that $\Vert \mJ_{\rho_R}(\,\cdot\,) \Vert \le 1$, and by Lemma \ref{lem:chenyi} we know ${\rm Var}(\bar \vg_{T; \mU}) \le 2 L_0 \sqrt{S}$, where $L_0 = 23$, so we can conclude that $ {\rm Var}(\vg_{T;\mU}) \le (2 \alpha L_0 \sqrt{S} / \beta)^2$. Therefore, we can let $\beta \ge 2 \alpha L_0 \sqrt{2S} / L$ to fulfill the condition that ${\rm Var}(\vg_{T;\mU}) \le L^2 /2$. 
+	%    \paragraph{V. Bounded Gradient} Note that $\nabla f_{T; \mU} (\vx) = (\alpha / \beta) \nabla \hat f_{T; \mU}(\vx/ \beta)$. Recall Lemma \ref{lem:ashok-25}(c) that $\hat f_{T; \mU}(\vx)$ is $\hat L_0 \sqrt{T}$-Lipschitz, we have that the scaled function $f_{T;\mU}(\vx)$ is $(\alpha \hat L_0 \sqrt{T}/ \beta)$-Lipschitz, where $\hat L_0 = 92$. Therefore, we can let $\beta \ge \alpha \hat L_0  \sqrt{2T}/ L$ to fulfill the condition that $f_{T; \mU}(\vx)$ is $(L/\sqrt{2})$-Lipschitz. 
+	%    \paragraph{VI. Final Lower Bound} 
+	%    We specify the parameter setting from the above analysis. From \textbf{I} we have $\alpha = 6 \epsilon \beta$. Substitute it into \textbf{II} yields that $\beta = 6 \hat H_0 \delta$. Hence we obtain $\alpha = 36 \hat H_0 \epsilon \delta$. Then from \textbf{III} we have 
+	%    \begin{align*}
+		%        T = \frac{\gamma}{\gamma_0 \alpha} = \frac{\gamma}{36 \gamma_0 \hat H_0 \epsilon \delta} = \Theta \left( \frac{\gamma}{\delta \epsilon} \right).
+		%    \end{align*}
+	%    From \textbf{IV}, we set 
+	%    \begin{align*}
+		%        S = \left( \frac{\beta L}{2 \alpha L_0} \right)^2 = \left( \frac{L}{12 \epsilon L_0}  \right)^2 = \Theta \left( \frac{L^2}{\epsilon^2} \right).
+		%    \end{align*}
+	%    Note that \textbf{III} and \textbf{IV} together implies Assumption \ref{asm:FO} since
+	%    \begin{align*}
+		%        \E_{\xi \sim \Xi} \Vert \vg_{T;\mU} (\vx;\xi) \Vert^2 = \Vert \nabla f_{T;\mU}(\vx) \Vert^2 + {\rm Var}_{\xi \sim \Xi} [\vg_{T;\mU} (\vx;\xi)] \le L^2.
+		%    \end{align*}
+	% Finally, Theorem \ref{thm:hard-T2} indicates that any quantum algorithm requires at least 
+	% \begin{align*}
+		%     \frac{TS}{2} = \Omega \left( \frac{\gamma}{\delta \epsilon} \left(1 + \frac{L^2}{\epsilon^2} \right)  \right)
+		% \end{align*}
+	% QSFO complexity to find a $(\delta,\epsilon)$-Goldstein stationary point. Finally, from \textbf{V} we get the condition
+	% \begin{align*}
+		%     L \ge \left( \frac{\alpha \hat L_0 \sqrt{2T}}{\beta} \right)^2  = \left( 6 \epsilon \hat L_0 \sqrt{2 T} \right)^2 = \frac{2\epsilon \hat L_0 \gamma}{\delta \gamma_0},
+		% \end{align*}  
+	% which justifies the condition $\delta \ge 16 \epsilon \gamma /L$.
+	% \end{proof}
+
+% Indeed, our above proof subsumes the result of \citep[Theorem 3.6]{zhang2023quantum} of the lower bound for finding stationary points in the smooth setting, which the tightest dependency on all parameters.
+
+% \begin{asm}  \label{asm:smooth-SFO}
+	% Suppose the objective $f:\sR^d \rightarrow \sR$ satisfies (a) $f$ is $H$-smooth (b) $f^* = \inf_{\vx \in \sR^d} f(\vx) > -\infty$ and $f(\vzero) -  f^* \le \gamma$. (c) we have access to a stochastic gradient estimator $\vg(\vx;\xi)$ such that $\E_{\xi \sim \Xi} [g(\vx;\xi)] = \nabla f(\vx)$ and ${\rm Var}_{\xi \sim \Xi} [\vg(\vx;\xi)] \le \sigma^2$.
+	% \end{asm}
+
+% \begin{thm} \label{thm:lb-smooth}
+	%  For any $\epsilon>0$, $\gamma > 0 $, $\sigma>\epsilon$, when $d = \tilde \Omega(\gamma H \sigma^2 \epsilon^{-4})$
+	%  there exists a 
+	% distribution over functions $f: \sR^d \rightarrow \sR$ and a distribution of  
+	%     stochastic gradients that satisfy Assumption \ref{asm:smooth-SFO}, such that any quantum algorithm provided with a randomly selected QSFO requires $\Omega(\gamma H \sigma^2 \epsilon^{-4})$ complexity to identify an $(\delta,\epsilon)$-Goldstein stationary point.
+	% \end{thm}
+
+
+% \begin{proof}
+	% We use the same hard instance as we prove Theorem \ref{thm:lower-bound} which is $f_{T;\mU} = \alpha \hat f_{T; \mU}(\vx / \beta)$, but use a different scaling on the parameters.  Similar to \textbf{I}, we can set $\alpha = 2 \epsilon \beta$ to give a lower bound for finding $\epsilon$-stationary points. Then, we scale that function to be $H$-smooth by setting $(\alpha \hat H_0 / \beta^2) = H$ as we have done in \textbf{II}. It gives that $\beta = 2 \epsilon \hat H_0 / H $ and thus $\alpha = 4 \epsilon^2 \hat H_0 / H$. Next, we set $T = \gamma / (\gamma_0 \alpha)$ to fulfill to condition of $f_{T; \mU}(\vzero) - \inf_{\vx \in \sR^d} f(\vx) \le \gamma$ as as have done in \textbf{III}. This further yields 
+	% \begin{align*}
+		%     T = \frac{\gamma}{\gamma_0 \alpha} = \frac{4 H \gamma}{\hat H_0 \epsilon^2} = \Theta \left( \frac{\gamma H}{\epsilon^2} \right).
+		% \end{align*}
+	% Lastly, we fulfill the bounded variance condition as we have done in \textbf{IV}. We need to ensure $\beta \ge 2 \alpha L_0 \sqrt{S} / \sigma$. It can be satisfied by setting 
+	% \begin{align*}
+		%     S = \gO \left( \frac{\beta \sigma}{2 \alpha L_0} \right)^2 = \gO \left( \frac{\sigma}{4 \epsilon L_0} \right)^2 = \Theta \left( \frac{\sigma^2}{\epsilon^2} \right). 
+		% \end{align*}
+	% And the final lower bound of QSFO complexity is
+	% \begin{align*}
+		%     \frac{TS}{2} = \Omega\left( \frac{\gamma H \sigma^2}{\epsilon^4} \right).
+		% \end{align*}
+	% \end{proof}
+% The above result, strictly match \citep[Theorem 1]{arjevani2023lower} for the classical lower bound, and it is tighter than the quantum lower bound \citep[Theorem 3.6]{zhang2023quantum} of $ \Omega ( (\gamma H \wedge \sigma^2)^2 \epsilon^{-4} )$ in the parameters $\gamma, H$ and $\sigma$.
+
+% We start by showing that $\mA_K$ 
+% This function satisfies that
+% \begin{enumerate}
+	%     \item $\bar f_T(\vzero) = 0$ and $\inf_{\vx \in \sR^T} \bar f_T(\vx) \ge \gamma_0 T $ for $\gamma_0 = 12$. 
+	%     \item $\nabla \bar f_T(\vx)$ i $H_0$-Lipschitz with $H_0 = 152$. 
+	%     \item For all $\vx \in \sR^T$, $\Vert \nabla \bar f_T(\vx) \Vert_{\infty} \le G_0$ with $G_0 = 23$.
+	%     \item For all $\vx \in \sR^T$, 
+	%     \begin{align*}
+		%         \sqrt{\sum_{i=t}^T x_i^2} \le \frac{1}{2} \quad \Rightarrow \quad \nabla \bar f_T (x_1,x_2,\cdots,x_T) = \nabla \bar f_T (x_1,\cdots,x_t, 0, \cdots, 0).
+		%     \end{align*}
+	% \end{enumerate}
