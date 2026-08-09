@@ -13,8 +13,8 @@
 - [ZO 实验计划与执行记录](ZO_plan.md)
 - [早期 SFO/SZO 共同分布式基线](SHARED_DISTRIBUTED_FO_ZO_BASELINE.md)
 
-ZO 的固定参数 epsilon-scaling、异常复核与理论解释已经完成；固定配置的
-dimension-scaling（Step ZO-7B）仍在运行。原始逐 checkpoint 轨迹保留在本地
+ZO 的固定参数 epsilon-scaling、异常复核、理论解释和固定配置 dimension-scaling
+（Steps ZO-7B/7C）已经完成。原始逐 checkpoint 轨迹保留在本地
 `outputs/distributed_zo/`，GitHub 提交的是 `zo_experiments/` 中经过审计的紧凑表格、
 图像、参数 manifest 和报告。
 

@@ -1,6 +1,6 @@
 # ZO 分布式实验计划
 
-状态：Step ZO-2A～2E、ZO-3A～3F、ZO-4A～4C、ZO-5A～5C、ZO-6A～6C、ZO-7A 已完成；Step ZO-7B 正在后台运行正式固定配置的dimension sensitivity。  
+状态：Step ZO-2A～2E、ZO-3A～3F、ZO-4A～4C、ZO-5A～5C、ZO-6A～6C、ZO-7A～7C 已完成；当前无后台 ZO 实验。
 适用论文：[NeurIPS_NOG.pdf](NeurIPS_NOG.pdf) Section 5  
 主要比较方法：`NOG-ZO`、`ME-DOL-ZO`、`DGFM`、`DGFM+`
 
@@ -252,7 +252,10 @@ Pilot 搜索：
 - 运行进度保留在本地 `outputs/distributed_zo/zo_theory_validation/diagnostic/anomaly_seeds_fixed_work_983040/progress.json`；
 - ZO-6C：完成 formal-vs-anomaly 对照；决定当前论文实验不继续扩展相同冻结配置的预算；
 - 复现与决策：[zo_experiments/formal/STEP_ZO_6C_REPLICATION_DECISION.md](zo_experiments/formal/STEP_ZO_6C_REPLICATION_DECISION.md)；
-- Step ZO-7A：dimension-scaling 设计与运行时间校准已完成。
+- Step ZO-7A：dimension-scaling 设计与运行时间校准已完成；
+- Step ZO-7B：240/240 个新 dimension tasks 已完成；
+- Step ZO-7C：320/320 tasks 合并审计、paired ratios、bootstrap CI、图表和报告已完成；
+- Dimension 结果入口：[zo_experiments/dimension/README.md](zo_experiments/dimension/README.md)。
 
 Step ZO-7A 当前执行：
 
@@ -264,14 +267,18 @@ Step ZO-7A 当前执行：
 - 任务数：16，原子 partial 支持断点续跑；
 - 进度保留在本地 `outputs/distributed_zo/zo_theory_validation/dimension/calibration_fixed_params_work983040/progress.json`。
 
-Step ZO-7B 当前执行：
+Step ZO-7B/7C 完成协议：
 
 - primary epsilons：0.05、0.03；0.02及以下仅报告删失；
 - d=25、50、200各运行四算法 × 20 formal seeds，共240个新任务；
 - d=100复用已审计的原始20-seed formal结果；
 - 参数不随dimension重新调优，结论限定为定性dimension sensitivity；
 - 冻结manifest：[zo_experiments/dimension_scaling_manifest.json](zo_experiments/dimension_scaling_manifest.json)；
-- 进度保留在本地 `outputs/distributed_zo/zo_theory_validation/dimension/formal_fixed_params_eps003_005/progress.json`。
+- ZO-7B 进度为 240/240，原始进度保留在本地 output 目录；
+- ZO-7C 合并 d=100 后审计 320/320 tasks、194,000 行轨迹；
+- primary epsilon 在四维度、四方法上均为20/20 hits；
+- 仅2/6个 relative depth slopes 的95% CI严格大于零，0/6包含理论参考幂次；
+- 结论限定为 fixed-configuration dimension sensitivity，不声称恢复精确维度指数。
 
 理论参考斜率：
 
@@ -301,13 +308,15 @@ Step ZO-7B 当前执行：
 d\in\{25,50,100,200\}
 \]
 
-和代表精度
+和 primary 精度
 
 \[
-\epsilon\in\{0.05,0.02,0.01\}
+\epsilon\in\{0.05,0.03\}
 \]
 
-检查 \(d^{1/3}\)、\(d\) 和 \(d^{3/2}\) 的维度趋势。
+其中 \(\epsilon=0.02\) 及以下只作删失描述。当前固定 d=100 参数的协议只检查
+qualitative dimension sensitivity；精确检验 \(d^{1/3}\)、\(d\) 和 \(d^{3/2}\)
+需要另行冻结 dimension-aware 参数缩放协议。
 
 ### Step ZO-8：worker scaling
 

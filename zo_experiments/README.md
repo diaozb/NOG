@@ -1,15 +1,15 @@
 # ZO experiments: pilot selection and formal results
 
-> Status date: 2026-08-08. Pilot results below were used only for parameter
+> Status date: 2026-08-09. Pilot results below were used only for parameter
 > selection. The independently seeded 20-seed formal results are reported
 > separately and must not be mixed with the pilot estimates.
 
 ## 1. Current status
 
-The fixed-work epsilon-scaling experiment and Steps ZO-5B/5C are complete.
-All 80 frozen method-seed tasks finished. There is no remaining formal process
-running in the background. Dimension scaling, worker scaling, and optional
-real-data checks remain separate future experiments.
+The fixed-work epsilon-scaling experiment, anomaly replication, and Steps
+ZO-7A/7B/7C dimension sensitivity are complete. There is no ZO process running
+in the background. Worker scaling and optional real-data checks remain future
+experiments.
 
 | Stage | Status |
 |---|---|
@@ -25,7 +25,8 @@ real-data checks remain separate future experiments.
 | ZO-6B: frozen-config anomaly-seed replication | Complete (20/20) |
 | ZO-6C: replication comparison and budget decision | Complete |
 | ZO-7A: fixed-configuration dimension calibration | Complete (16/16) |
-| ZO-7B: formal fixed-configuration dimension sensitivity | Running (240 tasks) |
+| ZO-7B: formal fixed-configuration dimension sensitivity | Complete (240/240) |
+| ZO-7C: audited merge, ratios, CIs, figures, and report | Complete (320/320) |
 | ZO-8: worker scaling | Not started |
 | ZO-9: real-process and optional real-data checks | Not started |
 | ZO-10: final report, paper figures, and packaging | Not started |
@@ -70,6 +71,15 @@ dimensions 25, 50, and 200 on 20 formal seeds and later reuses the audited
 dimension-100 formal trajectories. The primary common thresholds are 0.05 and
 0.03, and the fixed-configuration result is explicitly limited to qualitative
 dimension sensitivity.
+
+Step ZO-7C is complete. The full audit, absolute metrics, same-seed paired
+ratios, joint-seed bootstrap intervals, figures, censoring table, and claim
+boundary are in [dimension/README.md](dimension/README.md). All primary points
+have 20/20 hits. NOG-ZO retains lower depth across d=25--200, but the relative
+slopes do not recover the worst-case dimension powers; this result must remain
+a fixed-configuration sensitivity statement.
+
+![Dimension paired ratios](dimension/figures/dimension_ratios.png)
 
 ## 3. Pilot protocol
 
@@ -177,6 +187,8 @@ any later anomaly rerun must retain the frozen configuration.
 - Completed formal audit manifest: [formal/analysis_manifest.json](formal/analysis_manifest.json)
 - Formal Step ZO-5B report:
   [formal/README.md](formal/README.md)
+- Dimension Step ZO-7C report:
+  [dimension/README.md](dimension/README.md)
 
 Regenerate the current snapshot from the repository root:
 
