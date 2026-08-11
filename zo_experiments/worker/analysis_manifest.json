@@ -1,0 +1,41 @@
+{
+  "analysis": "Step ZO-8C",
+  "paper_result_role": "formal_fixed_configuration_worker_sensitivity",
+  "claim_boundary": "logical single-process worker sensitivity and exact training-work accounting; not wall-clock or multi-process speedup",
+  "input_sha256": {
+    "outputs/distributed_zo/zo_theory_validation/worker/formal_fixed_params_eps005/results.csv": "15092af6a1e66cd5d5fd163cb3280ec7fb52486eafdc6d440621d9eec4afca09",
+    "outputs/distributed_zo/zo_theory_validation/formal/fixed_work_983040/results.csv": "92f8918e8b0a4fa80363f95223615d4a6b9e8a2525a01229284feae5a4663cfc",
+    "zo_experiments/worker_scaling_manifest.json": "fb4f465cae6f794f13036712b6eb241caf23082f302cd8106cb93a619f0b4f3a",
+    "zo_experiments/frozen_parameters.json": "6849e49a7481d99198ec9215b865000249adf622ca8325af92ecd48c51b09f0e"
+  },
+  "confirmed_hit_consecutive": 2,
+  "primary_epsilons": [
+    0.05
+  ],
+  "descriptive_epsilons": [
+    0.03,
+    0.02,
+    0.018,
+    0.016,
+    0.015,
+    0.01
+  ],
+  "bootstrap_repetitions": 2000,
+  "bootstrap_seed": 20260811,
+  "generated_sha256": {
+    "zo_experiments/worker/audit.json": "02a6ce15e72f88036843044f073bfb25b0138568991de49fc0e6662f8dcd3b3e",
+    "zo_experiments/worker/worker_per_seed.csv": "5b79df530324cbd12cd779482eb42ec3d329646251de5c0f7bc9a8287d141e6e",
+    "zo_experiments/worker/worker_summary.csv": "c65e8429a84dcf274e4f9cc7672fb52963c597925b808f2e99ccd8375cf45b5f",
+    "zo_experiments/worker/worker_relative_to_m1.csv": "1233bce8a9dd2ec3d4e8985cb03671000fc321ff8c740b1a404b8cbb3d5531c6",
+    "zo_experiments/worker/worker_trends.csv": "6ff3a942a9f8ccb0d627be360ed105b930763ac7579c23b8b154e14745993998",
+    "zo_experiments/worker/worker_trends.json": "59b47ec4e48299ebf88d54e5a84bb41ef24a672f8c3d26bcafcf33924851c9c4",
+    "zo_experiments/worker/worker_terminal_summary.csv": "47e091cd886ddf63f0c7172f9b3f195b977518347432855ee89c7149c4eae57e",
+    "zo_experiments/worker/README.md": "f4d957a17963fac8789d2fb619f961709991c8d3927d9b93a00e67add33d30c0",
+    "zo_experiments/worker/figures/worker_hit_depth_work.png": "879b9653633d2069da587021fadf8920fdb49abdbfef9be49121152f95dcf708",
+    "zo_experiments/worker/figures/worker_hit_depth_work.pdf": "838733cc31a05d14c34501b97ce73f92e3a9b63853de0328deb462a77b3f6a5c",
+    "zo_experiments/worker/figures/worker_relative_to_m1.png": "888e746c9e65da6f9152ca306db35ff9a0cee5f23ebd8b8d61a42f61de3fe206",
+    "zo_experiments/worker/figures/worker_relative_to_m1.pdf": "a991f0facba3e20a82397f34c76bd1e35d7125bf9ac7cf49dae5a3e06b7c4f33",
+    "zo_experiments/worker/figures/worker_terminal_accounting.png": "68f8f3a791c097125e025055191f9a1d14371c1d5fde936a873c7536497620dd",
+    "zo_experiments/worker/figures/worker_terminal_accounting.pdf": "ab61c3dbaeb98a5d11fe261622afb64e2ac98f598df36e17c44e4e15d9f1bb28"
+  }
+}

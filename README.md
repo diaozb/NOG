@@ -13,10 +13,11 @@
 - [ZO 实验计划与执行记录](ZO_plan.md)
 - [早期 SFO/SZO 共同分布式基线](SHARED_DISTRIBUTED_FO_ZO_BASELINE.md)
 
-ZO 的固定参数 epsilon-scaling、异常复核、理论解释和固定配置 dimension-scaling
-（Steps ZO-7B/7C）已经完成。原始逐 checkpoint 轨迹保留在本地
-`outputs/distributed_zo/`，GitHub 提交的是 `zo_experiments/` 中经过审计的紧凑表格、
-图像、参数 manifest 和报告。
+ZO 的固定参数 epsilon-scaling、异常复核、理论解释、固定配置 dimension-scaling
+和 logical-worker sensitivity（Steps ZO-7/8）已经完成。worker 结果入口为
+[zo_experiments/worker/README.md](zo_experiments/worker/README.md)。原始逐 checkpoint
+轨迹保留在本地 `outputs/distributed_zo/`，GitHub 提交的是 `zo_experiments/` 中经过
+审计的紧凑表格、图像、参数 manifest 和报告。
 
 ## 目录约定
 

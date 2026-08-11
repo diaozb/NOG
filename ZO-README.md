@@ -1,11 +1,12 @@
 # NOG 分布式零阶（ZO）实验说明
 
 本文档是当前 zeroth-order（ZO）实验的根目录总入口，集中说明实验动机、理论参照、
-测试函数、四种算法、参数选择、运行协议、正式结果、异常复核、dimension-scaling
-以及后续计划。
+测试函数、四种算法、参数选择、运行协议、正式结果、异常复核、dimension-scaling、
+worker-scaling 以及后续计划。
 
-> 状态快照：2026-08-09。主 epsilon-scaling、理论解释、异常复现和 Steps
-> ZO-7A/7B/7C dimension sensitivity 均已完成；当前没有后台 ZO 实验进程。
+> 状态快照：2026-08-11。主 epsilon-scaling、理论解释、异常复现和 Steps
+> ZO-7A/7B/7C dimension sensitivity、ZO-8A/8B/8C logical-worker sensitivity
+> 均已完成；当前没有后台 ZO 实验进程。
 > 原始运行目录不提交 Git，经过审计的紧凑结果位于 `zo_experiments/`。
 
 相关入口：
@@ -17,6 +18,7 @@
 - [异常与删失审计](zo_experiments/formal/STEP_ZO_6A_ANOMALY_AUDIT.md)
 - [预留 seed 复现和预算决策](zo_experiments/formal/STEP_ZO_6C_REPLICATION_DECISION.md)
 - [20-seed dimension sensitivity 结果](zo_experiments/dimension/README.md)
+- [20-seed logical-worker sensitivity 结果](zo_experiments/worker/README.md)
 - [论文源文件](nog_iclr2027_complete_source/nog_iclr2027.tex)
 
 ## 1. 实验目标与当前结论
@@ -40,7 +42,10 @@
 - work ratio 受到 batch、每层查询数和有限常数影响，没有恢复理想渐近关系，只作为
   次要描述结果；
 - epsilon 较小时存在右删失，因此不能把少量命中 seed 的条件均值当作无偏比较；
-- 实验不证明定理，也不声称恢复精确的 worst-case 指数。
+- 实验不证明定理，也不声称恢复精确的 worst-case 指数；
+- 在 worker 实验的 epsilon=0.05 下，NOG-ZO 的 mean first-hit depth 和 total work
+  在 m=1--8 基本不变，per-worker work 近似按 1/m 下降；
+- worker 结果来自逻辑单进程计费，不是实际多进程 wall-clock speedup。
 
 ![正式配对 depth/work ratios](zo_experiments/formal/figures/formal_ratios.png)
 
@@ -429,7 +434,34 @@ dimension-exponent 验证。
 
 ![Dimension paired ratios](zo_experiments/dimension/figures/dimension_ratios.png)
 
-## 13. 图表索引
+## 13. Logical-worker sensitivity
+
+Steps ZO-8A/8B/8C 使用 m=1、2、4、8、四种冻结配置和 20 个 formal seeds。
+m=1、2、4 新运行 240 个 tasks，m=8 复用原正式实验的 80 个 tasks；合并后审计
+320/320 tasks 和 194,080 行轨迹。primary epsilon 为 0.05，命中总数为 318/320；
+两个 non-hits 都来自 DGFM+/m=2，其条件均值按删失结果解释。
+
+NOG-ZO 的结果为：
+
+| workers | hits | mean depth | mean total work | mean per-worker work |
+|---:|---:|---:|---:|---:|
+| 1 | 20/20 | 214.2 | 219,340.8 | 219,340.8 |
+| 2 | 20/20 | 214.2 | 219,340.8 | 109,670.4 |
+| 4 | 20/20 | 214.0 | 219,136.0 | 54,784.0 |
+| 8 | 20/20 | 214.4 | 219,545.6 | 27,443.2 |
+
+NOG-ZO per-worker first-hit work 的 log-log slope 为 -0.9997，95% bootstrap CI
+为 [-1.0011,-0.9984]。这与当前 fixed-global-batch 实现中的 1/m work decomposition
+一致，但不能写成真实集群加速。ME-DOL-ZO、DGFM 和 DGFM+ 使用 fixed per-worker
+training batches，因此它们的 total first-hit work 不要求随 m 保持不变。
+
+[完整 ZO-8C 报告、same-seed ratios、slopes、终点计费和删失表](zo_experiments/worker/README.md)
+
+![Worker absolute metrics](zo_experiments/worker/figures/worker_hit_depth_work.png)
+
+![Worker relative metrics](zo_experiments/worker/figures/worker_relative_to_m1.png)
+
+## 14. 图表索引
 
 | 图 | 内容 |
 |---|---|
@@ -441,18 +473,21 @@ dimension-exponent 验证。
 | [zo_pilot_snapshot.png](zo_experiments/figures/zo_pilot_snapshot.png) | 仅用于选参的 pilot snapshot |
 | [dimension_hit_depth_work.png](zo_experiments/dimension/figures/dimension_hit_depth_work.png) | 四维度 primary hit/depth/work |
 | [dimension_ratios.png](zo_experiments/dimension/figures/dimension_ratios.png) | 四维度 same-seed paired ratios 与95% CI |
+| [worker_hit_depth_work.png](zo_experiments/worker/figures/worker_hit_depth_work.png) | 四个 logical-worker 计数下的 hit/depth/work |
+| [worker_relative_to_m1.png](zo_experiments/worker/figures/worker_relative_to_m1.png) | 相对 m=1 的 same-seed depth/work/per-worker ratios |
+| [worker_terminal_accounting.png](zo_experiments/worker/figures/worker_terminal_accounting.png) | 固定预算的终点 total/per-worker work 和 proxy |
 
-## 14. 运行与复现
+## 15. 运行与复现
 
 建议使用已有 conda 环境 NOG，在仓库根目录运行。
 
-### 14.1 实现审计测试
+### 15.1 实现审计测试
 
 ~~~bash
 conda run -n NOG python -m pytest tests/test_distributed_simulation.py
 ~~~
 
-### 14.2 正式 epsilon-scaling
+### 15.2 正式 epsilon-scaling
 
 ~~~bash
 conda run --no-capture-output -n NOG python -u -m src.distributed.zo_formal
@@ -460,14 +495,14 @@ conda run --no-capture-output -n NOG python -u -m src.distributed.zo_formal
 
 运行器会验证冻结输入哈希，并通过 partials 自动断点续跑。
 
-### 14.3 正式结果分析
+### 15.3 正式结果分析
 
 ~~~bash
 conda run -n NOG python -m src.distributed.zo_formal_analysis
 conda run -n NOG python -m src.distributed.zo_theory_interpretation
 ~~~
 
-### 14.4 异常审计与复现
+### 15.4 异常审计与复现
 
 ~~~bash
 conda run -n NOG python -m src.distributed.zo_anomaly_audit
@@ -475,7 +510,7 @@ conda run --no-capture-output -n NOG python -u -m src.distributed.zo_anomaly_rep
 conda run -n NOG python -m src.distributed.zo_anomaly_replication_analysis
 ~~~
 
-### 14.5 Dimension calibration 与 formal run
+### 15.5 Dimension calibration 与 formal run
 
 ~~~bash
 conda run --no-capture-output -n NOG python -u -m src.distributed.zo_dimension_calibration
@@ -485,13 +520,25 @@ conda run -n NOG python -m src.distributed.zo_dimension_analysis
 
 ZO-7B 已完成，分析器只读取 raw trajectories，不重新运行或调参。
 
-## 15. 结果文件结构
+### 15.6 Worker calibration、formal run 与分析
+
+~~~bash
+conda run --no-capture-output -n NOG python -u -m src.distributed.zo_worker_calibration
+conda run --no-capture-output -n NOG python -u -m src.distributed.zo_worker_formal
+conda run -n NOG python -m src.distributed.zo_worker_analysis
+~~~
+
+ZO-8B 已完成；运行器支持断点续跑，分析器不重新训练或调参。
+
+## 16. 结果文件结构
 
 ~~~text
 zo_experiments/
 ├── README.md
 ├── frozen_parameters.json
 ├── dimension_scaling_manifest.json
+├── worker_scaling_calibration_manifest.json
+├── worker_scaling_manifest.json
 ├── pilot_snapshot.csv
 ├── figures/
 │   └── zo_pilot_snapshot.*
@@ -506,29 +553,42 @@ zo_experiments/
 │   ├── STEP_ZO_6A_ANOMALY_AUDIT.md
 │   ├── STEP_ZO_6C_REPLICATION_DECISION.md
 │   └── figures/
-└── dimension/
+├── dimension/
+│   ├── README.md
+│   ├── audit.json
+│   ├── analysis_manifest.json
+│   ├── dimension_per_seed.csv
+│   ├── dimension_summary.csv
+│   ├── dimension_ratios.csv
+│   ├── dimension_trends.*
+│   └── figures/
+└── worker/
     ├── README.md
     ├── audit.json
     ├── analysis_manifest.json
-    ├── dimension_per_seed.csv
-    ├── dimension_summary.csv
-    ├── dimension_ratios.csv
-    ├── dimension_trends.*
+    ├── worker_per_seed.csv
+    ├── worker_summary.csv
+    ├── worker_relative_to_m1.csv
+    ├── worker_trends.*
+    ├── worker_terminal_summary.csv
     └── figures/
 
 outputs/distributed_zo/zo_theory_validation/
 ├── pilot/
 ├── formal/fixed_work_983040/
 ├── diagnostic/anomaly_seeds_fixed_work_983040/
-└── dimension/
+├── dimension/
+│   ├── calibration_fixed_params_work983040/
+│   └── formal_fixed_params_eps003_005/
+└── worker/
     ├── calibration_fixed_params_work983040/
-    └── formal_fixed_params_eps003_005/
+    └── formal_fixed_params_eps005/
 ~~~
 
 大型逐 checkpoint CSV 保留在 outputs 下，经过压缩的分析表和论文图保留在
 zo_experiments 下。
 
-## 16. 论文可写结论与禁止表述
+## 17. 论文可写结论与禁止表述
 
 ### 可以写
 
@@ -544,7 +604,8 @@ zo_experiments 下。
 - stationarity 是 Monte Carlo proxy；
 - 小 epsilon 区间受固定预算右删失；
 - fixed-configuration dimension 实验不是精确 dimension exponent test；
-- work ratios 是次要描述指标。
+- work ratios 是次要描述指标；
+- worker scaling 是逻辑计费分解，不是实测并行时间。
 
 ### 不能写
 
@@ -554,13 +615,13 @@ zo_experiments 下。
 - ME-DOL-ZO 或 DGFM+ 的实测 work ratio 为常数；
 - pilot-selected 参数是全局最优；
 - anomaly seeds 可以与 formal seeds 合并增加样本量；
-- 单进程 GPU simulation 等价于真实多机 wall-clock speedup。
+- 单进程 GPU simulation 等价于真实多机 wall-clock speedup；
+- worker scaling 恢复了精确理论 $m$ 指数或证明了真实集群加速。
 
-## 17. 后续实验计划
+## 18. 后续实验计划
 
-1. **ZO-8**：在 workers 1、2、4、8 上检查 total work 和 per-worker work scaling；
-2. **ZO-9**：可选的多进程等价检查和 a9a/ijcnn1 真实数据实验；
-3. **ZO-10**：生成论文正文图、附录表、LaTeX 实验段落和最终可复现包；
-4. 将论文中的 FO 与 ZO 结果共同控制在 ICLR 正文 9 页限制内。
+1. **ZO-9**：可选的多进程等价检查和 a9a/ijcnn1 真实数据实验；
+2. **ZO-10**：生成论文正文图、附录表、LaTeX 实验段落和最终可复现包；
+3. 将论文中的 FO 与 ZO 结果共同控制在 ICLR 正文 9 页限制内。
 
 Dimension 结果进入论文时必须保留“固定配置敏感性、未恢复精确理论幂次”的结论边界。

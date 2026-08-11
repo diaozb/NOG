@@ -1,15 +1,15 @@
 # ZO experiments: pilot selection and formal results
 
-> Status date: 2026-08-09. Pilot results below were used only for parameter
+> Status date: 2026-08-11. Pilot results below were used only for parameter
 > selection. The independently seeded 20-seed formal results are reported
 > separately and must not be mixed with the pilot estimates.
 
 ## 1. Current status
 
 The fixed-work epsilon-scaling experiment, anomaly replication, and Steps
-ZO-7A/7B/7C dimension sensitivity are complete. There is no ZO process running
-in the background. Worker scaling and optional real-data checks remain future
-experiments.
+ZO-7A/7B/7C dimension sensitivity and ZO-8A/8B/8C logical-worker sensitivity
+are complete. There is no ZO process running in the background. Real-process
+and optional real-data checks remain future experiments.
 
 | Stage | Status |
 |---|---|
@@ -27,7 +27,9 @@ experiments.
 | ZO-7A: fixed-configuration dimension calibration | Complete (16/16) |
 | ZO-7B: formal fixed-configuration dimension sensitivity | Complete (240/240) |
 | ZO-7C: audited merge, ratios, CIs, figures, and report | Complete (320/320) |
-| ZO-8: worker scaling | Not started |
+| ZO-8A: logical-worker calibration | Complete (16/16) |
+| ZO-8B: formal logical-worker sensitivity | Complete (240/240 new tasks) |
+| ZO-8C: audited merge, CIs, figures, and report | Complete (320/320) |
 | ZO-9: real-process and optional real-data checks | Not started |
 | ZO-10: final report, paper figures, and packaging | Not started |
 
@@ -81,8 +83,24 @@ a fixed-configuration sensitivity statement.
 
 ![Dimension paired ratios](dimension/figures/dimension_ratios.png)
 
-## 3. Pilot protocol
+Step ZO-8 is complete. The frozen logical-worker protocol uses m=1,2,4,8,
+20 formal seeds, and the same d=100 candidate parameters at every worker count.
+The m=1,2,4 run contributes 240 new tasks and the hash-audited m=8 formal run
+contributes 80 reused tasks. The complete report is
+[worker/README.md](worker/README.md).
 
+At epsilon=0.05, NOG-ZO has 20/20 hits at every worker count. Its mean
+first-hit depth and total work remain essentially invariant from m=1 to m=8,
+while mean per-worker work decreases from 219,340.8 to 27,443.2. The fitted
+per-worker slope is -0.9997 with a 95% bootstrap interval
+[-1.0011,-0.9984]. DGFM+/m=2 has 18/20 hits, so its conditional estimates are
+explicitly censored. These are logical work-accounting results, not measured
+multi-process speedups.
+
+![Logical-worker accounting](worker/figures/worker_relative_to_m1.png)
+
+
+## 3. Pilot protocol
 The four methods are NOG-ZO, ME-DOL-ZO, DGFM, and DGFM+. They are evaluated
 on
 
@@ -191,6 +209,8 @@ any later anomaly rerun must retain the frozen configuration.
   [dimension/README.md](dimension/README.md)
 
 Regenerate the current snapshot from the repository root:
+- Worker Step ZO-8C report:
+  [worker/README.md](worker/README.md)
 
 ~~~bash
 conda run -n NOG python zo_experiments/generate_pilot_snapshot.py

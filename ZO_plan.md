@@ -1,6 +1,6 @@
 # ZO 分布式实验计划
 
-状态：Step ZO-2A～2E、ZO-3A～3F、ZO-4A～4C、ZO-5A～5C、ZO-6A～6C、ZO-7A～7C 已完成；当前无后台 ZO 实验。
+状态：Step ZO-2A～2E、ZO-3A～3F、ZO-4A～4C、ZO-5A～5C、ZO-6A～6C、ZO-7A～7C、ZO-8A～8C 已完成；当前无后台 ZO 实验。
 适用论文：[NeurIPS_NOG.pdf](NeurIPS_NOG.pdf) Section 5  
 主要比较方法：`NOG-ZO`、`ME-DOL-ZO`、`DGFM`、`DGFM+`
 
@@ -256,8 +256,12 @@ Pilot 搜索：
 - Step ZO-7B：240/240 个新 dimension tasks 已完成；
 - Step ZO-7C：320/320 tasks 合并审计、paired ratios、bootstrap CI、图表和报告已完成；
 - Dimension 结果入口：[zo_experiments/dimension/README.md](zo_experiments/dimension/README.md)。
+- Step ZO-8A：16/16 个独立 worker calibration tasks 已完成；
+- Step ZO-8B：240/240 个 m=1、2、4 正式 tasks 已完成，m=8 复用原 80 个正式 tasks；
+- Step ZO-8C：320/320 tasks、194,080 行轨迹审计、bootstrap CI、图表和报告已完成；
+- Worker 结果入口：[zo_experiments/worker/README.md](zo_experiments/worker/README.md)。
 
-Step ZO-7A 当前执行：
+Step ZO-7A calibration 设置：
 
 - dimensions：25、50、100、200；
 - methods：NOG-ZO、ME-DOL-ZO、DGFM、DGFM+；
@@ -326,12 +330,34 @@ qualitative dimension sensitivity；精确检验 \(d^{1/3}\)、\(d\) 和 \(d^{3/
 m\in\{1,2,4,8\}
 \]
 
-和代表精度 \(\{0.1,0.01,0.005\}\)，检查：
+和 primary 精度 \(0.05\)，检查：
 
 - total work 是否基本稳定；
 - per-worker work 是否接近 \(1/m\)；
 - final stationarity 是否稳定；
 - depth 是否没有随 worker 数量异常增长。
+
+由于现有固定预算下部分方法不能稳定命中 \(0.01\) 和 \(0.005\)，这两个阈值不再作为
+worker scaling 的 primary endpoint；\(0.02\) 及以下仅作删失描述。参数沿用
+\(d=100,m=8\) 的预冻结配置，不针对 worker 数重新调参。评估 checkpoint 按每种方法的
+训练 work 对齐：NOG-ZO 在所有 \(m\) 下使用间隔 4；ME-DOL-ZO 使用
+\(\{96,48,24,12\}\)；DGFM/DGFM+ 使用 \(\{32,16,8,4\}\)，顺序均对应
+\(m=\{1,2,4,8\}\)。ME-DOL 只能在完整 12-round epoch 末评估。
+
+这里的 workers 是单进程中的逻辑 worker，结果用于检查算法和计费对 worker 数的敏感性，
+不能解释为真实多进程 wall-clock speedup。
+
+完成结果：
+
+- ZO-8A 校准 seed 301 上 epsilon 0.05 为 16/16 method-worker hits；epsilon 0.03
+  为 13/16，因此正式协议只保留 0.05 为 primary，0.03 及以下作为删失描述；
+- ZO-8B 新运行 m=1、2、4 的四算法 × 20 seeds，共 240/240 tasks；
+- ZO-8C 合并 m=8 后审计通过 320/320 tasks 和 194,080 行轨迹；
+- NOG-ZO 的 mean first-hit depth 为 214.2、214.2、214.0、214.4，total work 为
+  219,340.8、219,340.8、219,136.0、219,545.6；
+- NOG-ZO per-worker work 从 219,340.8 降至 27,443.2，log-log slope 为
+  -0.9997，95% CI 为 [-1.0011,-0.9984]；
+- DGFM+/m=2 在正式 seeds 上为 18/20 hits，所有条件均值和比例明确标记为 censored。
 
 ### Step ZO-9：真实进程和可选真实数据
 
