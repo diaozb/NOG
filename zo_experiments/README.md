@@ -1,6 +1,6 @@
 # ZO experiments: pilot selection and formal results
 
-> Status date: 2026-08-11. Pilot results below were used only for parameter
+> Status date: 2026-08-12. Pilot results below were used only for parameter
 > selection. The independently seeded 20-seed formal results are reported
 > separately and must not be mixed with the pilot estimates.
 
@@ -8,8 +8,9 @@
 
 The fixed-work epsilon-scaling experiment, anomaly replication, and Steps
 ZO-7A/7B/7C dimension sensitivity and ZO-8A/8B/8C logical-worker sensitivity
-are complete. There is no ZO process running in the background. Real-process
-and optional real-data checks remain future experiments.
+and 1/2/8-worker real-process equivalence are complete. The 20-seed a9a and
+ijcnn1 formal real-data experiment is also complete. There is no ZO process
+running in the background.
 
 | Stage | Status |
 |---|---|
@@ -30,8 +31,9 @@ and optional real-data checks remain future experiments.
 | ZO-8A: logical-worker calibration | Complete (16/16) |
 | ZO-8B: formal logical-worker sensitivity | Complete (240/240 new tasks) |
 | ZO-8C: audited merge, CIs, figures, and report | Complete (320/320) |
-| ZO-9: real-process and optional real-data checks | Not started |
-| ZO-10: final report, paper figures, and packaging | Not started |
+| ZO-9A/B: 1/2/8-worker real-process equivalence | Complete (6/6) |
+| ZO-9C: a9a/ijcnn1 calibration and formal experiment | Complete (160/160 formal tasks) |
+| ZO-10: final report, paper figures, and packaging | Complete |
 
 ## 2. Formal result entry point
 
@@ -98,6 +100,17 @@ explicitly censored. These are logical work-accounting results, not measured
 multi-process speedups.
 
 ![Logical-worker accounting](worker/figures/worker_relative_to_m1.png)
+
+Step ZO-9 is complete. The real Gloo-process equivalence evidence is in
+[process_equivalence/README.md](process_equivalence/README.md): NOG-ZO and
+ME-DOL-ZO passed all 1/2/8-worker numerical and accounting checks, with maximum
+trajectory difference $5.96\times10^{-8}$. This is an equivalence audit, not a
+wall-clock speedup result.
+
+The separately calibrated, 20-seed a9a/ijcnn1 experiment is in
+[real_data/README.md](real_data/README.md). NOG-ZO obtains competitive
+optimization quality, but does not reproduce the synthetic depth advantage;
+this unfavorable transfer result is retained explicitly.
 
 
 ## 3. Pilot protocol

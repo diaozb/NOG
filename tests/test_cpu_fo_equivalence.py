@@ -143,6 +143,36 @@ class CpuFoEquivalenceTests(unittest.TestCase):
                         )
                     )
 
+    def test_distinct_target_and_smoothing_radii_match(self):
+        cfg = equivalence_config()
+        cfg["oracle"]["target_delta"] = 0.2
+        cfg["nog"]["smoothing_delta"] = 0.04
+        cfg["me_dol"]["smoothing_delta"] = 0.03
+        world_size = 2
+        formal_seed = 7
+        with tempfile.TemporaryDirectory() as directory:
+            for method in ("NOG-FO", "ME-DOL-FO"):
+                with self.subTest(method=method):
+                    expected = self._simulator_rows(
+                        cfg, method, formal_seed, world_size
+                    )
+                    output = Path(directory) / f"{method}-radii.json"
+                    run_cpu_fo_task(
+                        cfg,
+                        method,
+                        formal_seed,
+                        world_size,
+                        output,
+                        CpuProcessConfig(
+                            process_group_timeout_seconds=30.0,
+                            launch_timeout_seconds=60.0,
+                            intraop_threads=1,
+                        ),
+                    )
+                    with open(output, "r", encoding="utf-8") as handle:
+                        payload = json.load(handle)
+                    self.assert_rows_close(expected, payload["rows"])
+
 
 if __name__ == "__main__":
     unittest.main()

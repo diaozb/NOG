@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "claim_boundary": "numerical and accounting equivalence for NOG-ZO and ME-DOL-ZO; not a cluster speedup benchmark and not coverage of DGFM/DGFM+",
+  "task_count": 6,
+  "passed_tasks": 6,
+  "audits": [
+    {
+      "method": "NOG-ZO",
+      "seed": 0,
+      "workers": 1,
+      "passed": true,
+      "checks": {
+        "trajectory_allclose": true,
+        "task_identity": true,
+        "rank_schedule": true,
+        "independent_processes": true,
+        "one_thread_per_rank": true,
+        "exhaustive_distinct_shards": true,
+        "final_accounting": true,
+        "monotone_counters": true,
+        "timing_sanity": true
+      },
+      "checkpoints": 3,
+      "max_abs_trajectory_difference": 0.0,
+      "trajectory_errors": [],
+      "expected_final_accounting": {
+        "total_work": 320,
+        "per_worker_work": [
+          320
+        ],
+        "per_worker_work_max": 320,
+        "communication_round": 10,
+        "depth": 10,
+        "eval_work": 24
+      },
+      "observed_final_accounting": {
+        "total_work": 320,
+        "per_worker_work": [
+          320
+        ],
+        "per_worker_work_max": 320,
+        "communication_round": 10,
+        "depth": 10,
+        "eval_work": 24
+      },
+      "end_to_end_time": 2.6392651651985943,
+      "rank_pids": [
+        23910
+      ]
+    },
+    {
+      "method": "NOG-ZO",
+      "seed": 0,
+      "workers": 2,
+      "passed": true,
+      "checks": {
+        "trajectory_allclose": true,
+        "task_identity": true,
+        "rank_schedule": true,
+        "independent_processes": true,
+        "one_thread_per_rank": true,
+        "exhaustive_distinct_shards": true,
+        "final_accounting": true,
+        "monotone_counters": true,
+        "timing_sanity": true
+      },
+      "checkpoints": 3,
+      "max_abs_trajectory_difference": 0.0,
+      "trajectory_errors": [],
+      "expected_final_accounting": {
+        "total_work": 320,
+        "per_worker_work": [
+          160,
+          160
+        ],
+        "per_worker_work_max": 160,
+        "communication_round": 10,
+        "depth": 10,
+        "eval_work": 24
+      },
+      "observed_final_accounting": {
+        "total_work": 320,
+        "per_worker_work": [
+          160,
+          160
+        ],
+        "per_worker_work_max": 160,
+        "communication_round": 10,
+        "depth": 10,
+        "eval_work": 24
+      },
+      "end_to_end_time": 3.4299200349487364,
+      "rank_pids": [
+        24111,
+        24112
+      ]
+    },
+    {
+      "method": "NOG-ZO",
+      "seed": 0,
+      "workers": 8,
+      "passed": true,
+      "checks": {
+        "trajectory_allclose": true,
+        "task_identity": true,
+        "rank_schedule": true,
+        "independent_processes": true,
+        "one_thread_per_rank": true,
+        "exhaustive_distinct_shards": true,
+        "final_accounting": true,
+        "monotone_counters": true,
+        "timing_sanity": true
+      },
+      "checkpoints": 3,
+      "max_abs_trajectory_difference": 5.960464477539063e-08,
+      "trajectory_errors": [],
+      "expected_final_accounting": {
+        "total_work": 320,
+        "per_worker_work": [
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40
+        ],
+        "per_worker_work_max": 40,
+        "communication_round": 10,
+        "depth": 10,
+        "eval_work": 24
+      },
+      "observed_final_accounting": {
+        "total_work": 320,
+        "per_worker_work": [
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40
+        ],
+        "per_worker_work_max": 40,
+        "communication_round": 10,
+        "depth": 10,
+        "eval_work": 24
+      },
+      "end_to_end_time": 2.9206768409349024,
+      "rank_pids": [
+        24379,
+        24380,
+        24381,
+        24382,
+        24383,
+        24384,
+        24385,
+        24386
+      ]
+    },
+    {
+      "method": "ME-DOL-ZO",
+      "seed": 0,
+      "workers": 1,
+      "passed": true,
+      "checks": {
+        "trajectory_allclose": true,
+        "task_identity": true,
+        "rank_schedule": true,
+        "independent_processes": true,
+        "one_thread_per_rank": true,
+        "exhaustive_distinct_shards": true,
+        "final_accounting": true,
+        "monotone_counters": true,
+        "timing_sanity": true
+      },
+      "checkpoints": 3,
+      "max_abs_trajectory_difference": 0.0,
+      "trajectory_errors": [],
+      "expected_final_accounting": {
+        "total_work": 32,
+        "per_worker_work": [
+          32
+        ],
+        "per_worker_work_max": 32,
+        "communication_round": 8,
+        "depth": 8,
+        "eval_work": 24
+      },
+      "observed_final_accounting": {
+        "total_work": 32,
+        "per_worker_work": [
+          32
+        ],
+        "per_worker_work_max": 32,
+        "communication_round": 8,
+        "depth": 8,
+        "eval_work": 24
+      },
+      "end_to_end_time": 2.5231622299179435,
+      "rank_pids": [
+        25422
+      ]
+    },
+    {
+      "method": "ME-DOL-ZO",
+      "seed": 0,
+      "workers": 2,
+      "passed": true,
+      "checks": {
+        "trajectory_allclose": true,
+        "task_identity": true,
+        "rank_schedule": true,
+        "independent_processes": true,
+        "one_thread_per_rank": true,
+        "exhaustive_distinct_shards": true,
+        "final_accounting": true,
+        "monotone_counters": true,
+        "timing_sanity": true
+      },
+      "checkpoints": 3,
+      "max_abs_trajectory_difference": 2.3283064365386963e-10,
+      "trajectory_errors": [],
+      "expected_final_accounting": {
+        "total_work": 64,
+        "per_worker_work": [
+          32,
+          32
+        ],
+        "per_worker_work_max": 32,
+        "communication_round": 8,
+        "depth": 8,
+        "eval_work": 24
+      },
+      "observed_final_accounting": {
+        "total_work": 64,
+        "per_worker_work": [
+          32,
+          32
+        ],
+        "per_worker_work_max": 32,
+        "communication_round": 8,
+        "depth": 8,
+        "eval_work": 24
+      },
+      "end_to_end_time": 2.68909407267347,
+      "rank_pids": [
+        25555,
+        25556
+      ]
+    },
+    {
+      "method": "ME-DOL-ZO",
+      "seed": 0,
+      "workers": 8,
+      "passed": true,
+      "checks": {
+        "trajectory_allclose": true,
+        "task_identity": true,
+        "rank_schedule": true,
+        "independent_processes": true,
+        "one_thread_per_rank": true,
+        "exhaustive_distinct_shards": true,
+        "final_accounting": true,
+        "monotone_counters": true,
+        "timing_sanity": true
+      },
+      "checkpoints": 3,
+      "max_abs_trajectory_difference": 2.1827872842550278e-11,
+      "trajectory_errors": [],
+      "expected_final_accounting": {
+        "total_work": 256,
+        "per_worker_work": [
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32
+        ],
+        "per_worker_work_max": 32,
+        "communication_round": 8,
+        "depth": 8,
+        "eval_work": 24
+      },
+      "observed_final_accounting": {
+        "total_work": 256,
+        "per_worker_work": [
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32
+        ],
+        "per_worker_work_max": 32,
+        "communication_round": 8,
+        "depth": 8,
+        "eval_work": 24
+      },
+      "end_to_end_time": 3.8668363140895963,
+      "rank_pids": [
+        25823,
+        25824,
+        25825,
+        25826,
+        25827,
+        25828,
+        25829,
+        25830
+      ]
+    }
+  ]
+}

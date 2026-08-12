@@ -100,11 +100,15 @@ def evaluation_seed(
     raise ValueError(f"Unknown evaluation seed mode: {mode}.")
 
 
-def build_problem(cfg: Dict[str, Any], device: str, problem_seed: int) -> SyntheticMaxSinL1:
+def build_problem(cfg: Dict[str, Any], device: str, problem_seed: int) -> Any:
     """Build exactly one reproducible problem instance for a formal seed."""
 
     seed_all(problem_seed)
     pcfg = cfg["problem"]
+    if pcfg.get("name") == "CappedL1SVM":
+        from src.distributed.real_data import build_real_problem
+
+        return build_real_problem(cfg, device)
     return SyntheticMaxSinL1(
         d=int(pcfg["d"]),
         n_data=int(pcfg["n_data"]),
@@ -417,6 +421,8 @@ def evaluate_point(
         "stat_proxy": float(gradient.norm().item()),
         "evaluation_delta": evaluation_delta,
     }
+    if hasattr(problem, "accuracy"):
+        metrics["train_accuracy"] = float(problem.accuracy(x))
     return metrics, eval_smooth_batch * eval_data_batch
 
 

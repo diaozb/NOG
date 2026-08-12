@@ -361,12 +361,17 @@ worker scaling 的 primary endpoint；\(0.02\) 及以下仅作删失描述。参
 
 ### Step ZO-9：真实进程和可选真实数据
 
+状态：已完成。NOG-ZO/ME-DOL-ZO 的 1/2/8-worker Gloo 等价性为 6/6 通过；
+a9a/ijcnn1 四算法、20 formal seeds 的等 work 正式实验为 160/160 完成。
+
 - 主复杂度实验使用可恢复的逻辑分布式模拟；
 - 选取少量配置运行 8-process Gloo，验证与模拟器等价；
 - 不把单机 Gloo wall-clock time 当作真实集群 speedup；
 - 合成实验通过后，再决定是否加入 `a9a` 或 `ijcnn1` capped-\(\ell_1\) SVM 实验。
 
 ### Step ZO-10：整理、文档和上传
+
+状态：已完成。紧凑审计、真实数据 CSV、图表、README、测试和复现包均已生成并验收。
 
 正式内容放入独立的 `zo_experiments/`，与 FO 隔离，包括：
 
@@ -407,4 +412,3 @@ worker scaling 的 primary endpoint；\(0.02\) 及以下仅作删失描述。参
 1. 主合成问题是否正式采用 FO v4 的 `R=1, common_feature_bias=0.25, phase_mode=zero` 设置；
 2. 是否采用理论严格对齐的共同目标半径 \(\delta_G=0.1\)，并允许各算法按原定理使用不同的内部 smoothing radius；
 3. 本轮范围是否先完成全部合成实验，再根据结果决定是否加入真实数据实验。
-

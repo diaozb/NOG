@@ -1,0 +1,86 @@
+run:
+  name: real_data_smoke
+  out_dir: outputs/distributed_zo/zo_theory_validation/real_data
+  device: auto
+  pilot_selection_complete: true
+  formal_seeds: [0, 1, 2, 3, 4]
+  pilot_seeds: [302]
+
+problem:
+  name: CappedL1SVM
+  dataset: a9a
+  data_root: data/libsvm
+  d: 123
+  n_data: 32561
+  R: 1
+  lam: 0.000000000307115875
+  cap: 2.0
+  normalize_rows: true
+
+train:
+  rounds: 24
+  eval_every: 4
+
+oracle:
+  delta: 0.001
+  target_delta: 0.002
+  evaluation_delta: 0.002
+  smooth_B: 8
+  data_B_total: 64
+  eval_smooth_B: 32
+  eval_data_B: 256
+  evaluation_seed_mode: fixed_bank
+
+nog:
+  M: 2
+  eta: 0.01
+  smoothing_delta: 0.001
+
+me_dol:
+  epoch_length: 12
+  theory_multiplier:
+    szo: 60.0
+  smooth_B: 1
+  data_B_per_worker: 16
+  smoothing_delta: 0.001
+
+dgfm:
+  eta: 0.05
+  batch_size: 16
+  smoothing_delta: 0.001
+
+dgfm_plus:
+  eta: 0.05
+  small_batch: 8
+  large_batch: 64
+  restart_period: 24
+  restart_mixing_rounds: 1
+  smoothing_delta: 0.001
+
+distributed:
+  execution: single_process_simulation
+  topology: complete
+  comparison_worker: 8
+  scaling_workers: [1, 2, 4, 8]
+  split_mode: total_batch_fixed
+  shuffle_partitions: true
+  rng_mode: rank_schedule
+
+methods:
+  sfo: []
+  szo: [NOG-ZO, ME-DOL-ZO, DGFM, DGFM+]
+
+epsilon_scaling:
+  epsilons: [0.2, 0.1, 0.05, 0.02, 0.01]
+
+pilot:
+  refine:
+    eval_every: 4
+
+resources:
+  max_cpu_processes: 8
+  max_task_seconds: 3600
+  resume_from_partials: true
+
+wandb:
+  enabled: false

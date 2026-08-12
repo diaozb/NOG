@@ -4,9 +4,9 @@
 测试函数、四种算法、参数选择、运行协议、正式结果、异常复核、dimension-scaling、
 worker-scaling 以及后续计划。
 
-> 状态快照：2026-08-11。主 epsilon-scaling、理论解释、异常复现和 Steps
-> ZO-7A/7B/7C dimension sensitivity、ZO-8A/8B/8C logical-worker sensitivity
-> 均已完成；当前没有后台 ZO 实验进程。
+> 状态快照：2026-08-12。主 epsilon-scaling、理论解释、异常复现、dimension
+> sensitivity、logical-worker sensitivity、1/2/8-worker Gloo 等价性，以及
+> a9a/ijcnn1 的 20-seed 真实数据正式实验均已完成；当前没有后台 ZO 实验进程。
 > 原始运行目录不提交 Git，经过审计的紧凑结果位于 `zo_experiments/`。
 
 相关入口：
@@ -19,6 +19,8 @@ worker-scaling 以及后续计划。
 - [预留 seed 复现和预算决策](zo_experiments/formal/STEP_ZO_6C_REPLICATION_DECISION.md)
 - [20-seed dimension sensitivity 结果](zo_experiments/dimension/README.md)
 - [20-seed logical-worker sensitivity 结果](zo_experiments/worker/README.md)
+- [真实 Gloo 进程等价性审计](zo_experiments/process_equivalence/README.md)
+- [a9a/ijcnn1 真实数据正式结果](zo_experiments/real_data/README.md)
 - [论文源文件](nog_iclr2027_complete_source/nog_iclr2027.tex)
 
 ## 1. 实验目标与当前结论
@@ -46,6 +48,11 @@ worker-scaling 以及后续计划。
 - 在 worker 实验的 epsilon=0.05 下，NOG-ZO 的 mean first-hit depth 和 total work
   在 m=1--8 基本不变，per-worker work 近似按 1/m 下降；
 - worker 结果来自逻辑单进程计费，不是实际多进程 wall-clock speedup。
+- 真实 Gloo 审计在 NOG-ZO/ME-DOL-ZO 的 1/2/8 workers 上为 6/6 通过，最大轨迹误差为
+  $5.96\times10^{-8}$；它验证数值与计费等价性，不是集群加速实验；
+- 真实数据等 work 结果显示 NOG-ZO 的优化质量具有竞争力，但没有复现合成问题上的通信
+  depth 优势：NOG-ZO 的最终 depth 为 7,680，而 ME-DOL-ZO 为 3,840。因此真实数据结果
+  必须作为独立的适用范围检验，不能用于声称定理的 worst-case depth 优势已被普遍实证。
 
 ![正式配对 depth/work ratios](zo_experiments/formal/figures/formal_ratios.png)
 

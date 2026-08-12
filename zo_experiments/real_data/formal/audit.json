@@ -1,0 +1,7 @@
+{
+  "status": "complete",
+  "task_count": 160,
+  "dataset_method_groups": 8,
+  "formal_seed_count_per_group": 20,
+  "claim": "paper-result real-data experiment; interpret independently of synthetic epsilon scaling"
+}
