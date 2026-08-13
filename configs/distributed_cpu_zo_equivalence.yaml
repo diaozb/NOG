@@ -1,0 +1,83 @@
+run:
+  name: equivalence
+  out_dir: outputs/distributed_cpu_zo
+  device: cpu
+
+problem:
+  name: SyntheticMaxSinL1
+  d: 8
+  n_data: 64
+  R: 2
+  lam: 0.001
+  feature_scale: 1.0
+  common_feature_bias: 0.25
+  phase_mode: zero
+
+train:
+  rounds: 8
+  eval_every: 4
+
+oracle:
+  delta: 0.1
+  target_delta: 0.1
+  evaluation_delta: 0.1
+  smooth_B: 2
+  data_B_total: 8
+  eval_smooth_B: 2
+  eval_data_B: 4
+  evaluation_seed_mode: fixed_bank
+
+nog:
+  M: 2
+  eta: 0.1
+  smoothing_delta: 0.05
+
+me_dol:
+  epoch_length: 2
+  theory_multiplier:
+    szo: 1.0
+  smooth_B: 1
+  data_B_per_worker: 2
+  smoothing_delta: 0.05
+
+dgfm:
+  eta: 0.001
+  batch_size: 1
+  smoothing_delta: 0.1
+
+dgfm_plus:
+  eta: 0.001
+  small_batch: 2
+  large_batch: 4
+  restart_period: 2
+  restart_mixing_rounds: 1
+  smoothing_delta: 0.1
+
+distributed:
+  execution: cpu_process
+  backend: gloo
+  topology: complete
+  comparison_worker: 8
+  scaling_workers: [1, 2, 8]
+  split_mode: total_batch_fixed
+  shuffle_partitions: true
+  rng_mode: rank_schedule
+
+methods:
+  sfo: []
+  szo: [NOG-ZO, ME-DOL-ZO]
+
+cpu_process:
+  threads_per_rank: 1
+  process_group_timeout_seconds: 60
+  launch_timeout_seconds: 120
+
+equivalence:
+  methods: [NOG-ZO, ME-DOL-ZO]
+  workers: [1, 2, 8]
+  seeds: [0]
+  relative_tolerance: 1.0e-5
+  absolute_tolerance: 1.0e-7
+
+wandb:
+  enabled: false

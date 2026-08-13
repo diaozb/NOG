@@ -15,6 +15,7 @@ logs/v4_extended_budget_*.log
 # actively written by background experiments. Commit the compact summaries in
 # zo_experiments/ instead.
 outputs/distributed_zo/
+outputs/distributed_cpu_zo/
 
 # Local edit/merge backups are not reproducibility artifacts.
 *.orig

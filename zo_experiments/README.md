@@ -1,15 +1,16 @@
 # ZO experiments: pilot selection and formal results
 
-> Status date: 2026-08-08. Pilot results below were used only for parameter
+> Status date: 2026-08-12. Pilot results below were used only for parameter
 > selection. The independently seeded 20-seed formal results are reported
 > separately and must not be mixed with the pilot estimates.
 
 ## 1. Current status
 
-The fixed-work epsilon-scaling experiment and Steps ZO-5B/5C are complete.
-All 80 frozen method-seed tasks finished. There is no remaining formal process
-running in the background. Dimension scaling, worker scaling, and optional
-real-data checks remain separate future experiments.
+The fixed-work epsilon-scaling experiment, anomaly replication, and Steps
+ZO-7A/7B/7C dimension sensitivity and ZO-8A/8B/8C logical-worker sensitivity
+and 1/2/8-worker real-process equivalence are complete. The 20-seed a9a and
+ijcnn1 formal real-data experiment is also complete. There is no ZO process
+running in the background.
 
 | Stage | Status |
 |---|---|
@@ -25,10 +26,14 @@ real-data checks remain separate future experiments.
 | ZO-6B: frozen-config anomaly-seed replication | Complete (20/20) |
 | ZO-6C: replication comparison and budget decision | Complete |
 | ZO-7A: fixed-configuration dimension calibration | Complete (16/16) |
-| ZO-7B: formal fixed-configuration dimension sensitivity | Running (240 tasks) |
-| ZO-8: worker scaling | Not started |
-| ZO-9: real-process and optional real-data checks | Not started |
-| ZO-10: final report, paper figures, and packaging | Not started |
+| ZO-7B: formal fixed-configuration dimension sensitivity | Complete (240/240) |
+| ZO-7C: audited merge, ratios, CIs, figures, and report | Complete (320/320) |
+| ZO-8A: logical-worker calibration | Complete (16/16) |
+| ZO-8B: formal logical-worker sensitivity | Complete (240/240 new tasks) |
+| ZO-8C: audited merge, CIs, figures, and report | Complete (320/320) |
+| ZO-9A/B: 1/2/8-worker real-process equivalence | Complete (6/6) |
+| ZO-9C: a9a/ijcnn1 calibration and formal experiment | Complete (160/160 formal tasks) |
+| ZO-10: final report, paper figures, and packaging | Complete |
 
 ## 2. Formal result entry point
 
@@ -71,8 +76,44 @@ dimension-100 formal trajectories. The primary common thresholds are 0.05 and
 0.03, and the fixed-configuration result is explicitly limited to qualitative
 dimension sensitivity.
 
-## 3. Pilot protocol
+Step ZO-7C is complete. The full audit, absolute metrics, same-seed paired
+ratios, joint-seed bootstrap intervals, figures, censoring table, and claim
+boundary are in [dimension/README.md](dimension/README.md). All primary points
+have 20/20 hits. NOG-ZO retains lower depth across d=25--200, but the relative
+slopes do not recover the worst-case dimension powers; this result must remain
+a fixed-configuration sensitivity statement.
 
+![Dimension paired ratios](dimension/figures/dimension_ratios.png)
+
+Step ZO-8 is complete. The frozen logical-worker protocol uses m=1,2,4,8,
+20 formal seeds, and the same d=100 candidate parameters at every worker count.
+The m=1,2,4 run contributes 240 new tasks and the hash-audited m=8 formal run
+contributes 80 reused tasks. The complete report is
+[worker/README.md](worker/README.md).
+
+At epsilon=0.05, NOG-ZO has 20/20 hits at every worker count. Its mean
+first-hit depth and total work remain essentially invariant from m=1 to m=8,
+while mean per-worker work decreases from 219,340.8 to 27,443.2. The fitted
+per-worker slope is -0.9997 with a 95% bootstrap interval
+[-1.0011,-0.9984]. DGFM+/m=2 has 18/20 hits, so its conditional estimates are
+explicitly censored. These are logical work-accounting results, not measured
+multi-process speedups.
+
+![Logical-worker accounting](worker/figures/worker_relative_to_m1.png)
+
+Step ZO-9 is complete. The real Gloo-process equivalence evidence is in
+[process_equivalence/README.md](process_equivalence/README.md): NOG-ZO and
+ME-DOL-ZO passed all 1/2/8-worker numerical and accounting checks, with maximum
+trajectory difference $5.96\times10^{-8}$. This is an equivalence audit, not a
+wall-clock speedup result.
+
+The separately calibrated, 20-seed a9a/ijcnn1 experiment is in
+[real_data/README.md](real_data/README.md). NOG-ZO obtains competitive
+optimization quality, but does not reproduce the synthetic depth advantage;
+this unfavorable transfer result is retained explicitly.
+
+
+## 3. Pilot protocol
 The four methods are NOG-ZO, ME-DOL-ZO, DGFM, and DGFM+. They are evaluated
 on
 
@@ -177,8 +218,12 @@ any later anomaly rerun must retain the frozen configuration.
 - Completed formal audit manifest: [formal/analysis_manifest.json](formal/analysis_manifest.json)
 - Formal Step ZO-5B report:
   [formal/README.md](formal/README.md)
+- Dimension Step ZO-7C report:
+  [dimension/README.md](dimension/README.md)
 
 Regenerate the current snapshot from the repository root:
+- Worker Step ZO-8C report:
+  [worker/README.md](worker/README.md)
 
 ~~~bash
 conda run -n NOG python zo_experiments/generate_pilot_snapshot.py

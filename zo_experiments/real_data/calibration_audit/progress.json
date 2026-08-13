@@ -1,0 +1,35 @@
+{
+  "status": "complete",
+  "paper_result": false,
+  "selection_before_formal_runs": true,
+  "target_total_work": 98304,
+  "worker_count": 8,
+  "pilot_seeds": [
+    309,
+    310,
+    311
+  ],
+  "formal_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "selected_count": 8
+}

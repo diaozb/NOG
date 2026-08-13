@@ -1,0 +1,155 @@
+{
+  "step": "ZO-8C",
+  "status": "pass",
+  "errors": [],
+  "rows": 194080,
+  "tasks_expected": 320,
+  "tasks_observed": 320,
+  "workers": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "methods": [
+    "NOG-ZO",
+    "ME-DOL-ZO",
+    "DGFM",
+    "DGFM+"
+  ],
+  "formal_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "target_total_work": 983040,
+  "new_results": "outputs/distributed_zo/zo_theory_validation/worker/formal_fixed_params_eps005/results.csv",
+  "new_results_sha256": "15092af6a1e66cd5d5fd163cb3280ec7fb52486eafdc6d440621d9eec4afca09",
+  "reference_results": "outputs/distributed_zo/zo_theory_validation/formal/fixed_work_983040/results.csv",
+  "reference_results_sha256": "92f8918e8b0a4fa80363f95223615d4a6b9e8a2525a01229284feae5a4663cfc",
+  "manifest_sha256": "fb4f465cae6f794f13036712b6eb241caf23082f302cd8106cb93a619f0b4f3a",
+  "freeze_sha256": "6849e49a7481d99198ec9215b865000249adf622ca8325af92ecd48c51b09f0e",
+  "task_checkpoint_counts": {
+    "m=1/NOG-ZO": [
+      240
+    ],
+    "m=1/ME-DOL-ZO": [
+      321
+    ],
+    "m=1/DGFM": [
+      961
+    ],
+    "m=1/DGFM+": [
+      905
+    ],
+    "m=2/NOG-ZO": [
+      240
+    ],
+    "m=2/ME-DOL-ZO": [
+      321
+    ],
+    "m=2/DGFM": [
+      961
+    ],
+    "m=2/DGFM+": [
+      904
+    ],
+    "m=4/NOG-ZO": [
+      240
+    ],
+    "m=4/ME-DOL-ZO": [
+      321
+    ],
+    "m=4/DGFM": [
+      961
+    ],
+    "m=4/DGFM+": [
+      904
+    ],
+    "m=8/NOG-ZO": [
+      240
+    ],
+    "m=8/ME-DOL-ZO": [
+      320
+    ],
+    "m=8/DGFM": [
+      961
+    ],
+    "m=8/DGFM+": [
+      904
+    ]
+  },
+  "task_final_work": {
+    "m=1/NOG-ZO": [
+      983040
+    ],
+    "m=1/ME-DOL-ZO": [
+      983040
+    ],
+    "m=1/DGFM": [
+      983040
+    ],
+    "m=1/DGFM+": [
+      982944
+    ],
+    "m=2/NOG-ZO": [
+      983040
+    ],
+    "m=2/ME-DOL-ZO": [
+      983040
+    ],
+    "m=2/DGFM": [
+      983040
+    ],
+    "m=2/DGFM+": [
+      982464
+    ],
+    "m=4/NOG-ZO": [
+      983040
+    ],
+    "m=4/ME-DOL-ZO": [
+      983040
+    ],
+    "m=4/DGFM": [
+      983040
+    ],
+    "m=4/DGFM+": [
+      982656
+    ],
+    "m=8/NOG-ZO": [
+      983040
+    ],
+    "m=8/ME-DOL-ZO": [
+      983040
+    ],
+    "m=8/DGFM": [
+      983040
+    ],
+    "m=8/DGFM+": [
+      983040
+    ]
+  },
+  "selected_parameters": {
+    "NOG-ZO": "{\"M\":2,\"eta\":0.01,\"smooth_B\":8}",
+    "ME-DOL-ZO": "{\"epoch_length\":12,\"theory_multiplier\":60.0}",
+    "DGFM": "{\"eta\":0.05}",
+    "DGFM+": "{\"eta\":0.05}"
+  }
+}

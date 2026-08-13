@@ -1,0 +1,20 @@
+{
+  "a9a": {
+    "file": "a9a",
+    "compressed": false,
+    "n": 32561,
+    "d": 123,
+    "sha256": "f5d5ffd8d865ff41328e7ee043e4b020816914ff6843ff15b98905ddbedce906",
+    "path": "data/libsvm/a9a.libsvm",
+    "observed_sha256": "f5d5ffd8d865ff41328e7ee043e4b020816914ff6843ff15b98905ddbedce906"
+  },
+  "ijcnn1": {
+    "file": "ijcnn1.bz2",
+    "compressed": true,
+    "n": 49990,
+    "d": 22,
+    "sha256": "16506cad788cf7c9607454150ed1994788204bac2ff4c9cb3b320036b6950d3f",
+    "path": "data/libsvm/ijcnn1.libsvm",
+    "observed_sha256": "16506cad788cf7c9607454150ed1994788204bac2ff4c9cb3b320036b6950d3f"
+  }
+}

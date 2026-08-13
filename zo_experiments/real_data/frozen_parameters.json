@@ -1,0 +1,149 @@
+{
+  "status": "frozen",
+  "stage": "ZO-9C3",
+  "selection_happened_before_formal_runs": true,
+  "seed_sets_disjoint": true,
+  "pilot_seeds": [
+    309,
+    310,
+    311
+  ],
+  "formal_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "worker_count": 8,
+  "calibration_target_total_work": 98304,
+  "formal_target_total_work": 983040,
+  "eval_every": 384,
+  "eval_smooth_B": 32,
+  "eval_data_B": 256,
+  "selection_metric": "mean_final_objective_then_stationarity",
+  "base_config": "configs/distributed_zo_real_data_calibration_final_boundary.yaml",
+  "selected_candidates": [
+    {
+      "dataset": "a9a",
+      "method": "DGFM",
+      "parameters": {
+        "eta": 0.5
+      },
+      "calibration_final_objective_mean": 0.4002272486686706,
+      "calibration_final_objective_std": 0.0038077670340607,
+      "calibration_final_stat_proxy_mean": 0.0290742938717206,
+      "calibration_final_stat_proxy_std": 0.013595539368587
+    },
+    {
+      "dataset": "a9a",
+      "method": "DGFM+",
+      "parameters": {
+        "eta": 0.2
+      },
+      "calibration_final_objective_mean": 0.4498215715090434,
+      "calibration_final_objective_std": 0.0065862573356794,
+      "calibration_final_stat_proxy_mean": 0.0381998444596926,
+      "calibration_final_stat_proxy_std": 0.0073373141009578
+    },
+    {
+      "dataset": "a9a",
+      "method": "ME-DOL-ZO",
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 30000.0
+      },
+      "calibration_final_objective_mean": 0.4052156309286753,
+      "calibration_final_objective_std": 0.0146650959240598,
+      "calibration_final_stat_proxy_mean": 0.0268929762144883,
+      "calibration_final_stat_proxy_std": 0.0101642200057295
+    },
+    {
+      "dataset": "a9a",
+      "method": "NOG-ZO",
+      "parameters": {
+        "M": 1,
+        "eta": 3e-05,
+        "smooth_B": 1
+      },
+      "calibration_final_objective_mean": 0.7491312424341837,
+      "calibration_final_objective_std": 0.0008959013580553,
+      "calibration_final_stat_proxy_mean": 0.3584879239400227,
+      "calibration_final_stat_proxy_std": 0.0045951946704524
+    },
+    {
+      "dataset": "ijcnn1",
+      "method": "DGFM",
+      "parameters": {
+        "eta": 2.0
+      },
+      "calibration_final_objective_mean": 0.1950196276108423,
+      "calibration_final_objective_std": 0.0062649915640204,
+      "calibration_final_stat_proxy_mean": 0.0180784969901045,
+      "calibration_final_stat_proxy_std": 0.0029849873843161
+    },
+    {
+      "dataset": "ijcnn1",
+      "method": "DGFM+",
+      "parameters": {
+        "eta": 0.1
+      },
+      "calibration_final_objective_mean": 0.2205396592617035,
+      "calibration_final_objective_std": 0.001576126443619,
+      "calibration_final_stat_proxy_mean": 0.0436598416417837,
+      "calibration_final_stat_proxy_std": 0.0199674843416239
+    },
+    {
+      "dataset": "ijcnn1",
+      "method": "ME-DOL-ZO",
+      "parameters": {
+        "epoch_length": 6,
+        "theory_multiplier": 30000.0
+      },
+      "calibration_final_objective_mean": 0.2017747511466344,
+      "calibration_final_objective_std": 0.00624329779905,
+      "calibration_final_stat_proxy_mean": 0.0208571677406628,
+      "calibration_final_stat_proxy_std": 0.0042129508007672
+    },
+    {
+      "dataset": "ijcnn1",
+      "method": "NOG-ZO",
+      "parameters": {
+        "M": 1,
+        "eta": 0.0001,
+        "smooth_B": 1
+      },
+      "calibration_final_objective_mean": 0.7790220379829407,
+      "calibration_final_objective_std": 5.484867862652413e-05,
+      "calibration_final_stat_proxy_mean": 0.3069713513056437,
+      "calibration_final_stat_proxy_std": 0.0064000816912194
+    }
+  ],
+  "input_sha256": {
+    "configs/distributed_zo_real_data_calibration_final_boundary.yaml": "a5963c791da1392fcde1cdd35db7d3f0f7e5820beebb53b3237a32fc0aa1b99c",
+    "zo_experiments/real_data/calibration_audit/selected_parameters.csv": "35549fae3cdd7cd4d7281ffbe3e7177595d9ede89bdedba2ac2765cf6ee21576",
+    "zo_experiments/real_data/calibration_audit/replicated_summary.csv": "174b09509e4a5c5f197b84e909ff957281b8ee2fd4986787bd84cc1f502e0e52",
+    "zo_experiments/real_data/calibration_audit/progress.json": "c475ba42cf6fcc77b68f1f9fa78df2525dd219c181218fa1be38eb407157fea2",
+    "zo_experiments/real_data/calibration_audit/data_manifest.json": "bee7fb5f9c7254e1be2739f65ed8e763746846505e9991dc7b8e33c3d9f436fb",
+    "src/distributed/algorithms.py": "66907aa54765b77cf01b1d66a9f47a0304a4238aaa0fe374c5510a0bab9a6549",
+    "src/distributed/common.py": "f59c2285f1ee2db0b8818a6103bb5378b5dcfb9618bd3b56b73205f2bcd4e24d",
+    "src/distributed/real_data.py": "d27774644582dc8cb1fae5ffacf6bac7c7cd75a43d0fd4dc2150cec57949e199",
+    "src/distributed/zo_refine_pilot.py": "f33e7c8ed3e53e051a19bb2a73bed7a8ec9c046cd90d2d2def1f8f54bd506707",
+    "src/distributed/zo_real_data_formal.py": "742235736f54bc26f20de19d2679dcc722b130119279d01d139b67ad07e9c3c6"
+  }
+}

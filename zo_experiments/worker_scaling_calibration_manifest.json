@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "step": "ZO-8A",
+  "status": "frozen",
+  "created_at": "2026-08-10",
+  "selection_happened_before_worker_calibration_runs": true,
+  "paper_result": false,
+  "role": "worker_scaling_runtime_and_hit_calibration",
+  "claim_boundary": "logical single-process worker sensitivity and exact training-work accounting; not wall-clock or multi-process speedup",
+  "dimension": 100,
+  "workers": [1, 2, 4, 8],
+  "reference_worker": 8,
+  "calibration_seed": 301,
+  "pilot_seeds": [100, 101, 102, 103, 104],
+  "formal_seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+  "anomaly_seeds": [200, 201, 202, 203, 204],
+  "dimension_calibration_seed": 300,
+  "all_seed_roles_disjoint": true,
+  "target_total_work": 983040,
+  "eval_smooth_B": 256,
+  "eval_data_B": 512,
+  "confirmed_hit_consecutive": 2,
+  "primary_epsilons": [0.05, 0.03],
+  "descriptive_censored_epsilons": [0.02, 0.018, 0.016, 0.015, 0.01],
+  "parameter_policy": "reuse the d=100, m=8 frozen candidates without worker-specific retuning",
+  "evaluation_interval_policy": {
+    "purpose": "keep training work between checkpoints approximately invariant within each method as worker count changes",
+    "NOG-ZO": {"1": 4, "2": 4, "4": 4, "8": 4},
+    "ME-DOL-ZO": {"1": 96, "2": 48, "4": 24, "8": 12},
+    "DGFM": {"1": 32, "2": 16, "4": 8, "8": 4},
+    "DGFM+": {"1": 32, "2": 16, "4": 8, "8": 4},
+    "note": "ME-DOL checkpoints are restricted to complete 12-round epochs; its reference-worker effective interval is therefore 12 rather than the generic value 4"
+  },
+  "calibration_acceptance_rule": "both primary epsilons must have confirmed hits for every method-worker pair on seed 301; otherwise formal primary thresholds are reduced before any formal worker run",
+  "planned_primary_endpoint": "within-method same-seed confirmed-first-hit depth versus worker count",
+  "planned_secondary_endpoints": [
+    "within-method first-hit total work and per-worker work versus worker count",
+    "terminal total work remains at or immediately below the common budget",
+    "terminal per-worker work is approximately inversely proportional to worker count",
+    "terminal stationarity proxy remains numerically stable"
+  ],
+  "frozen_candidates_source": "zo_experiments/frozen_parameters.json",
+  "reference_worker_formal_source": "outputs/distributed_zo/zo_theory_validation/formal/fixed_work_983040/results.csv",
+  "input_sha256": {
+    "zo_experiments/frozen_parameters.json": "6849e49a7481d99198ec9215b865000249adf622ca8325af92ecd48c51b09f0e",
+    "outputs/distributed_zo/zo_theory_validation/formal/fixed_work_983040/results.csv": "92f8918e8b0a4fa80363f95223615d4a6b9e8a2525a01229284feae5a4663cfc"
+  }
+}

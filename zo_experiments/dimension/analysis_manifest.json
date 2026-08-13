@@ -1,0 +1,38 @@
+{
+  "analysis": "Step ZO-7C",
+  "paper_result_role": "formal_fixed_configuration_dimension_sensitivity",
+  "claim_boundary": "qualitative dimension trend only; not exact dimension exponents",
+  "input_sha256": {
+    "outputs/distributed_zo/zo_theory_validation/dimension/formal_fixed_params_eps003_005/results.csv": "996e7967a452ba02b87c66c03684a1a2db252868951e6efea795702f01bb4b84",
+    "outputs/distributed_zo/zo_theory_validation/formal/fixed_work_983040/results.csv": "92f8918e8b0a4fa80363f95223615d4a6b9e8a2525a01229284feae5a4663cfc",
+    "zo_experiments/dimension_scaling_manifest.json": "b1169439df9218e5ae8ba8d83fbc51f18cada23fd3cfc4ee1bf1f278f26d2358",
+    "zo_experiments/frozen_parameters.json": "6849e49a7481d99198ec9215b865000249adf622ca8325af92ecd48c51b09f0e"
+  },
+  "confirmed_hit_consecutive": 2,
+  "primary_epsilons": [
+    0.05,
+    0.03
+  ],
+  "descriptive_epsilons": [
+    0.02,
+    0.018,
+    0.016,
+    0.015,
+    0.01
+  ],
+  "bootstrap_repetitions": 2000,
+  "bootstrap_seed": 20260809,
+  "generated_sha256": {
+    "zo_experiments/dimension/audit.json": "0d565d5225e00903fcffbed8e77e1708a81aea280e14ff293e994f3f9b4a3478",
+    "zo_experiments/dimension/dimension_per_seed.csv": "284b7b509486fb298e882c3e15e733556a2738c15f83e9c7d857d735003c9f37",
+    "zo_experiments/dimension/dimension_summary.csv": "db4fb60c0876008b9030fe5dfab486b1a57c3e1ce603b84e7849fe62bfb72305",
+    "zo_experiments/dimension/dimension_ratios.csv": "92edc0261bc667a6020fc64e2c4c5064d860dd4892eb66f27a8520faf098aeb0",
+    "zo_experiments/dimension/dimension_trends.csv": "b2ce6054bf19794d776d1a5e2385237f37b753786e7bfa66e6f7896109ce6a60",
+    "zo_experiments/dimension/dimension_trends.json": "a9ca3aed9f4cb19df20d2282cd483a9db95aa9da3610230447be9992a3203779",
+    "zo_experiments/dimension/README.md": "b44a81951db74e9b536ab75905b099eab9c9c84b3b264127a493cd14fd22cf72",
+    "zo_experiments/dimension/figures/dimension_hit_depth_work.png": "2ea6f1f19f2caaab3bc520f893697a84767699a43c1d7a4eada620399e51cbd6",
+    "zo_experiments/dimension/figures/dimension_hit_depth_work.pdf": "96cd1a79fd508b288336594296652dceded7be64e62d249701fb9d0d165549f6",
+    "zo_experiments/dimension/figures/dimension_ratios.png": "39536793d7041653722a67a7b1c24f79b8039911cfb57e1b83c19ade10fdf93f",
+    "zo_experiments/dimension/figures/dimension_ratios.pdf": "4c7ea31934c84964c46aac11c538dbda17415cf2cb9743c893ea69da57a27791"
+  }
+}

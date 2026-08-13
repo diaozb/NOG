@@ -13,10 +13,21 @@
 - [ZO 实验计划与执行记录](ZO_plan.md)
 - [早期 SFO/SZO 共同分布式基线](SHARED_DISTRIBUTED_FO_ZO_BASELINE.md)
 
-ZO 的固定参数 epsilon-scaling、异常复核与理论解释已经完成；固定配置的
-dimension-scaling（Step ZO-7B）仍在运行。原始逐 checkpoint 轨迹保留在本地
-`outputs/distributed_zo/`，GitHub 提交的是 `zo_experiments/` 中经过审计的紧凑表格、
-图像、参数 manifest 和报告。
+## 2026 wide-epsilon 实验：当前主结果
+
+FO wide-epsilon 的删失感知报告、正式/worker-robustness 汇总、审计清单和复现命令
+位于 [results/epsilon_scaling_v2](results/epsilon_scaling_v2/analysis/epsilon_scaling_report.md)。
+原始轨迹不提交 Git；紧凑结果包通过 `package_manifest.json` 记录全部文件哈希。
+
+ZO 的固定参数 epsilon-scaling、异常复核、理论解释、固定配置 dimension-scaling
+和 logical-worker sensitivity（Steps ZO-7/8）已经完成。worker 结果入口为
+[zo_experiments/worker/README.md](zo_experiments/worker/README.md)。原始逐 checkpoint
+轨迹保留在本地 `outputs/distributed_zo/`，GitHub 提交的是 `zo_experiments/` 中经过
+审计的紧凑表格、图像、参数 manifest 和报告。
+
+ZO-9 的 1/2/8-worker 多进程等价性审计与 a9a/ijcnn1 真实数据正式结果也已完成，
+入口分别为 [process equivalence](zo_experiments/process_equivalence/README.md) 和
+[real data](zo_experiments/real_data/README.md)。
 
 ## 目录约定
 
