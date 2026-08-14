@@ -4,6 +4,11 @@
 > selection. The independently seeded 20-seed formal results are reported
 > separately and must not be mixed with the pilot estimates.
 
+Project navigation: [repository README](../README.md) ·
+[complete result tables](ALL_EXPERIMENT_RESULTS.md) ·
+[detailed experiment explanation](EXPERIMENT_DETAILED_EXPLANATION.md) ·
+[experiment plan](PLAN.md)
+
 ## 1. Current status
 
 The fixed-work epsilon-scaling experiment, anomaly replication, and Steps
@@ -212,9 +217,11 @@ any later anomaly rerun must retain the frozen configuration.
 - Combined pilot snapshot: [pilot_snapshot.csv](pilot_snapshot.csv)
 - Figure-generation script:
   [generate_pilot_snapshot.py](generate_pilot_snapshot.py)
-- Full experiment plan: [ZO_plan.md](../ZO_plan.md)
+- Full experiment plan: [PLAN.md](PLAN.md)
 - Frozen formal parameters:
   [frozen_parameters.json](frozen_parameters.json)
+- Portable SHA256-identical pilot inputs for clean-clone reproduction:
+  [pilot_inputs/](pilot_inputs/)
 - Completed formal audit manifest: [formal/analysis_manifest.json](formal/analysis_manifest.json)
 - Formal Step ZO-5B report:
   [formal/README.md](formal/README.md)

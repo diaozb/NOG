@@ -775,6 +775,273 @@ pipeline is reproduced by successively running the modules
 \path{src.distributed.theory_validation_package} in the \path{NOG} Conda
 environment.
 
+\subsection{Zeroth-order experiments}\label{app:zo-experiments}
+
+\paragraph{Objective, estimators, and accounting.}
+The main ZO experiment uses the same SyntheticMaxSinL1 objective in
+Eq.~\eqref{eq:fo-synthetic-objective}, with $d=100$, $n=4096$, $R=1$,
+$\lambda=10^{-3}$, target Goldstein radius $0.1$, and eight logical workers.
+All methods start at the origin and use a two-point estimator of the form
+\begin{equation}\label{eq:zo-two-point-estimator}
+ \widehat \vg_h(\vx;\vv,\xi)
+ =\frac{d}{2h}\bigl(F(\vx+h\vv;\xi)-F(\vx-h\vv;\xi)\bigr)\vv,
+ \qquad \vv\sim\operatorname{Unif}(\mathbb S^{d-1}).
+\end{equation}
+The two function values share the direction and data sample and count as two
+SZO calls.  DGFM+'s variance-reduced difference evaluates both its current and
+reference locations and is charged accordingly.  We report dependency-graph
+communication depth and total training SZO calls; evaluation calls are kept
+separate.  The synthetic formal run is a single-process dependency simulation,
+not a wall-clock multi-machine benchmark.
+
+\paragraph{Calibration and frozen protocol.}
+Candidate configurations receive the same maximum training budget and are
+ranked first by confirmed-hit coverage, then by first-hit depth, and finally by
+work.  Pilot seeds $100$--$104$ are used for selection; formal seeds $0$--$19$
+are not accessed until after freezing.  The formal run uses an equal cap of
+$983{,}040$ function evaluations per method and seed.  Table~\ref{tab:zo-frozen}
+lists the selected parameters and inherited implementation constants.  They
+are locally selected within the searched grids, not certified global optima.
+
+\begin{table}[t]
+\centering
+\caption{Frozen ZO configurations.  The final depth is the largest valid
+dependency depth within the common work cap.}
+\label{tab:zo-frozen}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}llllrr@{}}
+\toprule
+Method & Selected parameters & Batch parameters & Smoothing $h$ & Final depth & Work cap \\
+\midrule
+NOG-ZO & $M=2$, $\eta=0.01$, 8 directions & global data batch 64 & 0.05 & 960 & 983,040 \\
+ME-DOL-ZO & epoch 12, multiplier 60 & 1 direction, 16 samples/worker & 0.05 & 3,840 & 983,040 \\
+DGFM & $\eta=0.05$ & data batch 16 & 0.10 & 7,680 & 983,040 \\
+DGFM+ & $\eta=0.05$, restart period 48 & small/large batch 8/64 & 0.10 & 7,224 & 983,040 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\paragraph{Stationarity proxy, thresholds, and inference.}
+At the method's valid checkpoints, we estimate the smoothed-gradient norm with
+a method-independent bank of 256 directions and 512 data samples per direction
+($131{,}072$ evaluation samples).  This is an empirical proxy for Goldstein
+stationarity, not the exact distance to the Goldstein subdifferential.  A hit
+is confirmed only when two consecutive valid checkpoints are at or below
+$\epsilon$; the first checkpoint in this pair supplies the depth and work.
+One trajectory is reused for the 36 thresholds
+\begin{multline*}
+\{0.20,0.18,0.16,0.14,0.12,0.10,0.09,0.08,0.07,0.06,0.05,0.04,0.03,\\
+0.025,0.020,0.018,0.016,0.015,0.014,0.013,0.012,0.0115,0.011,\\
+0.01075,0.0105,0.01025,0.010,0.0095,0.009,0.008,0.007,0.006,\\
+0.005,0.004,0.003,0.002\}.
+\end{multline*}
+Ratios are formed within formal seed and then averaged.  Confidence intervals
+use 2,000 paired-seed bootstrap resamples.  Trend fits include only thresholds
+with 20/20 paired hits; partial-hit conditional means are never substituted
+for complete-sample results.
+
+\paragraph{Absolute first-hit results.}
+Table~\ref{tab:zo-absolute} reports representative points as
+``hits/20; mean depth; mean work.''  Means are conditional only when the hit
+count is below 20.  Figure~\ref{fig:zo-hit-depth-work} displays the full grid
+together with hit rates, which must be consulted once censoring begins.
+
+\begin{table}[t]
+\centering
+\caption{Representative ZO first-hit results. A dash denotes no confirmed hit.}
+\label{tab:zo-absolute}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}rllll@{}}
+\toprule
+$\epsilon$ & NOG-ZO & ME-DOL-ZO & DGFM & DGFM+ \\
+\midrule
+0.200 & 20/20; 103.4; 105,881.6 & 20/20; 165.0; 42,240.0 & 20/20; 367.6; 47,052.8 & 20/20; 364.0; 49,856.0 \\
+0.100 & 20/20; 180.2; 184,524.8 & 20/20; 340.2; 87,091.2 & 20/20; 855.2; 109,465.6 & 20/20; 872.0; 118,950.4 \\
+0.050 & 20/20; 214.4; 219,545.6 & 20/20; 496.2; 127,027.2 & 20/20; 1,296.0; 165,888.0 & 20/20; 1,410.0; 192,076.8 \\
+0.030 & 20/20; 229.2; 234,700.8 & 20/20; 622.8; 159,436.8 & 20/20; 1,652.4; 211,507.2 & 20/20; 2,609.6; 355,302.4 \\
+0.020 & 20/20; 237.2; 242,892.8 & 20/20; 780.6; 199,833.6 & 20/20; 1,993.6; 255,180.8 & 0/20; ---; --- \\
+0.018 & 20/20; 240.2; 245,964.8 & 20/20; 852.0; 218,112.0 & 20/20; 2,111.6; 270,284.8 & 0/20; ---; --- \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/zo_formal_hit_depth_work.pdf}
+\caption{ZO hit rate and conditional absolute first-hit depth/work on the full
+threshold grid.  Conditional curves must be read together with hit rates once
+right-censoring begins.}
+\label{fig:zo-hit-depth-work}
+\end{figure}
+
+\paragraph{Complete-pair scaling and relation to theory.}
+For fixed $d$ and $\delta$, Theorem~\ref{thm:dist-ZO} and the reference bounds
+in Table~\ref{tab:res-dist} suggest depth-ratio powers $\epsilon^{-4/3}$,
+$\epsilon^{-7/3}$, and $\epsilon^{-4/3}$ for ME-DOL-ZO, DGFM, and DGFM+
+relative to NOG-ZO.  The analogous work powers are $\epsilon^0$,
+$\epsilon^{-1}$, and $\epsilon^0$.  Table~\ref{tab:zo-trends} gives the
+finite-range fits.  The positive depth direction is reproduced for all three
+baselines, but no fitted interval contains its worst-case reference exponent.
+The work directions match only DGFM.  Thus the experiment supports a
+qualitative communication trend, not exact exponent recovery.
+
+\begin{table}[t]
+\centering
+\caption{Paired ZO trends on complete-hit intervals. Slopes regress the log
+mean ratio on $\log(1/\epsilon)$; brackets are 95\% bootstrap intervals.}
+\label{tab:zo-trends}
+\scriptsize
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Baseline & $\epsilon$ interval & Points & Depth endpoints & Depth slope & Work endpoints \\
+\midrule
+ME-DOL-ZO & $0.200$--$0.018$ & 16 & $1.596\to3.547$ & $0.319$ [$0.308,0.331$] & $0.399\to0.887$ \\
+DGFM      & $0.200$--$0.018$ & 16 & $3.556\to8.791$ & $0.363$ [$0.357,0.369$] & $0.444\to1.099$ \\
+DGFM+     & $0.200$--$0.030$ & 13 & $3.520\to11.387$ & $0.529$ [$0.496,0.561$] & $0.471\to1.514$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Right censoring and trajectory anomaly.}
+Below the complete-pair boundaries, the fixed work cap creates non-random
+right censoring.  At $\epsilon=0.016$, the NOG-ZO/ME-DOL-ZO/DGFM/DGFM+ hit
+counts are $18/20$, $20/20$, $20/20$, and $0/20$; at $0.015$ they are
+$11/20$, $20/20$, $20/20$, and $0/20$; at $0.014$ they are $1/20$, $20/20$,
+$20/20$, and $0/20$; and at $0.013$ they are $0/20$, $12/20$, $20/20$, and
+$0/20$.  No method hits $0.010$ under the common cap.  These partial results
+are reported as attainment diagnostics rather than first-hit ratios.
+
+NOG-ZO reaches its mean confirmed proxy floor $0.01493$ after only $25.4\%$
+of the work and then rebounds to $1.97$ times that floor.  The same early-floor
+pattern appears on all five reserved anomaly seeds $200$--$204$: their mean
+floor is $0.01463$, reached at $25.4\%$ work, and the final/floor ratio is
+$1.92$.  Figure~\ref{fig:zo-anomaly} shows this independent replication.  We
+therefore do not extend the same unstable frozen NOG-ZO trajectory merely to
+obtain smaller-$\epsilon$ hits; such an extension would spend more work after
+the useful part of the trajectory without addressing the rebound.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.93\textwidth]{figures/zo_anomaly_replication.pdf}
+\caption{Formal versus reserved-seed replication of the ZO stationarity-floor
+and rebound diagnostics.}
+\label{fig:zo-anomaly}
+\end{figure}
+
+\paragraph{Dimension sensitivity.}
+Without retuning, we repeat all four methods for $d\in\{25,50,100,200\}$ at
+$\epsilon\in\{0.05,0.03\}$.  Every method/dimension/threshold cell has 20/20
+hits (320/320 method--dimension--seed tasks pass audit), and NOG-ZO retains
+lower depth than every baseline.  However, only the two ME-DOL-ZO dimension
+slopes are positive; DGFM and DGFM+ are flat or decreasing.  None of the six
+depth-slope intervals contains its theoretical dimension power.  This is a
+fixed-configuration robustness check, not an empirical recovery of dimension
+exponents.  Figure~\ref{fig:zo-dimension} gives all paired ratios.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/zo_dimension_ratios.pdf}
+\caption{Same-seed baseline/NOG-ZO ratios across $d=25,50,100,200$ at the two
+fully attained thresholds.}
+\label{fig:zo-dimension}
+\end{figure}
+
+\paragraph{Worker sensitivity and process equivalence.}
+At $\epsilon=0.05$, NOG-ZO has 20/20 hits for $m\in\{1,2,4,8\}$.  Its mean
+depth changes only from $214.2$ to $214.4$, total work from $219{,}340.8$ to
+$219{,}545.6$, and per-worker work from $219{,}340.8$ to $27{,}443.2$.  The
+log--log slopes are $0.0003$ [$-0.0011,0.0016$] for depth, the same for total
+work, and $-0.9997$ [$-1.0011,-0.9984$] for per-worker work.  This verifies the
+logical work decomposition in the simulator, not wall-clock speedup; the
+baselines also use different fixed per-worker/global batch conventions.
+Figure~\ref{fig:zo-workers} reports the full within-method comparison.
+
+An independent CPU/Gloo audit compares the logical simulator with separate
+processes for NOG-ZO and ME-DOL-ZO at 1, 2, and 8 workers.  All 6/6 tasks pass,
+with largest checkpoint-wise trajectory difference $5.96\times10^{-8}$.
+This validates numerical and accounting equivalence for those two methods,
+but is not a DGFM/DGFM+ equivalence or cluster-speed benchmark.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.94\textwidth]{figures/zo_worker_ratios.pdf}
+\caption{Within-method depth, total-work, and per-worker-work ratios relative
+to the one-worker configuration.}
+\label{fig:zo-workers}
+\end{figure}
+
+\paragraph{Real-data external-validity check.}
+We also optimize the capped-$\ell_1$ hinge objective
+\begin{equation}
+ \frac1n\sum_{i=1}^n\max\{1-y_i\va_i^\top\vx,0\}
+ +\frac{10^{-5}}n\sum_{j=1}^d\min\{|x_j|,2\}
+\end{equation}
+on the official a9a ($n=32{,}561$, $d=123$) and ijcnn1
+($n=49{,}990$, $d=22$) training sets.  Rows are $\ell_2$-normalized.  A
+separate calibration uses seeds $303$--$311$; the same 20 formal seed IDs and
+$983{,}040$-call cap are then used for reporting.  Table~\ref{tab:zo-real}
+gives terminal means.  NOG-ZO is competitive in proxy value, but its depth is
+$7{,}680$, versus $3{,}840$ for ME-DOL-ZO, on both data sets.  Consequently,
+the real-data study does not reproduce the synthetic communication advantage
+and is reported as an applicability boundary, not evidence of universal
+dominance.
+
+\begin{table}[t]
+\centering
+\caption{Real-data terminal results (means over 20 seeds); all methods use
+$983{,}040$ training function evaluations.}
+\label{tab:zo-real}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Data & Method & Objective & Proxy & Accuracy & Depth \\
+\midrule
+a9a & NOG-ZO & 0.3871 & 0.0182 & 0.8333 & 7,680 \\
+a9a & ME-DOL-ZO & 0.4059 & 0.0192 & 0.8338 & 3,840 \\
+a9a & DGFM & 0.3740 & 0.0155 & 0.8412 & 7,680 \\
+a9a & DGFM+ & 0.4052 & 0.0248 & 0.8292 & 6,822 \\
+ijcnn1 & NOG-ZO & 0.1920 & 0.0123 & 0.9045 & 7,680 \\
+ijcnn1 & ME-DOL-ZO & 0.1821 & 0.0148 & 0.9232 & 3,840 \\
+ijcnn1 & DGFM & 0.1859 & 0.0150 & 0.9256 & 7,680 \\
+ijcnn1 & DGFM+ & 0.1971 & 0.0207 & 0.9039 & 6,822 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\begin{minipage}[t]{0.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{figures/zo_a9a_curves.pdf}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{figures/zo_ijcnn1_curves.pdf}
+\end{minipage}
+\caption{Formal equal-work optimization curves on a9a (left) and ijcnn1
+(right), each averaged over 20 seeds.}
+\label{fig:zo-real}
+\end{figure}
+
+\paragraph{Reproducibility and audits.}
+The compact artifacts under \path{zo_experiments/} include frozen parameters,
+per-seed first hits, full summaries, paired ratios, bootstrap intervals,
+source/input hashes, and audit manifests.  The main formal audit observes all
+80 expected method--seed tasks and 48,500 checkpoints.  The dimension and
+worker audits observe 320/320 tasks each; the real-data audit verifies 160
+unique data--method--seed tasks.  From the repository root, the principal
+reports and figures can be regenerated with
+\path{python -m src.distributed.zo_formal_analysis},
+\path{python -m src.distributed.zo_theory_interpretation},
+\path{python -m src.distributed.zo_dimension_analysis},
+\path{python -m src.distributed.zo_worker_analysis}, and
+\path{python -m src.distributed.zo_real_data_analysis} in the \path{NOG}
+Conda environment.  The main-paper figure is regenerated by
+\path{nog_iclr2027_complete_source/figures/generate_zo_main_figure.py}.
+
 
 % \section{Proof of the Lower Bound}
 

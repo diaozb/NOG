@@ -9,8 +9,8 @@ nonsmooth nonconvex stochastic optimization 中精度要求 $\epsilon$ 对通信
 相关 FO 文档：
 
 - [完整实验设定、流程、结果与理论对照](EXPERIMENT_DETAILED_EXPLANATION.md)
-- [v4、v5、v6、v7 设定与结果图表](V4_V7_EXPERIMENT_COMPARISON.md)
 - [实验计划与完成记录](PLAN.md)
+- [历史 v2、v5--v7 结果归档](https://github.com/diaozb/NOG/tree/archive/legacy-experiments)
 
 本文档以 **theory validation v4** 为唯一主结果。v4 的 confirmatory 区间为
 $\epsilon=0.2\text{--}0.01$；同一冻结协议还留下了 $\epsilon<0.01$ 的探索性结果，
@@ -299,13 +299,10 @@ Runner 支持 fingerprint/SHA256 一致的原子 partial 恢复。Raw trajectori
 
 ## 历史与探索性版本
 
-以下文件保留用于审计和追溯，但不参与本 README 的主结论，也不应与 v4 拼接成一条
-同配置曲线：
+早期 v2、v5--v7、原始运行轨迹及旧截图已移入
+[`archive/legacy-experiments`](https://github.com/diaozb/NOG/tree/archive/legacy-experiments)
+分支。它们只用于审计与追溯，不参与本 README 的主结论，也不应与 v4 拼接为同配置曲线。
+其中 v2 使用不同的问题实例与统计口径；v5--v7 使用新的参数、seeds、batch schedule
+或预算，不能替换 v4 的正式数值。
 
-- [epsilon_scaling_v2](../results/epsilon_scaling_v2/)：问题实例、evaluation bank、算法
-  参数、work/depth 和删失统计口径均与 v4 不同；
-- [low_epsilon_v5_symmetric](../results/low_epsilon_v5_symmetric/)：使用新参数、新 seeds、
-  独立 batch schedule 和更高预算，预注册趋势/work verdict 未完全通过；
-- 后续未形成独立紧凑结果包的 v6/v7 探索不作为论文证据，也不用于替换 v4 数值。
-
-实验计划与完成记录见 [plan.md](PLAN.md)。
+实验计划与完成记录见 [PLAN.md](PLAN.md)。

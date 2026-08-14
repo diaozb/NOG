@@ -1,0 +1,4 @@
+method,candidate_id,candidate_parameters,final_stat_proxy_mean,final_stat_proxy_std,min_stat_proxy_mean,lowest_confirmed_epsilon_mean,final_objective_mean,final_depth_mean,final_total_work_mean,candidate_rounds,seed_count
+NOG-ZO,NOG-ZO__M-2__eta-0p01__smooth_B-8,"{""M"": 2, ""eta"": 0.01, ""smooth_B"": 8}",0.029557010158896446,0.0016460214590878828,0.013867751695215702,0.014600000000000002,-0.7948758959770202,960.0,983040.0,958,5
+NOG-ZO,NOG-ZO__M-2__eta-0p003__smooth_B-8,"{""M"": 2, ""eta"": 0.003, ""smooth_B"": 8}",0.03231588751077652,0.0024596660195606015,0.014409297704696655,0.0156,-0.7949944376945496,960.0,983040.0,958,5
+NOG-ZO,NOG-ZO__M-2__eta-0p0075__smooth_B-8,"{""M"": 2, ""eta"": 0.0075, ""smooth_B"": 8}",0.03538636118173599,0.0029426994115461782,0.013908093981444835,0.0152,-0.7846402883529663,960.0,983040.0,958,5

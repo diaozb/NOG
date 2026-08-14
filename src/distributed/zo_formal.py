@@ -31,6 +31,25 @@ DEFAULT_OUTPUT = (
     / "outputs/distributed_zo/zo_theory_validation/formal/fixed_work_983040"
 )
 
+# Keep frozen_parameters.json byte-for-byte identical to the file used by the
+# formal run. A clean clone does not contain the original pilot output tree,
+# so these audited copies provide a portable fallback without changing the
+# frozen file (or invalidating the downstream manifest hashes).
+PACKAGED_FROZEN_INPUTS = {
+    "outputs/distributed_zo/zo_theory_validation/pilot/"
+    "refine_work_983040_baselines_dense_eval4/summary.csv": (
+        ROOT / "zo_experiments/pilot_inputs/baselines_summary.csv"
+    ),
+    "outputs/distributed_zo/zo_theory_validation/pilot/"
+    "refine_work_983040_nog_dense_eval4/summary.csv": (
+        ROOT / "zo_experiments/pilot_inputs/nog_summary.csv"
+    ),
+    "outputs/distributed_zo/zo_theory_validation/pilot/"
+    "refine_work_983040_baselines_dense_eval4/config_base.yaml": (
+        ROOT / "zo_experiments/pilot_inputs/config_base.yaml"
+    ),
+}
+
 
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
@@ -38,6 +57,15 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def resolve_frozen_input(relative: str) -> Path:
+    """Resolve a frozen input while preserving the recorded relative path."""
+
+    original = ROOT / relative
+    if original.exists():
+        return original
+    return PACKAGED_FROZEN_INPUTS.get(relative, original)
 
 
 def atomic_json(payload: Any, path: Path) -> None:
@@ -63,7 +91,7 @@ def load_and_verify_freeze(path: Path) -> dict[str, Any]:
     if set(freeze["pilot_seeds"]).intersection(freeze["formal_seeds"]):
         raise ValueError("Pilot and formal seed sets overlap.")
     for relative, expected in freeze["input_sha256"].items():
-        actual = sha256(ROOT / relative)
+        actual = sha256(resolve_frozen_input(relative))
         if actual != expected:
             raise ValueError(
                 f"Frozen input hash mismatch for {relative}: {actual}!={expected}"
@@ -84,7 +112,7 @@ def main() -> None:
     args = parse_args()
     freeze_path = Path(args.freeze).resolve()
     freeze = load_and_verify_freeze(freeze_path)
-    config_path = ROOT / freeze["base_config"]
+    config_path = resolve_frozen_input(freeze["base_config"])
     cfg = load_config(config_path)
     cfg["run"]["pilot_selection_complete"] = True
     cfg["pilot"]["refine"]["target_total_work"] = int(

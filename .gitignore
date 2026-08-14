@@ -19,3 +19,7 @@ outputs/distributed_cpu_zo/
 
 # Local edit/merge backups are not reproducibility artifacts.
 *.orig
+
+# Raw experiment trajectories are local/resumable artifacts. Only audited,
+# compact packages under results/ and zo_experiments/ belong on main.
+outputs/

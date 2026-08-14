@@ -1,7 +1,0 @@
-threshold,NOG_hit_rate,SmoothedSGD_hit_rate,NOG_first_hit_round_mean,SmoothedSGD_first_hit_round_mean,round_ratio_NOG_over_SmoothedSGD,NOG_first_hit_work_mean,SmoothedSGD_first_hit_work_mean,work_ratio_NOG_over_SmoothedSGD,evidence_label
-0.007,1.0,1.0,474.0,454.4,1.0431338028169015,243712.0,232652.8,1.0475352112676057,check threshold/hit rates
-0.0075,1.0,1.0,177.6,352.0,0.5045454545454545,91955.2,180224.0,0.5102272727272728,check threshold/hit rates
-0.008,1.0,1.0,105.6,230.4,0.4583333333333333,55091.2,117964.8,0.46701388888888884,check threshold/hit rates
-0.009,1.0,1.0,91.2,140.8,0.6477272727272727,47718.4,72089.6,0.6619318181818181,check threshold/hit rates
-0.01,1.0,1.0,62.4,83.3,0.7490996398559424,32972.8,42649.6,0.7731092436974791,check threshold/hit rates
-0.012,1.0,1.0,26.4,19.9,1.3266331658291457,14540.8,10188.8,1.4271356783919598,check threshold/hit rates

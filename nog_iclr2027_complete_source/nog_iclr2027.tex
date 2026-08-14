@@ -701,7 +701,7 @@
 	\citep{benaim2005stochastic,kiwiel2007convergence,majewski2018analysis,davis2020stochastic,bolte2021conservative} for nonsmooth nonconvex optimization. Around 2020, various hardness results were established, showing that traditional 
 	$\epsilon$-stationary points can be intractable in finite time for any algorithms \citep{zhang2020complexity,jordan2023deterministic,kornowski2022oracle,tian2021hardness}. 
 	\citet{zhang2020complexity} introduced the notion of Goldstein stationary points as a tractable goal for non-asymptotic convergence rates 
-	and proposed the Stochastic Interpolated Normalized Gradient Descent (SINGD) algorithm that can find a $(\delta,\epsilon)$-Goldstein stationary point in the $\gO(\delta^{-1} \epsilon^{-4})$ SFO complexity for Hadamard semi-differentiable functions. \citet{tian2022finite,davis2022gradient} leveraged the Rademacher’s theorem and proposed the perturbed INGD algorithm 
+	and proposed the Stochastic Interpolated Normalized Gradient Descent (SINGD) algorithm that can find a $(\delta,\epsilon)$-Goldstein stationary point in the $\gO(\delta^{-1} \epsilon^{-4})$ SFO complexity for Hadamard semi-differentiable functions. \citet{tian2022finite,davis2022gradient} leveraged Rademacher's theorem and proposed the perturbed INGD algorithm
 	that achieves the same complexity using standard stochastic first-order oracles. Additionally, \citet{davis2022gradient} showed that finding the minimal norm of Goldstein subdifferential via a cutting plane method in the INGD algorithm \citep{zhang2020complexity} achieves the dimension-dependent first-order oracle complexity of $\gO(d \delta^{-1} \epsilon^{-2})$ in the deterministic setting. Remarkably, \citet{cutkosky2023optimal} proposed an Online-to-Nonconvex Conversion (O2NC) framework to reduce finding Goldstein stationary points to online learning, which achieves the SFO complexity of $\gO(\delta^{-1} \epsilon^{-3})$. Moreover, \citet{cutkosky2023optimal} also proposed a matching lower bound of $\Omega(\delta^{-1} \epsilon^{-3})$ for stochastic first-order algorithms, showing the complexity achieved by O2NC is indeed optimal.
 	
 	\subsection{Zeroth-order nonsmooth nonconvex optimization}
@@ -749,7 +749,7 @@
 	% As shown in Lemma \ref{lem:cor-main-assmp}, Assumption \ref{asm:ZO} implies Assumption \ref{asm:FO}  with $\vg(\vx;\xi) = \nabla F(\vx; \xi)$. It means that first-order methods can work with more general setups than zeroth-order methods. Nevertheless, each oracle call of first-order methods is typically more expensive than zeroth-order methods in practice.
 	
 	Note that the second assumption implies that the objective
-	$f(\,\cdot\,)$ is $L$-Lipschitz continuous, and hence the Rademacher’s theorem indicates that $f$ is differentiable almost everywhere. This allows us to define the Clarke subdifferentiable \citep{clarke1990optimization} in the following way.
+	$f(\,\cdot\,)$ is $L$-Lipschitz continuous, and hence Rademacher's theorem indicates that $f$ is differentiable almost everywhere. This allows us to define the Clarke subdifferentiable \citep{clarke1990optimization} in the following way.
 	% By Lemma \ref{lem:cor-main-assmp}(d) we know Assumption \ref{asm:main}(3) above implies that  Then by , which allows 
 	
 	\begin{dfn}[Clarke subdifferential] \label{dfn:Clk}
@@ -1228,6 +1228,7 @@
 	
 	\begin{table}[htbp]
 		\centering
+		\small
 		\begin{tabular}{c c c c c}
 			\hline
 			Order & Method     & Communication & Computation & Reference \\
@@ -1565,6 +1566,42 @@
 	verification of the exact worst-case exponents: the objective and accuracy
 	range are finite, the configurations are pilot-calibrated rather than
 	globally optimal, and the stationarity measure is a Monte Carlo proxy.
+
+\begin{figure}[t]
+\centering
+		\includegraphics[width=0.96\textwidth]{figures/zo_depth_work_ratios.pdf}
+		\caption{Zeroth-order paired ratios (baseline/NOG-ZO) over 20 frozen
+		formal seeds; bands are 95\% paired-bootstrap confidence intervals.
+		Only thresholds with 20/20 paired hits are plotted.  Smaller $\epsilon$
+		is shown toward the right.}
+		\label{fig:zo-main}
+	\end{figure}
+	\subsection{Zeroth-order communication--work scaling}
+\label{sec:experiments-zo}
+We next compare NOG-ZO against ME-DOL-ZO \citep{sahinoglu2024online}, DGFM,
+and DGFM+ \citep{lin2024decentralized} on the same synthetic objective.  The
+four methods use two-point estimators, eight workers, and an equal cap of
+$983{,}040$ training function evaluations.  Configurations are selected on
+pilot seeds $100$--$104$, frozen, and then evaluated on formal seeds $0$--$19$.
+We form ratios within each seed and report trends only on thresholds at which
+all 20 method/NOG-ZO pairs attain confirmed hits.  Figure~\ref{fig:zo-main}
+shows these prespecified complete-pair regions; Appendix~\ref{app:zo-experiments}
+gives all absolute results, non-hits, parameter settings, and audits.
+
+
+	As $\epsilon$ decreases from $0.2$ to $0.018$, the depth ratios of
+	ME-DOL-ZO and DGFM increase from $1.596$ to $3.547$ and from $3.556$ to
+	$8.791$, respectively.  DGFM+/NOG-ZO increases from $3.520$ to $11.387$
+	over its complete interval $[0.03,0.2]$.  All three depth curves are monotone
+	(Spearman $\rho=1$), qualitatively supporting the improved
+	$\epsilon$-dependence in Theorem~\ref{thm:dist-ZO}.  The corresponding work
+	ratios change from $0.399$ to $0.887$, $0.444$ to $1.099$, and $0.471$ to
+	$1.514$.  Thus the finite experiment does not recover the constant-order
+	work dependence suggested for ME-DOL-ZO and DGFM+, and we treat work as
+	a secondary descriptive endpoint.  More generally, the observed finite-range
+	slopes need not equal worst-case exponents.  Our empirical claim is restricted
+	to the prespecified communication-depth direction, not exact-rate verification
+	or universal dominance.
 
 \section{Conclusions and Future Works}
 	
