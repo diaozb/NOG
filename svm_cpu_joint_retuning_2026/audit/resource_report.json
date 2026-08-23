@@ -1,0 +1,15 @@
+{
+  "device": "cpu",
+  "python": "/root/miniconda3/envs/NOG/bin/python (3.10.20)",
+  "cpu_model": "Intel(R) Xeon(R) Gold 5220R CPU @ 2.20GHz",
+  "logical_cpus": 96,
+  "formal_processes": 20,
+  "torch_threads_per_process": 1,
+  "torch_interop_threads_per_process": 1,
+  "formal_tasks": 40,
+  "formal_work_cap": 983040,
+  "formal_wall_time_observed": "about 6 minutes (00:04:23--00:10:04 local timestamps)",
+  "gpu_used": false,
+  "peak_rss_mb": null,
+  "peak_rss_note": "The formal runner did not instrument historical peak RSS; no value is fabricated. Per-shard environment and progress records are retained."
+}

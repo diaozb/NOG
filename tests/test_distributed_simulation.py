@@ -131,10 +131,12 @@ class CommonSimulationTests(unittest.TestCase):
         random.seed(7)
         np.random.seed(7)
         torch.manual_seed(7)
-        with isolated_torch_seed(999, "cpu"):
-            random.random()
-            np.random.rand()
-            torch.rand(1)
+        with patch("torch.cuda.manual_seed_all") as cuda_seed:
+            with isolated_torch_seed(999, "cpu"):
+                random.random()
+                np.random.rand()
+                torch.rand(1)
+            cuda_seed.assert_not_called()
         self.assertEqual(random.random(), expected_python)
         self.assertEqual(np.random.rand(), expected_numpy)
         self.assertTrue(torch.equal(torch.rand(1), expected_torch))

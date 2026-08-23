@@ -376,10 +376,15 @@ def isolated_torch_seed(seed: int, device: str):
     cpu_state = torch.random.get_rng_state()
     python_state = random.getstate()
     numpy_state = np.random.get_state()
+    uses_cuda = str(device).startswith("cuda") and torch.cuda.is_available()
     cuda_state = None
-    if str(device).startswith("cuda") and torch.cuda.is_available():
+    if uses_cuda:
         cuda_state = torch.cuda.get_rng_state()
-    seed_all(int(seed))
+        seed_all(int(seed))
+    else:
+        random.seed(int(seed))
+        np.random.seed(int(seed))
+        torch.random.default_generator.manual_seed(int(seed))
     try:
         yield
     finally:
@@ -423,6 +428,8 @@ def evaluate_point(
     }
     if hasattr(problem, "accuracy"):
         metrics["train_accuracy"] = float(problem.accuracy(x))
+    if bool(getattr(problem, "has_test_data", False)):
+        metrics["test_accuracy"] = float(problem.test_accuracy(x))
     return metrics, eval_smooth_batch * eval_data_batch
 
 

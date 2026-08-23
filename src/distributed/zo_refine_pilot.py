@@ -40,10 +40,11 @@ def refinement_candidates(cfg: Dict[str, Any]) -> List[Candidate]:
     candidates: List[Candidate] = []
 
     if "NOG-ZO" in configured:
-        for block, eta, smooth_batch in itertools.product(
+        for block, eta, smooth_batch, data_batch in itertools.product(
             grid["nog"]["M"],
             grid["nog"]["eta"],
             grid["nog"]["smooth_B"],
+            grid["nog"].get("data_B_total", [cfg["oracle"]["data_B_total"]]),
         ):
             candidates.append(
                 (
@@ -52,6 +53,7 @@ def refinement_candidates(cfg: Dict[str, Any]) -> List[Candidate]:
                         "M": int(block),
                         "eta": float(eta),
                         "smooth_B": int(smooth_batch),
+                        "data_B_total": int(data_batch),
                     },
                 )
             )
@@ -108,6 +110,8 @@ def apply_candidate(cfg: Dict[str, Any], method: str, parameters: Dict[str, Any]
         cfg["nog"]["M"] = int(parameters["M"])
         cfg["nog"]["eta"] = float(parameters["eta"])
         cfg["oracle"]["smooth_B"] = int(parameters["smooth_B"])
+        if "data_B_total" in parameters:
+            cfg["oracle"]["data_B_total"] = int(parameters["data_B_total"])
     elif method == "ME-DOL-ZO":
         cfg["me_dol"]["epoch_length"] = int(parameters["epoch_length"])
         cfg["me_dol"]["theory_multiplier"] = float(
@@ -326,6 +330,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--eval-every", type=int, default=None)
     parser.add_argument("--nog-ms", default=None)
     parser.add_argument("--nog-smooth-bs", default=None)
+    parser.add_argument("--nog-data-bs", default=None)
     parser.add_argument("--dry-run", action="store_true")
     return parser.parse_args()
 
@@ -375,6 +380,12 @@ def main() -> None:
         candidates = [
             candidate for candidate in candidates
             if int(candidate[1].get("smooth_B", -1)) in allowed_batches
+        ]
+    if args.nog_data_bs is not None:
+        allowed_data_batches = set(_parse_ints(args.nog_data_bs, []))
+        candidates = [
+            candidate for candidate in candidates
+            if int(candidate[1].get("data_B_total", -1)) in allowed_data_batches
         ]
     unknown = requested - {candidate[0] for candidate in candidates}
     if unknown:

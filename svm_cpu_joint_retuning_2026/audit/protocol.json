@@ -1,0 +1,35 @@
+{
+  "protocol_version": "svm-batch-retuned-v2-joint-grid",
+  "status": "pilot_search_preregistered",
+  "device": "cpu",
+  "datasets": ["a9a", "ijcnn1"],
+  "method": "NOG-ZO",
+  "search_seeds": [400, 401, 402, 403, 404],
+  "validation_seeds": [500, 501, 502, 503, 504],
+  "formal_seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+  "seed_separation": "search, validation and formal sets are disjoint",
+  "target_total_work": 983040,
+  "worker_count": 8,
+  "batch_grid": {
+    "M": [1, 2, 4],
+    "eta_multiplier_by_dataset": {"a9a": [0.3, 1.0, 3.0, 10.0, 30.0], "ijcnn1": [0.3, 1.0, 3.0, 10.0, 30.0]},
+    "smooth_B": [1, 2, 4, 8],
+    "data_B_total": [64, 128, 256],
+    "candidates_per_dataset": 180
+  },
+  "selection_metric": {
+    "formula": "mean over search seeds and 25%, 50%, 75%, 100% work checkpoints of log(stat_proxy)",
+    "tie_breakers": ["lower final epsilon", "lower final epsilon std", "lower depth"],
+    "nonfinite_rule": "reject candidate"
+  },
+  "validation_rule": "ranked search candidates are rerun on validation seeds 500--504 before formal freeze",
+  "formal_rule": "only the validation-confirmed frozen batch is used for formal seeds 0--19",
+  "common_settings": {
+    "delta": 0.001,
+    "evaluation_delta": 0.002,
+    "evaluation_bank": "32 smoothing samples x 256 data samples",
+    "pilot_eval_every": 96,
+    "checkpoint_policy": "nearest native checkpoint at or below target; no interpolation",
+    "test_data_used_for_selection": false
+  }
+}

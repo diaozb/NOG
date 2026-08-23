@@ -1,0 +1,47 @@
+run:
+  name: batch_retuned_svm_a9a
+  out_dir: outputs/distributed_zo/zo_theory_validation/batch_retuned_svm
+  device: cpu
+  pilot_selection_complete: false
+  formal_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  pilot_seeds: [400, 401, 402, 403, 404]
+problem:
+  name: CappedL1SVM
+  dataset: a9a
+  data_root: data/libsvm
+  d: 123
+  n_data: 32561
+  R: 1
+  lam: paper
+  cap: 2.0
+  normalize_rows: true
+train: {rounds: 24, eval_every: 96}
+oracle:
+  delta: 0.001
+  target_delta: 0.002
+  evaluation_delta: 0.002
+  smooth_B: 1
+  data_B_total: 64
+  eval_smooth_B: 32
+  eval_data_B: 256
+  evaluation_seed_mode: fixed_bank
+nog: {M: 1, eta: 0.00003, smoothing_delta: 0.001}
+me_dol: {epoch_length: 6, theory_multiplier: {szo: 30000.0}, smooth_B: 1, data_B_per_worker: 16, smoothing_delta: 0.001}
+dgfm: {eta: 0.5, batch_size: 16, smoothing_delta: 0.001}
+dgfm_plus: {eta: 0.2, small_batch: 8, large_batch: 64, restart_period: 24, restart_mixing_rounds: 1, smoothing_delta: 0.001}
+distributed: {execution: single_process_simulation, topology: complete, comparison_worker: 8, scaling_workers: [1, 2, 4, 8], split_mode: total_batch_fixed, shuffle_partitions: true, rng_mode: rank_schedule}
+methods: {sfo: [], szo: [NOG-ZO]}
+epsilon_scaling: {epsilons: [0.2, 0.1, 0.05, 0.02, 0.01]}
+pilot:
+  selection_metric: log_epsilon_trajectory
+  equal_candidate_budget: true
+  refine:
+    target_total_work: 983040
+    eval_every: 96
+    nog:
+      M: [1, 2, 4]
+      eta: [0.000009, 0.00003, 0.00009, 0.0003, 0.0009]
+      smooth_B: [1, 2, 4, 8]
+      data_B_total: [64, 128, 256]
+resources: {max_cpu_processes: 8, max_task_seconds: 3600, resume_from_partials: true}
+wandb: {enabled: false}

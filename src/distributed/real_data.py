@@ -20,6 +20,10 @@ DATASETS = {
         "n": 32561,
         "d": 123,
         "sha256": "f5d5ffd8d865ff41328e7ee043e4b020816914ff6843ff15b98905ddbedce906",
+        "test_file": "a9a.t",
+        "test_compressed": False,
+        "test_n": 16281,
+        "test_sha256": "1f448a153f0320399a7e40836eb207655b0bde0f21fc941cc472193daa9f5de9",
     },
     "ijcnn1": {
         "file": "ijcnn1.bz2",
@@ -27,6 +31,10 @@ DATASETS = {
         "n": 49990,
         "d": 22,
         "sha256": "16506cad788cf7c9607454150ed1994788204bac2ff4c9cb3b320036b6950d3f",
+        "test_file": "ijcnn1.t.bz2",
+        "test_compressed": True,
+        "test_n": 91701,
+        "test_sha256": "e7b0bbd518641980dc322746c6bc59d019d3153934e6258e48f9d8cfae2c4bb8",
     },
 }
 
@@ -39,21 +47,29 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def download_dataset(name: str, root: Path) -> Path:
-    """Download one official LIBSVM training file without hidden preprocessing."""
+def download_dataset(name: str, root: Path, split: str = "train") -> Path:
+    """Download and verify one official LIBSVM train or test file."""
 
     if name not in DATASETS:
         raise ValueError(f"Unsupported real dataset: {name}.")
+    if split not in {"train", "test"}:
+        raise ValueError(f"Unsupported dataset split: {split}.")
     spec = DATASETS[name]
+    prefix = "" if split == "train" else "test_"
+    source_file = str(spec[f"{prefix}file"])
+    compressed = bool(spec[f"{prefix}compressed"])
+    expected_sha256 = str(spec[f"{prefix}sha256"])
     root.mkdir(parents=True, exist_ok=True)
-    raw_path = root / f"{name}.libsvm"
+    raw_path = root / (
+        f"{name}.libsvm" if split == "train" else f"{name}.test.libsvm"
+    )
     if raw_path.exists():
-        if sha256(raw_path) != str(spec["sha256"]):
+        if sha256(raw_path) != expected_sha256:
             raise ValueError(f"Cached dataset hash mismatch: {raw_path}.")
         return raw_path
-    source_path = root / str(spec["file"])
+    source_path = root / source_file
     if not source_path.exists():
-        url = f"{LIBSVM_BASE}/{spec['file']}"
+        url = f"{LIBSVM_BASE}/{source_file}"
         response = requests.get(url, timeout=120)
         response.raise_for_status()
         temporary = source_path.with_suffix(source_path.suffix + ".part")
@@ -61,12 +77,12 @@ def download_dataset(name: str, root: Path) -> Path:
         temporary.replace(source_path)
     raw_path.write_bytes(
         bz2.decompress(source_path.read_bytes())
-        if bool(spec["compressed"])
+        if compressed
         else source_path.read_bytes()
     )
-    if sha256(raw_path) != str(spec["sha256"]):
+    if sha256(raw_path) != expected_sha256:
         raw_path.unlink(missing_ok=True)
-        raise ValueError(f"Downloaded dataset hash mismatch: {name}.")
+        raise ValueError(f"Downloaded dataset hash mismatch: {name}/{split}.")
     return raw_path
 
 
@@ -118,6 +134,8 @@ class CappedL1SVM:
         lam: float,
         device: str,
         normalize_rows: bool = True,
+        test_features: torch.Tensor | None = None,
+        test_labels: torch.Tensor | None = None,
     ) -> None:
         if features.ndim != 2 or labels.ndim != 1:
             raise ValueError("Expected a feature matrix and label vector.")
@@ -130,6 +148,25 @@ class CappedL1SVM:
             values = values / values.norm(dim=1, keepdim=True).clamp_min(1e-12)
         self.features = values
         self.labels = labels.to(device)
+        if (test_features is None) != (test_labels is None):
+            raise ValueError("test_features and test_labels must be provided together.")
+        if test_features is not None and test_labels is not None:
+            if test_features.ndim != 2 or test_labels.ndim != 1:
+                raise ValueError("Expected a test feature matrix and label vector.")
+            if test_features.shape[0] != test_labels.shape[0]:
+                raise ValueError("Test feature/label row counts do not match.")
+            if test_features.shape[1] != features.shape[1]:
+                raise ValueError("Train/test feature dimensions do not match.")
+            test_values = test_features.to(device)
+            if normalize_rows:
+                test_values = test_values / test_values.norm(
+                    dim=1, keepdim=True
+                ).clamp_min(1e-12)
+            self.test_features: torch.Tensor | None = test_values
+            self.test_labels: torch.Tensor | None = test_labels.to(device)
+        else:
+            self.test_features = None
+            self.test_labels = None
         self.cap = float(cap)
         self.lam = float(lam)
         self.device = device
@@ -157,10 +194,29 @@ class CappedL1SVM:
         return self.component_losses(x, idx).mean()
 
     def accuracy(self, x: torch.Tensor) -> float:
+        """Return training accuracy (kept for backward compatibility)."""
+
+        return self._accuracy(x, self.features, self.labels)
+
+    @property
+    def has_test_data(self) -> bool:
+        return self.test_features is not None and self.test_labels is not None
+
+    def test_accuracy(self, x: torch.Tensor) -> float:
+        if self.test_features is None or self.test_labels is None:
+            raise ValueError("Test data were not loaded for this problem.")
+        return self._accuracy(x, self.test_features, self.test_labels)
+
+    @staticmethod
+    def _accuracy(
+        x: torch.Tensor,
+        features: torch.Tensor,
+        labels: torch.Tensor,
+    ) -> float:
         with torch.no_grad():
-            scores = self.features @ x
+            scores = features @ x
             predictions = torch.where(scores >= 0, 1.0, -1.0)
-            return float((predictions == self.labels).float().mean().item())
+            return float((predictions == labels).float().mean().item())
 
 
 def build_real_problem(cfg: dict, device: str) -> CappedL1SVM:
@@ -173,6 +229,17 @@ def build_real_problem(cfg: dict, device: str) -> CappedL1SVM:
     features, labels = load_libsvm_dense(
         path, int(spec["d"]), expected_rows=int(spec["n"])
     )
+    test_features = None
+    test_labels = None
+    if bool(pcfg.get("load_test", False)):
+        test_path = download_dataset(
+            name, Path(pcfg.get("data_root", "data/libsvm")), split="test"
+        )
+        test_features, test_labels = load_libsvm_dense(
+            test_path,
+            int(spec["d"]),
+            expected_rows=int(spec["test_n"]),
+        )
     lam_cfg = pcfg.get("lam", "paper")
     lam = 1.0e-5 / int(spec["n"]) if lam_cfg == "paper" else float(lam_cfg)
     return CappedL1SVM(
@@ -182,4 +249,6 @@ def build_real_problem(cfg: dict, device: str) -> CappedL1SVM:
         lam=lam,
         device=device,
         normalize_rows=bool(pcfg.get("normalize_rows", True)),
+        test_features=test_features,
+        test_labels=test_labels,
     )

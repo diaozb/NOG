@@ -45,6 +45,24 @@ class RealDataTests(unittest.TestCase):
         self.assertEqual(tuple(losses.shape), (2,))
         self.assertTrue(torch.isfinite(losses).all())
 
+    def test_test_accuracy_uses_separate_normalized_split(self):
+        problem = CappedL1SVM(
+            torch.tensor([[1.0, 0.0], [0.0, 1.0]]),
+            torch.tensor([1.0, -1.0]),
+            cap=2.0,
+            lam=0.0,
+            device="cpu",
+            test_features=torch.tensor([[3.0, 4.0], [-3.0, -4.0]]),
+            test_labels=torch.tensor([1.0, -1.0]),
+        )
+        self.assertTrue(problem.has_test_data)
+        self.assertTrue(
+            torch.allclose(problem.test_features.norm(dim=1), torch.ones(2))
+        )
+        self.assertAlmostEqual(
+            problem.test_accuracy(torch.tensor([1.0, 0.0])), 1.0
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
