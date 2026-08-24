@@ -1,0 +1,861 @@
+{
+  "schema_version": 1,
+  "updated_at_utc": "2026-07-29T02:34:11.105416+00:00",
+  "status": "complete",
+  "expected_tasks": 60,
+  "completed_tasks": 60,
+  "failed_tasks": 0,
+  "max_parallel_tasks": 4,
+  "max_worker_processes": 32,
+  "environment": {
+    "created_at_utc": "2026-07-29T02:34:11.105440+00:00",
+    "python": "3.10.20",
+    "platform": "Linux-5.4.0-216-generic-x86_64-with-glibc2.31",
+    "hostname": "diaozibo0-0",
+    "torch": "2.1.2+cu121",
+    "cpu_count": 128
+  },
+  "records": [
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 0,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed0__cfgc41f566c92e7",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed0__cfgc41f566c92e7.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed0__cfgc41f566c92e7.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 1,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed1__cfg3b38b30bd7c5",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed1__cfg3b38b30bd7c5.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed1__cfg3b38b30bd7c5.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 2,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed2__cfg2d7e61e88d5b",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed2__cfg2d7e61e88d5b.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed2__cfg2d7e61e88d5b.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 3,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed3__cfg917754c6b3de",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed3__cfg917754c6b3de.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed3__cfg917754c6b3de.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 4,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed4__cfg26fff436ec20",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed4__cfg26fff436ec20.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed4__cfg26fff436ec20.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 5,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed5__cfg0a04ca65403a",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed5__cfg0a04ca65403a.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed5__cfg0a04ca65403a.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 6,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed6__cfg33efb677d503",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed6__cfg33efb677d503.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed6__cfg33efb677d503.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 7,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed7__cfgf95941b7c541",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed7__cfgf95941b7c541.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed7__cfgf95941b7c541.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 8,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed8__cfg8ed7032409ea",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed8__cfg8ed7032409ea.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed8__cfg8ed7032409ea.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 9,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed9__cfg9416edc1ab91",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed9__cfg9416edc1ab91.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed9__cfg9416edc1ab91.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 10,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed10__cfgbf1cea5de0b8",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed10__cfgbf1cea5de0b8.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed10__cfgbf1cea5de0b8.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 11,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed11__cfg0ca95848c496",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed11__cfg0ca95848c496.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed11__cfg0ca95848c496.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 12,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed12__cfg52ae69fe5867",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed12__cfg52ae69fe5867.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed12__cfg52ae69fe5867.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 13,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed13__cfg8d44a8781b59",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed13__cfg8d44a8781b59.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed13__cfg8d44a8781b59.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 14,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed14__cfg3d255bb8ee79",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed14__cfg3d255bb8ee79.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed14__cfg3d255bb8ee79.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 15,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed15__cfga84832795dc1",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed15__cfga84832795dc1.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed15__cfga84832795dc1.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 16,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed16__cfg1570551e276d",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed16__cfg1570551e276d.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed16__cfg1570551e276d.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 17,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed17__cfg026b75b491b5",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed17__cfg026b75b491b5.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed17__cfg026b75b491b5.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 18,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed18__cfg456f0a8f331a",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed18__cfg456f0a8f331a.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed18__cfg456f0a8f331a.json",
+      "row_count": 640
+    },
+    {
+      "label": "ME-DOL-FO__epoch-6__mult-100__rounds-3840",
+      "config_sha256": "d6c2a3927be1360ce7a2d0040d6f28259306d7a0faacd3bde949af61d0ef5cbb",
+      "task": {
+        "method": "ME-DOL-FO",
+        "formal_seed": 19,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "ME-DOL-FO__m8__seed19__cfgb432504e4fbd",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/partials/ME-DOL-FO__m8__seed19__cfgb432504e4fbd.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/ME-DOL-FO__epoch-6__mult-100__rounds-3840/task_manifests/ME-DOL-FO__m8__seed19__cfgb432504e4fbd.json",
+      "row_count": 640
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 0,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed0__cfg8d5d470f5a85",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed0__cfg8d5d470f5a85.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed0__cfg8d5d470f5a85.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 1,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed1__cfg8985804b79d6",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed1__cfg8985804b79d6.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed1__cfg8985804b79d6.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 2,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed2__cfge1ffc8b23661",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed2__cfge1ffc8b23661.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed2__cfge1ffc8b23661.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 3,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed3__cfg341fbfac1875",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed3__cfg341fbfac1875.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed3__cfg341fbfac1875.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 4,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed4__cfg02c1b15641e4",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed4__cfg02c1b15641e4.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed4__cfg02c1b15641e4.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 5,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed5__cfg047b2b541f5a",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed5__cfg047b2b541f5a.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed5__cfg047b2b541f5a.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 6,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed6__cfg97f3b8e1a9d5",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed6__cfg97f3b8e1a9d5.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed6__cfg97f3b8e1a9d5.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 7,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed7__cfg0acb6d3b7b08",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed7__cfg0acb6d3b7b08.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed7__cfg0acb6d3b7b08.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 8,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed8__cfg241af10f2133",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed8__cfg241af10f2133.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed8__cfg241af10f2133.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 9,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed9__cfge9c6006dd4c7",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed9__cfge9c6006dd4c7.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed9__cfge9c6006dd4c7.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 10,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed10__cfgf19b59b98143",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed10__cfgf19b59b98143.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed10__cfgf19b59b98143.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 11,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed11__cfg2df86d3776a1",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed11__cfg2df86d3776a1.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed11__cfg2df86d3776a1.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 12,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed12__cfgb001915a28f5",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed12__cfgb001915a28f5.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed12__cfgb001915a28f5.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 13,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed13__cfg9592e7a25166",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed13__cfg9592e7a25166.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed13__cfg9592e7a25166.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 14,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed14__cfg316b80110cd6",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed14__cfg316b80110cd6.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed14__cfg316b80110cd6.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 15,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed15__cfg3f8af1c7d1af",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed15__cfg3f8af1c7d1af.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed15__cfg3f8af1c7d1af.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 16,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed16__cfg8e2afd63a41d",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed16__cfg8e2afd63a41d.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed16__cfg8e2afd63a41d.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 17,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed17__cfgf8dcd156633b",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed17__cfgf8dcd156633b.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed17__cfgf8dcd156633b.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 18,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed18__cfgc59d37522aef",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed18__cfgc59d37522aef.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed18__cfgc59d37522aef.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-16",
+      "config_sha256": "5c1903f660cd743f93e3a97b1ad17c29b28d4e4640930e67a0aead68d83be67f",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 19,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed19__cfgbe917de0375b",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/partials/NOG-FO__m8__seed19__cfgbe917de0375b.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-16/task_manifests/NOG-FO__m8__seed19__cfgbe917de0375b.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 0,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed0__cfg6fcf47fb7f70",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed0__cfg6fcf47fb7f70.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed0__cfg6fcf47fb7f70.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 1,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed1__cfgc8a3c99d6211",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed1__cfgc8a3c99d6211.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed1__cfgc8a3c99d6211.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 2,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed2__cfg9aeab186bb63",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed2__cfg9aeab186bb63.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed2__cfg9aeab186bb63.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 3,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed3__cfg9ea8c899f6b5",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed3__cfg9ea8c899f6b5.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed3__cfg9ea8c899f6b5.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 4,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed4__cfg05ca0be9b231",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed4__cfg05ca0be9b231.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed4__cfg05ca0be9b231.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 5,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed5__cfg3e6a6d7751ed",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed5__cfg3e6a6d7751ed.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed5__cfg3e6a6d7751ed.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 6,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed6__cfg6ad5f36e4f57",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed6__cfg6ad5f36e4f57.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed6__cfg6ad5f36e4f57.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 7,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed7__cfge9c512a4f60d",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed7__cfge9c512a4f60d.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed7__cfge9c512a4f60d.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 8,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed8__cfg3e4391c99c5d",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed8__cfg3e4391c99c5d.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed8__cfg3e4391c99c5d.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 9,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed9__cfg2bbe95d358b1",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed9__cfg2bbe95d358b1.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed9__cfg2bbe95d358b1.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 10,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed10__cfg87cc74982636",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed10__cfg87cc74982636.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed10__cfg87cc74982636.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 11,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed11__cfge7d286e855ed",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed11__cfge7d286e855ed.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed11__cfge7d286e855ed.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 12,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed12__cfg3289357ec140",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed12__cfg3289357ec140.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed12__cfg3289357ec140.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 13,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed13__cfg3613f33b9e9e",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed13__cfg3613f33b9e9e.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed13__cfg3613f33b9e9e.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 14,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed14__cfg1aa018d73f2d",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed14__cfg1aa018d73f2d.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed14__cfg1aa018d73f2d.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 15,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed15__cfgb5b350d8a638",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed15__cfgb5b350d8a638.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed15__cfgb5b350d8a638.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 16,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed16__cfg274c9f1b1764",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed16__cfg274c9f1b1764.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed16__cfg274c9f1b1764.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 17,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed17__cfg172a4e6524a0",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed17__cfg172a4e6524a0.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed17__cfg172a4e6524a0.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 18,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed18__cfg9017d59c5b7a",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed18__cfg9017d59c5b7a.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed18__cfg9017d59c5b7a.json",
+      "row_count": 480
+    },
+    {
+      "label": "NOG-FO__data-B-total-8",
+      "config_sha256": "8b30107fc3664bb917509f9770a6f919f3468d390022ce89d1ca8a3d02c6666e",
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 19,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed19__cfg71745bfd14bd",
+      "partial_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/partials/NOG-FO__m8__seed19__cfg71745bfd14bd.json",
+      "manifest_path": "outputs/distributed_cpu_fo_v4/epsilon_theory_validation_v4/formal/NOG-FO__data-B-total-8/task_manifests/NOG-FO__m8__seed19__cfg71745bfd14bd.json",
+      "row_count": 480
+    }
+  ],
+  "failures": []
+}

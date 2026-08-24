@@ -557,8 +557,7 @@
 	
 	
 	\begin{abstract}
-		Recent progress in nonsmooth nonconvex optimization established non-asymptotic convergence to $(\delta,\epsilon)$-Goldstein stationary points with zeroth- or first-order oracles. In this paper, we study the extensions of these results in the parallel setting. We propose a algorithm called Optimistic Nonconvex Gradient (NOG) that can find a $(\delta,\epsilon)$-Goldstein stationary point in $\gO(d^{1/3} \delta^{-1} \epsilon^{-5/3})$ rounds of interactions of the oracles, which strictly improve the one of $\gO(\delta^{-1} \epsilon^{-3})$ given by prior arts when $d = \gO(\epsilon^{-4})$. We further implement our method in
-		the distributed and quantum optimization settings, obtaining efficient distributed algorithms in both communication and computation, and fast quantum algorithms in quantum oracle query complexities.
+		Recent progress in nonsmooth nonconvex optimization established non-asymptotic convergence to $(\delta,\epsilon)$-Goldstein stationary points with zeroth- or first-order oracles. In this paper, we study the parallel setting and propose the Nonconvex Optimistic Gradient (NOG) method. NOG finds a $(\delta,\epsilon)$-Goldstein stationary point in $\gO(d^{1/3}\delta^{-1}\epsilon^{-5/3})$ adaptive oracle rounds, improving the $\gO(\delta^{-1}\epsilon^{-3})$ depth of prior methods when $d=\gO(\epsilon^{-4})$, while retaining the state-of-the-art total oracle work. We instantiate NOG as communication-efficient distributed first- and zeroth-order algorithms and give quantum query implementations in the appendix. Controlled experiments on a nonsmooth nonconvex synthetic objective show that NOG's relative communication depth improves as the target accuracy becomes more stringent, consistent with the predicted separation in the $\epsilon$ dependence.
 	\end{abstract}
 	
 	\section{Introduction}
@@ -580,16 +579,15 @@
 	
 	Although optimal first-order \citep{cutkosky2023optimal} and optimal dimension-dependent zeroth-order methods \citep{kornowski2024algorithm} have been proposed, these methods are studied under the sequential setting. 
 	With the growing size of training datasets, modern training often relies on parallel computing resources like GPUs and TPUs. To capture this scenario, we 
-	consider the parallel setting, where the algorithm can simultaneously submit multiple queries $\{(\vx_1,\xi_1),\cdots, (\vx_Q,\xi_Q) \}$ at once, and then the zeroth- or first-order oracles return the function values or gradients at these points to the algorithm. Following the work by \citet{nemirovski1994parallel}, the complexity of a parallel algorithm is measured by both \textit{depth} (the number of rounds the algorithm interact with the oracles) and \textit{work} (the total number of queries, \textit{i.e.}, $Q \times$ depth). This work tries to answer the following fundamental question:
+	consider the parallel setting, where the algorithm can simultaneously submit multiple queries $\{(\vx_1,\xi_1),\cdots, (\vx_Q,\xi_Q) \}$ at once, and then the zeroth- or first-order oracles return the function values or gradients at these points to the algorithm. Following the textbook \citep{nemirovski1994parallel}, the complexity of a parallel algorithm is measured by both \textit{depth} (the number of rounds the algorithm interacts with the oracles) and \textit{work} (the total number of queries, \textit{i.e.}, $Q \times$ depth). We ask a fundamental question:
 	\begin{center}
 		\textit{Can we develop fast parallel algorithms for nonsmooth nonconvex optimization?}
 	\end{center}
 	Although there have been many works studying the complexity of parallel algorithms for convex problems \citep{duchi2012randomized,bubeck2019complexity,diakonikolas2019lower,balkanski2018parallelization,jambulapati2024closing,carmon2023resqueing,scaman2018optimal,garg2020no,garg2021near,sidford2023quantum} or smooth nonconvex problems \citep{zhang2023quantum,zhou2025adaptive}, the power of parallelism in nonsmooth nonconvex optimization is less explored. 
-	To fill the gap, this work extends the randomized smoothing techniques in \citet{duchi2012randomized} for nonsmooth convex problems to nonsmooth nonconvex problems, and proposes a novel Nonconvex Optimistic Gradient (NOG) method that achieves a low depth of $\gO(d^{1/3} \delta^{-1} \epsilon^{-5/3})$ for finding a $(\delta,\epsilon)$-Goldstein stationary point. The depth of our method improves the $\gO(\delta^{-1} \epsilon^{-3})$ of O2NC \citep{cutkosky2023optimal,kornowski2024algorithm} and the $\gO(\sqrt{d} \delta^{-1} \epsilon^{-2})$ of naive gradient descent with randomized smoothing \citep{lin2022gradient,jordan2023deterministic,chen2023faster}, and the total work of our method aligns with the state-of-the-art ones obtained by O2NC \citep{cutkosky2023optimal,kornowski2024algorithm} when using either first- or zeroth-order oracles, \textit{i.e.}, $\gO(\delta^{-1} \epsilon^{-3} )$ SFO complexity and $\gO(d \delta^{-1} \epsilon^{-3})$ SZO complexity. 
-	We compare the theoretical guarantee of the proposed NOG  with previous ones in Table~\ref{tab:res-classical}.
-	
+	To fill the gap, this work extends the randomized smoothing techniques in convex problems \citep{duchi2012randomized} to nonconvex problems, and proposes a novel Nonconvex Optimistic Gradient (NOG) method that achieves a low depth of $\gO(d^{1/3} \delta^{-1} \epsilon^{-5/3})$ for finding a $(\delta,\epsilon)$-Goldstein stationary point. The depth of our method improves the $\gO(\delta^{-1} \epsilon^{-3})$ of O2NC \citep{cutkosky2023optimal,kornowski2024algorithm} and the $\gO(\sqrt{d} \delta^{-1} \epsilon^{-2})$ of naive gradient descent with randomized smoothing \citep{lin2022gradient,jordan2023deterministic,chen2023faster}, and the total work of our method aligns with the state-of-the-art ones obtained by O2NC \citep{cutkosky2023optimal,kornowski2024algorithm} when using either first- or zeroth-order oracles, \textit{i.e.}, $\gO(\delta^{-1} \epsilon^{-3} )$ SFO complexity and $\gO(d \delta^{-1} \epsilon^{-3})$ SZO complexity.
 	Our algorithm is well-suited for various scenarios requiring high parallelism. A natural application is distributed optimization, where multiple parallel workers collaborate to perform optimization tasks. The complexity of a distributed algorithm is typically measured by communication and computation costs; specifically, communication is determined by the depth of the algorithm, while computation is equivalent to its total work. Consequently, our algorithm can be efficiently implemented in distributed settings, significantly reducing the communication complexity compared to prior distributed algorithms \citep{chen2026decentralized,lin2024decentralized,sahinoglu2024online}. 
 	We summarize our results for distributed algorithms in Table~\ref{tab:res-dist}.
+	Our numerical study complements these worst-case guarantees: on a controlled nonsmooth nonconvex objective, the communication-depth gap between NOG and the baselines improves as $\epsilon$ decreases, while the total training work remains of comparable finite-instance scale. Appendix~\ref{app:quantum} develops the quantum first- and zeroth-order implementations and their query complexities.
 	
 	% Another important application of our algorithm lies in quantum optimization. The core of achieving quantum speedup over classical algorithms is called \textit{quantum parallelism}, which simultaneously processes multiple computing paths by leveraging quantum superposition states. This gives another parallel computing setting where our algorithm can be used. By implementing the mini-batch gradient estimator in our algorithm with the recently proposed quantum variance reduction \citep{sidford2023quantum}, our method achieves the quantum stochastic first-order oracle (QSFO) complexity of  $\tilde \gO(d^{2/3} \delta^{-1} \epsilon^{-7/3})$ or the quantum stochastic zeroth-order oracle (QSZO) complexity of $\tilde \gO(d^{7/6} \delta^{-1} \epsilon^{-7/3})$, significantly improving the recently established result of $\tilde \gO(d^{3/2} \delta^{-1} \epsilon^{-7/3})$ QSZO complexity \citep{liu2024quantum}. We compare the results for quantum algorithms in Table~\ref{tab:res-quantum}.
 	% Our methods 
@@ -608,61 +606,6 @@
 			% \end{itemize}
 		% }
 	
-	\begin{table}[t]
-		\centering
-		\begin{tabular}{c c c c c}
-			\hline
-			Oracle & Method     & Depth & Work & Reference \\
-			\hline \addlinespace
-			\multirow{4}{*}{0th}  & GFM  & $ \gO(d^{1/2} \delta^{-1} \epsilon^{-2})$ & $ \gO(d^{3/2} \delta^{-1} \epsilon^{-4})$ & \citep{lin2022gradient} \\ \addlinespace
-			& ~~GFM+  &  $ \gO(d^{1/2} \delta^{-1} \epsilon^{-2})$  & $ \gO(d^{3/2} \delta^{-1} \epsilon^{-3})$ & \citep{chen2023faster} \\ \addlinespace
-			% & QGFM+  & $ \gO(d^{1/2} \delta^{-1} \epsilon^{-2})$  & $ \gO(d^{3/2} \delta^{-1} \epsilon^{-7/3})$ & \citep{liu2024quantum} \\ \addlinespace
-			% 0th \\
-			& O2NC  & $ \gO(\delta^{-1} \epsilon^{-3})$ & $ \gO(d \delta^{-1} \epsilon^{-3})$ & \citep{kornowski2024algorithm} \\  \addlinespace
-			& NOG(ours) & $ \gO(d^{1/3} \delta^{-1} \epsilon^{-5/3})$ & $\gO(d \delta^{-1} \epsilon^{-3})$ & Theorem \ref{thm:parallel-ZO} \\ \addlinespace
-			% & QSZO & $ \gO(d^{1/2} \delta^{-1} \epsilon^{-3/2})$ & $ \gO(d^{5/4} \delta^{-1} \epsilon^{-9/4}) $ & Theorem \ref{thm:upper} \\ \addlinespace
-			\hline \addlinespace
-			\multirow{4}{*}{1st} & INGD  & $\gO( \delta^{-1} \epsilon^
-			{-4})$ &  $\gO( \delta^{-1} \epsilon^{-4})$ & \citep{zhang2020complexity}\\ \addlinespace
-			& O2NC     & $\gO( \delta^{-1} \epsilon^{-3})$ & $\gO( \delta^{-1} \epsilon^{-3})$ &\citep{cutkosky2023optimal} \\ \addlinespace
-			& NOG(ours) & $\gO( d^{1/3} \delta^{-1} \epsilon^{-5/3} )$ & $\gO(\delta^{-1} \epsilon^{-3})$ & Theorem \ref{thm:parallel-FO} \\ \addlinespace
-			% & ODOGS & $\gO(d^{1/4} \delta^{-1} \epsilon^{-3/2})$ & $\gO( d^{3/4} \delta^{-1} \epsilon^{-9/4} )$  & Theorem \ref{thm:upper} \\ \addlinespace
-			% Fast GFM & classical & $\gO(d \delta^{-1} \epsilon^{-3})$ & \\
-			% ~~QGFM+ & quantum & $\tilde \gO(d^{3/2} \delta^{-1} \epsilon^{-7/3})$ & \\
-			% ~~Fast QGFM+ &  quantum &  $ \tilde \gO(d^{5/4} \delta^{-1} \epsilon^{-2}) $ &  \\
-			\hline
-		\end{tabular} 
-		\caption{Comparison of depth (rounds of interactions) and work (total query complexities) for \textbf{classical} algorithms for finding $(\delta,\epsilon)$ stationary points of nonsmooth nonconvex problems.}
-		\label{tab:res-classical}
-	\end{table}
-	
-	% \begin{table}[t]
-		%     \centering
-		%     \begin{tabular}{c c c c c}
-			%     \hline
-			%     Order & Method     & Depth & Work & Reference \\
-			%     \hline \addlinespace
-			%     \multirow{3}{*}{0th} & QGFM  & $ \gO(d^{1/2} \delta^{-1} \epsilon^{-2})$ & $ \tilde \gO(d^{3/2} \delta^{-1} \epsilon^{-3})$ & \citep{liu2024quantum} \\ \addlinespace
-			%      & ~~QGFM+  &  $ \gO(d^{1/2} \delta^{-1} \epsilon^{-2})$  & $ \tilde \gO(d^{3/2} \delta^{-1} \epsilon^{-7/3})$ & \citep{liu2024quantum} \\ \addlinespace
-			%     % & QGFM+  & $ \gO(d^{1/2} \delta^{-1} \epsilon^{-2})$  & $ \gO(d^{3/2} \delta^{-1} \epsilon^{-7/3})$ & \citep{liu2024quantum} \\ \addlinespace
-			%     % 0th \\
-			%     %  & ZO-O2NC  & $ \gO(\delta^{-1} \epsilon^{-3})$ & $ \gO(d \delta^{-1} \epsilon^{-3})$ & \citep{kornowski2024algorithm} \\  \addlinespace
-			%     & NOG(ours)  & $ \gO(d^{1/3} \delta^{-1} \epsilon^{-5/3})$ & $\tilde \gO(d^{7/6} \delta^{-1} \epsilon^{-7/3})$ & Theorem \ref{thm:QZO} \\ \addlinespace
-			%      % & QSZO & $ \gO(d^{1/2} \delta^{-1} \epsilon^{-3/2})$ & $ \gO(d^{5/4} \delta^{-1} \epsilon^{-9/4}) $ & Theorem \ref{thm:upper} \\ \addlinespace
-			%     \hline \addlinespace
-			%     % & INGD  & $\gO( \delta^{-1} \epsilon^
-			%     % {-4})$ &  $\gO( \delta^{-1} \epsilon^{-4})$ & \citep{zhang2020complexity}\\ \addlinespace
-			%     % 1st & FO-O2NC     & $\gO( \delta^{-1} \epsilon^{-3})$ & $\gO( \delta^{-1} \epsilon^{-3})$ &\citep{cutkosky2023optimal} \\ \addlinespace
-			%     1st & NOG(ours) & $\gO( d^{1/3} \delta^{-1} \epsilon^{-5/3} )$ & $\tilde \gO(d^{2/3}\delta^{-1} \epsilon^{-7/3})$ & Theorem \ref{thm:QFO} \\ \addlinespace
-			%     % & ODOGS & $\gO(d^{1/4} \delta^{-1} \epsilon^{-3/2})$ & $\gO( d^{3/4} \delta^{-1} \epsilon^{-9/4} )$  & Theorem \ref{thm:upper} \\ \addlinespace
-			%     % Fast GFM & classical & $\gO(d \delta^{-1} \epsilon^{-3})$ & \\
-			%     % ~~QGFM+ & quantum & $\tilde \gO(d^{3/2} \delta^{-1} \epsilon^{-7/3})$ & \\
-			%     % ~~Fast QGFM+ &  quantum &  $ \tilde \gO(d^{5/4} \delta^{-1} \epsilon^{-2}) $ &  \\
-			%     \hline
-			%     \end{tabular} 
-		%     \caption{Comparison of depth (rounds of interactions) and work (total query complexities) for \textbf{quantum} algorithms for finding $(\delta,\epsilon)$ stationary points of nonsmooth nonconvex problems.}
-		%     \label{tab:res-quantum}
-		% \end{table}
 	
 	% \begin{table}[t]
 		%     \centering
@@ -1093,7 +1036,8 @@
 		\frac{1}{B} \sum_{j=1}^B \mO_j(\vx)$ with batch size $B = \gO(d L^2 /\sigma^2)$ and
 		\begin{align*}
 			\mO_j(\vx) = 
-			\frac{d}{2 \delta}( F(\vx + \delta \vv;\xi ) - F(\vx - \delta \vv;\xi) \vv, ~~ \vv \sim {\rm Unif}(\sS^{d-1}), ~~ \xi \sim \Xi.
+			\frac{d}{2 \delta}\bigl(F(\vx + \delta \vv;\xi ) - F(\vx - \delta \vv;\xi)\bigr)\vv,
+			\quad \vv \sim {\rm Unif}(\sS^{d-1}), \quad \xi \sim \Xi.
 		\end{align*}
 	\end{restatable}
 	
@@ -1124,7 +1068,7 @@
 		can find a $(2\delta,\epsilon)$-Goldstein stationary point of $f$ in depth of $\gO(d^{1/3} (\gamma + \delta L) L^{2/3} \delta^{-1} \epsilon^{-5/3})$ and SFO complexity of $\gO( (\gamma + \delta L) L^2 \delta^{-1} \epsilon^{-3}  )$.
 	\end{thm}
 	
-	Theorem \ref{thm:dist-ZO} and \ref{thm:dist-ZO} show that our proposed method has lower depth than existing ones for nonsmooth nonconvex optimization. In the next sections, we show that this also gives more efficient algorithms in various settings that favor parallel computing.
+	Theorems \ref{thm:dist-ZO} and \ref{thm:dist-FO} show that our proposed method has lower depth than existing ones for nonsmooth nonconvex optimization. In the next section, we show that this also gives more efficient algorithms in a setting that favors parallel computing.
 	
 	\section{Applications in Distributed Optimization}
 	
@@ -1256,358 +1200,137 @@
 		\label{tab:res-dist}
 	\end{table}
 	
-	
-	\section{Applications in Quantum Optimization}
-	% \textcolor{red}{
-		% Highlight the contribution:
-		% \begin{itemize}
-			%     \item In the optimal classical framework, they state that the use the sample does not improve the convergence, which means the quantum mean estimator seems useless here. 
-			%     We refute this by xxxxx.
-			%     \item For first-order, we xxxx
-			%     \item For zeroth-order, we xxx
-			% \end{itemize}
-		% }
-	
-	In this section, we present the quantum implementation of our proposed NOG method and demonstrate that it also achieves improved quantum query complexities than existing methods.
-	
-	\subsection{Quantum Oracles}
-	% We follow the standard Dirac bra-ket notation to define a quantum state $| \vx \rangle$ as a vector in separable complex Hilbert space. Notation $\langle \vx |$ represents the conjugation of $| \vx \rangle$ and notation $\langle \vx | \vy \rangle $ represents the inner product of two quantum states $| \vx \rangle$ and $| \vy \rangle$. Every quantum state $ | \vx \rangle$ is postulated to be normalized, \textit{i.e.}, $ \langle \vx | \vx \rangle = 1$.  
-	% The Dirac bra-ket notation unifies the discrete and continuous cases of the quantum states 
-	% Let $\gL_2$ be the functional space of those complex-valued measurable functions $\psi: \sR^d \rightarrow \sC$ which satisfies $\int_{\sR^d} \vert \psi(\vx) \vert^2 {\rm d} \vx =1$. We follow the standard Dirac bra-ket notation to let $|\vx \rangle$ represents a wave function $\psi(\vx) \in \gL_2$ such that  
-	% $\int_{\sR^d} \vert \psi(\vx) \vert^2 {\rm d} \vx = 1$ and let $\langle \vx |$ represent its conjugation  $\overline{\psi(\vx)}$.
-	% Given $| \vx \rangle$ with wave function $\psi$ and $| \vx' \rangle$ with wave function $ \psi' $, we denote $ \langle \vx | \vx' \rangle = \int_{\sR^d} \psi(\vx) \overline{\psi'(\vx)} {\rm d} \vx$.
-	% In each measurement, the
-	% probability that $\vx$ lies in the region $R \subseteq \sR^d $ is equivalent to $\int_R \vert \psi(\vx) \vert^2 {\rm d} \vx $. In this way, we can encode a distribution $p(\vx) = \vert \psi(\vx) \vert^2$in the quantum state $| \vx \rangle$, and measuring the state would give one sample from the distribution $p(\vx)$.
-	
-	\paragraph{Notations of quantum computing \citep{nielsen2010quantum}.} Let $\gL_2$ be the space of complex-valued functions $\psi: \mathbb{R}^d \rightarrow \mathbb{C}$ such that $\int_{\mathbb{R}^d} |\psi(\mathbf{x})|^2 d\mathbf{x} = 1$. Using Dirac notation, let $|\psi\rangle$ represent the wave function $\psi(\mathbf{x})$ and $\langle\psi|$ its conjugate $\overline{\psi(\mathbf{x})}$, with the inner product defined as $\langle \psi | \psi' \rangle = \int_{\mathbb{R}^d} \overline{\psi(\mathbf{x})} \psi'(\mathbf{x}) d\mathbf{x}$. The probability of finding $\mathbf{x}$ in region $R$ is $\int_R |\psi(\mathbf{x})|^2 d\mathbf{x}$. Thus, the state $|\psi\rangle$ encodes the distribution $p(\mathbf{x}) = |\psi(\mathbf{x})|^2$, where measurement yields a sample from $p(\mathbf{x})$.
-	
-	An important fact of quantum computing is the following.
-	\begin{fact}[{\citep[Section 4]{nielsen2010quantum}}] \label{fact:quantum}
-		For any function $f(\vx): \{0,1 \}^{n_1}  \mapsto \{0,1 \}^{n_2}$ implemented by a classical circuit $C$, we can implement a quantum circuit $C'$ with the same size up to constants which implements the transformation $\mU_f$ such that $\mU_f : | \vx \rangle \otimes | \vy \rangle \mapsto |\vx \rangle \otimes | f(\vx) \oplus \vy \rangle$.
-	\end{fact}
-	
-	% Traditional theory for quantum algorithms usually applies to discrete problems in theoretical computer science, where the function is discrete in nature. In this paper, we tackle the \textit{continuous} optimization problem. 
-	% By letting $n_1 \rightarrow \infty$ and $n_2 \rightarrow \infty$ in Fact \ref{fact:quantum}, we can obtain the following corollary. 
-	
-	% \begin{asm} [Continuous version of Fact \ref{fact:quantum}] \label{asm:conti-quantum}
-		% For any function $f(\vx): \sR^{d_1} \rightarrow \sR^{d_2}$ implemented by a classical circuit $C$, we can implement a quantum circuit $C'$ with the same size up to constants which implements the transformation $\mU_f$ such that $\mU_f : | \vx \rangle \otimes | \vzero \rangle \mapsto |\vx \rangle \otimes | f(\vx) \rangle$.
-		% \end{asm}
-	
-	% Fact \ref{fact:quantum} allows us to compare quantum and classical algorithms fairly. And we want to design efficient quantum algorithms that have lower circuit complexity than classical ones.
-	Based on Fact \ref{fact:quantum}, it is natural to define the quantum stochastic zeroth-order and first-order oracles for the objective function $f$, which will have the same circuit complexity as their classical counterparts.
-	
-	% When we say that a quantum algorithm $\texttt{A}_{\rm Q}$ has a speedup over a classical algorithm $\texttt{A}_{\rm C}$, we mean that $\texttt{A}_{\rm Q}$ can achieve the same functionality as $\texttt{A}_{\rm C}$ with a lower (the total number of gates in the circuit).  
-	
-	\begin{dfn}[Quantum stochastic zeroth-order oracle] \label{dfn:QSZO}
-		For function $f: \sR^d \rightarrow \sR$, its quantum stochastic zeroth-order (QSZO)  oracle is defined as $ \mO_{\rm QSZO}: | \vx \rangle \otimes | \xi \rangle \otimes | y \rangle \mapsto | \vx \rangle \otimes | \xi \rangle \otimes | F(\vx, \xi) + y \rangle $, where $F(\vx, \xi)$ is the stochastic component of Problem (\ref{prob:main}).
-		% a function $F$ that when queried at $\vx \in \sR^d$ and a random index $\xi \in \sR^d$ that satisfies $F(\vx,\xi)$. 
-	\end{dfn}
-	
-	\begin{dfn}[Quantum stochastic first-order oracle] \label{dfn:QSFO}
-		For function $f: \sR^d \rightarrow \sR$, its quantum stochastic first-order (QSFO)  oracle is defined as $ \mO_{\rm QSFO}: | \vx \rangle \otimes | \xi \rangle \otimes | \vy \rangle \mapsto | \vx \rangle \otimes | \xi \rangle \otimes | \nabla F(\vx, \xi) + \vy \rangle $, where $F(\vx, \xi)$ is the stochastic component of Problem (\ref{prob:main}).
-		% a function $F$ that when queried at $\vx \in \sR^d$ and a random index $\xi \in \sR^d$ that satisfies $F(\vx,\xi)$. 
-	\end{dfn}
-	
-	In a classical computer, achieving ${\rm Var}[\hat \vmu] \le \sigma^2$ for a random variable $Z$ requires $n = \gO({\rm Var}[Z]/\sigma^2)$ i.i.d. samples. To obtain a quantum speedup, \citet{sidford2023quantum} combined multi-level Monte Carlo (MLMC) techniques with quantum multivariate mean estimators \citep{cornelissen2022near}. Their resulting subroutine, \texttt{QuantumMeanEstimation+}, produces an unbiased estimator satisfying ${\rm Var}[\hat \vmu] \le \sigma^2$ using only $\tilde \gO( \sqrt{d} {\rm Var}[Z] / \sigma)$ quantum sample oracle defined as follows.
-	% Next, we introduce the result of quantum variance reduction by \citet{sidford2023quantum}, which will serve as an important building block to construct our quantum gradient estimators for nonsmooth functions. 
-	% Specifically, for a random variable $Z$, the classical mean estimator $\hat \vmu = \sum_{i=1}^n \vz_i$ with $\vz_i$ being  $n = \gO({\rm Var}[Z]/\sigma^2)$ i.i.d. realizations of $Z$ satisfies ${\rm Var}[\hat \vmu] \le \sigma^2$. To achieve 
-	% quantum speedup on it, 
-	% \citet{sidford2023quantum} 
-	% applied the multi-level Monte Carlo (MLMC) technique \citep{blanchet2015unbiased,giles2008multilevel,asi2021stochastic,hu2021bias,hu2024multi} on the quantum multivariate mean estimators \citep{cornelissen2022near}, propsing a quantum subroutine called \texttt{QuantumMeanEstimation+} 
-	% that can output an unbiased mean estimator $\hat \vmu$ satisfying ${\rm Var}[\hat \vmu] \le \sigma^2$ using $\tilde \gO( \sqrt{d} {\rm Var}[Z] / \sigma)$ quantum sampling oracles defined as follows.
-	
-	\begin{dfn}[Quantum sampling oracle] \label{dfn:quantum-sampling}
-		For a random variable $Z \in \sR^d$ whose probability density function is $p_Z(\vz)$, its quantum sampling oracle $\mO_Z$ is defined as $\mO_Z: | \vzero \rangle \mapsto \int_{\vz \in \sR^d} \sqrt{ p_Z(\vz) {\rm d} \vz} | \vz \rangle  \otimes | {\rm garbage}(\vz) \rangle $, where $| {\rm garbage}(\vz) \rangle$ denotes possible garbage
-		states that arise during the implementation of a quantum oracle.
-	\end{dfn}
-	
-	
-	\begin{prop}[{\citep[Theorem 4]{sidford2023quantum}}] \label{prop:QVR}
-		For a random variable $Z \in \sR^d$ with bounded variance ${\rm Var}[Z]  < + \infty$, there exists a quantum algorithm \texttt{QuantumMeanEstimation+} that can output an unbiased estimator $\hat \vmu$ of $\vmu = \E [Z]$ satisfying ${\rm Var}[\hat \vmu] \le \sigma^2$ using $\tilde \gO( \sqrt{d} {\rm Var}[Z] / \sigma)$ quantum sampling oracle in expectation, where the notation $\tilde \gO(\,\cdot\,)$ hides logarithmic factors of ${\rm Var}[Z] / \sigma$.
-	\end{prop}
-	
-	\subsection{Faster Quantum Zeroth- and First-Order Methods}
-	
-	Based on Proposition \ref{prop:QVR}, we can give the quantum counterpart of Proposition \ref{prop:ZO-estimator} as follows.
-	
-	\begin{restatable}{prop}{propqzoest}
-		\label{prop:Q-ZO-estimator}
-		Under Assumption \ref{asm:Lip}, 
-		there exists an algorithm that can construct the $(\delta,\sigma)$-SFO within $\tilde \gO( d L / \sigma )$ QSZO complexity in expectation.
-	\end{restatable}
-	Then, by integrating this estimator into our proposed NOG method, we obtain the following complexity bound in the quantum zeroth-order setting, which improves the $\gO(d^{3/2} \delta^{-1} \epsilon^{-7/3})$ QSZO complexity achieved by the recently proposed QGFM+ \citep{liu2024quantum} by a factor of $d^{1/3}$.
-	
-	\begin{restatable}[Quantum zeroth-order NOG]{thm}{thmQZO}
-		\label{thm:QZO}
-		Under Assumption \ref{asm:Lip}, Algorithm \ref{alg:fast-O2NC} with the parameters given by Theorem \ref{thm:o2ng} and the $(\delta,\sigma)$-SFO given by Proposition \ref{prop:Q-ZO-estimator} with $\sigma= d^{1/6} L^{1/3} \epsilon^{2/3}$ can find a $(2\delta,\epsilon)$-Goldstein stationary point of $f$ in $\tilde \gO(d^{7/6}(\gamma + \delta L) L^{4/3} \delta^{-1} \epsilon^{-7/3})$ QSZO complexity.
-	\end{restatable}
-	
-	% \subsection{Faster Quantum First-Order Methods}
-	
-	Next, we consider the first-order setup. Similar to the zeroth-order case, we first provide a construction for the $(\delta, \sigma)$-SFO with a quantum counterpart of Proposition \ref{prop:FO-estimator}.
-	
-	\begin{restatable}{prop}{propqfoest}
-		\label{prop:Q-FO-estimator}
-		Under Assumption \ref{asm:Lip},
-		there exists an algorithm that can construct the $(\delta,\sigma)$-SFO within $\tilde \gO( \sqrt{d} L / \sigma )$ QSFO complexity in expectation.
-	\end{restatable}
-	
-	Finally, leveraging the above QSFO-based estimator, we achieve a further improved complexity for nonsmooth nonconvex optimization, as stated in the following theorem. Compared with Theorem \ref{thm:QZO}, the quantum first-order method improves the zeroth-order one by a factor of $d^{1/2}$ in query complexity.
-	
-	\begin{restatable}[Quantum first-order NOG]{thm}{thmQFO}
-		\label{thm:QFO}
-		Under Assumption \ref{asm:Lip}, Algorithm \ref{alg:fast-O2NC} with the parameters given by Theorem \ref{thm:o2ng} and the $(\delta,\sigma)$-SFO given by Proposition \ref{prop:Q-FO-estimator} with $\sigma= d^{1/6} L^{1/3} \epsilon^{2/3}$ can find a $(2\delta,\epsilon)$-Goldstein stationary point of $f$ in $\tilde \gO(d^{2/3}(\gamma + \delta L) L^{4/3} \delta^{-1} \epsilon^{-7/3})$ QSFO complexity.
-	\end{restatable}
-	% \begin{algorithm}[t] \label{alg:fast-O2NC}
-		%     \caption{$\text{DOEG}(M , K, D)$}
-		%     \begin{algorithmic}[1]
-			%     \Require a $(\delta,\sigma)$ stochastic first-order oracle $\mO$ as per Definition \ref{dfn:SFO}.
-			%     \State  Set $\vx_0 = \vzero $, $ \vDelta_0= \vDelta_1 = \vzero$, and $\vg_0 = \mO(\vzero)$ 
-			%     \For{ $t = 1,\cdots, T$}  
-			%     % \State Sample $\vs_t \sim {\rm Unif}[0,1]$ 
-			%     % \State {\color{blue}{$\vv_{t+1/2} = {\rm Clip}_D(\vv_t- \eta \vg_{t-1})$}}
-			%     \State $\hat \vy_t = \vx_{t-1} + \vDelta_{t-1}/2$,~~ $\vh_t = \mO(\hat \vy_t)$ 
-			%     \State $\vDelta_t = {\rm Clip}_D(\vv_t - \eta \vh_t)$, ~~ $\vx_t = \vx_{t-1} + \vDelta_{t}$  \label{line:O2NC-extra}
-			%     \State $\vy_t = \vx_{t-1} + \vDelta_{t}/2$, ~~ $\vg_t =\mO( \vy_t)$ 
-			%     \State $\vv_{t+1} = {\rm Clip}_D (\vv_t - \eta \vg_t)$ \label{line:O2NC-OGD} 
-			%     \EndFor 
-			%     \For{ $k = 1, \cdots, K$} 
-			%     \State $\bar \vy_k = \frac{1}{M} \sum_{m=1}^{M} \vy_{(k-1) M+m} $ 
-			%     \EndFor
-			%     \State $k_{\rm out} \sim {\rm Unif}\{ 1,\cdots,K\}$ 
-			%     \Return $\bar \vy_{\rm out}$ 
-			%     \end{algorithmic}
-		% \end{algorithm}
-	
-	% \begin{algorithm}[t] \label{alg:fast-O2NC}
-		%     \caption{O$^2$NG$(M , K, D)$}
-		%     \begin{algorithmic}[1]
-			%     \Require a $(\delta,\sigma)$ stochastic first-order oracle $\mO$ as per Definition \ref{dfn:SFO}. 
-			%     \State  Set $\vx_0 = \vzero $, $\vDelta_1 = \vzero$, and $\vg_0 = \mO(\vzero)$ 
-			%     \For{ $t = 1,\cdots, T$}  
-			%     \State Sample $\vs_t \sim {\rm Unif}[0,1]$ 
-			%     \State {\color{blue}{$\vv_{t+1/2} = {\rm Clip}_D(\vv_t- \eta \vg_{t-1})$}} \label{line:O2NC-extra}
-			%     \State $\vx_t = \vx_{t-1} + \vv_{t+1/2}$ 
-			%     \State $\vy_t = \vx_{t-1} + \vs_t \vv_{t+1/2}$ 
-			%     \State $\vg_t =\mO( \vy_t)$ 
-			%     \State $\vv_{t+1} = {\rm Clip}_D (\vv_t - \eta \vg_t)$ \label{line:O2NC-OGD} 
-			%     \EndFor 
-			%     \For{ $k = 1, \cdots, K$} 
-			%     \State $\bar \vy_k = \frac{1}{M} \sum_{m=1}^{M} \vy_{(k-1) M+m} $ 
-			%     \EndFor 
-			%     \State $k_{\rm out} \sim {\rm Unif}\{ 1,\cdots,K\}$ 
-			%     \Return $\bar \vy_{\rm out}$ 
-			%     \end{algorithmic}
-		% \end{algorithm}
-	
-	% We propose Opt-O2NC in Algorithm \ref{alg:fast-O2NC} as an enhancement to the  ``online-to-non-convex'' (O2NC) conversion \citep[Algorithm 1]{cutkosky2023optimal} with optimism. The main modification is colored in blue, while the classical optimal methods (either first-order \citep{cutkosky2023optimal} or zeroth-order \citep{kornowski2024algorithm}) do not need this additional step and they only need to set $\vv_{t+1/2} = \vv_t$ (or $\vg_{t-1} = \vzero$). 
-	
-	% Since the other updates are the same as the optimal classical first-order method \citep{cutkosky2023optimal}, when $\vg_{t}$ returned by a $(\delta,\sigma)$-SFO.
-	
-	% \begin{lem}[{\citep[Theorem 8]{cutkosky2023optimal} applied on $f_{\delta}$}] \label{lem:O2NC}
-		% Running 
-		% Algorithm \ref{alg:fast-O2NC} with $D = \delta/M$, then the algorithm ensures that (a) For all $k$ and $m$,  $\Vert \bar \vy_k - \vy_{(k-1)M+m} \Vert \le \delta$. (b) We have the inequality 
-		% \begin{align} \label{eq:regre-O2NC}
-			%     \frac{1}{K} \sum_{k=1}^{K-1} \E \left \Vert \frac{1}{M} \sum_{m=1}^M \nabla f_{\delta}( \vy_{(k-1)M+m} ) \right \Vert \le \frac{f_{\delta}(\vx_0) - f_{\delta}^*}{D T} + \frac{\E [ R_M( \vu_1,\cdots, \vu_K) ]}{DT} + \frac{\sigma}{\sqrt{M}},
-			% \end{align}
-		% where the $M$-shifting regret with respect to  $\vu_k = - D {\sum_{m=1}^{M} \vy_{(k-1) M+m} } \big /{\Vert \sum_{m=1}^{M} \vy_{(k-1) M+m} \Vert}$:
-		% \begin{align} \label{eq:dyn-regret}
-			%     R_M(\vu_1,\cdots,\vu_K) = \sum_{k=1}^K \sum_{m= (k-1)M +1}^{k M} \langle \vg_m, \vv_{m+1/2} - \vu_k \rangle.  
-			% \end{align}
-		% \end{lem}
-	
-	% The optimal stochastic first-order method \citep{cutkosky2023optimal} can be obtained by using an online gradient descent algorithm on variable $\vv$ \citep{zinkevich2003online}, which gives a regret bound of $\gO(K D \sqrt{T})$.  
-	% In contrast, our Opt-O2NC (Algorithm \ref{alg:fast-O2NC}), uses an optimistic online gradient descent \citep{hazan2010extracting,rakhlin2013online} to give a better regret bound by leveraging the smoothness of $f_{\delta}(\,\cdot\,)$. 
-	
-	% \begin{restatable}[Regret Bound]{lem}{lemregret} \label{lem:tighter-regret}
-		% Under Assumption \ref{asm:Lip}, if we set $\eta$ according to equation (\ref{eq:setting-eta})  in Algorithm~\ref{alg:fast-O2NC}, then we have that
-		% \begin{align*}
-			%     \E[ R_M(\vu_1,\cdots,\vu_K) ] 
-			%     &\le 3 c \sqrt{2d M} L D^2 K / \delta + 2\sqrt{2 M } DK \sigma.
-			% \end{align*}
-		% \end{restatable}
-	
-	% In the following, we show the quantum speedup of Algorithm \ref{alg:fast-O2NC} for both first-order and zeroth-order methods in a unified way.
-	
-	% \begin{restatable}[Main result]{thm}{thmupper} \label{thm:upper}
-		% For any function that satisfies Assumption \ref{asm:Lip}, 
-		% Algorithm \ref{alg:fast-O2NC} can work with the two oracles: (a) QSZO with Assumption \ref{asm:ZO}; or (b) QSFO with Assumption \ref{asm:FO}. For either one of the setup, there exist appropriate parameters of the algorithm to find a $(\delta,\epsilon)$-Goldstein stationary point in the complexity of 
-		% \begin{align*}
-			%     N = \gO\left(  \frac{d^{\alpha+ \frac{1}{6}} L^{\frac{4}{3}}(\gamma + \delta L)}{\delta \epsilon^{\frac{7}{3}}}  \right),
-			% \end{align*}
-		% where $\alpha = 1/2$ for first-order methods and $\alpha=1$ for first-order methods.
-		% \end{restatable}
-	
-	% Define the dynamic regret
-	% \begin{align*}
-		%     R_T(\vu^1,\cdots,\vu^K) := \sum_{k=1}^K \sum_{n= (k-1)T +1}^{kT} \langle \vg_n , \Delta_n - \vu^k \rangle
-		% \end{align*}
-	% and the static regret
-	% \begin{align*}
-		%     R_T(\vu) := \sum_{t=1}^T \langle \vg_t , \Delta_t - \vu \rangle. 
-		% \end{align*}
-	% We have the trivial inequality as
-	% \begin{align*}
-		%     R_T(\vu^1,\cdots,\vu^K) \le K \sup_{\vu} R_T(\vu).
-		% \end{align*}
-	
-	% \begin{thm}
-		% Consider the ``online-to-non-convex'' conversion. Let $T= KM$. 
-		% %Define $\vu_k = -D \sum_{t=0}^{T-1} \nabla F(\vw_t^k) / \Vert \nabla F(\vw_t^k) \Vert $. 
-		% Suppose ${\rm Var}(\vg_n) \le \sigma^2$. We have that
-		% \begin{align*}
-			%     (*) = \E \left[ \frac{1}{K} \sum_{k=1}^K \left \Vert 
-			%     \frac{1}{T} \sum_{t=1}^T \nabla F(\vw_t^k) 
-			%     \right  \Vert  \right] \le \frac{\gamma}{D T} + \frac{\E [ R_T(\vu^1,\cdots,\vu^k)]}{DM} + \frac{\sigma}{\sqrt{M}}.
-			% \end{align*}
-		% \end{thm}
-	
-	% We have that
-	% \begin{align*}
-		%     (*) \lesssim \frac{\gamma}{D T} + \frac{H D}{\sqrt{M}} + \frac{\sigma}{\sqrt{M}},
-		% \end{align*}
-	% where $H = \sqrt{d} L / \delta$ and $D = \delta / M$. Let $B$ be the number of queries in each iteration, by Proposition xxx we have that $ \sigma = d^{\alpha} L / B$, where $\alpha = 1/2$ for first-order algorithm and $\alpha =1$ for zeroth-order algorithm.  Let $N$ be the total number of oracle calls, \textit{i.e.}, $N = B T$. Then
-	% \begin{align*}
-		%     (*) \lesssim \frac{M B \gamma}{\delta N} + \frac{d^{\frac{1}{2}} L}{M^{\frac{3}{2}}} + \frac{d^{\alpha} L}{B M^{\frac{1}{2}}}.
-		% \end{align*}
-	% Tuning the optimal $B$ gives 
-	% \begin{align*}
-		%     (*) \lesssim \frac{d^{\frac{\alpha}{2}} M^{\frac{1}{4}} \gamma^{\frac{1}{2}}}{\delta^{\frac{1}{2}} N^{\frac{1}{2}}} + \frac{d^{\frac{1}{2}} L}{M^{\frac{3}{2}}}.
-		% \end{align*}
-	% Tuning the optimal $M$ gives
-	% \begin{align*}
-		%     (*) \lesssim  d^{\frac{6 \alpha+1}{14}} \left( \frac{\gamma}{\delta N} \right)^{\frac{3}{7}}.
-		% \end{align*}
-	% This gives the complexity of
-	% \begin{align*}
-		%     \gO\left( \frac{d^{\frac{6 \alpha+1}{6}} \gamma}{\delta \epsilon^{\frac{7}{3}}} \right) 
-		% \end{align*}
-	% to find a $(\delta,\epsilon)$-Goldstein stationary point of $f_{\delta}$.  
-	% Consider the optimistic online gradient descent with any hints $\vh_t$, we have that
-	% \begin{align*}
-		%     R_T(\vu) \lesssim D \sqrt{\sum_{t=1}^T \Vert \vg_t  - \vh_t \Vert^2 },
-		% \end{align*}
-	% We let $\vg_t$ be the zeroth-order gradient estimation and $\vh_t$ be the estimation at the previous iterate with the same randomness as $\vg_t$, \textit{i.e.}, 
-	% \begin{align*}
-		%     \vg_t &=G_{\delta}(\Delta_t; \vv_t, \xi_t), \quad \vh_t = G_{\delta}(\Delta_{t-1}; \vv_t, \xi_t ).
-		% \end{align*}
-	% By the smoothness of $G_{\delta}$, we have that
-	% \begin{align*}
-		%     \E[R_T(\vu)] \lesssim D \sqrt{\sum_{t=1}^T \E \Vert \vg_t  - \vh_t \Vert^2 } \lesssim \frac{D^2 d L \sqrt{T}}{\delta}.
-		% \end{align*}
-	% It implies that
-	% \begin{align*}
-		%     (*) \lesssim \frac{F(\vx_0) - F^*}{DM} + \frac{D d L }{\delta \sqrt{T}} + \frac{\sigma}{\sqrt{T}}.
-		% \end{align*}
-	% We let $D = \delta / T$, then we have 
-	% \begin{align*}
-		%     (*) \lesssim \frac{T(F(\vx_0) - F^*)}{\delta M} + \frac{ d L}{T^{3/2}} + \frac{\sigma}{\sqrt{T}}
-		% \end{align*}
-	% By properly tuning the batch size $B$, and parameter $T$, we can obtain an upper bound of 
-	% $\gO(d^{5/4} L \delta^{-1} \epsilon^{-2} ) $ to find a $(\delta,\epsilon)$-Goldstein stationary point. We calculate this below. Using mini-batch and the fact  that $\sigma \le \sqrt{d} L$, we have that
-	% \begin{align*}
-		%     (*) \lesssim \frac{T(F(\vx_0) - F^*)}{\delta M} + \frac{ d L}{T^{3/2} B} + \frac{\sqrt{d} L}{\sqrt{T} B}.
-		% \end{align*}
-	% The total budget of complexity is $\sqrt{d} M B$. Let $N = M B$, we have
-	% \begin{align*}
-		%     (*) \lesssim \frac{T B(F(\vx_0) - F^*)}{\delta N} + \frac{ d L}{T^{3/2} B} + \frac{\sqrt{d} L}{\sqrt{T} B}.
-		% \end{align*}
-	% Fix $N,T$, tuning the optimal $B$ gives 
-	% \begin{align*}
-		%     (*) &\lesssim \left( \frac{T  (F(\vx_0) - F^*)}{\delta N} \right)^{1/2} \left( \frac{d L}{T^{3/2}} + \frac{\sqrt{d} L}{\sqrt{T}} \right)^{1/2} \\
-		%     &\lesssim \left( \frac{(F(\vx_0) - F^*)}{\delta N} \right)^{1/2} \left( 
-		%     \frac{d^{1/2} L^{1/2}}{T^{1/4}}
-		%      + d^{1/4} L^{1/2} T^{1/4} \right).
-		% \end{align*}
-	% Tuning the optimal $T$ gives 
-	% \begin{align*}
-		%     (*) \lesssim \left( \frac{(F(\vx_0) - F^*)}{\delta N} \right)^{1/2}  d^{3/8} L^{1/2}
 		% \end{align*}.
-	
-	
-	
-	\section{Experimental Validation}\label{sec:experiments}
+\section{Experimental Validation}\label{sec:experiments}
+We test whether the communication-depth separation predicted by
+Theorems~\ref{thm:dist-FO} and~\ref{thm:dist-ZO} is visible on a controlled
+nonsmooth nonconvex problem.  For $\xi\in\{1,\ldots,n\}$, let
+\begin{equation}\label{eq:synthetic-objective}
+	F(\vx;\xi)=\max_{1\leq r\leq R}
+	\sin(\mathbf{a}_{\xi,r}^{\top}\vx+b_{\xi,r})
+	+\lambda\lVert\vx\rVert_1 .
+\end{equation}
+We use $d=100$, $n=4096$, $R=1$, $\lambda=10^{-3}$, and eight workers.
+The sinusoidal term is nonconvex and the $\ell_1$ term is nonsmooth.  Depth is
+the number of sequential communication/oracle layers; work is the total number
+of training oracle calls across workers.  At common checkpoints we estimate a
+smoothed-gradient norm using a method-independent high-precision sample bank.
+A target is reached only after two consecutive evaluations are at most
+$\epsilon$.  Parameters are selected on pilot seeds $100$--$104$, frozen, and
+then evaluated on formal seeds $0$--$19$.  Evaluation calls are excluded from
+training work.  Appendix~\ref{app:numerical-experiments} gives the estimators,
+parameters, complete protocol, and audit information.
 
-	\subsection{First-order communication--work scaling}\label{sec:experiments-fo}
-	We compare the distributed first-order implementations of NOG and ME-DOL
-	\citep{sahinoglu2024online} on a controlled nonsmooth nonconvex objective.
-	The experiment uses eight workers and measures the first communication depth
-	at which a high-precision stationarity proxy is below the target $\epsilon$ at
-	two consecutive checkpoints. Hyperparameters are selected on five pilot
-	seeds and frozen before evaluation on 20 disjoint formal seeds. To isolate
-	the dependence on $\epsilon$, Figure~\ref{fig:fo-v4-fixed-batch} reports the
-	homogeneous regime $\epsilon\in[0.0105,0.2]$, in which both methods use the
-	same total training batch of eight at every depth layer. Full definitions,
-	parameters, and numerical results are given in Appendix~\ref{app:fo-experiments}.
-
-	\begin{figure}[t]
-		\centering
-		\includegraphics[width=\textwidth]{figures/fo_v4_fixed_batch.pdf}
-		\caption{First-order comparison in the fixed-batch regime. Curves are
-		means over 20 formal seeds; every method--threshold pair has 20/20 confirmed
-		hits. \textbf{Left:} absolute first-hit depth, with bands showing one
-		standard deviation. \textbf{Right:} per-seed paired ratios, with 95\%
-		bootstrap confidence bands. Smaller $\epsilon$ is shown toward the right.}
-		\label{fig:fo-v4-fixed-batch}
-	\end{figure}
-
-	As the target becomes more stringent, the paired depth ratio
-	$D_{\mathrm{ME\text{-}DOL}}/D_{\mathrm{NOG}}$ increases monotonically from
-	$0.488$ to $1.102$ (Spearman $\rho=1$ on the 25-point grid), crossing one near
-	$\epsilon=0.01075$. Meanwhile, the paired work ratio
-	$W_{\mathrm{NOG}}/W_{\mathrm{ME\text{-}DOL}}$ remains within an order-one
-	range, $[0.980,2.049]$. Thus this finite-instance result exhibits a growing
-	relative depth advantage as accuracy increases without an order-of-magnitude
-	work separation. This qualitative trend is consistent with
-	Theorem~\ref{thm:parallel-FO}, which improves NOG's worst-case depth dependence
-	from $\widetilde O(\epsilon^{-3})$ to
-	$\widetilde O(d^{1/3}\epsilon^{-5/3})$ while retaining
-	$\widetilde O(\epsilon^{-3})$ work. We do not interpret the experiment as
-	verification of the exact worst-case exponents: the objective and accuracy
-	range are finite, the configurations are pilot-calibrated rather than
-	globally optimal, and the stationarity measure is a Monte Carlo proxy.
+\subsection{First-order oracles}\label{sec:experiments-fo}
+We compare NOG-FO with ME-DOL-FO \citep{sahinoglu2024online}.
+Figure~\ref{fig:fo-first-hit} uses the homogeneous batch-8 regime
+$\epsilon\in[0.0105,0.2]$; all method--threshold pairs have 20/20 confirmed
+hits.  As $\epsilon$ decreases, the paired depth ratio
+$D_{\mathrm{ME\text{-}DOL}}/D_{\mathrm{NOG}}$ grows monotonically from $0.488$
+to $1.102$, crossing one at the most stringent targets.  At $\epsilon=0.0105$,
+NOG requires mean depth $587.2$ versus $642.9$ for ME-DOL, with mean work
+$4697.6$ versus $5143.2$.  Across the displayed range, the paired NOG/ME-DOL
+work ratio stays between $0.980$ and $2.049$.  Thus the finite experiment
+exhibits the predicted improvement in \emph{relative} depth as accuracy
+increases, without an order-of-magnitude work separation.  It does not show
+that NOG is uniformly better at coarse accuracy.
 
 \begin{figure}[t]
 \centering
-		\includegraphics[width=0.96\textwidth]{figures/zo_depth_work_ratios.pdf}
-		\caption{Zeroth-order paired ratios (baseline/NOG-ZO) over 20 frozen
-		formal seeds; bands are 95\% paired-bootstrap confidence intervals.
-		Only thresholds with 20/20 paired hits are plotted.  Smaller $\epsilon$
-		is shown toward the right.}
-		\label{fig:zo-main}
-	\end{figure}
-	\subsection{Zeroth-order communication--work scaling}
-\label{sec:experiments-zo}
-We next compare NOG-ZO against ME-DOL-ZO \citep{sahinoglu2024online}, DGFM,
-and DGFM+ \citep{lin2024decentralized} on the same synthetic objective.  The
-four methods use two-point estimators, eight workers, and an equal cap of
-$983{,}040$ training function evaluations.  Configurations are selected on
-pilot seeds $100$--$104$, frozen, and then evaluated on formal seeds $0$--$19$.
-We form ratios within each seed and report trends only on thresholds at which
-all 20 method/NOG-ZO pairs attain confirmed hits.  Figure~\ref{fig:zo-main}
-shows these prespecified complete-pair regions; Appendix~\ref{app:zo-experiments}
-gives all absolute results, non-hits, parameter settings, and audits.
+\includegraphics[width=\textwidth]{figures/fo_first_hit_depth_work.pdf}
+\caption{First-order first-hit complexity on
+Eq.~(\ref{eq:synthetic-objective}).  Lines are means over 20 frozen formal
+seeds and bands are 95\% $t$ confidence intervals.  Left: communication depth.
+Right: total training SFO work.  The displayed interval keeps the per-layer
+batch fixed for both methods; all points have 20/20 confirmed hits.}
+\label{fig:fo-first-hit}
+\end{figure}
 
+\subsection{Zeroth-order oracles}\label{sec:experiments-zo}
+We compare NOG-ZO with ME-DOL-ZO \citep{sahinoglu2024online}, DGFM, and DGFM+
+\citep{lin2024decentralized}.  All methods use two-point estimators and the
+same cap of $983{,}040$ training function evaluations per seed.
+Figure~\ref{fig:zo-first-hit} restricts attention to the common
+$\epsilon\in[0.03,0.2]$ interval where all four methods have 20/20 hits.  NOG
+has the smallest mean depth at every displayed target.  Moreover, as
+$\epsilon$ decreases from $0.2$ to $0.03$, the paired depth ratios
+ME-DOL-ZO/NOG-ZO, DGFM/NOG-ZO, and DGFM+/NOG-ZO grow from
+$1.596$, $3.556$, and $3.520$ to $2.717$, $7.210$, and $11.387$,
+respectively.  At $\epsilon=0.03$, NOG's mean depth is $229.2$, compared with
+$622.8$, $1652.4$, and $2609.6$ for the three baselines.  The corresponding
+works are $234{,}701$, $159{,}437$, $211{,}507$, and $355{,}302$: NOG is
+communication-efficient but not uniformly work-minimal.  This is qualitative
+evidence for the improved $\epsilon$ dependence of NOG's depth, rather than
+an empirical identification of the worst-case exponent.
 
-	As $\epsilon$ decreases from $0.2$ to $0.018$, the depth ratios of
-	ME-DOL-ZO and DGFM increase from $1.596$ to $3.547$ and from $3.556$ to
-	$8.791$, respectively.  DGFM+/NOG-ZO increases from $3.520$ to $11.387$
-	over its complete interval $[0.03,0.2]$.  All three depth curves are monotone
-	(Spearman $\rho=1$), qualitatively supporting the improved
-	$\epsilon$-dependence in Theorem~\ref{thm:dist-ZO}.  The corresponding work
-	ratios change from $0.399$ to $0.887$, $0.444$ to $1.099$, and $0.471$ to
-	$1.514$.  Thus the finite experiment does not recover the constant-order
-	work dependence suggested for ME-DOL-ZO and DGFM+, and we treat work as
-	a secondary descriptive endpoint.  More generally, the observed finite-range
-	slopes need not equal worst-case exponents.  Our empirical claim is restricted
-	to the prespecified communication-depth direction, not exact-rate verification
-	or universal dominance.
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/zo_first_hit_depth_work.pdf}
+\caption{Zeroth-order first-hit complexity on
+Eq.~(\ref{eq:synthetic-objective}).  Lines are means over 20 frozen formal
+seeds and bands are 95\% $t$ confidence intervals.  Left: communication depth.
+Right: total training SZO work.  The plot shows the common interval on which
+every method--threshold pair has 20/20 confirmed hits.}
+\label{fig:zo-first-hit}
+\end{figure}
 
+\paragraph{Scope.}
+The experiments isolate the depth--work tradeoff on a problem satisfying the
+paper's nonsmooth nonconvex setting.  Worst-case upper bounds need not be tight
+on one finite instance, so we claim agreement only in the direction of the
+relative depth trend.  We neither fit the theoretical exponents as empirical
+equalities nor claim universal dominance across objectives.
+
+\paragraph{Quantum extension.}
+The same NOG framework also admits quantum implementations based on quantum
+mean estimation.  Their oracle models, algorithms, query complexities, and
+proofs are deferred to Appendix~\ref{app:quantum}.
+
+	% \begin{table}[htbp]
+	% 	\centering
+	% 	\begin{tabular}{c c c c c}
+	% 		\hline
+	% 		Oracle & Method     & Depth & Work & Reference \\
+	% 		\hline \addlinespace
+	% 		\multirow{4}{*}{0th}  & GFM  & $ \gO(d^{1/2} \delta^{-1} \epsilon^{-2})$ & $ \gO(d^{3/2} \delta^{-1} \epsilon^{-4})$ & \citep{lin2022gradient} \\ \addlinespace
+	% 		& ~~GFM+  &  $ \gO(d^{1/2} \delta^{-1} \epsilon^{-2})$  & $ \gO(d^{3/2} \delta^{-1} \epsilon^{-3})$ & \citep{chen2023faster} \\ \addlinespace
+	% 		% & QGFM+  & $ \gO(d^{1/2} \delta^{-1} \epsilon^{-2})$  & $ \gO(d^{3/2} \delta^{-1} \epsilon^{-7/3})$ & \citep{liu2024quantum} \\ \addlinespace
+	% 		% 0th \\
+	% 		& O2NC  & $ \gO(\delta^{-1} \epsilon^{-3})$ & $ \gO(d \delta^{-1} \epsilon^{-3})$ & \citep{kornowski2024algorithm} \\  \addlinespace
+	% 		& NOG(ours) & $ \gO(d^{1/3} \delta^{-1} \epsilon^{-5/3})$ & $\gO(d \delta^{-1} \epsilon^{-3})$ & Theorem \ref{thm:parallel-ZO} \\ \addlinespace
+	% 		% & QSZO & $ \gO(d^{1/2} \delta^{-1} \epsilon^{-3/2})$ & $ \gO(d^{5/4} \delta^{-1} \epsilon^{-9/4}) $ & Theorem \ref{thm:upper} \\ \addlinespace
+	% 		\hline \addlinespace
+	% 		\multirow{4}{*}{1st} & INGD  & $\gO( \delta^{-1} \epsilon^
+	% 		{-4})$ &  $\gO( \delta^{-1} \epsilon^{-4})$ & \citep{zhang2020complexity}\\ \addlinespace
+	% 		& O2NC     & $\gO( \delta^{-1} \epsilon^{-3})$ & $\gO( \delta^{-1} \epsilon^{-3})$ &\citep{cutkosky2023optimal} \\ \addlinespace
+	% 		& NOG(ours) & $\gO( d^{1/3} \delta^{-1} \epsilon^{-5/3} )$ & $\gO(\delta^{-1} \epsilon^{-3})$ & Theorem \ref{thm:parallel-FO} \\ \addlinespace
+	% 		% & ODOGS & $\gO(d^{1/4} \delta^{-1} \epsilon^{-3/2})$ & $\gO( d^{3/4} \delta^{-1} \epsilon^{-9/4} )$  & Theorem \ref{thm:upper} \\ \addlinespace
+	% 		% Fast GFM & classical & $\gO(d \delta^{-1} \epsilon^{-3})$ & \\
+	% 		% ~~QGFM+ & quantum & $\tilde \gO(d^{3/2} \delta^{-1} \epsilon^{-7/3})$ & \\
+	% 		% ~~Fast QGFM+ &  quantum &  $ \tilde \gO(d^{5/4} \delta^{-1} \epsilon^{-2}) $ &  \\
+	% 		\hline
+	% 	\end{tabular}
+	% 	\caption{Comparison of depth (rounds of interactions) and work (total query complexities) for \textbf{classical} algorithms for finding $(\delta,\epsilon)$ stationary points of nonsmooth nonconvex problems.}
+	% 	\label{tab:res-classical}
+	% \end{table}
 \section{Conclusions and Future Works}
-	
-	In this work, we propose the Nonconvex Optimistic Gradient (NOG) method as a meta-algorithm for highly-parallel nonsmooth nonconvex optimization. Building upon the NOG framework, we further develop communication-efficient distributed algorithms and fast quantum algorithms.
-	
-	For future research, it would be of great interest to establish lower bounds for these settings. Such results would be instrumental in examining the tightness of our proposed methods. Moreover, our distributed algorithm requires a centralized server, and it is also important to consider its decentralized extensions \citep{lin2024decentralized,sahinoglu2024online,chen2026decentralized}. Finally, noting that the $\delta$ and $\epsilon$ dependencies of our zeroth- and first-order quantum algorithms and the one in \citep{liu2024quantum} are all $\delta^{-1} \epsilon^{-7/3}$, we wonder whether there exist faster algorithms that can break this barrier.
+
+	We introduced NOG, a meta-algorithm for highly parallel nonsmooth nonconvex
+	optimization.  Its first- and zeroth-order instantiations improve the
+	communication-depth dependence on the target stationarity while retaining
+	state-of-the-art total oracle work.  On a controlled synthetic objective,
+	the relative depth of NOG improves as $\epsilon$ decreases in both oracle
+	models, while the work comparisons remain instance- and method-dependent.
+	These experiments support the predicted communication trend but do not
+	establish exact worst-case exponents.
+
+	Important open questions include matching lower bounds for parallel
+	nonsmooth nonconvex optimization and decentralized implementations that do
+	not require a centralized server
+	\citep{lin2024decentralized,sahinoglu2024online,chen2026decentralized}.
+	For the quantum extensions in Appendix~\ref{app:quantum}, the common
+	$\delta^{-1}\epsilon^{-7/3}$ dependence also leaves open whether faster
+	query algorithms are possible.
 
 \subsection*{AI Use Statement}
 % TODO: Replace this placeholder with the disclosure required by the ICLR 2027 AI Policy.
