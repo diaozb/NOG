@@ -44,5 +44,6 @@ NOG 在所有精度下全面优于基线。
 本目录用于保存论文实际采用的图片和最小可审计实验说明；提交后位于 GitHub
 仓库 `main` 分支的
 `results/paper_experiments_20260824/`。论文源码和正文引用的图片同时保留在
-`nog_iclr2027_complete_source/`。旧图没有删除实验数据，历史版本保存在
-`results/paper_figures_unused_archive_20260824/`。
+`nog_iclr2027_complete_source/`。旧图没有删除实验数据；旧图的完整历史归档
+保留在本地工作区的 `results/paper_figures_unused_archive_20260824/`，不作为本次
+论文主结果上传。
