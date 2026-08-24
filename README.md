@@ -40,11 +40,12 @@ ijcnn1 的 SVM 结果作为独立真实数据补充，明确记录算法的适�
 
 ### 2.1 SyntheticMaxSinL1
 
-主实验对每个数据样本 `ξ` 使用
+主实验对每个数据样本 `ξ` 使用下图所示的 `SyntheticMaxSinL1` 函数（公式由仓库中的
+`docs/readme_equations/objective.tex` 编译生成）：
 
-```text
-F(x; ξ) = max_{1 <= r <= R} sin(a_{ξ,r}^T x + b_{ξ,r}) + λ ||x||_1.
-```
+![SyntheticMaxSinL1 objective](docs/readme_equations/objective.png)
+
+纯文本形式：`F(x; ξ) = max_r sin(a_{ξ,r}^T x + b_{ξ,r}) + λ ||x||_1`。
 
 固定设置为：
 
@@ -68,9 +69,10 @@ F(x; ξ) = max_{1 <= r <= R} sin(a_{ξ,r}^T x + b_{ξ,r}) + λ ||x||_1.
 
 每个原生 evaluation checkpoint 使用固定高精度 Monte Carlo bank 估计平滑梯度范数：
 
-```text
-stat_hat(x) = || (1 / B_eval) sum_j g_delta(x; zeta_j) ||.
-```
+![Stationarity proxy](docs/readme_equations/stationarity_proxy.png)
+
+proxy 的纯文本定义为
+`stat_hat(x) = ||(1/B_eval) sum_j g_delta(x; zeta_j)||`。
 
 主 synthetic 实验使用 `eval_smooth_B=256`、`eval_data_B=512`。evaluation bank 在
 同一 seed 的方法之间固定，evaluation work 不计入 training work。只有连续两个有效
@@ -80,6 +82,11 @@ checkpoint 定义 first-hit depth/work。
 未命中的 seed 不删除、不替换、不用条件均值伪装为完整 first hit，而按 right-censored
 结果保存和解释。
 
+理论主阶的编译版公式如下；它们是论文中的 worst-case reference，不是单一有限实例上
+拟合出来的经验等式：
+
+![NOG theoretical complexity](docs/readme_equations/complexity.png)
+
 ## 3. 算法如何实现
 
 所有实现都从 `x0=0` 开始，worker 持有不重叠的数据 shard。可并行的本地 oracle 计算
@@ -87,13 +94,13 @@ checkpoint 定义 first-hit depth/work。
 
 ### 3.1 FO/ZO oracle
 
-FO 直接对 stochastic component 求梯度并在 worker 间做平均。ZO 使用双点球面估计器：
+FO 直接对 stochastic component 求梯度并在 worker 间做平均。ZO 使用下图所示的双点
+球面估计器（由 `docs/readme_equations/zo_estimator.tex` 编译生成）：
 
-```text
-g_hat_h(x; v, xi)
-  = d/(2h) * (F(x+h v; xi) - F(x-h v; xi)) * v,
-v ~ Uniform(S^{d-1}).
-```
+![Two-point zeroth-order estimator](docs/readme_equations/zo_estimator.png)
+
+等价的纯文本形式为 `g_hat_h(x;v,xi)=d/(2h)*(F(x+h v;xi)-F(x-h v;xi))*v`，
+`v ~ Uniform(S^(d-1))`。
 
 一次 ZO direction 需要两个 function evaluations，因此 work 账本显式乘以 2；
 DGFM+ 的普通 SPIDER difference 同时评价当前位置和参考位置，也按 4 次 SZO calls
@@ -102,14 +109,13 @@ DGFM+ 的普通 SPIDER difference 同时评价当前位置和参考位置，也�
 ### 3.2 NOG（FO 和 ZO 共用的 block-average 实现）
 
 代码入口为 `src/distributed/cpu_fo_algorithms.py`、`src/distributed/cpu_zo_algorithms.py`
-及通用实现 `src/distributed/algorithms.py`。每一轮的核心更新为：
+及通用实现 `src/distributed/algorithms.py`。每一轮的核心更新如下；公式由
+`docs/readme_equations/nog_update.tex` 编译生成：
 
-```text
-Delta <- Project_{h/M}(Delta - 2*eta*g_{t-1} + eta*g_{t-2})
-y_t   <- x_t + alpha_t * Delta
-x_{t+1} <- x_t + Delta
-g_t   <- stochastic FO/ZO oracle(y_t)
-```
+![NOG block update](docs/readme_equations/nog_update.png)
+
+其中 `Pi_{B_{h/M}}` 是半径 `h/M` 的投影，`alpha_t` 是固定随机插值，`g_t` 是
+FO 或 ZO stochastic oracle。
 
 其中 `M` 是 block length，`h/M` 是 NOG 的更新投影半径，`alpha_t` 是固定随机插值。
 每个 block 结束时评价该 block 内 `y_t` 的平均点 `y_bar`。实现显式保存两个初始化

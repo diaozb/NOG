@@ -1,0 +1,16 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,bm}
+\pagestyle{empty}
+\begin{document}
+\[
+\begin{aligned}
+ \boldsymbol\Delta_t
+   &=\Pi_{\mathbb B_{h/M}}
+     \!\left(\boldsymbol\Delta_{t-1}
+       -2\eta\boldsymbol g_{t-1}+\eta\boldsymbol g_{t-2}\right),\\
+ \boldsymbol y_t&=\boldsymbol x_t+\alpha_t\boldsymbol\Delta_t,\\
+ \boldsymbol x_{t+1}&=\boldsymbol x_t+\boldsymbol\Delta_t,\\
+ \boldsymbol g_t&=\mathcal O(\boldsymbol y_t;\xi).
+\end{aligned}
+\]
+\end{document}
