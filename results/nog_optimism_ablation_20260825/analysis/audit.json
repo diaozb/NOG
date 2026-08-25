@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "pilot_seed_count_per_method": {
+    "NOG-FO": 5,
+    "NOG-FO-NONOPT": 5
+  },
+  "formal_seed_count_per_method": {
+    "NOG-FO": 20,
+    "NOG-FO-NONOPT": 20
+  },
+  "formal_task_count": 40,
+  "methods": [
+    "NOG-FO",
+    "NOG-FO-NONOPT"
+  ],
+  "same_problem_seed_and_method_seed_for_pairs": true,
+  "same_work_depth_per_pair": true,
+  "nonfinite_stat_proxy_rows": 0,
+  "source": "formal/partials/*.json"
+}

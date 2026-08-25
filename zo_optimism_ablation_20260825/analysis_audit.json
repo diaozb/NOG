@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "datasets": [
+    "SyntheticMaxSinL1",
+    "a9a",
+    "ijcnn1"
+  ],
+  "methods": [
+    "latest_NOG-ZO",
+    "current_NOG-opt",
+    "current_NOG-nonopt"
+  ],
+  "formal_seed_counts": {
+    "a9a/current_NOG-nonopt": 20,
+    "a9a/current_NOG-opt": 20,
+    "ijcnn1/current_NOG-nonopt": 20,
+    "ijcnn1/current_NOG-opt": 20,
+    "synthetic_maxsinl1/current_NOG-nonopt": 20,
+    "synthetic_maxsinl1/current_NOG-opt": 20
+  },
+  "work_depth_equal_within_current_pairs": true,
+  "paired_ledger_checks": {
+    "synthetic_maxsinl1": true,
+    "a9a": true,
+    "ijcnn1": true
+  },
+  "nonfinite_stat_proxy_rows": 0,
+  "latest_synthetic_baseline_source": "/data/diaozb/NOG/outputs/distributed_zo/zo_theory_validation/formal/fixed_work_983040",
+  "latest_svm_baseline_source": "/data/diaozb/NOG/results/advisor_cpu_batch_retuned_svm/merged/formal_trajectories.csv",
+  "current_ablation_seed_range": [
+    720,
+    739
+  ],
+  "notes": [
+    "Latest synthetic baseline was generated with CUDA in its stored environment; current ablation was forced to CPU per request.",
+    "SVM latest baseline is the CPU batch-retuned formal result.",
+    "Threshold means are conditional first-hit means; capped means retain censored runs."
+  ]
+}

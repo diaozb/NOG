@@ -1,0 +1,9 @@
+dataset,method,seed_count,source,baseline_reuse
+a9a,NOG-ZO,20,retuned formal shards,False
+a9a,ME-DOL-ZO,20,supplement_formal_cpu_v2_seed_shards,True
+a9a,DGFM,20,supplement_formal_cpu_v2_seed_shards,True
+a9a,DGFM+,20,supplement_formal_cpu_v2_seed_shards,True
+ijcnn1,NOG-ZO,20,retuned formal shards,False
+ijcnn1,ME-DOL-ZO,20,supplement_formal_cpu_v2_seed_shards,True
+ijcnn1,DGFM,20,supplement_formal_cpu_v2_seed_shards,True
+ijcnn1,DGFM+,20,supplement_formal_cpu_v2_seed_shards,True

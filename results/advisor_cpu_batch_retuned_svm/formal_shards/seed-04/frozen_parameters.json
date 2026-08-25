@@ -1,0 +1,100 @@
+{
+  "status": "frozen",
+  "stage": "svm-batch-retuned-formal",
+  "created_at_utc": "2026-08-22T16:03:57.973032+00:00",
+  "device": "cpu",
+  "selection_happened_before_formal_runs": true,
+  "test_data_used_for_parameter_selection": false,
+  "seed_sets_disjoint": true,
+  "search_seeds": [
+    400,
+    401,
+    402,
+    403,
+    404
+  ],
+  "validation_seeds": [
+    500,
+    501,
+    502,
+    503,
+    504
+  ],
+  "formal_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "formal_target_total_work": 983040,
+  "worker_count": 8,
+  "eval_every": 96,
+  "eval_smooth_B": 32,
+  "eval_data_B": 256,
+  "config_by_dataset": {
+    "a9a": "configs/distributed_zo_batch_svm_a9a.yaml",
+    "ijcnn1": "configs/distributed_zo_batch_svm_ijcnn1.yaml"
+  },
+  "selected_candidates": [
+    {
+      "dataset": "a9a",
+      "method": "NOG-ZO",
+      "parameters": {
+        "M": 1,
+        "data_B_total": 64,
+        "eta": 9e-05,
+        "smooth_B": 1
+      },
+      "validation_rank": 1,
+      "validation_seed_count": 5
+    },
+    {
+      "dataset": "ijcnn1",
+      "method": "NOG-ZO",
+      "parameters": {
+        "M": 1,
+        "data_B_total": 64,
+        "eta": 0.0001,
+        "smooth_B": 1
+      },
+      "validation_rank": 1,
+      "validation_seed_count": 5
+    }
+  ],
+  "selection_metric": {
+    "formula": "mean over search seeds and 25%, 50%, 75%, 100% work checkpoints of log(stat_proxy)",
+    "tie_breakers": [
+      "lower final epsilon",
+      "lower final epsilon std",
+      "lower depth"
+    ],
+    "nonfinite_rule": "reject candidate"
+  },
+  "input_sha256": {
+    "results/advisor_cpu_batch_retuned_svm/protocol.json": "8fd5f5d9da34790487918b4e9eb13e37c8c7a992fdfbd4cee5b8c63c0924ac52",
+    "results/advisor_cpu_batch_retuned_svm/pilot_validation.csv": "ef16db80fc20bb3dffe5a526350706e7247f7a3bd53dc5496a3f2f3ba137db50",
+    "configs/distributed_zo_batch_svm_a9a.yaml": "796e0c00fafa516bfc011c334c8de08c17d5ca10246ad42eeaf920a317f6c8f6",
+    "configs/distributed_zo_batch_svm_ijcnn1.yaml": "f26c7c4503d53842c9020fb7eda7213a1c471e0e38aed181ad39c023ba97eea0",
+    "src/distributed/zo_refine_pilot.py": "8a8b496f3906c6324f1900930e21e56a3e9c7849ce73cb12f5f60aa22505b567",
+    "src/distributed/common.py": "2718d18056192c4b53ef4bd61e9e40b8de1f9fc01065753c7aa8c25feba71630",
+    "src/distributed/algorithms.py": "66907aa54765b77cf01b1d66a9f47a0304a4238aaa0fe374c5510a0bab9a6549",
+    "src/distributed/real_data.py": "521b0333b056d768e729da7935e5046e25e9e465ff20b70120dace580108850d",
+    "scripts/run_retuned_nog_formal.py": "650b98c05e5ec05a3108abf678766717ad8ff479a5781b0518e8b3c880b4b0dc"
+  }
+}

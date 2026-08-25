@@ -1,0 +1,306 @@
+{
+  "status": "complete",
+  "stage": "pilot",
+  "records": [
+    {
+      "stage": "pilot",
+      "dataset": "a9a",
+      "method": "NOG-ZO",
+      "seed": 700,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/a9a/NOG-ZO__seed-700.csv",
+      "rows": 81,
+      "seconds": 44.41862893104553
+    },
+    {
+      "stage": "pilot",
+      "dataset": "a9a",
+      "method": "NOG-ZO",
+      "seed": 701,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/a9a/NOG-ZO__seed-701.csv",
+      "rows": 81,
+      "seconds": 39.48427653312683
+    },
+    {
+      "stage": "pilot",
+      "dataset": "a9a",
+      "method": "NOG-ZO",
+      "seed": 702,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/a9a/NOG-ZO__seed-702.csv",
+      "rows": 81,
+      "seconds": 37.66151547431946
+    },
+    {
+      "stage": "pilot",
+      "dataset": "a9a",
+      "method": "NOG-ZO",
+      "seed": 703,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/a9a/NOG-ZO__seed-703.csv",
+      "rows": 81,
+      "seconds": 36.76900315284729
+    },
+    {
+      "stage": "pilot",
+      "dataset": "a9a",
+      "method": "NOG-ZO",
+      "seed": 704,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/a9a/NOG-ZO__seed-704.csv",
+      "rows": 81,
+      "seconds": 39.7049560546875
+    },
+    {
+      "stage": "pilot",
+      "dataset": "a9a",
+      "method": "NOG-ZO-NONOPT",
+      "seed": 700,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/a9a/NOG-ZO-NONOPT__seed-700.csv",
+      "rows": 81,
+      "seconds": 39.23667645454407
+    },
+    {
+      "stage": "pilot",
+      "dataset": "a9a",
+      "method": "NOG-ZO-NONOPT",
+      "seed": 701,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/a9a/NOG-ZO-NONOPT__seed-701.csv",
+      "rows": 81,
+      "seconds": 37.66360139846802
+    },
+    {
+      "stage": "pilot",
+      "dataset": "a9a",
+      "method": "NOG-ZO-NONOPT",
+      "seed": 702,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/a9a/NOG-ZO-NONOPT__seed-702.csv",
+      "rows": 81,
+      "seconds": 37.03590726852417
+    },
+    {
+      "stage": "pilot",
+      "dataset": "a9a",
+      "method": "NOG-ZO-NONOPT",
+      "seed": 703,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/a9a/NOG-ZO-NONOPT__seed-703.csv",
+      "rows": 81,
+      "seconds": 36.980905532836914
+    },
+    {
+      "stage": "pilot",
+      "dataset": "a9a",
+      "method": "NOG-ZO-NONOPT",
+      "seed": 704,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/a9a/NOG-ZO-NONOPT__seed-704.csv",
+      "rows": 81,
+      "seconds": 37.58891010284424
+    },
+    {
+      "stage": "pilot",
+      "dataset": "ijcnn1",
+      "method": "NOG-ZO",
+      "seed": 700,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/ijcnn1/NOG-ZO__seed-700.csv",
+      "rows": 81,
+      "seconds": 35.96217465400696
+    },
+    {
+      "stage": "pilot",
+      "dataset": "ijcnn1",
+      "method": "NOG-ZO",
+      "seed": 701,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/ijcnn1/NOG-ZO__seed-701.csv",
+      "rows": 81,
+      "seconds": 35.993812561035156
+    },
+    {
+      "stage": "pilot",
+      "dataset": "ijcnn1",
+      "method": "NOG-ZO",
+      "seed": 702,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/ijcnn1/NOG-ZO__seed-702.csv",
+      "rows": 81,
+      "seconds": 36.45650768280029
+    },
+    {
+      "stage": "pilot",
+      "dataset": "ijcnn1",
+      "method": "NOG-ZO",
+      "seed": 703,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/ijcnn1/NOG-ZO__seed-703.csv",
+      "rows": 81,
+      "seconds": 32.338865518569946
+    },
+    {
+      "stage": "pilot",
+      "dataset": "ijcnn1",
+      "method": "NOG-ZO",
+      "seed": 704,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/ijcnn1/NOG-ZO__seed-704.csv",
+      "rows": 81,
+      "seconds": 37.15842604637146
+    },
+    {
+      "stage": "pilot",
+      "dataset": "ijcnn1",
+      "method": "NOG-ZO-NONOPT",
+      "seed": 700,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/ijcnn1/NOG-ZO-NONOPT__seed-700.csv",
+      "rows": 81,
+      "seconds": 32.503368854522705
+    },
+    {
+      "stage": "pilot",
+      "dataset": "ijcnn1",
+      "method": "NOG-ZO-NONOPT",
+      "seed": 701,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/ijcnn1/NOG-ZO-NONOPT__seed-701.csv",
+      "rows": 81,
+      "seconds": 32.062864780426025
+    },
+    {
+      "stage": "pilot",
+      "dataset": "ijcnn1",
+      "method": "NOG-ZO-NONOPT",
+      "seed": 702,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/ijcnn1/NOG-ZO-NONOPT__seed-702.csv",
+      "rows": 81,
+      "seconds": 32.07433271408081
+    },
+    {
+      "stage": "pilot",
+      "dataset": "ijcnn1",
+      "method": "NOG-ZO-NONOPT",
+      "seed": 703,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/ijcnn1/NOG-ZO-NONOPT__seed-703.csv",
+      "rows": 81,
+      "seconds": 32.717997550964355
+    },
+    {
+      "stage": "pilot",
+      "dataset": "ijcnn1",
+      "method": "NOG-ZO-NONOPT",
+      "seed": 704,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/ijcnn1/NOG-ZO-NONOPT__seed-704.csv",
+      "rows": 81,
+      "seconds": 32.50283670425415
+    },
+    {
+      "stage": "pilot",
+      "dataset": "synthetic_maxsinl1",
+      "method": "NOG-ZO",
+      "seed": 700,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/synthetic_maxsinl1/NOG-ZO__seed-700.csv",
+      "rows": 240,
+      "seconds": 83.58484697341919
+    },
+    {
+      "stage": "pilot",
+      "dataset": "synthetic_maxsinl1",
+      "method": "NOG-ZO",
+      "seed": 701,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/synthetic_maxsinl1/NOG-ZO__seed-701.csv",
+      "rows": 240,
+      "seconds": 92.66681218147278
+    },
+    {
+      "stage": "pilot",
+      "dataset": "synthetic_maxsinl1",
+      "method": "NOG-ZO",
+      "seed": 702,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/synthetic_maxsinl1/NOG-ZO__seed-702.csv",
+      "rows": 240,
+      "seconds": 84.84411931037903
+    },
+    {
+      "stage": "pilot",
+      "dataset": "synthetic_maxsinl1",
+      "method": "NOG-ZO",
+      "seed": 703,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/synthetic_maxsinl1/NOG-ZO__seed-703.csv",
+      "rows": 240,
+      "seconds": 83.53164100646973
+    },
+    {
+      "stage": "pilot",
+      "dataset": "synthetic_maxsinl1",
+      "method": "NOG-ZO",
+      "seed": 704,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/synthetic_maxsinl1/NOG-ZO__seed-704.csv",
+      "rows": 240,
+      "seconds": 82.73680973052979
+    },
+    {
+      "stage": "pilot",
+      "dataset": "synthetic_maxsinl1",
+      "method": "NOG-ZO-NONOPT",
+      "seed": 700,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/synthetic_maxsinl1/NOG-ZO-NONOPT__seed-700.csv",
+      "rows": 240,
+      "seconds": 84.11271023750305
+    },
+    {
+      "stage": "pilot",
+      "dataset": "synthetic_maxsinl1",
+      "method": "NOG-ZO-NONOPT",
+      "seed": 701,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/synthetic_maxsinl1/NOG-ZO-NONOPT__seed-701.csv",
+      "rows": 240,
+      "seconds": 86.17143607139587
+    },
+    {
+      "stage": "pilot",
+      "dataset": "synthetic_maxsinl1",
+      "method": "NOG-ZO-NONOPT",
+      "seed": 702,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/synthetic_maxsinl1/NOG-ZO-NONOPT__seed-702.csv",
+      "rows": 240,
+      "seconds": 92.69780707359314
+    },
+    {
+      "stage": "pilot",
+      "dataset": "synthetic_maxsinl1",
+      "method": "NOG-ZO-NONOPT",
+      "seed": 703,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/synthetic_maxsinl1/NOG-ZO-NONOPT__seed-703.csv",
+      "rows": 240,
+      "seconds": 82.09552073478699
+    },
+    {
+      "stage": "pilot",
+      "dataset": "synthetic_maxsinl1",
+      "method": "NOG-ZO-NONOPT",
+      "seed": 704,
+      "status": "completed",
+      "path": "/data/diaozb/NOG/zo_optimism_ablation_20260825/raw/pilot/synthetic_maxsinl1/NOG-ZO-NONOPT__seed-704.csv",
+      "rows": 240,
+      "seconds": 85.30324149131775
+    }
+  ]
+}

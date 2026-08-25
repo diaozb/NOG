@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_runs",
+  "device": "cpu",
+  "target_total_work": 983040,
+  "worker_count": 8,
+  "pilot_seeds": [
+    700,
+    701,
+    702,
+    703,
+    704
+  ],
+  "formal_seeds": [
+    720,
+    721,
+    722,
+    723,
+    724,
+    725,
+    726,
+    727,
+    728,
+    729,
+    730,
+    731,
+    732,
+    733,
+    734,
+    735,
+    736,
+    737,
+    738,
+    739
+  ],
+  "seed_sets_disjoint": true,
+  "methods": [
+    "NOG-ZO",
+    "NOG-ZO-NONOPT"
+  ],
+  "datasets": [
+    "synthetic_maxsinl1",
+    "a9a",
+    "ijcnn1"
+  ],
+  "parameters_frozen_from_latest_results": {
+    "synthetic_maxsinl1": {
+      "M": 2,
+      "eta": 0.01,
+      "smooth_B": 8
+    },
+    "a9a": {
+      "M": 1,
+      "eta": 9e-05,
+      "smooth_B": 1,
+      "data_B_total": 64
+    },
+    "ijcnn1": {
+      "M": 1,
+      "eta": 0.0001,
+      "smooth_B": 1,
+      "data_B_total": 64
+    }
+  },
+  "source_configs": {
+    "synthetic_maxsinl1": "zo_experiments/pilot_inputs/config_base.yaml",
+    "a9a": "configs/distributed_zo_batch_svm_a9a.yaml",
+    "ijcnn1": "configs/distributed_zo_batch_svm_ijcnn1.yaml"
+  },
+  "source_config_sha256": {
+    "synthetic_maxsinl1": "b24d74d4b0e82ebf4fc8bd00e6a63f4a2f37fb5d5bc8b05129d1637be7d44a0a",
+    "a9a": "796e0c00fafa516bfc011c334c8de08c17d5ca10246ad42eeaf920a317f6c8f6",
+    "ijcnn1": "f26c7c4503d53842c9020fb7eda7213a1c471e0e38aed181ad39c023ba97eea0"
+  },
+  "algorithm_change": "NOG-ZO-NONOPT replaces update-2*eta*g_tm1+eta*g_tm2 with update-eta*g_tm1; all oracle streams, initial calls, work/depth accounting and evaluation settings are otherwise unchanged.",
+  "latest_baseline_sources": {
+    "synthetic_maxsinl1": "outputs/distributed_zo/zo_theory_validation/formal/fixed_work_983040",
+    "a9a_ijcnn1": "results/advisor_cpu_batch_retuned_svm/merged/formal_trajectories.csv"
+  }
+}

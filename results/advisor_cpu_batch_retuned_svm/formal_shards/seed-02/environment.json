@@ -1,0 +1,12 @@
+{
+  "created_at_utc": "2026-08-22T16:04:23.811679+00:00",
+  "python": "3.10.20",
+  "platform": "Linux-5.4.0-144-generic-x86_64-with-glibc2.31",
+  "torch": "2.1.2+cu121",
+  "cuda_available": false,
+  "cuda_runtime": "12.1",
+  "device": "cpu",
+  "cpu_threads": 1,
+  "torch_interop_threads": 1,
+  "formal_runner": "run_retuned_nog_formal.py"
+}

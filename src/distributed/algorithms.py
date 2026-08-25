@@ -33,6 +33,7 @@ def run_nog(
     seed_bundle: SeedBundle,
     oracle_type: OracleType,
     method_name: str,
+    optimistic: bool = True,
 ) -> List[Dict[str, Any]]:
     """Run first- or zeroth-order NOG with theorem-aligned block averages."""
 
@@ -89,10 +90,11 @@ def run_nog(
     start = time.time()
 
     for iteration in range(1, rounds + 1):
-        update = project_l2_ball(
-            update - 2.0 * eta * grad_tm1 + eta * grad_tm2,
-            radius=radius,
-        )
+        if optimistic:
+            update_argument = update - 2.0 * eta * grad_tm1 + eta * grad_tm2
+        else:
+            update_argument = update - eta * grad_tm1
+        update = project_l2_ball(update_argument, radius=radius)
         if use_schedule:
             interpolation_seed = scheduled_rank_seed(
                 seed_bundle, "nog_interpolation", iteration, 0
@@ -129,7 +131,7 @@ def run_nog(
             last_eval_iteration = iteration
             row: Dict[str, Any] = {
                 "method": method_name,
-                "base_method": "NOG",
+                "base_method": "NOG" if optimistic else "NOG-nonopt",
                 "iteration": iteration,
                 "round": iteration,
                 "block_id": block_id,

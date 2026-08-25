@@ -1,0 +1,139 @@
+{
+  "status": "complete",
+  "stage": "pilot",
+  "elapsed_seconds": 176.59653004817665,
+  "task_count": 10,
+  "completed_count": 10,
+  "failure_count": 0,
+  "records": [
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 600,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed600__cfg14235d9e4fc1",
+      "partial_path": "partials/NOG-FO__m8__seed600__cfg14235d9e4fc1.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed600__cfg14235d9e4fc1.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 600,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO-NONOPT__m8__seed600__cfga794aeceba6d",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed600__cfga794aeceba6d.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed600__cfga794aeceba6d.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 601,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed601__cfg621814fe26af",
+      "partial_path": "partials/NOG-FO__m8__seed601__cfg621814fe26af.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed601__cfg621814fe26af.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 601,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO-NONOPT__m8__seed601__cfg24310c983413",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed601__cfg24310c983413.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed601__cfg24310c983413.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 602,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed602__cfg2b7ee8cc86cf",
+      "partial_path": "partials/NOG-FO__m8__seed602__cfg2b7ee8cc86cf.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed602__cfg2b7ee8cc86cf.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 602,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO-NONOPT__m8__seed602__cfg536262b0d6d3",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed602__cfg536262b0d6d3.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed602__cfg536262b0d6d3.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 603,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed603__cfg0e0cb13abe4c",
+      "partial_path": "partials/NOG-FO__m8__seed603__cfg0e0cb13abe4c.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed603__cfg0e0cb13abe4c.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 603,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO-NONOPT__m8__seed603__cfg782bc894f711",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed603__cfg782bc894f711.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed603__cfg782bc894f711.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 604,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO__m8__seed604__cfgc67c3ee1fc60",
+      "partial_path": "partials/NOG-FO__m8__seed604__cfgc67c3ee1fc60.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed604__cfgc67c3ee1fc60.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 604,
+        "worker_count": 8
+      },
+      "status": "completed",
+      "task_key": "NOG-FO-NONOPT__m8__seed604__cfgd0d0bed2b3a4",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed604__cfgd0d0bed2b3a4.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed604__cfgd0d0bed2b3a4.json",
+      "row_count": 40
+    }
+  ],
+  "environment": {
+    "created_at_utc": "2026-08-25T10:13:06.422996+00:00",
+    "python": "3.10.20",
+    "platform": "Linux-5.4.0-144-generic-x86_64-with-glibc2.31",
+    "hostname": "diaozibo0-0",
+    "torch": "2.1.2+cu121",
+    "cpu_count": 96
+  },
+  "python_executable": "/root/miniconda3/envs/NOG/bin/python"
+}

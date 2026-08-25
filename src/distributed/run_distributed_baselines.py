@@ -95,7 +95,7 @@ def worker_counts_for_method(
 ) -> List[int]:
     if override is not None:
         return override
-    if method in {"NOG-FO", "NOG-ZO"}:
+    if method in {"NOG-FO", "NOG-ZO", "NOG-ZO-NONOPT"}:
         return [int(v) for v in cfg["distributed"]["scaling_workers"]]
     return [int(cfg["distributed"]["comparison_worker"])]
 
@@ -113,7 +113,8 @@ def run_selected(
         problem = build_problem(cfg, device, problem_seed)
         for method in methods:
             for worker_count in worker_counts_for_method(cfg, method, worker_override):
-                seed_bundle = make_seed_bundle(formal_seed, method, worker_count)
+                seed_method = "NOG-ZO" if method == "NOG-ZO-NONOPT" else method
+                seed_bundle = make_seed_bundle(formal_seed, seed_method, worker_count)
                 shards = make_worker_shards(
                     n_data=problem.n,
                     n_workers=worker_count,
@@ -130,6 +131,16 @@ def run_selected(
                         seed_bundle=seed_bundle,
                         oracle_type=method_oracle_type(method),
                         method_name=method,
+                    )
+                elif method == "NOG-ZO-NONOPT":
+                    rows = run_nog(
+                        problem=problem,
+                        cfg=cfg,
+                        shards=shards,
+                        seed_bundle=seed_bundle,
+                        oracle_type="szo",
+                        method_name=method,
+                        optimistic=False,
                     )
                 elif method in {"ME-DOL-FO", "ME-DOL-ZO"}:
                     rows = run_me_dol(

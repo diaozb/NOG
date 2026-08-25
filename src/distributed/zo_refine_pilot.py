@@ -106,7 +106,7 @@ def nog_low_epsilon_candidates(cfg: Dict[str, Any]) -> List[Candidate]:
 
 
 def apply_candidate(cfg: Dict[str, Any], method: str, parameters: Dict[str, Any]) -> None:
-    if method == "NOG-ZO":
+    if method in {"NOG-ZO", "NOG-ZO-NONOPT"}:
         cfg["nog"]["M"] = int(parameters["M"])
         cfg["nog"]["eta"] = float(parameters["eta"])
         cfg["oracle"]["smooth_B"] = int(parameters["smooth_B"])
@@ -131,7 +131,7 @@ def training_work_for_rounds(
     rounds: int,
     worker_count: int,
 ) -> int:
-    if method == "NOG-ZO":
+    if method in {"NOG-ZO", "NOG-ZO-NONOPT"}:
         per_oracle = (
             2
             * int(cfg["oracle"]["smooth_B"])
@@ -175,7 +175,7 @@ def rounds_at_work_budget(
 ) -> int:
     """Largest valid round count whose exact SZO work does not exceed budget."""
 
-    if method == "NOG-ZO":
+    if method in {"NOG-ZO", "NOG-ZO-NONOPT"}:
         per_oracle = (
             2
             * int(cfg["oracle"]["smooth_B"])

@@ -1,0 +1,499 @@
+{
+  "status": "complete",
+  "stage": "formal",
+  "elapsed_seconds": 0.1597402859479189,
+  "task_count": 40,
+  "completed_count": 40,
+  "failure_count": 0,
+  "records": [
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 620,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed620__cfg3b041462a1df",
+      "partial_path": "partials/NOG-FO__m8__seed620__cfg3b041462a1df.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed620__cfg3b041462a1df.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 620,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed620__cfga338926e354f",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed620__cfga338926e354f.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed620__cfga338926e354f.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 621,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed621__cfgc89eb2635c96",
+      "partial_path": "partials/NOG-FO__m8__seed621__cfgc89eb2635c96.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed621__cfgc89eb2635c96.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 621,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed621__cfg118384c7e2c2",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed621__cfg118384c7e2c2.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed621__cfg118384c7e2c2.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 622,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed622__cfgc90333538ea5",
+      "partial_path": "partials/NOG-FO__m8__seed622__cfgc90333538ea5.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed622__cfgc90333538ea5.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 622,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed622__cfg417b750a895b",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed622__cfg417b750a895b.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed622__cfg417b750a895b.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 623,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed623__cfgcbb14fce624b",
+      "partial_path": "partials/NOG-FO__m8__seed623__cfgcbb14fce624b.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed623__cfgcbb14fce624b.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 623,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed623__cfge65d78d0f118",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed623__cfge65d78d0f118.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed623__cfge65d78d0f118.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 624,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed624__cfg2178ffc339c5",
+      "partial_path": "partials/NOG-FO__m8__seed624__cfg2178ffc339c5.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed624__cfg2178ffc339c5.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 624,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed624__cfga10d139e0360",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed624__cfga10d139e0360.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed624__cfga10d139e0360.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 625,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed625__cfga56da2886666",
+      "partial_path": "partials/NOG-FO__m8__seed625__cfga56da2886666.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed625__cfga56da2886666.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 625,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed625__cfg2840bf382312",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed625__cfg2840bf382312.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed625__cfg2840bf382312.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 626,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed626__cfg307503c597ae",
+      "partial_path": "partials/NOG-FO__m8__seed626__cfg307503c597ae.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed626__cfg307503c597ae.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 626,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed626__cfga4856374e63a",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed626__cfga4856374e63a.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed626__cfga4856374e63a.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 627,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed627__cfg0ded1d80e7ab",
+      "partial_path": "partials/NOG-FO__m8__seed627__cfg0ded1d80e7ab.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed627__cfg0ded1d80e7ab.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 627,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed627__cfg8f3c6f543511",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed627__cfg8f3c6f543511.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed627__cfg8f3c6f543511.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 628,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed628__cfg5bf0b8de55e2",
+      "partial_path": "partials/NOG-FO__m8__seed628__cfg5bf0b8de55e2.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed628__cfg5bf0b8de55e2.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 628,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed628__cfg57dbb17a9c4a",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed628__cfg57dbb17a9c4a.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed628__cfg57dbb17a9c4a.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 629,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed629__cfg561d871749c6",
+      "partial_path": "partials/NOG-FO__m8__seed629__cfg561d871749c6.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed629__cfg561d871749c6.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 629,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed629__cfg1cf20a008ffd",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed629__cfg1cf20a008ffd.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed629__cfg1cf20a008ffd.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 630,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed630__cfg76abe6f3e40f",
+      "partial_path": "partials/NOG-FO__m8__seed630__cfg76abe6f3e40f.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed630__cfg76abe6f3e40f.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 630,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed630__cfgcaf5d1d95280",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed630__cfgcaf5d1d95280.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed630__cfgcaf5d1d95280.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 631,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed631__cfg946a7409f371",
+      "partial_path": "partials/NOG-FO__m8__seed631__cfg946a7409f371.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed631__cfg946a7409f371.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 631,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed631__cfg0788f1cf7cd9",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed631__cfg0788f1cf7cd9.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed631__cfg0788f1cf7cd9.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 632,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed632__cfge0795780bc34",
+      "partial_path": "partials/NOG-FO__m8__seed632__cfge0795780bc34.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed632__cfge0795780bc34.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 632,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed632__cfg2cee82def202",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed632__cfg2cee82def202.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed632__cfg2cee82def202.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 633,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed633__cfgd24311db3c3a",
+      "partial_path": "partials/NOG-FO__m8__seed633__cfgd24311db3c3a.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed633__cfgd24311db3c3a.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 633,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed633__cfg318058978d70",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed633__cfg318058978d70.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed633__cfg318058978d70.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 634,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed634__cfgec18bb109eb9",
+      "partial_path": "partials/NOG-FO__m8__seed634__cfgec18bb109eb9.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed634__cfgec18bb109eb9.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 634,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed634__cfg9ee24892b46e",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed634__cfg9ee24892b46e.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed634__cfg9ee24892b46e.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 635,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed635__cfge1cbc3215a1c",
+      "partial_path": "partials/NOG-FO__m8__seed635__cfge1cbc3215a1c.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed635__cfge1cbc3215a1c.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 635,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed635__cfg4b3be870c257",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed635__cfg4b3be870c257.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed635__cfg4b3be870c257.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 636,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed636__cfg4957cf8875f8",
+      "partial_path": "partials/NOG-FO__m8__seed636__cfg4957cf8875f8.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed636__cfg4957cf8875f8.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 636,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed636__cfg6601f3f72c4d",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed636__cfg6601f3f72c4d.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed636__cfg6601f3f72c4d.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 637,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed637__cfg2daa393cfbfb",
+      "partial_path": "partials/NOG-FO__m8__seed637__cfg2daa393cfbfb.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed637__cfg2daa393cfbfb.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 637,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed637__cfg36199076293c",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed637__cfg36199076293c.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed637__cfg36199076293c.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 638,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed638__cfg73d88689ff39",
+      "partial_path": "partials/NOG-FO__m8__seed638__cfg73d88689ff39.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed638__cfg73d88689ff39.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 638,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed638__cfg8daf70c81648",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed638__cfg8daf70c81648.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed638__cfg8daf70c81648.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO",
+        "formal_seed": 639,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO__m8__seed639__cfg34f55d01e086",
+      "partial_path": "partials/NOG-FO__m8__seed639__cfg34f55d01e086.json",
+      "manifest_path": "task_manifests/NOG-FO__m8__seed639__cfg34f55d01e086.json",
+      "row_count": 40
+    },
+    {
+      "task": {
+        "method": "NOG-FO-NONOPT",
+        "formal_seed": 639,
+        "worker_count": 8
+      },
+      "status": "resumed",
+      "task_key": "NOG-FO-NONOPT__m8__seed639__cfg60a6b9a2a0ec",
+      "partial_path": "partials/NOG-FO-NONOPT__m8__seed639__cfg60a6b9a2a0ec.json",
+      "manifest_path": "task_manifests/NOG-FO-NONOPT__m8__seed639__cfg60a6b9a2a0ec.json",
+      "row_count": 40
+    }
+  ],
+  "environment": {
+    "created_at_utc": "2026-08-25T10:29:50.821933+00:00",
+    "python": "3.10.20",
+    "platform": "Linux-5.4.0-144-generic-x86_64-with-glibc2.31",
+    "hostname": "diaozibo0-0",
+    "torch": "2.1.2+cu121",
+    "cpu_count": 96
+  },
+  "python_executable": "/root/miniconda3/envs/NOG/bin/python"
+}

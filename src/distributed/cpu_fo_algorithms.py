@@ -37,7 +37,7 @@ from src.distributed.cpu_process import (
 from src.synthetic.run_synthetic import project_l2_ball
 
 
-SUPPORTED_CPU_FO_METHODS = {"NOG-FO", "ME-DOL-FO"}
+SUPPORTED_CPU_FO_METHODS = {"NOG-FO", "NOG-FO-NONOPT", "ME-DOL-FO"}
 
 
 def _evaluation_seed(
@@ -140,6 +140,7 @@ def _run_nog_fo_rank(
     cfg: Dict[str, Any],
     seed_bundle: SeedBundle,
     timer: RankTimingRecorder,
+    optimistic: bool = True,
 ) -> List[Dict[str, Any]]:
     rounds = int(cfg["train"]["rounds"])
     eval_every = int(cfg["train"]["eval_every"])
@@ -191,10 +192,15 @@ def _run_nog_fo_rank(
 
     for iteration in range(1, rounds + 1):
         with timer.phase("training_time"):
-            update = project_l2_ball(
-                update - 2.0 * eta * grad_tm1 + eta * grad_tm2,
-                radius=radius,
-            )
+            if optimistic:
+                # NOG: optimistic correction using the two cached oracle values.
+                update_argument = update - 2.0 * eta * grad_tm1 + eta * grad_tm2
+            else:
+                # Matched ablation: ordinary projected online gradient update.
+                # The two initialization oracle calls are still retained and
+                # counted, so work/depth accounting is identical to NOG.
+                update_argument = update - eta * grad_tm1
+            update = project_l2_ball(update_argument, radius=radius)
             interpolation = _scheduled_uniform(
                 seed_bundle, "nog_interpolation", iteration, 0
             )
@@ -234,8 +240,8 @@ def _run_nog_fo_rank(
             if rank == 0:
                 rows.append(
                     {
-                        "method": "NOG-FO",
-                        "base_method": "NOG",
+                        "method": "NOG-FO" if optimistic else "NOG-FO-NONOPT",
+                        "base_method": "NOG" if optimistic else "NOG-nonopt",
                         "iteration": iteration,
                         "round": iteration,
                         "block_id": block_id,
@@ -429,7 +435,11 @@ def cpu_fo_worker(
     if cfg["distributed"].get("rng_mode") != "rank_schedule":
         raise ValueError("CPU FO runner requires distributed.rng_mode=rank_schedule.")
 
-    seed_bundle = make_seed_bundle(formal_seed, method, world_size)
+    # Use the same problem, partition, and stateless oracle/interpolation
+    # streams for the paired opt/non-opt ablation.  The task label remains
+    # distinct for artifact identity.
+    seed_method = "NOG-FO" if method == "NOG-FO-NONOPT" else method
+    seed_bundle = make_seed_bundle(formal_seed, seed_method, world_size)
     problem = build_problem(cfg, "cpu", seed_bundle.problem_seed)
     shard = make_rank_shard(
         problem.n,
@@ -441,9 +451,16 @@ def cpu_fo_worker(
     _validate_distributed_shards(shard, problem.n)
     timer = RankTimingRecorder()
 
-    if method == "NOG-FO":
+    if method in {"NOG-FO", "NOG-FO-NONOPT"}:
         rows = _run_nog_fo_rank(
-            rank, world_size, problem, shard, cfg, seed_bundle, timer
+            rank,
+            world_size,
+            problem,
+            shard,
+            cfg,
+            seed_bundle,
+            timer,
+            optimistic=(method == "NOG-FO"),
         )
     else:
         rows = _run_me_dol_fo_rank(

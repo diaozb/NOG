@@ -1,0 +1,88 @@
+{
+  "status": "running",
+  "stage": "formal",
+  "created_at_utc": "2026-08-25T10:29:50Z",
+  "device": "cpu",
+  "config_path": "/data/diaozb/NOG/configs/distributed_cpu_fo_nog_optimism_ablation_v4.yaml",
+  "methods": [
+    "NOG-FO",
+    "NOG-FO-NONOPT"
+  ],
+  "seeds": [
+    620,
+    621,
+    622,
+    623,
+    624,
+    625,
+    626,
+    627,
+    628,
+    629,
+    630,
+    631,
+    632,
+    633,
+    634,
+    635,
+    636,
+    637,
+    638,
+    639
+  ],
+  "worker_count": 8,
+  "concurrency": 4,
+  "same_random_streams": true,
+  "same_initialization_oracle_count": true,
+  "fixed_parameters": {
+    "M": 2,
+    "eta": 1.0,
+    "smooth_B": 1,
+    "data_B_total": 8
+  },
+  "problem": {
+    "name": "SyntheticMaxSinL1",
+    "d": 100,
+    "n_data": 4096,
+    "R": 1,
+    "lam": 0.001,
+    "feature_scale": 1.0,
+    "common_feature_bias": 0.25,
+    "phase_mode": "zero"
+  },
+  "train": {
+    "rounds": 960,
+    "eval_every": 24,
+    "strict_eval_grid": true
+  },
+  "oracle": {
+    "delta": 0.1,
+    "smooth_B": 1,
+    "data_B_total": 8,
+    "eval_smooth_B": 256,
+    "eval_data_B": 512,
+    "evaluation_seed_mode": "fixed_bank"
+  },
+  "formal_seed_reservation": [
+    620,
+    621,
+    622,
+    623,
+    624,
+    625,
+    626,
+    627,
+    628,
+    629,
+    630,
+    631,
+    632,
+    633,
+    634,
+    635,
+    636,
+    637,
+    638,
+    639
+  ]
+}

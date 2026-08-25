@@ -1,0 +1,3 @@
+dataset,method,objective_mean,objective_std,stat_proxy_mean,stat_proxy_std,train_accuracy_mean,train_accuracy_std,depth_mean,total_work_mean,seeds
+a9a,NOG-ZO,0.41777223348617554,,0.024967659264802933,,0.7956451177597046,,7680.0,983040.0,1
+ijcnn1,NOG-ZO,0.19239535927772522,,0.011760862544178963,,0.9033006429672241,,7680.0,983040.0,1

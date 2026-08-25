@@ -1,0 +1,2 @@
+freeze: results/advisor_cpu_batch_retuned_svm/frozen_parameters.json
+formal_target_total_work: 983040
